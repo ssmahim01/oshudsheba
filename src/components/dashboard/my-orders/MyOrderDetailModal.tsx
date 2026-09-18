@@ -45,7 +45,7 @@
 // > = {
 //   PENDING: {
 //     label: "Pending",
-//     cls: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+//     cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
 //     icon: Clock,
 //   },
 //   CONFIRMED: {
@@ -110,8 +110,8 @@
 // }) {
 //   return (
 //     <div className="flex items-start gap-3 py-2">
-//       <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-amber-50 dark:bg-amber-900/20">
-//         <Icon className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+//       <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20">
+//         <Icon className="h-3.5 w-3.5 text-[#007BFF] dark:text-[#007BFF]" />
 //       </div>
 //       <div className="min-w-0 flex-1">
 //         <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -134,7 +134,7 @@
 // //     <div className="space-y-4 py-2 px-6">
 // //       {[...Array(6)].map((_, i) => (
 // //         <div key={i} className="flex items-start gap-3">
-// //           <div className="h-6 w-6 animate-pulse rounded-md bg-amber-100 dark:bg-amber-900/20" />
+// //           <div className="h-6 w-6 animate-pulse rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20" />
 // //           <div className="flex-1 space-y-1.5">
 // //             <div className="h-2.5 w-16 animate-pulse rounded bg-gray-200 dark:bg-gray-700" />
 // //             <div className="h-4 w-40 animate-pulse rounded bg-gray-100 dark:bg-gray-800" />
@@ -170,13 +170,13 @@
 //     <Dialog open={open} onOpenChange={onOpenChange}>
 //       <DialogContent className="sm:max-w-130 gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-800">
 //         {/* Amber brand accent bar */}
-//         <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-400 to-yellow-400" />
+//         <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-400 to-yellow-400" />
 
 //         {/* Header */}
 //         <div className="flex items-start justify-between gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
 //           <div className="flex items-center gap-3">
-//             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-//               <ShoppingBag className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+//             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+//               <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
 //             </div>
 //             <div>
 //               <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -224,7 +224,7 @@
 //           {order ? (
 //             <div className="px-6 py-4 space-y-0">
 //               {/* ── Financial summary card ── */}
-//               <div className="mb-4 rounded-xl border border-amber-200/60 bg-amber-50/40 dark:border-amber-900/30 dark:bg-amber-900/10 p-4">
+//               <div className="mb-4 rounded-xl border border-amber-200/60 bg-[#007BFF]/40 dark:border-[#007BFF] dark:bg-[#007BFF]/10 p-4">
 //                 <div className="grid grid-cols-3 gap-3">
 //                   {[
 //                     {
@@ -241,7 +241,7 @@
 //                     },
 //                   ].map((item) => (
 //                     <div key={item.label} className="text-center">
-//                       <p className="text-[10px] font-semibold uppercase tracking-widest text-amber-600/70 dark:text-amber-500/70">
+//                       <p className="text-[10px] font-semibold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70">
 //                         {item.label}
 //                       </p>
 //                       <p className="text-sm font-bold text-gray-800 dark:text-gray-200 tabular-nums">
@@ -250,11 +250,11 @@
 //                     </div>
 //                   ))}
 //                 </div>
-//                 <div className="mt-3 flex items-center justify-between border-t border-amber-200/60 pt-3 dark:border-amber-900/30">
-//                   <span className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-amber-400">
+//                 <div className="mt-3 flex items-center justify-between border-t border-amber-200/60 pt-3 dark:border-[#007BFF]">
+//                   <span className="text-xs font-semibold uppercase tracking-widest text-[#007BFF] dark:text-[#007BFF]">
 //                     Total
 //                   </span>
-//                   <span className="text-xl font-bold text-amber-600 dark:text-amber-400 tabular-nums">
+//                   <span className="text-xl font-bold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
 //                     ৳{order.total?.toFixed(2) ?? "0.00"}
 //                   </span>
 //                 </div>
@@ -377,8 +377,8 @@
 //                             className="h-10 w-10 shrink-0 rounded-md object-cover"
 //                           />
 //                         ) : (
-//                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-amber-50 dark:bg-amber-900/20">
-//                             <Package className="h-4 w-4 text-amber-400" />
+//                           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20">
+//                             <Package className="h-4 w-4 text-[#007BFF]" />
 //                           </div>
 //                         )}
 //                         <div className="min-w-0 flex-1">
@@ -389,7 +389,7 @@
 //                             ৳{item.price?.toFixed(2)} × {item.quantity}
 //                           </p>
 //                         </div>
-//                         <p className="shrink-0 text-sm font-bold tabular-nums text-amber-600 dark:text-amber-400">
+//                         <p className="shrink-0 text-sm font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
 //                           ৳
 //                           {((item.price ?? 0) * (item.quantity ?? 1)).toFixed(
 //                             2,
@@ -420,9 +420,9 @@
 //               className={cn(
 //                 "group relative overflow-hidden inline-flex items-center gap-1.5",
 //                 "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-//                 "bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500",
+//                 "bg-[#007BFF]0 hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0",
 //                 "transition-all duration-200 active:scale-95",
-//                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1",
+//                 "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]0 focus-visible:ring-offset-1",
 //               )}
 //             >
 //               <span
@@ -489,7 +489,7 @@ const ORDER_STATUS_MAP: Record<
 > = {
   PENDING: {
     label: "Pending",
-    cls: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
     icon: Clock,
   },
   WAITING_FOR_STOCK: {
@@ -559,8 +559,8 @@ function InfoRow({
 }) {
   return (
     <div className="flex items-start gap-3 py-2">
-      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-amber-50 dark:bg-amber-900/20">
-        <Icon className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+      <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20">
+        <Icon className="h-3.5 w-3.5 text-[#007BFF] dark:text-[#007BFF]" />
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -623,13 +623,13 @@ export function MyOrderDetailModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-130 gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-800">
         {/* Amber brand accent bar */}
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-400 to-yellow-400" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-400 to-yellow-400" />
 
         {/* Header */}
         <div className="flex items-start justify-between gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-              <ShoppingBag className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+              <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
             </div>
             <div>
               <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -663,7 +663,7 @@ export function MyOrderDetailModal({
           {order ? (
             <div className="px-6 py-4 space-y-0">
               {/* ── Financial summary card ── */}
-              <div className="mb-4 rounded-xl border border-amber-200/60 bg-amber-50/40 dark:border-amber-900/30 dark:bg-amber-900/10 p-4">
+              <div className="mb-4 rounded-xl border border-amber-200/60 bg-[#007BFF]/40 dark:border-[#007BFF] dark:bg-[#007BFF]/10 p-4">
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     {
@@ -680,7 +680,7 @@ export function MyOrderDetailModal({
                     },
                   ].map((item) => (
                     <div key={item.label} className="text-center">
-                      <p className="text-[10px] font-semibold uppercase tracking-widest text-amber-600/70 dark:text-amber-500/70">
+                      <p className="text-[10px] font-semibold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70">
                         {item.label}
                       </p>
                       <p className="text-sm font-bold text-gray-800 dark:text-gray-200 tabular-nums">
@@ -689,11 +689,11 @@ export function MyOrderDetailModal({
                     </div>
                   ))}
                 </div>
-                <div className="mt-3 flex items-center justify-between border-t border-amber-200/60 pt-3 dark:border-amber-900/30">
-                  <span className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-amber-400">
+                <div className="mt-3 flex items-center justify-between border-t border-amber-200/60 pt-3 dark:border-[#007BFF]">
+                  <span className="text-xs font-semibold uppercase tracking-widest text-[#007BFF] dark:text-[#007BFF]">
                     Total
                   </span>
-                  <span className="text-xl font-bold text-amber-600 dark:text-amber-400 tabular-nums">
+                  <span className="text-xl font-bold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
                     ৳{order.total?.toFixed(2) ?? "0.00"}
                   </span>
                 </div>
@@ -902,8 +902,8 @@ export function MyOrderDetailModal({
                                 className="h-10 w-10 shrink-0 rounded-md object-cover"
                               />
                             ) : (
-                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-amber-50 dark:bg-amber-900/20">
-                                <Package className="h-4 w-4 text-amber-400" />
+                              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20">
+                                <Package className="h-4 w-4 text-[#007BFF]" />
                               </div>
                             )}
                             <div className="min-w-0 flex-1">
@@ -914,7 +914,7 @@ export function MyOrderDetailModal({
                                 ৳{item.price?.toFixed(2)} × {item.quantity}
                               </p>
                             </div>
-                            <p className="shrink-0 text-sm font-bold tabular-nums text-amber-600 dark:text-amber-400">
+                            <p className="shrink-0 text-sm font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                               ৳
                               {(
                                 (item.price ?? 0) * (item.quantity ?? 1)
@@ -970,9 +970,9 @@ export function MyOrderDetailModal({
               className={cn(
                 "group relative overflow-hidden inline-flex items-center gap-1.5",
                 "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-                "bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500",
+                "bg-[#007BFF]0 hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0",
                 "transition-all duration-200 active:scale-95",
-                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]0 focus-visible:ring-offset-1",
               )}
             >
               <span

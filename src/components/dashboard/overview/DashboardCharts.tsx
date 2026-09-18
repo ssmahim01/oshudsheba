@@ -49,7 +49,7 @@ export function DashboardCharts({ dashboardData }: DashboardChartsProps) {
   return (
     <div className="grid gap-6 lg:grid-cols-2">
       {/* Order Status Pie Chart */}
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6">
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-foreground">Order Status Distribution</h3>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -87,7 +87,7 @@ export function DashboardCharts({ dashboardData }: DashboardChartsProps) {
       </Card>
 
       {/* Orders & Revenue Bar Chart */}
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6">
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-foreground">Orders & Revenue Trend</h3>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -124,7 +124,7 @@ export function DashboardCharts({ dashboardData }: DashboardChartsProps) {
       </Card>
 
       {/* Revenue Trend Line Chart */}
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6 lg:col-span-2">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6 lg:col-span-2">
         <div className="mb-6">
           <h3 className="text-lg font-semibold text-foreground">Revenue Analytics</h3>
           <p className="mt-1 text-sm text-muted-foreground">

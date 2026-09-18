@@ -7,8 +7,6 @@ import { NavbarDropdown } from "@/components/modules/NavbarDropdown";
 import { Button } from "@/components/ui/button";
 import { useUser } from "@/context/UserContext";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { LoginForm } from "@/components/auth/LoginForm";
-import { RegisterForm } from "@/components/auth/SignupForm";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -24,8 +22,6 @@ const NavbarMenu: React.FC = () => {
   const { data: categoriesData } = useGetAllCategoriesQuery({ limit: 8 });
   const categories = categoriesData?.data ?? [];
 
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [signupOpen, setSignupOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -52,21 +48,6 @@ const NavbarMenu: React.FC = () => {
 
     router.push("/#best-selling");
   };
-
-  function closeAll() {
-    setLoginOpen(false);
-    setSignupOpen(false);
-  }
-
-  function openLogin() {
-    setSignupOpen(false);
-    setLoginOpen(true);
-  }
-
-  function openSignup() {
-    setLoginOpen(false);
-    setSignupOpen(true);
-  }
 
   const [navHeight, setNavHeight] = useState(0);
   const navRef = useRef<HTMLElement>(null);
@@ -162,7 +143,7 @@ const NavbarMenu: React.FC = () => {
           {isSticky && (
             <Link href={"/"}>
               <Image
-                src={"/assets/FRN-Logo-scaled.webp"}
+                src={"/assets/oshudsheba.png"}
                 alt="Oshud Sheba"
                 width={140}
                 height={48}
@@ -280,23 +261,25 @@ const NavbarMenu: React.FC = () => {
                 ) : (
                   <div className="hidden lg:block">
                     <div className="flex items-center text-sm font-semibold text-white">
-                      <Button
-                        variant="ghost"
-                        onClick={openLogin}
-                        className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
-                      >
-                        Login
-                      </Button>
+                      <Link href="/login">
+                        <Button
+                          variant="ghost"
+                          className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
+                        >
+                          Login
+                        </Button>
+                      </Link>
 
                       <span className="text-[#96999A]">/</span>
 
-                      <Button
-                        variant="ghost"
-                        onClick={openSignup}
-                        className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
-                      >
-                        Register
-                      </Button>
+                      <Link href="/register">
+                        <Button
+                          variant="ghost"
+                          className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
+                        >
+                          Register
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 )}
@@ -353,43 +336,20 @@ const NavbarMenu: React.FC = () => {
                 </div>
               ) : (
                 <div className="flex flex-col gap-2">
-                  <Button
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      openLogin();
-                    }}
-                  >
-                    Login
-                  </Button>
+                  <Link href="/login">
+                    {" "}
+                    <Button>Login</Button>
+                  </Link>
 
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      openSignup();
-                    }}
-                  >
-                    Register
-                  </Button>
+                  <Link href="/register">
+                    {" "}
+                    <Button>Register</Button>
+                  </Link>
                 </div>
               )}
             </div>
           </SheetContent>
         </Sheet>
-
-        {/* AUTH MODALS */}
-        <LoginForm
-          isOpen={loginOpen}
-          onClose={closeAll}
-          onSwitchToSignup={openSignup}
-          onSwitchToForgot={closeAll}
-        />
-
-        <RegisterForm
-          isOpen={signupOpen}
-          onClose={closeAll}
-          onSwitchToLogin={openLogin}
-        />
       </nav>
     </>
   );

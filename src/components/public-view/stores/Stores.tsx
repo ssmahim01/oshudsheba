@@ -47,7 +47,7 @@ function StoreCard({ store }: { store: (typeof STORES)[number] }) {
           </h3>
           {/* Amber "View Store" button */}
           <div className="mt-3">
-            <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-500 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors duration-200 group-hover:bg-amber-400">
+            <span className="inline-flex items-center gap-1.5 rounded-md bg-[#007BFF]0 px-3.5 py-1.5 text-xs font-semibold text-white transition-colors duration-200 group-hover:bg-[#007BFF]">
               View Store
               <ArrowRight className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5" />
             </span>

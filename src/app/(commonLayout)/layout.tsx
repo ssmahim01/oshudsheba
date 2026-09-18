@@ -2,12 +2,10 @@
 
 import AnnouncementBar from "@/components/modules/AnnouncementBar";
 import Navbar from "@/components/modules/Navbar";
-import ReduxProvider from "@/providers/ReduxProvider";
 import React from "react";
 import NavbarMenu from "@/components/modules/NavbarMenu";
 import OshudShebaFooter from "@/components/public-view/common/OshudShebaFooter";
-import {TooltipProvider} from "@/components/ui/tooltip";
-
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export default async function CommonLayout({
   children,
@@ -15,15 +13,13 @@ export default async function CommonLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ReduxProvider>
-        <TooltipProvider>
-            <AnnouncementBar />
+    <TooltipProvider>
+      {/* <AnnouncementBar />
             <Navbar />
-            <NavbarMenu />
-            <main>{children}</main>
-            <OshudShebaFooter />
-            {/* </UserProvider> */}
-        </TooltipProvider>
-    </ReduxProvider>
+            <NavbarMenu /> */}
+      <main>{children}</main>
+      {/* <OshudShebaFooter /> */}
+      {/* </UserProvider> */}
+    </TooltipProvider>
   );
 }

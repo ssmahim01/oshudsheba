@@ -68,27 +68,27 @@ export function CustomerTable({
     <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-slate-900/50">
       <ScrollArea className="md:max-w-full max-w-md">
         <Table>
-          <TableHeader className="sticky top-0 bg-linear-to-r from-amber-50 to-amber-50/50 dark:from-amber-950/30 dark:to-amber-950/10 z-10">
-            <TableRow className="border-b border-amber-200 dark:border-amber-900/30 hover:bg-transparent">
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+          <TableHeader className="sticky top-0 bg-linear-to-r from-[#007BFF] to-[#007BFF]/50 dark:from-[#007BFF] dark:to-amber-950/10 z-10">
+            <TableRow className="border-b border-amber-200 dark:border-[#007BFF] hover:bg-transparent">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Name
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Contact
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold text-center">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-center">
                 Orders
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold text-right">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
                 Total Spent
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Orders
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Last Order
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold text-right">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
                 Action
               </TableHead>
             </TableRow>
@@ -99,7 +99,7 @@ export function CustomerTable({
               <TableRow>
                 <TableCell colSpan={7} className="text-center py-8">
                   <div className="flex items-center justify-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+                    <div className="h-2 w-2 rounded-full bg-[#007BFF]0 animate-pulse" />
                     <span className="text-sm text-gray-600 dark:text-gray-400">
                       Loading customers...
                     </span>
@@ -133,7 +133,7 @@ export function CustomerTable({
               customers.map((customer) => (
                 <TableRow
                   key={customer.phone}
-                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-amber-50/30 dark:hover:bg-amber-950/10 transition-colors"
+                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/30 dark:hover:bg-amber-950/10 transition-colors"
                 >
                   {/* Name */}
                   <TableCell className="font-semibold text-gray-900 dark:text-white">
@@ -156,14 +156,14 @@ export function CustomerTable({
 
                   {/* Total Spent */}
                   <TableCell className="text-right">
-                    <span className="font-bold text-amber-700 dark:text-amber-400">
+                    <span className="font-bold text-[#007BFF] dark:text-[#007BFF]">
                       {formatCurrency(customer.totalSpent || 0)}
                     </span>
                   </TableCell>
 
                   {/* Order Count */}
                   <TableCell>
-                    <Badge className="bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-200 hover:bg-amber-200 dark:hover:bg-amber-900/60 font-semibold">
+                    <Badge className="bg-[#007BFF] dark:bg-[#007BFF]/40 text-amber-800 dark:text-amber-200 hover:bg-amber-200 dark:hover:bg-[#007BFF]/60 font-semibold">
                       {customer.totalOrders || 0}
                     </Badge>
                   </TableCell>
@@ -182,7 +182,7 @@ export function CustomerTable({
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 hover:bg-amber-100 dark:hover:bg-amber-900/20"
+                          className="h-8 w-8 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20"
                         >
                           <MoreHorizontal className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                         </Button>
@@ -194,7 +194,7 @@ export function CustomerTable({
                           onClick={() => onView(customer)}
                           className="cursor-pointer gap-2"
                         >
-                          <Eye className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                          <Eye className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                           <span>View Details</span>
                         </DropdownMenuItem>
 

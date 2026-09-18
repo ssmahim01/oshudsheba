@@ -29,12 +29,12 @@ interface StatsCardProps {
 
 const StatsCard: React.FC<StatsCardProps> = ({ icon, label, value, trend }) => {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:border-amber-200/60 hover:shadow-lg dark:border-gray-800/60 dark:bg-slate-900/50 dark:hover:border-amber-900/40">
-      <div className="absolute inset-0 bg-linear-to-br from-amber-50/0 to-amber-100/0 opacity-0 transition-all duration-300 group-hover:from-amber-50 group-hover:to-amber-50/50 group-hover:opacity-100 dark:group-hover:from-amber-900/10 dark:group-hover:to-amber-900/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/60 bg-white p-6 shadow-sm transition-all duration-300 hover:border-amber-200/60 hover:shadow-lg dark:border-gray-800/60 dark:bg-slate-900/50 dark:hover:border-[#007BFF]/40">
+      <div className="absolute inset-0 bg-linear-to-br from-[#007BFF]/0 to-[#007BFF]/0 opacity-0 transition-all duration-300 group-hover:from-[#007BFF] group-hover:to-[#007BFF]/50 group-hover:opacity-100 dark:group-hover:from-[#007BFF]/10 dark:group-hover:to-[#007BFF]/5" />
 
       <div className="relative space-y-3">
         {/* Icon */}
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-amber-50 to-amber-100/50 text-amber-600 transition-all duration-300 group-hover:scale-110 dark:from-amber-900/20 dark:to-amber-900/10 dark:text-amber-400">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-linear-to-br from-[#007BFF] to-[#007BFF]/50 text-[#007BFF] transition-all duration-300 group-hover:scale-110 dark:from-[#007BFF]/20 dark:to-[#007BFF]/10 dark:text-[#007BFF]">
           {icon}
         </div>
 

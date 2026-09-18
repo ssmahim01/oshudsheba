@@ -15,8 +15,8 @@ export function DashboardStats({ dashboardData }: DashboardStatsProps) {
       value: dashboardData.totalOrders,
       change: "+12.5%",
       icon: ShoppingCart,
-      color: "text-amber-600 dark:text-amber-400",
-      bgColor: "bg-amber-100 dark:bg-amber-900/40",
+      color: "text-[#007BFF] dark:text-[#007BFF]",
+      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]/40",
       borderColor: "border-amber-200/40 dark:border-amber-800/40",
     },
     {

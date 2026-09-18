@@ -62,10 +62,10 @@ const roleColors: Record<string, { bg: string; text: string; badge: string }> =
       badge: "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300",
     },
     MODERATOR: {
-      bg: "bg-amber-50 dark:bg-amber-950/20",
-      text: "text-amber-700 dark:text-amber-300",
+      bg: "bg-[#007BFF] dark:bg-amber-950/20",
+      text: "text-[#007BFF] dark:text-amber-300",
       badge:
-        "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300",
+        "bg-[#007BFF] dark:bg-[#007BFF]/40 text-[#007BFF] dark:text-amber-300",
     },
     CUSTOMER: {
       bg: "bg-green-50 dark:bg-green-950/20",
@@ -301,7 +301,7 @@ const CustomerDetailsModal = ({
             {user.customOrderIds && user.customOrderIds.length > 0 && (
               <div className="space-y-3">
                 <h3 className="font-semibold text-foreground flex items-center gap-2">
-                  <CheckCircle className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                  <CheckCircle className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                   Order IDs ({user.customOrderIds.length})
                 </h3>
                 <Card className="border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-800/50">
@@ -317,13 +317,13 @@ const CustomerDetailsModal = ({
                           </span>
                           <button
                             onClick={() => copyToClipboard(orderId, orderId)}
-                            className="p-1.5 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/20 transition-colors"
+                            className="p-1.5 rounded-lg hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20 transition-colors"
                             title="Copy Order ID"
                           >
                             {copiedId === orderId ? (
                               <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
                             ) : (
-                              <Copy className="h-4 w-4 text-gray-400 hover:text-amber-600 dark:hover:text-amber-400" />
+                              <Copy className="h-4 w-4 text-gray-400 hover:text-[#007BFF] dark:hover:text-[#007BFF]" />
                             )}
                           </button>
                         </div>
@@ -337,12 +337,12 @@ const CustomerDetailsModal = ({
             {/* Summary Stats */}
             {user.totalOrders !== undefined && (
               <div className="grid grid-cols-2 gap-3">
-                <Card className="border-amber-200 dark:border-amber-900/30 bg-amber-50/50 dark:bg-amber-950/20">
+                <Card className="border-amber-200 dark:border-[#007BFF] bg-[#007BFF]/50 dark:bg-amber-950/20">
                   <CardContent className="p-4">
-                    <p className="text-xs text-amber-900 dark:text-amber-100 font-medium">
+                    <p className="text-xs text-[#007BFF] dark:text-[#007BFF] font-medium">
                       Total Orders
                     </p>
-                    <p className="text-2xl font-bold text-amber-700 dark:text-amber-300 mt-1">
+                    <p className="text-2xl font-bold text-[#007BFF] dark:text-amber-300 mt-1">
                       {user.totalOrders}
                     </p>
                   </CardContent>
@@ -361,8 +361,8 @@ const CustomerDetailsModal = ({
             )}
 
             {/* Footer */}
-            <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
-              <p className="text-xs text-amber-900 dark:text-amber-100">
+            <div className="bg-[#007BFF] dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
+              <p className="text-xs text-[#007BFF] dark:text-[#007BFF]">
                 <span className="font-semibold">Customer Since:</span>{" "}
                 {user.createdAt
                   ? new Date(user.createdAt).toLocaleDateString()
@@ -376,7 +376,7 @@ const CustomerDetailsModal = ({
         {/* Close Button */}
         <div className="border-t border-gray-200 dark:border-gray-700 px-6 py-4 bg-gray-50 dark:bg-slate-900/30 flex justify-end">
           <DialogClose asChild>
-            <Button className="bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-medium transition-all hover:shadow-lg active:scale-95">
+            <Button className="bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-medium transition-all hover:shadow-lg active:scale-95">
               Close
             </Button>
           </DialogClose>

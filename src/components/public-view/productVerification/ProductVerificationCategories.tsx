@@ -30,8 +30,8 @@ export function ProductVerificationCategories({
           variant={selected === (category.id === "all" ? "" : category.id) ? "default" : "outline"}
           className={`whitespace-nowrap transition-all ${
             selected === (category.id === "all" ? "" : category.id)
-              ? "bg-amber-600 hover:bg-amber-700 text-white"
-              : "hover:border-amber-600 dark:hover:border-amber-400"
+              ? "bg-[#007BFF] hover:bg-[#007BFF] text-white"
+              : "hover:border-[#007BFF] dark:hover:border-[#007BFF]"
           }`}
         >
           {category.label}

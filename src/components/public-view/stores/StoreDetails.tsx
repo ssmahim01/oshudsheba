@@ -66,9 +66,9 @@ export default function StoreDetails({
       <div className="border-b border-gray-100 dark:border-gray-800">
         <div className="">
           <nav className="flex items-center gap-1.5 text-xs text-gray-500 dark:text-gray-400">
-            <Link href="/" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Home</Link>
+            <Link href="/" className="hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors">Home</Link>
             <span>/</span>
-            <Link href="/stores" className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors">Stores</Link>
+            <Link href="/stores" className="hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors">Stores</Link>
             <span>/</span>
             <span className="font-medium text-gray-900 dark:text-gray-50">{store.name}</span>
           </nav>
@@ -209,7 +209,7 @@ export default function StoreDetails({
         <div className="mt-10 flex">
           <Link
             href="/stores"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-amber-600 hover:text-amber-700 dark:text-amber-400 dark:hover:text-amber-300 transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-[#007BFF] hover:text-[#007BFF] dark:text-[#007BFF] dark:hover:text-amber-300 transition-colors"
           >
             <ChevronLeft className="h-4 w-4" />
             Back to all stores

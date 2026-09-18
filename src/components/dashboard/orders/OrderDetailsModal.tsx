@@ -100,7 +100,7 @@ export function OrderDetailsModal({
                     {isWaitingForStock ? (
                       <Badge
                         variant="outline"
-                        className="gap-1 border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
+                        className="gap-1 border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
                       >
                         <PackageSearch className="h-3.5 w-3.5" />
                         Waiting for Stock
@@ -166,9 +166,9 @@ export function OrderDetailsModal({
 
             {/* Stock Reservation Summary */}
             {showStockReservationCard && (
-              <div className="space-y-3 rounded-lg border border-amber-200 bg-amber-50/60 p-4 dark:border-amber-800/60 dark:bg-amber-900/10">
+              <div className="space-y-3 rounded-lg border border-amber-200 bg-[#007BFF]/60 p-4 dark:border-amber-800/60 dark:bg-[#007BFF]/10">
                 <div className="flex items-center gap-2">
-                  <PackageSearch className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                  <PackageSearch className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                   <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
                     Stock Reservation
                   </p>
@@ -187,7 +187,7 @@ export function OrderDetailsModal({
                     <p className="text-xs text-muted-foreground">
                       Total Pending
                     </p>
-                    <p className="text-lg font-bold text-amber-700 dark:text-amber-400">
+                    <p className="text-lg font-bold text-[#007BFF] dark:text-[#007BFF]">
                       {Number(totalPending)}
                     </p>
                   </div>
@@ -259,7 +259,7 @@ export function OrderDetailsModal({
                 {hasIncompleteReservation && (
                   <Badge
                     variant="outline"
-                    className="gap-1 border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
+                    className="gap-1 border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
                   >
                     <PackageSearch className="h-3 w-3" />
                     Partially Reserved
@@ -304,7 +304,7 @@ export function OrderDetailsModal({
                           </Badge>
                           <Badge
                             variant="outline"
-                            className="border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
+                            className="border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
                           >
                             Pending: {pending}
                           </Badge>
@@ -351,7 +351,7 @@ export function OrderDetailsModal({
 
               <div className="flex items-center justify-between space-y-2 text-sm text-gray-600 dark:text-gray-400">
                 <p className="flex items-center gap-2">
-                  <Wallet className="w-4 h-4 text-amber-500" />
+                  <Wallet className="w-4 h-4 text-[#007BFF]0" />
                   <span className="font-medium">Method:</span>
                   <span className="capitalize">
                     {order?.advanceDetails?.option || "N/A"}

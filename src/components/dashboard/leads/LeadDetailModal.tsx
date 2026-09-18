@@ -90,7 +90,7 @@ const STATUS_MAP: Record<string, { label: string; cls: string }> = {
   },
   CONTACTED: {
     label: "Contacted",
-    cls: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   QUALIFIED: {
     label: "Qualified",
@@ -117,8 +117,8 @@ const PRIORITY_MAP: Record<
   },
   MEDIUM: {
     label: "Medium",
-    dot: "bg-amber-500",
-    cls: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    dot: "bg-[#007BFF]0",
+    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   LOW: {
     label: "Low",

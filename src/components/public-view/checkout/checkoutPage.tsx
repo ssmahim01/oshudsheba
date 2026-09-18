@@ -192,7 +192,7 @@ type FormData = z.infer<typeof formSchema>;
 export default function CheckoutPage() {
   const labelClass = "text-sm font-semibold text-gray-700 dark:text-gray-300";
   const inputClass =
-    "mt-2 h-12 rounded-xl border-gray-200 text-[15px] focus-visible:ring-amber-400 dark:border-gray-700 transition-colors";
+    "mt-2 h-12 rounded-xl border-gray-200 text-[15px] focus-visible:ring-[#007BFF] dark:border-gray-700 transition-colors";
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -395,7 +395,7 @@ export default function CheckoutPage() {
           {/* Billing Details */}
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-6">
             <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-50 flex items-center gap-2">
-              <ShieldCheck className="h-5 w-5 text-amber-500" />
+              <ShieldCheck className="h-5 w-5 text-[#007BFF]0" />
               Billing Details
             </h2>
 
@@ -448,7 +448,7 @@ export default function CheckoutPage() {
               {/* ── Professional Delivery Area Section ── */}
               <div className="pt-2 space-y-3">
                 <Label className={cn(labelClass, "flex items-center gap-2")}>
-                  <MapPin className="h-4 w-4 text-amber-500" />
+                  <MapPin className="h-4 w-4 text-[#007BFF]0" />
                   Your Delivery Area *
                 </Label>
 
@@ -468,7 +468,7 @@ export default function CheckoutPage() {
                     });
                   }}
                 >
-                  <SelectTrigger className="h-12 rounded-xl border-gray-200 dark:border-gray-700 text-[15px] focus:ring-amber-400">
+                  <SelectTrigger className="h-12 rounded-xl border-gray-200 dark:border-gray-700 text-[15px] focus:ring-[#007BFF]">
                     <SelectValue placeholder="Select your delivery area" />
                   </SelectTrigger>
                   <SelectContent className="rounded-xl">
@@ -481,7 +481,7 @@ export default function CheckoutPage() {
                           className="cursor-pointer py-2.5"
                         >
                           <div className="flex items-center gap-2.5">
-                            <Icon className="h-4 w-4 text-amber-500 shrink-0" />
+                            <Icon className="h-4 w-4 text-[#007BFF]0 shrink-0" />
                             <span className="font-medium">{area.label}</span>
                             <span className="ml-auto text-xs text-gray-400 tabular-nums">
                               ৳{area.charge}
@@ -496,10 +496,10 @@ export default function CheckoutPage() {
                 {/* Selected area info card — animated on change */}
                 <div
                   key={deliveryArea}
-                  className="animate-in md:w-full w-60 fade-in slide-in-from-top-1 duration-300 flex lg:flex-wrap lg:flex-row flex-col lg:items-center gap-3 rounded-2xl border border-amber-200/60 bg-linear-to-br from-amber-50 to-orange-50/60 px-4 py-3.5 dark:border-amber-900/30 dark:from-amber-900/10 dark:to-orange-900/5"
+                  className="animate-in md:w-full w-60 fade-in slide-in-from-top-1 duration-300 flex lg:flex-wrap lg:flex-row flex-col lg:items-center gap-3 rounded-2xl border border-amber-200/60 bg-linear-to-br from-[#007BFF] to-orange-50/60 px-4 py-3.5 dark:border-[#007BFF] dark:from-[#007BFF]/10 dark:to-orange-900/5"
                 >
                   <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm dark:bg-gray-800">
-                    <selectedArea.icon className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    <selectedArea.icon className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-bold text-gray-900 dark:text-gray-50">
@@ -509,7 +509,7 @@ export default function CheckoutPage() {
                       {selectedArea.description}
                     </p>
                   </div>
-                  <div className="shrink-0 rounded-full bg-amber-500 w-20 px-3 py-1.5 text-center shadow-sm">
+                  <div className="shrink-0 rounded-full bg-[#007BFF]0 w-20 px-3 py-1.5 text-center shadow-sm">
                     <span className="text-sm font-bold text-white tabular-nums">
                       ৳{selectedArea.charge}
                     </span>
@@ -524,13 +524,13 @@ export default function CheckoutPage() {
             <div className="flex gap-3 justify-between flex-wrap items-center">
               {" "}
               <h2 className="text-xl font-bold mb-6 text-gray-900 dark:text-gray-50 flex items-center gap-2">
-                <Wallet className="h-5 w-5 text-amber-500" />
+                <Wallet className="h-5 w-5 text-[#007BFF]0" />
                 Payment Method
               </h2>
               <p className="font-semibold text-lg">Cash On Delivery (COD)</p>
             </div>
 
-            {/* <Alert className="bg-amber-500 border-amber-400 mb-6 rounded-xl">
+            {/* <Alert className="bg-[#007BFF]0 border-[#007BFF] mb-6 rounded-xl">
               <div className="flex items-center gap-4 px-2">
                 <AlertCircleIcon className="text-white h-5 w-5 shrink-0" />
                 <AlertDescription className="text-white text-sm leading-relaxed">
@@ -546,7 +546,7 @@ export default function CheckoutPage() {
               your experience throughout this website, and for other purposes
               described in our{" "}
               {/* <Link href="/privacy-policy">
-            <span className="cursor-pointer text-amber-600 dark:text-amber-400 font-semibold hover:underline">
+            <span className="cursor-pointer text-[#007BFF] dark:text-[#007BFF] font-semibold hover:underline">
                 privacy policy
               </span>
               .
@@ -560,7 +560,7 @@ export default function CheckoutPage() {
           {/* Product list */}
           <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 p-5">
             <h2 className="text-lg font-bold mb-4 text-gray-900 dark:text-gray-50 flex items-center gap-2">
-              <ShoppingBag className="h-4 w-4 text-amber-500" />
+              <ShoppingBag className="h-4 w-4 text-[#007BFF]0" />
               Your Order
             </h2>
 
@@ -625,12 +625,12 @@ export default function CheckoutPage() {
                 value={couponCode}
                 onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                 placeholder="Enter coupon code"
-                className="h-11 rounded-xl border-gray-200 dark:border-gray-700 focus-visible:ring-amber-400"
+                className="h-11 rounded-xl border-gray-200 dark:border-gray-700 focus-visible:ring-[#007BFF]"
               />
               <Button
                 onClick={handleApplyCoupon}
                 disabled={isApplying}
-                className="hover:cursor-pointer h-11 shrink-0 rounded-xl bg-amber-600 hover:bg-amber-700 text-white px-5 transition-all duration-200 hover:scale-[1.02] active:scale-95 disabled:opacity-60"
+                className="hover:cursor-pointer h-11 shrink-0 rounded-xl bg-[#007BFF] hover:bg-[#007BFF] text-white px-5 transition-all duration-200 hover:scale-[1.02] active:scale-95 disabled:opacity-60"
               >
                 {isApplying ? "Applying…" : "Apply"}
               </Button>
@@ -676,12 +676,12 @@ export default function CheckoutPage() {
               )}
 
               {/* Shipping — highlighted in brand color */}
-              <div className="flex justify-between items-center rounded-lg bg-amber-50/60 dark:bg-amber-900/10 px-3 py-2 -mx-1">
-                <span className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-medium">
+              <div className="flex justify-between items-center rounded-lg bg-[#007BFF]/60 dark:bg-[#007BFF]/10 px-3 py-2 -mx-1">
+                <span className="flex items-center gap-1.5 text-[#007BFF] dark:text-[#007BFF] font-medium">
                   <Truck className="h-3.5 w-3.5" />
                   Shipping Charge
                 </span>
-                <span className="tabular-nums font-bold text-amber-700 dark:text-amber-400">
+                <span className="tabular-nums font-bold text-[#007BFF] dark:text-[#007BFF]">
                   ৳{deliveryCharge.toLocaleString()}
                 </span>
               </div>
@@ -692,7 +692,7 @@ export default function CheckoutPage() {
                 <span className="text-base font-bold text-gray-900 dark:text-gray-50">
                   Grand Total
                 </span>
-                <span className="text-2xl font-extrabold text-amber-600 dark:text-amber-400 tabular-nums">
+                <span className="text-2xl font-extrabold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
                   ৳{payableTotal.toLocaleString()}
                 </span>
               </div>
@@ -702,7 +702,7 @@ export default function CheckoutPage() {
               type="button"
               onClick={handleSubmit(onSubmitHandler)}
               disabled={isCreatingOrder}
-              className="hover:cursor-pointer w-full h-13 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-base font-semibold py-6 transition-all duration-200 hover:scale-[1.01] active:scale-95 disabled:opacity-60 shadow-md hover:shadow-lg"
+              className="hover:cursor-pointer w-full h-13 rounded-xl bg-[#007BFF] hover:bg-[#007BFF] text-white text-base font-semibold py-6 transition-all duration-200 hover:scale-[1.01] active:scale-95 disabled:opacity-60 shadow-md hover:shadow-lg"
             >
               {isCreatingOrder ? (
                 <span className="flex items-center gap-2">
@@ -841,7 +841,7 @@ function SuccessModal({
               <span className="text-gray-500 dark:text-gray-400">
                 Shipping Charge
               </span>
-              <span className="font-semibold text-amber-600 dark:text-amber-400">
+              <span className="font-semibold text-[#007BFF] dark:text-[#007BFF]">
                 ৳{shippingCost.toLocaleString()}
               </span>
             </div>
@@ -849,7 +849,7 @@ function SuccessModal({
               <span className="text-sm font-bold text-gray-900 dark:text-gray-50">
                 Grand Total
               </span>
-              <span className="text-lg font-extrabold text-amber-600 dark:text-amber-400 tabular-nums">
+              <span className="text-lg font-extrabold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
                 ৳{(orderInfo?.total ?? grandTotal).toLocaleString()}
               </span>
             </div>
@@ -903,8 +903,8 @@ function SuccessModal({
             <div className="space-y-2">
               {nextSteps.map(({ icon: Icon, text }, i) => (
                 <div key={i} className="flex items-start gap-2.5">
-                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-50 dark:bg-amber-900/20">
-                    <Icon className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#007BFF] dark:bg-[#007BFF]/20">
+                    <Icon className="h-3.5 w-3.5 text-[#007BFF] dark:text-[#007BFF]" />
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed pt-0.5">
                     {text}
@@ -935,7 +935,7 @@ function SuccessModal({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-all duration-200 hover:scale-110 hover:bg-amber-100 hover:text-amber-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-400"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 text-gray-500 transition-all duration-200 hover:scale-110 hover:bg-[#007BFF] hover:text-[#007BFF] dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-[#007BFF] dark:hover:text-[#007BFF]"
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -955,7 +955,7 @@ function SuccessModal({
           </Link>
           <Button
             onClick={onContinueShopping}
-            className="hover:cursor-pointer flex-1 h-11 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md"
+            className="hover:cursor-pointer flex-1 h-11 rounded-xl bg-[#007BFF] hover:bg-[#007BFF] text-white font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-95 shadow-md"
           >
             Continue Shopping
           </Button>

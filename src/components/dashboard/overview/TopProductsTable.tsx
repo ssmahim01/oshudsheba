@@ -183,7 +183,7 @@ export function TopProductsTable({
       icon: Boxes,
       label: "Products tracked",
       value: topProducts.length.toString(),
-      accent: "text-amber-600 dark:text-amber-400",
+      accent: "text-[#007BFF] dark:text-[#007BFF]",
     },
   ];
 
@@ -312,7 +312,7 @@ export function TopProductsTable({
                         className={cn(
                           "inline-flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-black text-white",
                           displayIdx === 1
-                            ? "bg-amber-500"
+                            ? "bg-[#007BFF]0"
                             : displayIdx === 2
                               ? "bg-gray-400"
                               : "bg-orange-600",

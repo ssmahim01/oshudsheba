@@ -58,10 +58,10 @@ const roleColors: Record<string, { bg: string; text: string; badge: string }> =
       badge: "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300",
     },
     MODERATOR: {
-      bg: "bg-amber-50 dark:bg-amber-950/20",
-      text: "text-amber-700 dark:text-amber-300",
+      bg: "bg-[#007BFF] dark:bg-amber-950/20",
+      text: "text-[#007BFF] dark:text-amber-300",
       badge:
-        "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300",
+        "bg-[#007BFF] dark:bg-[#007BFF]/40 text-[#007BFF] dark:text-amber-300",
     },
     CUSTOMER: {
       bg: "bg-green-50 dark:bg-green-950/20",
@@ -286,8 +286,8 @@ const UserDetailsModal = ({
             </div>
 
             {/* Footer */}
-            <div className="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
-              <p className="text-xs text-amber-900 dark:text-amber-100">
+            <div className="bg-[#007BFF] dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
+              <p className="text-xs text-[#007BFF] dark:text-[#007BFF]">
                 <span className="font-semibold">Last Updated:</span>{" "}
                 {user.createdAt
                   ? new Date(user.createdAt).toLocaleDateString()
@@ -301,7 +301,7 @@ const UserDetailsModal = ({
         {/* Close Button */}
         <div className="border-t border-gray-200 dark:border-gray-700 px-6 py-4 bg-gray-50 dark:bg-slate-900/30 flex justify-end">
           <DialogClose asChild>
-            <Button className="bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-medium transition-all hover:shadow-lg active:scale-95">
+            <Button className="bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-medium transition-all hover:shadow-lg active:scale-95">
               Close
             </Button>
           </DialogClose>

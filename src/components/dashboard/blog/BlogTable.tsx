@@ -73,7 +73,7 @@ export function BlogTable({ blogs, onView, onEdit, onDelete }: Props) {
                           {blog.title}
                         </p>
                         {blog.featured && (
-                          <Star className="h-3.5 w-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                          <Star className="h-3.5 w-3.5 text-[#007BFF]0 fill-[#007BFF]0 shrink-0" />
                         )}
                       </div>
                       <p className="text-xs text-gray-400 dark:text-gray-500 truncate max-w-55 mt-0.5">
@@ -132,7 +132,7 @@ export function BlogTable({ blogs, onView, onEdit, onDelete }: Props) {
                     <ActionBtn
                       icon={Pencil}
                       label="Edit"
-                      cls="text-amber-600 hover:bg-amber-50 dark:text-amber-400 dark:hover:bg-amber-900/20"
+                      cls="text-[#007BFF] hover:bg-[#007BFF] dark:text-[#007BFF] dark:hover:bg-[#007BFF]/20"
                       onClick={() => onEdit(blog)}
                     />
                     <ActionBtn

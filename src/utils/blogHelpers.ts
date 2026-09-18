@@ -102,8 +102,8 @@ const CATEGORY_COLORS: Record<string, { bg: string; text: string }> = {
     text: "text-emerald-700 dark:text-emerald-400",
   },
   LIFESTYLE: {
-    bg: "bg-amber-100 dark:bg-amber-900/30",
-    text: "text-amber-700 dark:text-amber-400",
+    bg: "bg-[#007BFF] dark:bg-[#007BFF]",
+    text: "text-[#007BFF] dark:text-[#007BFF]",
   },
   TUTORIAL: {
     bg: "bg-blue-100 dark:bg-blue-900/30",

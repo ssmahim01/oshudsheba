@@ -24,9 +24,9 @@ export const StaffCustomerStats: React.FC<StaffCustomerStatsProps> = ({
       value: isLoading ? '...' : data.totalCustomers.toString(),
       icon: Users,
       color: 'amber',
-      bgColor: 'bg-amber-50 dark:bg-amber-950/20',
-      borderColor: 'border-amber-200 dark:border-amber-900/30',
-      textColor: 'text-amber-700 dark:text-amber-300',
+      bgColor: 'bg-[#007BFF] dark:bg-amber-950/20',
+      borderColor: 'border-amber-200 dark:border-[#007BFF]',
+      textColor: 'text-[#007BFF] dark:text-amber-300',
     },
     {
       label: 'Total Orders',

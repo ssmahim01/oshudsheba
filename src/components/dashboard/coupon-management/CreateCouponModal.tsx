@@ -78,7 +78,7 @@ function FormField({
         htmlFor={htmlFor}
         className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400"
       >
-        <Icon className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+        <Icon className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
         {label}
         {required && <span className="text-red-400">*</span>}
       </Label>
@@ -97,7 +97,7 @@ function FormField({
 }
 
 const inputCls =
-  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800 font-mono tracking-wider";
+  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800 font-mono tracking-wider";
 
 function generateCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -185,12 +185,12 @@ export function CreateCouponModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-full sm:max-w-125 gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60">
         {/* Amber accent bar */}
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-400 to-yellow-400" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-400 to-yellow-400" />
 
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <Tag className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <Tag className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
           <div>
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -233,7 +233,7 @@ export function CreateCouponModal({
                 <button
                   type="button"
                   onClick={handleGenerate}
-                  className="hover:cursor-pointer flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-[11px] font-semibold text-gray-600 hover:border-amber-300 hover:bg-amber-50 hover:text-amber-700 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:border-amber-700 dark:hover:text-amber-400 transition-colors"
+                  className="hover:cursor-pointer flex items-center gap-1.5 rounded-lg border border-gray-200 bg-gray-50 px-3 py-1.5 text-[11px] font-semibold text-gray-600 hover:border-amber-300 hover:bg-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
                 >
                   <RefreshCw className="h-3 w-3" />
                   Generate
@@ -267,7 +267,7 @@ export function CreateCouponModal({
                           className="cursor-pointer text-sm"
                         >
                           <div className="flex items-center gap-2">
-                            <Percent className="h-3.5 w-3.5 text-amber-500" />
+                            <Percent className="h-3.5 w-3.5 text-[#007BFF]0" />
                             Percentage (%)
                           </div>
                         </SelectItem>
@@ -435,12 +435,12 @@ export function CreateCouponModal({
 
             {/* Preview card */}
             {watch("code") && watch("discountValue") > 0 && (
-              <div className="rounded-xl border border-amber-200/60 bg-amber-50/40 p-3.5 dark:border-amber-900/30 dark:bg-amber-900/10">
-                <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-amber-600/70 dark:text-amber-500/70">
+              <div className="rounded-xl border border-amber-200/60 bg-[#007BFF]/40 p-3.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+                <p className="mb-1 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70">
                   Preview
                 </p>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <code className="rounded-md bg-amber-100 px-2.5 py-1 text-sm font-bold tracking-widest text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                  <code className="rounded-md bg-[#007BFF] px-2.5 py-1 text-sm font-bold tracking-widest text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]">
                     {watch("code") || "CODE"}
                   </code>
                   <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -485,10 +485,10 @@ export function CreateCouponModal({
             className={cn(
               "hover:cursor-pointer group relative overflow-hidden inline-flex items-center gap-1.5",
               "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-              "bg-amber-500 hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500",
+              "bg-[#007BFF]0 hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0",
               "transition-all duration-200 active:scale-95",
               "disabled:opacity-50 disabled:cursor-not-allowed",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-1",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]0 focus-visible:ring-offset-1",
             )}
           >
             <span

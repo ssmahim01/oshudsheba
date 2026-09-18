@@ -1,9 +1,14 @@
-"use client"
-import { store } from '@/redux/store';
-import { Provider } from 'react-redux'
+"use client";
 
-const ReduxProvider = ({children}: {children: React.ReactNode}) => {
-    return <Provider store={store}>{children}</Provider>
-};
+import type { ReactNode } from "react";
+import { Provider } from "react-redux";
 
-export default ReduxProvider;
+import { store } from "@/redux/store";
+
+interface ReduxProviderProps {
+  children: ReactNode;
+}
+
+export default function ReduxProvider({ children }: ReduxProviderProps) {
+  return <Provider store={store}>{children}</Provider>;
+}

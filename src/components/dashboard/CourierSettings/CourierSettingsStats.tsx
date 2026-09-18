@@ -24,9 +24,9 @@ export function CourierSettingsStats({
       icon: Package,
       label: "Total Couriers",
       value: totalSettings,
-      color: "text-amber-600 dark:text-amber-400",
-      bgColor: "bg-amber-50 dark:bg-amber-950/30",
-      accentColor: "from-amber-500/20 to-amber-600/20",
+      color: "text-[#007BFF] dark:text-[#007BFF]",
+      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]",
+      accentColor: "from-[#007BFF]0/20 to-[#007BFF]/20",
     },
     {
       icon: CheckCircle,

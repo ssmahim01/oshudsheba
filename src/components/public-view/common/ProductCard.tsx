@@ -179,14 +179,14 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           <div>
             {/* TITLE */}
             <Link href={productHref}>
-              <p className="text-[13.5px] font-bold text-gray-900 hover:text-amber-400 line-clamp-2">
+              <p className="text-[13.5px] font-bold text-gray-900 hover:text-[#007BFF] line-clamp-2">
                 {title}
               </p>
             </Link>
 
             {/* CATEGORY */}
             <Link href={categoryHref}>
-              <p className="text-[12px] font-bold text-gray-400 hover:text-amber-400">
+              <p className="text-[12px] font-bold text-gray-400 hover:text-[#007BFF]">
                 {category?.title}
               </p>
             </Link>
@@ -199,7 +199,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
                   className={cn(
                     "w-3.5 h-3.5",
                     i < (ratings ?? 0)
-                      ? "fill-amber-400 text-amber-400"
+                      ? "fill-[#007BFF] text-[#007BFF]"
                       : "text-gray-300",
                   )}
                 />
@@ -262,7 +262,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
                   "w-full h-12",
                   "text-white text-[13px] font-semibold tracking-wide",
                   "relative overflow-hidden",
-                  "bg-[#1e2a38] hover:text-amber-400",
+                  "bg-[#1e2a38] hover:text-[#007BFF]",
                   "transition-all duration-300",
                   "cursor-pointer",
                 )}

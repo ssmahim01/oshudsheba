@@ -63,7 +63,7 @@ const STATUS_MAP: Record<string, { label: string; cls: string }> = {
   },
   CONTACTED: {
     label: "Contacted",
-    cls: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   QUALIFIED: {
     label: "Qualified",
@@ -91,9 +91,9 @@ const PRIORITY_MAP: Record<
   },
   MEDIUM: {
     label: "Medium",
-    dot: "bg-amber-500",
+    dot: "bg-[#007BFF]0",
     badgeCls:
-      "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+      "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   LOW: {
     label: "Low",
@@ -391,7 +391,7 @@ const LeadsTable: React.FC = () => {
               </Button>
               <Button
                 size="sm"
-                className="bg-amber-600 text-white hover:cursor-pointer hover:bg-yellow-700 dark:bg-amber-700 dark:hover:bg-amber-600"
+                className="bg-[#007BFF] text-white hover:cursor-pointer hover:bg-yellow-700 dark:bg-[#007BFF] dark:hover:bg-[#007BFF]"
                 onClick={() => setAddModalOpen(true)}
               >
                 + Add Lead

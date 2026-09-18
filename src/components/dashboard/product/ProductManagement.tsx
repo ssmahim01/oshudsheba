@@ -179,8 +179,8 @@ function StatCard({
   accent: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-amber-900/40">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-amber-50/0 transition-all duration-300 group-hover:bg-amber-50/30 dark:group-hover:bg-amber-900/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/30 dark:group-hover:bg-[#007BFF]/5" />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -263,7 +263,7 @@ function TableSkeleton() {
       {[...Array(8)].map((_, i) => (
         <div
           key={i}
-          className="h-16 animate-pulse rounded-xl bg-amber-50/60 dark:bg-amber-900/10"
+          className="h-16 animate-pulse rounded-xl bg-[#007BFF]/60 dark:bg-[#007BFF]/10"
           style={{ animationDelay: `${i * 50}ms` }}
         />
       ))}
@@ -277,9 +277,9 @@ function SortIcon({ active, dir }: { active: boolean; dir: "asc" | "desc" }) {
       <ArrowUpDown className="h-3 w-3 text-gray-400 ml-1 inline opacity-50" />
     );
   return dir === "asc" ? (
-    <ArrowUp className="h-3 w-3 text-amber-500 ml-1 inline" />
+    <ArrowUp className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
   ) : (
-    <ArrowDown className="h-3 w-3 text-amber-500 ml-1 inline" />
+    <ArrowDown className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
   );
 }
 
@@ -486,8 +486,8 @@ export default function ProductManagement() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-              <Package className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+              <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
               Products
@@ -509,7 +509,7 @@ export default function ProductManagement() {
             <span className="hidden sm:inline">Trash</span>
           </Button>
           <Link href="/staff/dashboard/admin/product-management/create-product">
-            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-amber-500 text-white hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500 relative overflow-hidden transition-all duration-200 active:scale-95">
+            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF]0 text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0 relative overflow-hidden transition-all duration-200 active:scale-95">
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/20 transition-transform duration-500 group-hover:translate-x-[200%]"
@@ -527,7 +527,7 @@ export default function ProductManagement() {
           label="Total Products"
           value={totalCount.toLocaleString()}
           icon={Package}
-          accent="bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
           sub={dateChipLabel ? `in ${dateChipLabel}` : undefined}
         />
         <StatCard
@@ -567,7 +567,7 @@ export default function ProductManagement() {
               placeholder="Search products by title…"
               value={localSearch}
               onChange={handleSearchInput}
-              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors"
+              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors"
             />
             {localSearch && (
               <button
@@ -589,7 +589,7 @@ export default function ProductManagement() {
                 setPage(1);
               }}
             >
-              <SelectTrigger className="h-10 w-36 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+              <SelectTrigger className="h-10 w-36 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
                 <SelectValue placeholder="All Status" />
               </SelectTrigger>
               <SelectContent className="rounded-xl">
@@ -614,7 +614,7 @@ export default function ProductManagement() {
               setPage(1);
             }}
           >
-            <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+            <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
               <SelectValue placeholder="All Stock" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
@@ -638,7 +638,7 @@ export default function ProductManagement() {
               setPage(1);
             }}
           >
-            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
@@ -660,8 +660,8 @@ export default function ProductManagement() {
                 className={cn(
                   "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-amber-50/40 hover:text-amber-700 dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-amber-400",
+                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -684,11 +684,11 @@ export default function ProductManagement() {
             </PopoverTrigger>
             <PopoverContent
               align="start"
-              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-amber-900/40 shadow-xl overflow-hidden"
+              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-[#007BFF]/40 shadow-xl overflow-hidden"
             >
               <div className="flex flex-col sm:flex-row">
-                <div className="border-b border-amber-100 dark:border-amber-900/30 sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
+                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Quick select
                   </p>
                   {PRESETS.map((preset) => {
@@ -705,8 +705,8 @@ export default function ProductManagement() {
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                           isActive
-                            ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
-                            : "text-gray-600 hover:bg-amber-50 hover:text-amber-700 dark:text-gray-400 dark:hover:bg-amber-900/10 dark:hover:text-amber-400",
+                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -715,7 +715,7 @@ export default function ProductManagement() {
                   })}
                   {dateFrom && (
                     <>
-                      <div className="my-1.5 border-t border-amber-100 dark:border-amber-900/30" />
+                      <div className="my-1.5 border-t border-[#007BFF] dark:border-[#007BFF]" />
                       <button
                         onClick={clearDate}
                         className="w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium text-red-500 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
@@ -726,7 +726,7 @@ export default function ProductManagement() {
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Custom range
                   </p>
                   <Calendar
@@ -738,15 +738,15 @@ export default function ProductManagement() {
                     initialFocus
                     classNames={{
                       day_selected:
-                        "bg-amber-500 text-white hover:bg-amber-500 dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 dark:bg-[#007BFF]",
                       day_range_middle:
-                        "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
-                        "bg-amber-500 text-white rounded-l-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
-                        "bg-amber-500 text-white rounded-r-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
                       day_today:
-                        "border border-amber-400 text-amber-700 font-bold dark:border-amber-600 dark:text-amber-400",
+                        "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF] dark:text-[#007BFF]",
                     }}
                   />
                   {calRange?.from && !calRange?.to && (
@@ -765,7 +765,7 @@ export default function ProductManagement() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="group h-10 shrink-0 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 dark:border-gray-700 dark:text-gray-400 dark:hover:border-amber-700 dark:hover:text-amber-400 transition-colors"
+              className="group h-10 shrink-0 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
               Reset
@@ -782,13 +782,13 @@ export default function ProductManagement() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <Search className="h-3 w-3" />
                 &quot;{search}&quot;
                 <button
                   onClick={clearSearch}
-                  className="ml-0.5 hover:text-amber-900"
+                  className="ml-0.5 hover:text-[#007BFF]"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -819,13 +819,13 @@ export default function ProductManagement() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
                 <button
                   onClick={clearDate}
-                  className="ml-0.5 hover:text-amber-900 dark:hover:text-amber-200"
+                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -858,7 +858,7 @@ export default function ProductManagement() {
           </div>
         ) : products.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
               <Package className="h-8 w-8 text-amber-300 dark:text-amber-800" />
             </div>
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
@@ -872,7 +872,7 @@ export default function ProductManagement() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-amber-100/80 bg-amber-50/50 dark:border-amber-900/20 dark:bg-amber-900/5">
+                <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/50 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
                   {[
                     {
                       label: "Product",
@@ -962,10 +962,10 @@ export default function ProductManagement() {
                             : undefined
                         }
                         className={cn(
-                          "py-3 text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 px-3",
+                          "py-3 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60 px-3",
                           col.sortable &&
                             col.key &&
-                            "cursor-pointer select-none hover:text-amber-700 dark:hover:text-amber-400 transition-colors",
+                            "cursor-pointer select-none hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors",
                           col.cls,
                         )}
                       >
@@ -1000,8 +1000,8 @@ export default function ProductManagement() {
                         "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors duration-100",
                         idx % 2 === 0
                           ? "bg-white dark:bg-gray-900"
-                          : "bg-amber-50/10 dark:bg-amber-900/5",
-                        "hover:bg-amber-50/40 dark:hover:bg-amber-900/10",
+                          : "bg-[#007BFF]/10 dark:bg-[#007BFF]/5",
+                        "hover:bg-[#007BFF]/40 dark:hover:bg-[#007BFF]/10",
                       )}
                     >
                       {/* Product */}
@@ -1018,7 +1018,7 @@ export default function ProductManagement() {
                               />
                             </div>
                           ) : (
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
+                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
                               <ImageIcon className="h-5 w-5 text-amber-300" />
                             </div>
                           )}
@@ -1104,7 +1104,7 @@ export default function ProductManagement() {
                           className={cn(
                             "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300",
                             product.isFeatured
-                              ? "bg-amber-500"
+                              ? "bg-[#007BFF]0"
                               : "bg-gray-300 dark:bg-gray-700",
                           )}
                         >
@@ -1129,7 +1129,7 @@ export default function ProductManagement() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8 rounded-xl text-gray-400 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+                              className="h-8 w-8 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
                             >
                               <MoreHorizontal className="h-4 w-4" />
                               <span className="sr-only">Actions</span>
@@ -1151,7 +1151,7 @@ export default function ProductManagement() {
                               View Details
                             </DropdownMenuItem>
                             <DropdownMenuItem
-                              className="gap-2 text-sm cursor-pointer text-amber-600 focus:text-amber-600 dark:text-amber-400"
+                              className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
                               onClick={() =>
                                 router.push(
                                   `/staff/dashboard/admin/product-management/update-product/${product.slug}`,
@@ -1196,7 +1196,7 @@ export default function ProductManagement() {
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>
@@ -1214,7 +1214,7 @@ export default function ProductManagement() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-amber-400 text-amber-700 bg-amber-50 dark:border-amber-700 dark:text-amber-400 dark:bg-amber-900/20",
+                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}
@@ -1228,7 +1228,7 @@ export default function ProductManagement() {
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>

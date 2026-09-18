@@ -52,7 +52,7 @@ export const ReturnDetailsModal: React.FC<ReturnDetailsModalProps> = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
-        {/* <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" /> */}
+        {/* <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" /> */}
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-xl font-bold text-gray-900 dark:text-white">

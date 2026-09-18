@@ -213,12 +213,12 @@ export function OrderModeChangeModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-full overflow-hidden rounded-2xl border-gray-200/80 p-0 gap-0 sm:max-w-2xl dark:border-gray-700/60">
         {/* top */}
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" />
 
         {/* header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <TimerIcon className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <TimerIcon className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
 
           <div className="min-w-0 flex-1">
@@ -291,7 +291,7 @@ export function OrderModeChangeModal({
               className={cn(
                 "flex-1 max-w-43 rounded-lg text-xs font-semibold transition-all duration-200",
                 isHold
-                  ? "bg-amber-600 hover:bg-amber-700 text-white shadow-sm"
+                  ? "bg-[#007BFF] hover:bg-[#007BFF] text-white shadow-sm"
                   : "bg-gray-100 text-gray-600 hover:bg-gray-150 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700",
               )}
             >
@@ -385,7 +385,7 @@ export function OrderModeChangeModal({
             <div className="flex flex-wrap gap-5 items-center space-y-1 rounded-lg border border-gray-100 bg-gray-50/60 p-3 dark:border-gray-800 dark:bg-gray-900/40">
               {/* Name */}
               <div className="flex items-center gap-2">
-                <User className="h-4 w-4 text-amber-500" />
+                <User className="h-4 w-4 text-[#007BFF]0" />
                 <p className="text-sm font-semibold text-gray-800 dark:text-gray-200">
                   {order?.billingDetails?.fullName || "N/A"}
                 </p>
@@ -393,7 +393,7 @@ export function OrderModeChangeModal({
 
               {/* Phone */}
               <div className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-amber-500" />
+                <Phone className="h-4 w-4 text-[#007BFF]0" />
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   {order?.billingDetails?.phone || "N/A"}
                 </p>
@@ -405,7 +405,7 @@ export function OrderModeChangeModal({
             {order?.products?.map((item: any) => (
               <div
                 key={item?._id}
-                className="flex items-center gap-3.5 px-4 py-3.5 border-b border-border last:border-0 hover:cursor-pointer hover:bg-amber-50 duration-500 transition-all"
+                className="flex items-center gap-3.5 px-4 py-3.5 border-b border-border last:border-0 hover:cursor-pointer hover:bg-[#007BFF] duration-500 transition-all"
               >
                 <Image
                   src={item?.product?.images[0]}
@@ -450,7 +450,7 @@ export function OrderModeChangeModal({
               disabled={isUpdating}
               className={cn(
                 "group relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2 text-sm font-semibold text-white",
-                "bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600",
+                "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
                 "transition-all duration-200 active:scale-95",
                 "disabled:cursor-not-allowed disabled:opacity-50",
               )}

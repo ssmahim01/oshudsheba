@@ -20,7 +20,7 @@ export function BlogCard({ blog, priority = false }: Props) {
       className="group flex flex-col bg-white dark:bg-gray-900 rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
     >
       {/* Thumbnail */}
-      <div className="relative h-48 overflow-hidden bg-amber-50 dark:bg-gray-800 shrink-0">
+      <div className="relative h-48 overflow-hidden bg-[#007BFF] dark:bg-gray-800 shrink-0">
         {blog.thumbnail ? (
           <Image
             src={blog.thumbnail}
@@ -31,14 +31,14 @@ export function BlogCard({ blog, priority = false }: Props) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         ) : (
-          <div className="flex h-full items-center justify-center text-4xl text-amber-300 dark:text-amber-700">
+          <div className="flex h-full items-center justify-center text-4xl text-amber-300 dark:text-[#007BFF]">
             ✍️
           </div>
         )}
 
         {/* Featured badge */}
         {blog.featured && (
-          <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500 text-white text-[11px] font-bold shadow">
+          <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#007BFF]0 text-white text-[11px] font-bold shadow">
             <Star className="h-3 w-3 fill-white" />
             Featured
           </div>
@@ -61,7 +61,7 @@ export function BlogCard({ blog, priority = false }: Props) {
           </span>
         </div>
 
-        <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug line-clamp-2 mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+        <h3 className="text-sm font-bold text-gray-900 dark:text-white leading-snug line-clamp-2 mb-2 group-hover:text-[#007BFF] dark:group-hover:text-[#007BFF] transition-colors">
           {blog.title}
         </h3>
 
@@ -81,7 +81,7 @@ export function BlogCard({ blog, priority = false }: Props) {
               {readingTime}m read
             </span>
           </div>
-          <span className="flex items-center gap-1 text-[11px] font-semibold text-amber-600 dark:text-amber-400 group-hover:gap-2 transition-all">
+          <span className="flex items-center gap-1 text-[11px] font-semibold text-[#007BFF] dark:text-[#007BFF] group-hover:gap-2 transition-all">
             Read more
             <ArrowRight className="h-3 w-3" />
           </span>

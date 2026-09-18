@@ -20,9 +20,9 @@ export function CustomerStats({ data, isLoading }: CustomerStatsProps) {
       label: "Total Customers",
       value: data?.totalCustomers || 0,
       icon: Users,
-      color: "from-amber-500 to-amber-600",
-      bgColor: "bg-amber-100 dark:bg-amber-900/20",
-      textColor: "text-amber-600 dark:text-amber-400",
+      color: "from-[#007BFF]0 to-[#007BFF]",
+      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]/20",
+      textColor: "text-[#007BFF] dark:text-[#007BFF]",
     },
     {
       label: "Total Orders",

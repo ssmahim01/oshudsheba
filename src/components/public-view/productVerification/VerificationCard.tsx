@@ -120,7 +120,7 @@ export function VerificationCard({
         {/* Watch button */}
         <Button
           onClick={() => onWatch(verification)}
-          className="w-full bg-amber-600 hover:bg-amber-700 text-white mt-2 rounded-lg"
+          className="w-full bg-[#007BFF] hover:bg-[#007BFF] text-white mt-2 rounded-lg"
         >
           Watch
         </Button>

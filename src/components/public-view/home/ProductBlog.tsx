@@ -49,7 +49,7 @@ function HomeBlogCard({ blog, priority = false }: CardProps) {
       className="group overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex flex-col"
     >
       {/* Thumbnail */}
-      <div className="relative h-56 overflow-hidden bg-amber-50 dark:bg-gray-800 shrink-0">
+      <div className="relative h-56 overflow-hidden bg-[#007BFF] dark:bg-gray-800 shrink-0">
         {blog.thumbnail ? (
           <Image
             src={blog.thumbnail}
@@ -66,7 +66,7 @@ function HomeBlogCard({ blog, priority = false }: CardProps) {
         )}
 
         {blog.featured && (
-          <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500 text-white text-[11px] font-bold shadow">
+          <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#007BFF]0 text-white text-[11px] font-bold shadow">
             <Star className="h-3 w-3 fill-white" />
             Featured
           </div>
@@ -79,7 +79,7 @@ function HomeBlogCard({ blog, priority = false }: CardProps) {
           <BlogCategoryBadge category={blog.category} />
         </div>
 
-        <h3 className="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+        <h3 className="text-sm font-bold text-gray-900 dark:text-white line-clamp-2 leading-snug mb-2 group-hover:text-[#007BFF] dark:group-hover:text-[#007BFF] transition-colors">
           {blog.title}
         </h3>
 
@@ -101,7 +101,7 @@ function HomeBlogCard({ blog, priority = false }: CardProps) {
               </span>
             )}
           </div>
-          <span className="text-[11px] font-semibold text-amber-600 dark:text-amber-400 flex items-center gap-1 group-hover:gap-2 transition-all">
+          <span className="text-[11px] font-semibold text-[#007BFF] dark:text-[#007BFF] flex items-center gap-1 group-hover:gap-2 transition-all">
             Read More
             <ArrowRight className="h-3 w-3" />
           </span>
@@ -158,8 +158,8 @@ export default function ProductBlog() {
               href="/blog"
               className="
                 inline-flex items-center gap-2 h-11 px-8 rounded-2xl
-                border-2 border-amber-500 text-amber-600 dark:text-amber-400
-                text-sm font-semibold hover:bg-amber-500 hover:text-white
+                border-2 border-[#007BFF]0 text-[#007BFF] dark:text-[#007BFF]
+                text-sm font-semibold hover:bg-[#007BFF]0 hover:text-white
                 transition-all duration-200 group
               "
             >

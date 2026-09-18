@@ -79,7 +79,7 @@ function ShopPagination({
       <button
         onClick={() => onPage(page - 1)}
         disabled={page === 1}
-        className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 disabled:opacity-40 hover:border-amber-400 hover:text-amber-600 dark:border-gray-700 dark:text-gray-400 transition-colors"
+        className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 disabled:opacity-40 hover:border-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 transition-colors"
       >
         ‹
       </button>
@@ -88,7 +88,7 @@ function ShopPagination({
         <>
           <button
             onClick={() => onPage(1)}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 hover:border-amber-400 hover:text-amber-600 dark:border-gray-700 dark:text-gray-400 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 hover:border-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 transition-colors"
           >
             1
           </button>
@@ -105,8 +105,8 @@ function ShopPagination({
           className={cn(
             "flex h-9 w-9 items-center justify-center rounded-md border text-sm font-medium transition-colors",
             p === page
-              ? "border-amber-500 bg-amber-500 text-white"
-              : "border-gray-200 text-gray-600 hover:border-amber-400 hover:text-amber-600 dark:border-gray-700 dark:text-gray-400",
+              ? "border-[#007BFF]0 bg-[#007BFF]0 text-white"
+              : "border-gray-200 text-gray-600 hover:border-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400",
           )}
         >
           {p}
@@ -120,7 +120,7 @@ function ShopPagination({
           )}
           <button
             onClick={() => onPage(totalPages)}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 hover:border-amber-400 hover:text-amber-600 dark:border-gray-700 dark:text-gray-400 transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 hover:border-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 transition-colors"
           >
             {totalPages}
           </button>
@@ -130,7 +130,7 @@ function ShopPagination({
       <button
         onClick={() => onPage(page + 1)}
         disabled={page === totalPages}
-        className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 disabled:opacity-40 hover:border-amber-400 hover:text-amber-600 dark:border-gray-700 dark:text-gray-400 transition-colors"
+        className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 text-sm text-gray-600 disabled:opacity-40 hover:border-[#007BFF] hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 transition-colors"
       >
         ›
       </button>
@@ -177,7 +177,7 @@ function SidebarContent({
             step={50}
             value={priceRange}
             onValueChange={(v) => onPriceChange(v as [number, number])}
-            className="[**:[[role=slider]]:bg-amber-500 **:[[role=slider]]:border-amber-500"
+            className="[**:[[role=slider]]:bg-[#007BFF]0 **:[[role=slider]]:border-[#007BFF]0"
           />
           <div className="flex items-center justify-between">
             <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -192,7 +192,7 @@ function SidebarContent({
             <Button
               size="sm"
               onClick={onPriceApply}
-              className="h-7 rounded-full bg-amber-500 px-3 text-xs text-white hover:bg-amber-600 shadow-sm"
+              className="h-7 rounded-full bg-[#007BFF]0 px-3 text-xs text-white hover:bg-[#007BFF] shadow-sm"
             >
               Apply
             </Button>
@@ -210,7 +210,7 @@ function SidebarContent({
           >
             {/* Brands */}
             <AccordionItem value="brands" className="border-b border-gray-100 dark:border-gray-800">
-              <AccordionTrigger className="px-4 py-3 text-sm font-bold text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer transition-colors [&>svg]:text-amber-500">
+              <AccordionTrigger className="px-4 py-3 text-sm font-bold text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer transition-colors [&>svg]:text-[#007BFF]0">
                 Filter By Brands
               </AccordionTrigger>
               <AccordionContent className="px-2 pb-3 pt-1">
@@ -221,11 +221,11 @@ function SidebarContent({
                       className={cn(
                         "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-all cursor-pointer text-left",
                         !selectedBrand
-                          ? "bg-amber-50 font-semibold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
-                          : "text-gray-600 hover:bg-gray-100 hover:text-amber-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-amber-400",
+                          ? "bg-[#007BFF] font-semibold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                          : "text-gray-600 hover:bg-gray-100 hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-[#007BFF]",
                       )}
                     >
-                      <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", !selectedBrand ? "bg-amber-500" : "bg-gray-300 dark:bg-gray-600")} />
+                      <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", !selectedBrand ? "bg-[#007BFF]0" : "bg-gray-300 dark:bg-gray-600")} />
                       All Brands
                     </button>
                     {brands?.map((brand: any) => (
@@ -235,11 +235,11 @@ function SidebarContent({
                         className={cn(
                           "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-all cursor-pointer text-left",
                           selectedBrand === brand.slug
-                            ? "bg-amber-50 font-semibold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
-                            : "text-gray-600 hover:bg-gray-100 hover:text-amber-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-amber-400",
+                            ? "bg-[#007BFF] font-semibold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                            : "text-gray-600 hover:bg-gray-100 hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-[#007BFF]",
                         )}
                       >
-                        <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", selectedBrand === brand.slug ? "bg-amber-500" : "bg-gray-300 dark:bg-gray-600")} />
+                        <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", selectedBrand === brand.slug ? "bg-[#007BFF]0" : "bg-gray-300 dark:bg-gray-600")} />
                         {brand.title}
                       </button>
                     ))}
@@ -250,7 +250,7 @@ function SidebarContent({
 
             {/* Categories */}
             <AccordionItem value="categories" className="border-none">
-              <AccordionTrigger className="px-4 py-3 text-sm font-bold text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer transition-colors [&>svg]:text-amber-500">
+              <AccordionTrigger className="px-4 py-3 text-sm font-bold text-gray-800 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800/60 cursor-pointer transition-colors [&>svg]:text-[#007BFF]0">
                 Filter By Categories
               </AccordionTrigger>
               <AccordionContent className="px-2 pb-3 pt-1">
@@ -261,11 +261,11 @@ function SidebarContent({
                       className={cn(
                         "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-all cursor-pointer text-left",
                         !selectedCategory
-                          ? "bg-amber-50 font-semibold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
-                          : "text-gray-600 hover:bg-gray-100 hover:text-amber-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-amber-400",
+                          ? "bg-[#007BFF] font-semibold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                          : "text-gray-600 hover:bg-gray-100 hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-[#007BFF]",
                       )}
                     >
-                      <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", !selectedCategory ? "bg-amber-500" : "bg-gray-300 dark:bg-gray-600")} />
+                      <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", !selectedCategory ? "bg-[#007BFF]0" : "bg-gray-300 dark:bg-gray-600")} />
                       All Categories
                     </button>
                     {categories?.map(
@@ -277,11 +277,11 @@ function SidebarContent({
                             className={cn(
                               "flex w-full items-center gap-2 rounded-lg px-2 py-1.5 text-sm transition-all cursor-pointer text-left",
                               selectedCategory === category.slug
-                                ? "bg-amber-50 font-semibold text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
-                                : "text-gray-600 hover:bg-gray-100 hover:text-amber-600 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-amber-400",
+                                ? "bg-[#007BFF] font-semibold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                                : "text-gray-600 hover:bg-gray-100 hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-[#007BFF]",
                             )}
                           >
-                            <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", selectedCategory === category.slug ? "bg-amber-500" : "bg-gray-300 dark:bg-gray-600")} />
+                            <span className={cn("h-1.5 w-1.5 rounded-full shrink-0", selectedCategory === category.slug ? "bg-[#007BFF]0" : "bg-gray-300 dark:bg-gray-600")} />
                             {category.title}
                           </button>
                         ),
@@ -450,7 +450,7 @@ export default function AllProductList() {
           <nav className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
             <Link
               href="/"
-              className="hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+              className="hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               Home
             </Link>
@@ -459,7 +459,7 @@ export default function AllProductList() {
             {searchQuery && (
               <>
                 <span>/</span>
-                <span className="font-medium text-amber-600 dark:text-amber-400">
+                <span className="font-medium text-[#007BFF] dark:text-[#007BFF]">
                   &quot;{searchQuery}&quot;
                 </span>
               </>
@@ -494,10 +494,10 @@ export default function AllProductList() {
                         className={cn(
                           "group inline-flex flex-col items-center gap-2 rounded-xl p-3 text-center cursor-pointer",
                           "transition-all duration-200 shrink-0 w-22.5",
-                          "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400",
+                          "border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]",
                           selectedCategory === cat.slug
-                            ? "border-amber-400 bg-amber-50 dark:bg-amber-900/20 ring-2 ring-amber-300 dark:ring-amber-700"
-                            : "border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-amber-200 hover:bg-amber-50/60 dark:hover:bg-amber-900/10 shadow-sm hover:shadow-md",
+                            ? "border-[#007BFF] bg-[#007BFF] dark:bg-[#007BFF]/20 ring-2 ring-amber-300 dark:ring-[#007BFF]"
+                            : "border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-amber-200 hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10 shadow-sm hover:shadow-md",
                         )}
                       >
                         <div
@@ -528,7 +528,7 @@ export default function AllProductList() {
                           className={cn(
                             "text-[11px] font-semibold leading-tight whitespace-normal text-center",
                             selectedCategory === cat.slug
-                              ? "text-amber-600 dark:text-amber-400"
+                              ? "text-[#007BFF] dark:text-[#007BFF]"
                               : "text-gray-700 dark:text-gray-300",
                           )}
                         >
@@ -581,7 +581,7 @@ export default function AllProductList() {
                       <SlidersHorizontal className="h-3.5 w-3.5" />
                       Filters
                       {hasActiveFilters && (
-                        <span className="ml-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-amber-500 text-[10px] text-white font-bold">
+                        <span className="ml-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#007BFF]0 text-[10px] text-white font-bold">
                           !
                         </span>
                       )}
@@ -605,8 +605,8 @@ export default function AllProductList() {
                       className={cn(
                         "h-7 w-7 rounded text-xs font-medium transition-colors",
                         perPage === n
-                          ? "bg-amber-500 text-white"
-                          : "text-gray-600 hover:text-amber-600 dark:text-gray-400 dark:hover:text-amber-400",
+                          ? "bg-[#007BFF]0 text-white"
+                          : "text-gray-600 hover:text-[#007BFF] dark:text-gray-400 dark:hover:text-[#007BFF]",
                       )}
                     >
                       {n}
@@ -623,8 +623,8 @@ export default function AllProductList() {
                     className={cn(
                       "rounded p-1.5 transition-colors",
                       viewMode === "list"
-                        ? "bg-amber-500 text-white"
-                        : "text-gray-400 hover:text-amber-500",
+                        ? "bg-[#007BFF]0 text-white"
+                        : "text-gray-400 hover:text-[#007BFF]0",
                     )}
                   >
                     <LayoutList className="h-4 w-4" />
@@ -637,8 +637,8 @@ export default function AllProductList() {
                     className={cn(
                       "rounded p-1.5 transition-colors",
                       viewMode === "grid-3"
-                        ? "bg-amber-500 text-white"
-                        : "text-gray-400 hover:text-amber-500",
+                        ? "bg-[#007BFF]0 text-white"
+                        : "text-gray-400 hover:text-[#007BFF]0",
                     )}
                   >
                     <LayoutGrid className="h-4 w-4" />
@@ -651,8 +651,8 @@ export default function AllProductList() {
                     className={cn(
                       "rounded p-1.5 transition-colors",
                       viewMode === "grid-4"
-                        ? "bg-amber-500 text-white"
-                        : "text-gray-400 hover:text-amber-500",
+                        ? "bg-[#007BFF]0 text-white"
+                        : "text-gray-400 hover:text-[#007BFF]0",
                     )}
                   >
                     <svg className="h-4 w-4" viewBox="0 0 16 16" fill="currentColor">
@@ -696,11 +696,11 @@ export default function AllProductList() {
             {hasActiveFilters && (
               <div className="mb-4 flex flex-wrap items-center gap-2">
                 {selectedBrand && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-medium text-amber-700 dark:bg-amber-900/20 dark:border-amber-800/50 dark:text-amber-400">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] border border-amber-200 px-3 py-1 text-xs font-medium text-[#007BFF] dark:bg-[#007BFF]/20 dark:border-amber-800/50 dark:text-[#007BFF]">
                     Brand: {brands.find((b: any) => b.slug === selectedBrand)?.title ?? selectedBrand}
                     <button
                       onClick={() => handleBrandChange("")}
-                      className="ml-0.5 rounded-full hover:text-amber-900 dark:hover:text-amber-200"
+                      className="ml-0.5 rounded-full hover:text-[#007BFF] dark:hover:text-amber-200"
                       aria-label="Remove brand filter"
                     >
                       ×
@@ -708,11 +708,11 @@ export default function AllProductList() {
                   </span>
                 )}
                 {selectedCategory && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-medium text-amber-700 dark:bg-amber-900/20 dark:border-amber-800/50 dark:text-amber-400">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] border border-amber-200 px-3 py-1 text-xs font-medium text-[#007BFF] dark:bg-[#007BFF]/20 dark:border-amber-800/50 dark:text-[#007BFF]">
                     Category: {categories.find((c: any) => c.slug === selectedCategory)?.title ?? selectedCategory}
                     <button
                       onClick={() => handleCategoryClick("")}
-                      className="ml-0.5 rounded-full hover:text-amber-900 dark:hover:text-amber-200"
+                      className="ml-0.5 rounded-full hover:text-[#007BFF] dark:hover:text-amber-200"
                       aria-label="Remove category filter"
                     >
                       ×
@@ -720,11 +720,11 @@ export default function AllProductList() {
                   </span>
                 )}
                 {(appliedPrice[0] > PRICE_MIN || appliedPrice[1] < PRICE_MAX) && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-medium text-amber-700 dark:bg-amber-900/20 dark:border-amber-800/50 dark:text-amber-400">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] border border-amber-200 px-3 py-1 text-xs font-medium text-[#007BFF] dark:bg-[#007BFF]/20 dark:border-amber-800/50 dark:text-[#007BFF]">
                     ৳{appliedPrice[0]} — ৳{appliedPrice[1]}
                     <button
                       onClick={() => { setPriceRange([PRICE_MIN, PRICE_MAX]); setAppliedPrice([PRICE_MIN, PRICE_MAX]); setPage(1); }}
-                      className="ml-0.5 rounded-full hover:text-amber-900 dark:hover:text-amber-200"
+                      className="ml-0.5 rounded-full hover:text-[#007BFF] dark:hover:text-amber-200"
                       aria-label="Remove price filter"
                     >
                       ×
@@ -763,7 +763,7 @@ export default function AllProductList() {
                     size="sm"
                     variant="outline"
                     onClick={handleClearAll}
-                    className="mt-2 rounded-full border-amber-300 text-amber-600 hover:bg-amber-50 dark:border-amber-700 dark:text-amber-400"
+                    className="mt-2 rounded-full border-amber-300 text-[#007BFF] hover:bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF]"
                   >
                     Clear all filters
                   </Button>

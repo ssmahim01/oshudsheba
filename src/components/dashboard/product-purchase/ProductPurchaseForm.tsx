@@ -83,7 +83,7 @@
 // }
 
 // const inputCls =
-//   "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+//   "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 // function SectionLabel({
 //   icon,
@@ -444,12 +444,12 @@
 //     <Dialog open={open} onOpenChange={onOpenChange}>
 //       <DialogContent className="w-full sm:max-w-2xl gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60 max-h-[95vh]">
 //         {/* Accent bar */}
-//         <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" />
+//         <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" />
 
 //         {/* ── Header ── */}
 //         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-//           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-//             <Package className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+//           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+//             <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
 //           </div>
 //           <div className="min-w-0 flex-1">
 //             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -457,8 +457,8 @@
 //             </DialogTitle>
 //           </div>
 //           {selectedProducts.length > 0 && (
-//             <div className="shrink-0 rounded-full bg-amber-50 px-3 py-1 dark:bg-amber-900/20">
-//               <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+//             <div className="shrink-0 rounded-full bg-[#007BFF] px-3 py-1 dark:bg-[#007BFF]/20">
+//               <span className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF]">
 //                 {selectedProducts.length} item
 //                 {selectedProducts.length !== 1 ? "s" : ""}
 //               </span>
@@ -478,7 +478,7 @@
 //               <div>
 //                 <SectionLabel
 //                   icon={
-//                     <Package className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+//                     <Package className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
 //                   }
 //                 >
 //                   Products ({selectedProducts.length})
@@ -532,7 +532,7 @@
 //                                     "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors mb-0.5",
 //                                     inCart
 //                                       ? "cursor-default opacity-50"
-//                                       : "hover:bg-amber-50/60 dark:hover:bg-amber-900/10",
+//                                       : "hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10",
 //                                   )}
 //                                 >
 //                                   {/* Thumbnail */}
@@ -547,8 +547,8 @@
 //                                       />
 //                                     </div>
 //                                   ) : (
-//                                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-//                                       <ImageIcon className="h-4 w-4 text-amber-400" />
+//                                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+//                                       <ImageIcon className="h-4 w-4 text-[#007BFF]" />
 //                                     </div>
 //                                   )}
 
@@ -578,12 +578,12 @@
 //                                   {inCart ? (
 //                                     <Badge
 //                                       variant="outline"
-//                                       className="shrink-0 rounded-full border-amber-200 bg-amber-50 text-[10px] text-amber-600 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+//                                       className="shrink-0 rounded-full border-amber-200 bg-[#007BFF] text-[10px] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
 //                                     >
 //                                       Added
 //                                     </Badge>
 //                                   ) : (
-//                                     <Plus className="h-4 w-4 shrink-0 text-amber-500" />
+//                                     <Plus className="h-4 w-4 shrink-0 text-[#007BFF]0" />
 //                                   )}
 //                                 </button>
 //                               );
@@ -597,7 +597,7 @@
 
 //                 {/* Cart — empty state */}
 //                 {selectedProducts.length === 0 ? (
-//                   <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-amber-900/30">
+//                   <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-[#007BFF]">
 //                     <Package className="h-8 w-8 text-amber-300 dark:text-amber-800" />
 //                     <p className="text-xs text-gray-400 dark:text-gray-500">
 //                       No products — search above to add
@@ -624,8 +624,8 @@
 //                               />
 //                             </div>
 //                           ) : (
-//                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-//                               <Package className="h-4 w-4 text-amber-400" />
+//                             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+//                               <Package className="h-4 w-4 text-[#007BFF]" />
 //                             </div>
 //                           )}
 //                           <div className="min-w-0 flex-1">
@@ -700,7 +700,7 @@
 //                                 onClick={() =>
 //                                   updateQty(item.productId, item.quantity - 1)
 //                                 }
-//                                 className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+//                                 className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
 //                               >
 //                                 <Minus className="h-3 w-3" />
 //                               </button>
@@ -722,7 +722,7 @@
 //                                 onClick={() =>
 //                                   updateQty(item.productId, item.quantity + 1)
 //                                 }
-//                                 className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+//                                 className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
 //                               >
 //                                 <Plus className="h-3 w-3" />
 //                               </button>
@@ -739,7 +739,7 @@
 //                             <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
 //                               Total
 //                             </Label>
-//                             <p className="h-9 flex items-center justify-end text-sm font-bold tabular-nums text-amber-600 dark:text-amber-400">
+//                             <p className="h-9 flex items-center justify-end text-sm font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
 //                               ৳{item.totalAmount.toFixed(2)}
 //                             </p>
 //                           </div>
@@ -943,7 +943,7 @@
 //                     <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
 //                       Grand Total
 //                     </Label>
-//                     <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-amber-50/60 dark:bg-amber-900/10 font-bold tabular-nums text-amber-700 dark:text-amber-400 text-sm">
+//                     <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-[#007BFF]/60 dark:bg-[#007BFF]/10 font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF] text-sm">
 //                       ৳
 //                       {grandTotal.toLocaleString("en-US", {
 //                         minimumFractionDigits: 2,
@@ -1032,10 +1032,10 @@
 //               </div>
 
 //               {/* ── Payment Information ── */}
-//               <div className="rounded-xl border border-amber-100 bg-amber-50/40 p-4 dark:border-amber-900/30 dark:bg-amber-900/10">
+//               <div className="rounded-xl border border-[#007BFF] bg-[#007BFF]/40 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
 //                 <SectionLabel
 //                   icon={
-//                     <Package className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+//                     <Package className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
 //                   }
 //                 >
 //                   Payment Information
@@ -1055,7 +1055,7 @@
 //                         className={cn(
 //                           "rounded-lg border-2 px-4 py-2 text-sm font-semibold transition-all",
 //                           formData.paymentType === type
-//                             ? "border-amber-500 bg-amber-50 text-amber-700 dark:border-amber-400 dark:bg-amber-900/20 dark:text-amber-300"
+//                             ? "border-[#007BFF]0 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-amber-300"
 //                             : "border-gray-200 bg-white text-gray-600 hover:border-amber-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:border-amber-800",
 //                         )}
 //                       >
@@ -1127,7 +1127,7 @@
 //                     <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
 //                       Grand Total
 //                     </Label>
-//                     <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 font-bold tabular-nums text-amber-700 dark:text-amber-400 text-sm">
+//                     <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF] text-sm">
 //                       ৳{grandTotal.toFixed(2)}
 //                     </div>
 //                   </div>
@@ -1218,13 +1218,13 @@
 //         <div className="border-t border-gray-100 bg-gray-50/50 px-6 py-4 dark:border-gray-800 dark:bg-gray-900/50">
 //           {/* Grand total summary strip */}
 //           {selectedProducts.length > 0 && (
-//             <div className="flex items-center justify-between rounded-xl border border-amber-200/60 bg-amber-50/40 px-4 py-2 mb-3 dark:border-amber-900/30 dark:bg-amber-900/10">
-//               <span className="text-xs font-semibold text-amber-700/70 dark:text-amber-500/70">
+//             <div className="flex items-center justify-between rounded-xl border border-amber-200/60 bg-[#007BFF]/40 px-4 py-2 mb-3 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+//               <span className="text-xs font-semibold text-[#007BFF]/70 dark:text-[#007BFF]0/70">
 //                 {selectedProducts.reduce((s, p) => s + p.quantity, 0)} units ·{" "}
 //                 {selectedProducts.length} product
 //                 {selectedProducts.length !== 1 ? "s" : ""}
 //               </span>
-//               <span className="text-base font-bold tabular-nums text-amber-600 dark:text-amber-400">
+//               <span className="text-base font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
 //                 ৳
 //                 {grandTotal.toLocaleString("en-US", {
 //                   minimumFractionDigits: 2,
@@ -1251,7 +1251,7 @@
 //               className={cn(
 //                 "group relative overflow-hidden inline-flex items-center gap-1.5",
 //                 "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-//                 "bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600",
+//                 "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
 //                 "transition-all duration-200 active:scale-95",
 //                 "disabled:opacity-50 disabled:cursor-not-allowed",
 //               )}
@@ -1365,7 +1365,7 @@ interface ProductPurchaseFormProps {
 }
 
 const inputCls =
-  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 function SectionLabel({
   icon,
@@ -1730,12 +1730,12 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-full sm:max-w-2xl gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60 max-h-[95vh]">
         {/* Accent bar */}
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" />
 
         {/* ── Header ── */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <Package className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
           <div className="min-w-0 flex-1">
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -1743,8 +1743,8 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
             </DialogTitle>
           </div>
           {selectedProducts.length > 0 && (
-            <div className="shrink-0 rounded-full bg-amber-50 px-3 py-1 dark:bg-amber-900/20">
-              <span className="text-xs font-bold text-amber-700 dark:text-amber-400">
+            <div className="shrink-0 rounded-full bg-[#007BFF] px-3 py-1 dark:bg-[#007BFF]/20">
+              <span className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF]">
                 {selectedProducts.length} item
                 {selectedProducts.length !== 1 ? "s" : ""}
               </span>
@@ -1764,7 +1764,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
               <div>
                 <SectionLabel
                   icon={
-                    <Package className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+                    <Package className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
                   }
                 >
                   Products ({selectedProducts.length})
@@ -1818,7 +1818,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                                     "flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left transition-colors mb-0.5",
                                     inCart
                                       ? "cursor-default opacity-50"
-                                      : "hover:bg-amber-50/60 dark:hover:bg-amber-900/10",
+                                      : "hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10",
                                   )}
                                 >
                                   {/* Thumbnail */}
@@ -1833,8 +1833,8 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                                       />
                                     </div>
                                   ) : (
-                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                                      <ImageIcon className="h-4 w-4 text-amber-400" />
+                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                                      <ImageIcon className="h-4 w-4 text-[#007BFF]" />
                                     </div>
                                   )}
 
@@ -1866,12 +1866,12 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                                   {inCart ? (
                                     <Badge
                                       variant="outline"
-                                      className="shrink-0 rounded-full border-amber-200 bg-amber-50 text-[10px] text-amber-600 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                                      className="shrink-0 rounded-full border-amber-200 bg-[#007BFF] text-[10px] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
                                     >
                                       Added
                                     </Badge>
                                   ) : (
-                                    <Plus className="h-4 w-4 shrink-0 text-amber-500" />
+                                    <Plus className="h-4 w-4 shrink-0 text-[#007BFF]0" />
                                   )}
                                 </button>
                               );
@@ -1885,7 +1885,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
 
                 {/* Cart — empty state */}
                 {selectedProducts.length === 0 ? (
-                  <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-amber-900/30">
+                  <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-[#007BFF]">
                     <Package className="h-8 w-8 text-amber-300 dark:text-amber-800" />
                     <p className="text-xs text-gray-400 dark:text-gray-500">
                       No products — search above to add
@@ -1912,8 +1912,8 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                               />
                             </div>
                           ) : (
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                              <Package className="h-4 w-4 text-amber-400" />
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                              <Package className="h-4 w-4 text-[#007BFF]" />
                             </div>
                           )}
                           <div className="min-w-0 flex-1">
@@ -1990,7 +1990,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                                 onClick={() =>
                                   updateQty(item.productId, item.quantity - 1)
                                 }
-                                className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+                                className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
                               >
                                 <Minus className="h-3 w-3" />
                               </button>
@@ -2012,7 +2012,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                                 onClick={() =>
                                   updateQty(item.productId, item.quantity + 1)
                                 }
-                                className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+                                className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
                               >
                                 <Plus className="h-3 w-3" />
                               </button>
@@ -2030,7 +2030,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                               <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                                 Total
                               </Label>
-                              <p className="h-9 flex items-center justify-end text-sm font-bold tabular-nums text-amber-600 dark:text-amber-400">
+                              <p className="h-9 flex items-center justify-end text-sm font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                                 ৳{item.totalAmount.toFixed(2)}
                               </p>
                             </div>
@@ -2236,7 +2236,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                       <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Grand Total
                       </Label>
-                      <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-amber-50/60 dark:bg-amber-900/10 font-bold tabular-nums text-amber-700 dark:text-amber-400 text-sm">
+                      <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-[#007BFF]/60 dark:bg-[#007BFF]/10 font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF] text-sm">
                         ৳
                         {grandTotal.toLocaleString("en-US", {
                           minimumFractionDigits: 2,
@@ -2327,10 +2327,10 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
 
               {/* ── Payment Information — ADMIN ONLY (all amounts/prices live here) ── */}
               {isAdmin && (
-                <div className="rounded-xl border border-amber-100 bg-amber-50/40 p-4 dark:border-amber-900/30 dark:bg-amber-900/10">
+                <div className="rounded-xl border border-[#007BFF] bg-[#007BFF]/40 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                   <SectionLabel
                     icon={
-                      <Package className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+                      <Package className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
                     }
                   >
                     Payment Information
@@ -2350,7 +2350,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                           className={cn(
                             "rounded-lg border-2 px-4 py-2 text-sm font-semibold transition-all",
                             formData.paymentType === type
-                              ? "border-amber-500 bg-amber-50 text-amber-700 dark:border-amber-400 dark:bg-amber-900/20 dark:text-amber-300"
+                              ? "border-[#007BFF]0 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-amber-300"
                               : "border-gray-200 bg-white text-gray-600 hover:border-amber-200 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:hover:border-amber-800",
                           )}
                         >
@@ -2422,7 +2422,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                       <Label className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Grand Total
                       </Label>
-                      <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 font-bold tabular-nums text-amber-700 dark:text-amber-400 text-sm">
+                      <div className="flex items-center h-9 px-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF] text-sm">
                         ৳{grandTotal.toFixed(2)}
                       </div>
                     </div>
@@ -2514,13 +2514,13 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
         <div className="border-t border-gray-100 bg-gray-50/50 px-6 py-4 dark:border-gray-800 dark:bg-gray-900/50">
           {/* Grand total summary strip — ADMIN ONLY */}
           {isAdmin && selectedProducts.length > 0 && (
-            <div className="flex items-center justify-between rounded-xl border border-amber-200/60 bg-amber-50/40 px-4 py-2 mb-3 dark:border-amber-900/30 dark:bg-amber-900/10">
-              <span className="text-xs font-semibold text-amber-700/70 dark:text-amber-500/70">
+            <div className="flex items-center justify-between rounded-xl border border-amber-200/60 bg-[#007BFF]/40 px-4 py-2 mb-3 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+              <span className="text-xs font-semibold text-[#007BFF]/70 dark:text-[#007BFF]0/70">
                 {selectedProducts.reduce((s, p) => s + p.quantity, 0)} units ·{" "}
                 {selectedProducts.length} product
                 {selectedProducts.length !== 1 ? "s" : ""}
               </span>
-              <span className="text-base font-bold tabular-nums text-amber-600 dark:text-amber-400">
+              <span className="text-base font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                 ৳
                 {grandTotal.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
@@ -2547,7 +2547,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
               className={cn(
                 "group relative overflow-hidden inline-flex items-center gap-1.5",
                 "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-                "bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600",
+                "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
                 "transition-all duration-200 active:scale-95",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
               )}

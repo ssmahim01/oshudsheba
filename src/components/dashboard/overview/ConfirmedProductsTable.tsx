@@ -61,9 +61,9 @@ function SortIcon({ active, dir }: { active: boolean; dir: SortDir }) {
   if (!active)
     return <ArrowUpDown className="h-3 w-3 text-gray-400 ml-1 inline" />;
   return dir === "asc" ? (
-    <ArrowUp className="h-3 w-3 text-amber-500 ml-1 inline" />
+    <ArrowUp className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
   ) : (
-    <ArrowDown className="h-3 w-3 text-amber-500 ml-1 inline" />
+    <ArrowDown className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
   );
 }
 
@@ -108,11 +108,11 @@ export function ConfirmedProductsTable({
               Products from confirmed orders awaiting fulfillment
             </p>
           </div>
-          <Clock className="h-4 w-4 text-amber-500" />
+          <Clock className="h-4 w-4 text-[#007BFF]0" />
         </div>
         <div className="flex flex-col items-center justify-center py-16 gap-3">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20">
-            <Package className="h-7 w-7 text-amber-300 dark:text-amber-700" />
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <Package className="h-7 w-7 text-amber-300 dark:text-[#007BFF]" />
           </div>
           <p className="text-sm text-gray-400 dark:text-gray-500">
             No confirmed products in this period
@@ -143,7 +143,7 @@ export function ConfirmedProductsTable({
       icon: ShoppingCart,
       label: "Total Sold",
       value: totalPeriodSold.toString(),
-      accent: "text-amber-600 dark:text-amber-400",
+      accent: "text-[#007BFF] dark:text-[#007BFF]",
     },
     {
       icon: Boxes,
@@ -155,7 +155,7 @@ export function ConfirmedProductsTable({
       icon: TrendingUp,
       label: "Revenue",
       value: `৳${totalPeriodRevenue.toLocaleString()}`,
-      accent: "text-amber-600 dark:text-amber-400",
+      accent: "text-[#007BFF] dark:text-[#007BFF]",
     },
   ];
 
@@ -171,13 +171,13 @@ export function ConfirmedProductsTable({
             <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
               Products in orders awaiting fulfillment
               {dateLabel && (
-                <span className="ml-1.5 inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+                <span className="ml-1.5 inline-flex items-center gap-1 rounded-full border border-amber-200 bg-[#007BFF] px-2 py-0.5 text-[10px] font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
                   {dateLabel}
                 </span>
               )}
             </p>
           </div>
-          <Clock className="h-4 w-4 shrink-0 text-amber-500 mt-0.5" />
+          <Clock className="h-4 w-4 shrink-0 text-[#007BFF]0 mt-0.5" />
         </div>
 
         {/* Summary pills */}
@@ -204,25 +204,25 @@ export function ConfirmedProductsTable({
       <ScrollArea className="w-full">
         <Table>
           <TableHeader>
-            <TableRow className="bg-amber-50/40 hover:bg-amber-50/40 dark:bg-amber-900/5 dark:hover:bg-amber-900/5 border-b border-amber-100/80 dark:border-amber-900/20">
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 pl-5 w-8">
+            <TableRow className="bg-[#1258a3] hover:bg-[#007BFF] dark:bg-[#007BFF]/5 dark:hover:bg-[#007BFF]/5 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] pl-5 w-8">
                 #
               </TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 w-16">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] w-16">
                 Image
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none min-w-48"
+                className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] cursor-pointer select-none min-w-48"
                 onClick={() => handleSort("title")}
               >
                 Product
                 <SortIcon active={sortKey === "title"} dir={sortDir} />
               </TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 text-center min-w-20">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] text-center min-w-20">
                 Price
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none text-center min-w-28"
+                className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] cursor-pointer select-none text-center min-w-28"
                 onClick={() => handleSort("totalSoldInPeriod")}
               >
                 Sold
@@ -232,14 +232,14 @@ export function ConfirmedProductsTable({
                 />
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none text-center min-w-28"
+                className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] cursor-pointer select-none text-center min-w-28"
                 onClick={() => handleSort("orderCount")}
               >
                 Orders
                 <SortIcon active={sortKey === "orderCount"} dir={sortDir} />
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none text-right min-w-32 pr-5"
+                className="text-[10px] font-bold uppercase tracking-widest text-[#cbd6e1] dark:text-[#d6e0eb] cursor-pointer select-none text-right min-w-32 pr-5"
                 onClick={() => handleSort("totalRevenueInPeriod")}
               >
                 Revenue
@@ -274,7 +274,7 @@ export function ConfirmedProductsTable({
                 <TableRow
                   key={product.productId}
                   className={cn(
-                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-amber-50/20 dark:hover:bg-amber-900/5",
+                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/20 dark:hover:bg-[#007BFF]/5",
                     displayIdx % 2 === 0
                       ? "bg-white dark:bg-gray-900"
                       : "bg-gray-50/30 dark:bg-gray-800/20",
@@ -338,7 +338,7 @@ export function ConfirmedProductsTable({
                         className={cn(
                           "text-[10px] font-bold",
                           share >= 20
-                            ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
+                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
                             : share >= 10
                               ? "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400"
                               : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400",
@@ -364,7 +364,7 @@ export function ConfirmedProductsTable({
 
                   {/* Revenue */}
                   <TableCell className="text-right pr-5">
-                    <p className="font-bold text-amber-600 dark:text-amber-400 text-sm tabular-nums">
+                    <p className="font-bold text-[#007BFF] dark:text-[#007BFF] text-sm tabular-nums">
                       {/* ৳{product.totalRevenueInPeriod.toLocaleString()} */}৳
                       {totalRevenue}
                     </p>

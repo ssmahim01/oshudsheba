@@ -71,7 +71,7 @@ export default function FraudCheckModal({
       case "HIGH":
         return "text-red-600 bg-red-50 border-red-200 dark:bg-red-900/20 dark:border-red-800 dark:text-red-400";
       case "MEDIUM":
-        return "text-amber-600 bg-amber-50 border-amber-200 dark:bg-amber-900/20 dark:border-amber-800 dark:text-amber-400";
+        return "text-[#007BFF] bg-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:border-amber-800 dark:text-[#007BFF]";
       case "SAFE":
         return "text-emerald-600 bg-emerald-50 border-emerald-200 dark:bg-emerald-900/20 dark:border-emerald-800 dark:text-emerald-400";
       default:
@@ -231,11 +231,11 @@ export default function FraudCheckModal({
                       {fraudData.cancelled}
                     </p>
                   </div>
-                  <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 text-center">
-                    <p className="text-xs font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-400 mb-1">
+                  <div className="bg-[#007BFF] dark:bg-[#007BFF]/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 text-center">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-[#007BFF] dark:text-[#007BFF] mb-1">
                       Cancel Rate
                     </p>
-                    <p className="text-2xl font-bold text-amber-900 dark:text-amber-100">
+                    <p className="text-2xl font-bold text-[#007BFF] dark:text-[#007BFF]">
                       {fraudData.cancelRate.toFixed(1)}%
                     </p>
                   </div>

@@ -17,7 +17,7 @@ export function ProductVerificationStatusBadge({ status }: ProductVerificationSt
     DRAFT: {
       label: "Draft",
       icon: Clock,
-      className: "bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-400",
+      className: "bg-[#007BFF] text-amber-800 dark:bg-[#007BFF] dark:text-[#007BFF]",
     },
   };
 

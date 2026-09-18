@@ -97,11 +97,11 @@ export function ExchangeOrderModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="gap-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60 max-w-2xl">
         <ScrollArea className="max-h-[90vh]">
-          <div className="w-full bg-linear-to-r from-amber-500 via-orange-500 to-red-500" />
+          <div className="w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-red-500" />
 
           <div className="flex items-center gap-3 border-b border-gray-100 p-4 dark:border-gray-800">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-              <RotateCcw className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+              <RotateCcw className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
             </div>
             <div>
               <DialogTitle className="text-lg font-bold">
@@ -126,8 +126,8 @@ export function ExchangeOrderModal({
                       key={idx}
                       className={`cursor-pointer border-2 p-3 transition-all ${
                         selectedItemIndex === idx
-                          ? "border-amber-500 bg-amber-50/50 dark:border-amber-500 dark:bg-amber-900/10"
-                          : "border-gray-200 hover:border-amber-300 dark:border-gray-700 dark:hover:border-amber-700/40"
+                          ? "border-[#007BFF]0 bg-[#007BFF]/50 dark:border-[#007BFF]0 dark:bg-[#007BFF]/10"
+                          : "border-gray-200 hover:border-amber-300 dark:border-gray-700 dark:hover:border-[#007BFF]/40"
                       }`}
                       onClick={() => {
                         setSelectedItemIndex(idx);
@@ -135,8 +135,8 @@ export function ExchangeOrderModal({
                       }}
                     >
                       <div className="flex items-start gap-3">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900/30">
-                          <Package className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]">
+                          <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="font-medium text-sm">
@@ -148,7 +148,7 @@ export function ExchangeOrderModal({
                           </p>
                         </div>
                         {selectedItemIndex === idx && (
-                          <Badge className="shrink-0 bg-amber-600 dark:bg-amber-500">
+                          <Badge className="shrink-0 bg-[#007BFF] dark:bg-[#007BFF]0">
                             Selected
                           </Badge>
                         )}
@@ -169,8 +169,8 @@ export function ExchangeOrderModal({
             {selectedItemIndex !== null && orderItem && (
               <>
                 {/* Current Item Details */}
-                <Card className="border-amber-200/50 bg-amber-50/30 dark:border-amber-900/30 dark:bg-amber-900/10 p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-300">
+                <Card className="border-amber-200/50 bg-[#007BFF]/30 dark:border-[#007BFF] dark:bg-[#007BFF]/10 p-3">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-[#007BFF] dark:text-amber-300">
                     Current Item
                   </p>
                   <p className="mt-1.5 font-semibold text-sm">
@@ -232,7 +232,7 @@ export function ExchangeOrderModal({
                       Price: ৳{(newProduct.price || 0).toLocaleString()}
                     </p>
                     {(newProduct.price || 0) > (orderItem?.price || 0) && (
-                      <p className="mt-2 text-xs text-amber-600 dark:text-amber-400">
+                      <p className="mt-2 text-xs text-[#007BFF] dark:text-[#007BFF]">
                         ℹ️ Additional cost: ৳
                         {(
                           (newProduct.price || 0) - (orderItem?.price || 0)
@@ -279,7 +279,7 @@ export function ExchangeOrderModal({
             <Button
               onClick={handleExchange}
               disabled={!selectedProduct || isSubmitting}
-              className="rounded-lg gap-2 bg-amber-600 hover:cursor-pointer hover:bg-amber-700 dark:bg-amber-500 dark:hover:bg-amber-600"
+              className="rounded-lg gap-2 bg-[#007BFF] hover:cursor-pointer hover:bg-[#007BFF] dark:bg-[#007BFF]0 dark:hover:bg-[#007BFF]"
             >
               {isSubmitting ? (
                 <>

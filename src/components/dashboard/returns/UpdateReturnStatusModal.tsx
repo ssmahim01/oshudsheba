@@ -54,7 +54,7 @@ export const UpdateReturnStatusModal: React.FC<
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
-        {/* <div className="h-1 w-full bg-linear-to-r from-amber-500 to-orange-500" /> */}
+        {/* <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 to-orange-500" /> */}
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-lg font-bold text-gray-900 dark:text-white">
@@ -67,9 +67,9 @@ export const UpdateReturnStatusModal: React.FC<
 
         <div className="space-y-6 py-4">
           {/* Alert */}
-          <div className="flex gap-3 rounded-lg border border-amber-200 bg-amber-50/80 p-4 dark:border-amber-900/30 dark:bg-amber-900/10">
-            <AlertCircle className="h-5 w-5 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
-            <p className="text-sm text-amber-700 dark:text-amber-300">
+          <div className="flex gap-3 rounded-lg border border-amber-200 bg-[#007BFF]/80 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+            <AlertCircle className="h-5 w-5 shrink-0 text-[#007BFF] dark:text-[#007BFF] mt-0.5" />
+            <p className="text-sm text-[#007BFF] dark:text-amber-300">
               Updating the status will affect inventory and refund processing.
             </p>
           </div>
@@ -117,7 +117,7 @@ export const UpdateReturnStatusModal: React.FC<
           </Button>
           <Button
             onClick={handleConfirm}
-            className="hover:cursor-pointer gap-2 bg-amber-600 hover:bg-amber-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className="hover:cursor-pointer gap-2 bg-[#007BFF] hover:bg-[#007BFF] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
             Update Status
           </Button>

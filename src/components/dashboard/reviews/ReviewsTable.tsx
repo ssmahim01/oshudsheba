@@ -125,7 +125,7 @@ export function ReviewsTable({
                       key={i}
                       className={`text-lg ${
                         i < review.rating
-                          ? "text-amber-400"
+                          ? "text-[#007BFF]"
                           : "text-gray-300 dark:text-gray-600"
                       }`}
                     >

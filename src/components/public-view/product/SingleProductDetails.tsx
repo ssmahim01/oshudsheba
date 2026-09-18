@@ -167,7 +167,7 @@ const SingleProductDetails = () => {
           <div className="flex items-center gap-2 text-sm">
             <Link
               href="/"
-              className="font-semibold text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200"
+              className="font-semibold text-gray-600 dark:text-gray-400 hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors duration-200"
             >
               Home
             </Link>
@@ -177,7 +177,7 @@ const SingleProductDetails = () => {
               <>
                 <Link
                   href={`/shop?category=${product?.category?.slug}`}
-                  className="font-semibold text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200"
+                  className="font-semibold text-gray-600 dark:text-gray-400 hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors duration-200"
                 >
                   {product.category?.title}
                 </Link>
@@ -194,12 +194,12 @@ const SingleProductDetails = () => {
 
       {/* MAIN CONTENT */}
       <div className="w-full bg-white rounded-2xl shadow-sm overflow-hidden">
-        <div className="w-full bg-linear-to-br from-amber-50 via-orange-50/60 to-amber-100/40">
+        <div className="w-full bg-linear-to-br from-[#007BFF] via-orange-50/60 to-[#007BFF]/40">
           <div className="container mx-auto py-10">
             <div className="flex flex-col lg:flex-row gap-6 p-4">
               {/* LEFT — Gallery */}
               <div className="lg:w-[50%]">
-                <div className="rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-amber-100">
+                <div className="rounded-2xl overflow-hidden bg-white shadow-sm ring-1 ring-[#007BFF]">
                   {images.length > 0 ? (
                     <ProductImageGallery images={images} title={title} />
                   ) : (
@@ -209,9 +209,9 @@ const SingleProductDetails = () => {
               </div>
 
               {/* RIGHT — Info Card */}
-              <div className="flex-1 flex flex-col gap-5 bg-white shadow-md rounded-2xl p-6 sm:p-7 border border-amber-100/70">
+              <div className="flex-1 flex flex-col gap-5 bg-white shadow-md rounded-2xl p-6 sm:p-7 border border-[#007BFF]/70">
                 {/* Title */}
-                <h1 className="text-2xl lg:text-[26px] font-bold text-amber-600 leading-snug">
+                <h1 className="text-2xl lg:text-[26px] font-bold text-[#007BFF] leading-snug">
                   {title}
                 </h1>
 
@@ -219,14 +219,14 @@ const SingleProductDetails = () => {
                 <ul className="space-y-2 text-[15px] text-gray-700">
                   {brand?.title && (
                     <li className="flex gap-2">
-                      {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" /> */}
+                      {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#007BFF] shrink-0" /> */}
                       <span>
                         Brand:{" "}
                         <button
                           onClick={() =>
                             router.push(`/shop?brand=${product?.brand?.slug}`)
                           }
-                          className="font-semibold text-amber-600 hover:text-amber-700  transition-colors duration-200 cursor-pointer"
+                          className="font-semibold text-[#007BFF] hover:text-[#007BFF]  transition-colors duration-200 cursor-pointer"
                         >
                           {brand?.title}
                         </button>
@@ -235,14 +235,14 @@ const SingleProductDetails = () => {
                   )}
                   {product?.title && (
                     <li className="flex gap-2">
-                      {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" /> */}
+                      {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#007BFF] shrink-0" /> */}
                       <span>
                         Product Name:{" "}
                         <button
                           onClick={() =>
                             router.push(`/product/${product?.slug}`)
                           }
-                          className="font-semibold text-amber-600 hover:text-amber-700  transition-colors duration-200 cursor-pointer"
+                          className="font-semibold text-[#007BFF] hover:text-[#007BFF]  transition-colors duration-200 cursor-pointer"
                         >
                           {product?.title}
                         </button>
@@ -259,7 +259,7 @@ const SingleProductDetails = () => {
                               `/shop?category=${product?.category?.slug}`,
                             )
                           }
-                          className="font-semibold text-amber-600 hover:text-amber-700  transition-colors duration-200 cursor-pointer"
+                          className="font-semibold text-[#007BFF] hover:text-[#007BFF]  transition-colors duration-200 cursor-pointer"
                         >
                           {category?.title}
                         </button>
@@ -267,7 +267,7 @@ const SingleProductDetails = () => {
                     </li>
                   )}
                   <li className="flex gap-2">
-                    {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-amber-400 shrink-0" /> */}
+                    {/* <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#007BFF] shrink-0" /> */}
                     <span>
                       Status:{" "}
                       <span
@@ -290,7 +290,7 @@ const SingleProductDetails = () => {
                       className={cn(
                         "w-4 h-4 transition-transform duration-200",
                         i < Math.round(rating)
-                          ? "fill-amber-400 text-amber-400"
+                          ? "fill-[#007BFF] text-[#007BFF]"
                           : "text-gray-300",
                       )}
                     />
@@ -312,7 +312,7 @@ const SingleProductDetails = () => {
                         <span className="line-through text-gray-400 text-lg">
                           ৳{price}
                         </span>
-                        <Badge className="bg-amber-500 text-white hover:bg-amber-500">
+                        <Badge className="bg-[#007BFF]0 text-white hover:bg-[#007BFF]0">
                           -{discount}%
                         </Badge>
                       </>
@@ -321,7 +321,7 @@ const SingleProductDetails = () => {
 
                   {/* QTY + Stepper */}
                   <div className="flex items-center gap-4 flex-wrap">
-                    <div className="flex items-center rounded-full border-2 border-amber-200 bg-amber-50/60 overflow-hidden shadow-sm">
+                    <div className="flex items-center rounded-full border-2 border-amber-200 bg-[#007BFF]/60 overflow-hidden shadow-sm">
                       <button
                         onClick={() => setQty((p) => Math.max(1, p - 1))}
                         disabled={qty <= 1}
@@ -329,11 +329,11 @@ const SingleProductDetails = () => {
                           "w-10 h-10 flex items-center justify-center transition-all duration-200",
                           qty <= 1
                             ? "opacity-40 cursor-not-allowed pointer-events-none"
-                            : "hover:bg-amber-100 active:scale-90 cursor-pointer pointer-events-auto",
+                            : "hover:bg-[#007BFF] active:scale-90 cursor-pointer pointer-events-auto",
                         )}
                         aria-label="Decrease quantity"
                       >
-                        <Minus className="w-4 h-4 text-amber-700" />
+                        <Minus className="w-4 h-4 text-[#007BFF]" />
                       </button>
 
                       <span className="w-10 text-center font-semibold text-gray-900 select-none">
@@ -359,11 +359,11 @@ const SingleProductDetails = () => {
                           !availableStock ||
                             (cartItem?.quantity || 0) + qty >= availableStock
                             ? "opacity-40 cursor-not-allowed pointer-events-none"
-                            : "hover:bg-amber-100 active:scale-90 cursor-pointer pointer-events-auto",
+                            : "hover:bg-[#007BFF] active:scale-90 cursor-pointer pointer-events-auto",
                         )}
                         aria-label="Increase quantity"
                       >
-                        <Plus className="w-4 h-4 text-amber-700" />
+                        <Plus className="w-4 h-4 text-[#007BFF]" />
                       </button>
                     </div>
 
@@ -375,7 +375,7 @@ const SingleProductDetails = () => {
                   </div>
                 </div>
                 {/* CTA Buttons */}
-                <div className="mt-auto pt-6 border-t border-amber-100">
+                <div className="mt-auto pt-6 border-t border-[#007BFF]">
                   <div className="flex gap-3 flex-wrap">
                     {isOutOfStock ? (
                       <button
@@ -388,7 +388,7 @@ const SingleProductDetails = () => {
                       <>
                         <button
                           onClick={handleAddToCart}
-                          className="group cursor-pointer pointer-events-auto flex-1 min-w-44 h-12 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full shadow-md shadow-amber-200 hover:shadow-lg hover:shadow-amber-300 transform transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2"
+                          className="group cursor-pointer pointer-events-auto flex-1 min-w-44 h-12 bg-[#007BFF]0 hover:bg-[#007BFF] text-white font-bold rounded-full shadow-md shadow-amber-200 hover:shadow-lg hover:shadow-amber-300 transform transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2"
                         >
                           {/* <ShoppingCart className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" /> */}
                           Add To Cart
@@ -396,7 +396,7 @@ const SingleProductDetails = () => {
 
                         <button
                           onClick={handleBuyNow}
-                          className="group cursor-pointer pointer-events-auto flex-1 min-w-44 h-12 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-full shadow-md shadow-amber-300 hover:shadow-lg hover:shadow-amber-300 transform transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2"
+                          className="group cursor-pointer pointer-events-auto flex-1 min-w-44 h-12 bg-[#007BFF]0 hover:bg-[#007BFF] text-white font-bold rounded-full shadow-md shadow-amber-300 hover:shadow-lg hover:shadow-amber-300 transform transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 active:scale-95 flex items-center justify-center gap-2"
                         >
                           {/* <Zap className="w-4 h-4 transition-transform duration-300 group-hover:scale-110 group-hover:fill-white" /> */}
                           Buy Now
@@ -407,10 +407,10 @@ const SingleProductDetails = () => {
                 </div>
 
                 {/* watching */}
-                {/* <div className="flex items-center gap-2 bg-amber-50 px-4 py-3 rounded-xl border border-amber-100">
-                  <Eye className="text-amber-500" size={18} />
+                {/* <div className="flex items-center gap-2 bg-[#007BFF] px-4 py-3 rounded-xl border border-[#007BFF]">
+                  <Eye className="text-[#007BFF]0" size={18} />
                   <span className="text-sm text-gray-600">
-                    <b className="text-amber-600">{watchingCount}</b> watching
+                    <b className="text-[#007BFF]">{watchingCount}</b> watching
                     now
                   </span>
                 </div> */}
@@ -436,7 +436,7 @@ const SingleProductDetails = () => {
         {/* description */}
         <div className="container mx-auto px-5 py-10">
           <div className="mb-6">
-            <span className="inline-flex items-center px-6 py-2.5 rounded-full bg-amber-500 text-white text-sm font-bold uppercase tracking-wider shadow-md shadow-amber-200 transition-all duration-300 hover:bg-amber-600 hover:shadow-lg hover:shadow-amber-300 cursor-default select-none">
+            <span className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#007BFF]0 text-white text-sm font-bold uppercase tracking-wider shadow-md shadow-amber-200 transition-all duration-300 hover:bg-[#007BFF] hover:shadow-lg hover:shadow-amber-300 cursor-default select-none">
               Description
             </span>
           </div>
@@ -482,8 +482,8 @@ const SingleProductDetails = () => {
                 </CarouselContent>
 
                 {/* Navigation Buttons */}
-                <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border-2 border-amber-200 bg-white hover:bg-amber-50 hover:border-amber-400 dark:border-gray-600 dark:bg-slate-800 dark:hover:bg-slate-700 transition-all duration-300 hover:shadow-lg cursor-pointer pointer-events-auto hidden md:flex" />
-                <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border-2 border-amber-200 bg-white hover:bg-amber-50 hover:border-amber-400 dark:border-gray-600 dark:bg-slate-800 dark:hover:bg-slate-700 transition-all duration-300 hover:shadow-lg cursor-pointer pointer-events-auto hidden md:flex" />
+                <CarouselPrevious className="absolute -left-16 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border-2 border-amber-200 bg-white hover:bg-[#007BFF] hover:border-[#007BFF] dark:border-gray-600 dark:bg-slate-800 dark:hover:bg-slate-700 transition-all duration-300 hover:shadow-lg cursor-pointer pointer-events-auto hidden md:flex" />
+                <CarouselNext className="absolute -right-16 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full border-2 border-amber-200 bg-white hover:bg-[#007BFF] hover:border-[#007BFF] dark:border-gray-600 dark:bg-slate-800 dark:hover:bg-slate-700 transition-all duration-300 hover:shadow-lg cursor-pointer pointer-events-auto hidden md:flex" />
               </Carousel>
             </div>
           </div>

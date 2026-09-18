@@ -45,7 +45,7 @@ export function BlogMobileCards({ blogs, onView, onEdit, onDelete }: Props) {
                     {blog.title}
                   </h3>
                   {blog.featured && (
-                    <Star className="h-3.5 w-3.5 text-amber-500 fill-amber-500 shrink-0 mt-0.5" />
+                    <Star className="h-3.5 w-3.5 text-[#007BFF]0 fill-[#007BFF]0 shrink-0 mt-0.5" />
                   )}
                 </div>
 
@@ -83,7 +83,7 @@ export function BlogMobileCards({ blogs, onView, onEdit, onDelete }: Props) {
               </button>
               <button
                 onClick={() => onEdit(blog)}
-                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/10 transition-colors"
+                className="flex-1 flex items-center justify-center gap-1.5 py-2.5 text-xs font-medium text-[#007BFF] dark:text-[#007BFF] hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/10 transition-colors"
               >
                 <Pencil className="h-3.5 w-3.5" />
                 Edit

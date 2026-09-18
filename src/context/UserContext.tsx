@@ -1,53 +1,145 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
 import { getCurrentUser } from "@/utils/getCurrentUser";
 import { logoutUser } from "@/utils/logoutUser";
 
-type User = {
+export const USER_ROLES = [
+  "CUSTOMER",
+  "GENERALSTAFF",
+  "MODERATOR",
+  "PHARMACIST",
+  "VENDOR",
+  "MANAGER",
+  "ADMIN",
+  "TELESALES",
+] as const;
+
+export type UserRole = (typeof USER_ROLES)[number];
+
+export type UserStatus = "ACTIVE" | "INACTIVE";
+
+export interface User {
   _id: string;
-  email: string;
-  role: "CUSTOMER" | "MODERATOR" | "MANAGER" | "ADMIN";
+  email?: string;
+  phone?: string;
+  role: UserRole;
+  isActive?: UserStatus;
+  isDeleted?: boolean;
+  firstName?: string;
+  lastName?: string;
+  name?: string;
+  avatar?: string;
+  profileImage?: string;
+  [key: string]: unknown;
+}
+
+export const isUserRole = (role: unknown): role is UserRole => {
+  return (
+    typeof role === "string" && (USER_ROLES as readonly string[]).includes(role)
+  );
 };
 
-type UserContextType = {
+interface UserContextType {
   user: User | null;
-  login: (user: User) => void;
-  logout: () => void;
-};
+  loading: boolean;
+  login: (userData: User) => void;
+  logout: () => Promise<void>;
+  refreshUser: () => Promise<void>;
+}
 
-const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<UserContextType | undefined>(undefined);
 
 export function UserProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const hydrateUser = async () => {
+  const refreshUser = useCallback(async () => {
+    try {
       const currentUser = await getCurrentUser();
-      setUser(currentUser);
+      setUser(currentUser ?? null);
+    } catch (error) {
+      console.error("Failed to load current user:", error);
+      setUser(null);
+    } finally {
       setLoading(false);
-    };
-    hydrateUser();
+    }
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
 
-  const login = (userData: any) => setUser(userData);
-  const logout = async () => {
-    await logoutUser();
-    setUser(null);
-  };
+    const hydrateUser = async () => {
+      try {
+        const currentUser = await getCurrentUser();
+
+        if (isMounted) {
+          setUser(currentUser ?? null);
+        }
+      } catch (error) {
+        console.error("User hydration error:", error);
+
+        if (isMounted) {
+          setUser(null);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    };
+
+    void hydrateUser();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const login = useCallback((userData: User) => {
+    setUser(userData);
+  }, []);
+
+  const logout = useCallback(async () => {
+    try {
+      await logoutUser();
+    } catch (error) {
+      console.error("Logout error:", error);
+    } finally {
+      setUser(null);
+    }
+  }, []);
+
+  const contextValue = useMemo<UserContextType>(
+    () => ({
+      user,
+      loading,
+      login,
+      logout,
+      refreshUser,
+    }),
+    [user, loading, login, logout, refreshUser],
+  );
 
   return (
-    <UserContext.Provider value={{ user, login, logout }}>
-      {!loading && children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
 }
 
-export const useUser = () => {
-  const ctx = useContext(UserContext);
-  if (!ctx) throw new Error("useUser must be used inside UserProvider");
-  return ctx;
+export const useUser = (): UserContextType => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    throw new Error("useUser must be used inside UserProvider");
+  }
+
+  return context;
 };

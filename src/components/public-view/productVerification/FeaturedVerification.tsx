@@ -17,7 +17,7 @@ export function FeaturedVerification({
   return (
     <div className="relative rounded-xl overflow-hidden bg-linear-to-br from-slate-900 to-slate-800 text-white shadow-2xl mb-8">
       {/* Featured badge */}
-      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-linear-to-r from-amber-500 to-orange-500 px-4 py-2 rounded-full">
+      <div className="absolute top-4 right-4 z-10 flex items-center gap-2 bg-linear-to-r from-[#007BFF]0 to-orange-500 px-4 py-2 rounded-full">
         <Flame className="h-4 w-4" />
         <span className="font-semibold text-sm">Featured</span>
       </div>
@@ -53,7 +53,7 @@ export function FeaturedVerification({
         <div className="flex flex-col justify-center space-y-4">
           <div className="space-y-2">
             <div className="inline-block">
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-amber-600/20 text-amber-300">
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[#007BFF]/20 text-amber-300">
                 {verification.category?.toUpperCase()}
               </span>
             </div>
@@ -74,14 +74,14 @@ export function FeaturedVerification({
               <span>{verification.views || 0} views</span>
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-amber-400">{verification.mediaType}</span>
+              <span className="text-[#007BFF]">{verification.mediaType}</span>
             </div>
           </div>
 
           {/* Watch button */}
           <Button
             onClick={() => onWatch(verification)}
-            className="self-start bg-linear-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-semibold"
+            className="self-start bg-linear-to-r from-[#007BFF] to-orange-600 hover:from-[#007BFF] hover:to-orange-700 text-white px-8 py-3 rounded-lg font-semibold"
           >
             <Play className="h-5 w-5 mr-2" />
             Watch Guide

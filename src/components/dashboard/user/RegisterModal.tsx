@@ -2,71 +2,77 @@
 
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Eye, EyeOff, Plus, Upload, X } from "lucide-react";
 import Image from "next/image";
 
+import { registerUser } from "@/utils/registerUser";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-
-// import logo from "../../../../public/assets/FRN-Logo-scaled.webp";
-import { registerUser } from "@/utils/registerUser";
 import { Separator } from "@/components/ui/separator";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import type { UseFormRegisterReturn } from "react-hook-form";
 
-enum Role {
-  ADMIN = "ADMIN",
-  MANAGER = "MANAGER",
-  MODERATOR = "MODERATOR",
-  TELESALES = "TELESALES",
-  GENERALSTAFF = "GENERALSTAFF",
-}
+const BANGLADESH_PHONE_REGEX = /^(?:\+8801|01)[3-9]\d{8}$/;
 
-// ─── Schema ───────────────────────────────────────────────────────────────────
+const MAX_PICTURE_SIZE = 2 * 1024 * 1024;
+
+const ALLOWED_PICTURE_TYPES = [
+  "image/png",
+  "image/jpeg",
+  "image/webp",
+] as const;
 
 const signupSchema = z
   .object({
-    name: z.string().min(2, "Full name must be at least 2 characters"),
-    email: z.string().email("Please enter a valid email address"),
-    phone: z.string({ message: "Phone Number must be string" }),
-    address: z.string().min(5, "Address must be at least 5 characters"),
-    salary: z.preprocess((val) => {
-      if (val === "" || val === undefined || val === null) return undefined;
-      const num = Number(val);
-      return isNaN(num) ? undefined : num;
-    }, z.number().min(0, "Salary must be a positive number").optional()),
-    commissionSalary: z.preprocess((val) => {
-      if (val === "" || val === undefined || val === null) return undefined;
-      const num = Number(val);
-      return isNaN(num) ? undefined : num;
-    }, z.number().min(0, "Salary must be a positive number").optional()),
-    role: z.nativeEnum(Role, { message: "Please select a role" }),
+    name: z
+      .string()
+      .trim()
+      .min(2, "Full name must be at least 2 characters")
+      .max(100, "Full name cannot exceed 100 characters"),
+
+    email: z
+      .string()
+      .trim()
+      .toLowerCase()
+      .email("Please enter a valid email address"),
+
+    phone: z
+      .string()
+      .trim()
+      .regex(
+        BANGLADESH_PHONE_REGEX,
+        "Please enter a valid Bangladesh phone number",
+      ),
+
+    address: z
+      .string()
+      .trim()
+      .min(5, "Address must be at least 5 characters")
+      .max(500, "Address cannot exceed 500 characters"),
+
     password: z
-      .string({ message: "Password must be string" })
-      .min(8, { message: "Password must be at least 8 characters long." }),
+      .string()
+      .min(8, "Password must be at least 8 characters long.")
+      .max(128, "Password cannot exceed 128 characters."),
+
     confirmPassword: z
-      .string({ message: "Password must be string" })
-      .min(8, { message: "Password must be at least 8 characters long." }),
+      .string()
+      .min(8, "Password must be at least 8 characters long.")
+      .max(128, "Password cannot exceed 128 characters."),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
@@ -74,8 +80,6 @@ const signupSchema = z
   });
 
 type SignupFormValues = z.infer<typeof signupSchema>;
-
-// ─── Password Field Helper ────────────────────────────────────────────────────
 
 function PasswordField({
   id,
@@ -85,34 +89,40 @@ function PasswordField({
 }: {
   id: string;
   placeholder: string;
-  registration: object;
+  registration: UseFormRegisterReturn;
   error?: string;
 }) {
   const [show, setShow] = useState(false);
+
   return (
     <div className="relative">
       <Input
         id={id}
         type={show ? "text" : "password"}
         placeholder={placeholder}
+        autoComplete={id === "password" ? "new-password" : "new-password"}
         {...registration}
       />
+
       <button
         type="button"
-        onClick={() => setShow((v) => !v)}
+        onClick={() => setShow((previous) => !previous)}
         aria-label={show ? "Hide password" : "Show password"}
         className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
       >
         {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
       </button>
+
       {error && <p className="mt-1 text-xs text-red-400">{error}</p>}
     </div>
   );
 }
 
-// ─── Component ────────────────────────────────────────────────────────────────
+interface RegisterModalProps {
+  refetch: () => void | Promise<void>;
+}
 
-export default function RegisterModal({ refetch }: any) {
+export default function RegisterModal({ refetch }: RegisterModalProps) {
   const [open, setOpen] = useState(false);
   const [pictureFile, setPictureFile] = useState<File | null>(null);
   const [picturePreview, setPicturePreview] = useState<string | null>(null);
@@ -123,81 +133,105 @@ export default function RegisterModal({ refetch }: any) {
     handleSubmit,
     formState: { errors },
     reset,
-    control,
   } = useForm<SignupFormValues>({
-    resolver: zodResolver(signupSchema) as any,
+    resolver: zodResolver(signupSchema as any),
     defaultValues: {
       name: "",
       email: "",
       phone: "",
       address: "",
-      salary: undefined,
-      commissionSalary: undefined,
-      role: undefined,
+
       password: "",
       confirmPassword: "",
     },
   });
 
-  // ── File change handler ──
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
+  useEffect(() => {
+    return () => {
+      if (picturePreview) {
+        URL.revokeObjectURL(picturePreview);
+      }
+    };
+  }, [picturePreview]);
+
+  const clearPicture = () => {
+    setPictureFile(null);
+    setPicturePreview(null);
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
     if (!file) return;
 
-    // 2MB limit
-    if (file.size > 2 * 1024 * 1024) {
-      toast.error("Image must be under 2MB");
+    if (
+      !ALLOWED_PICTURE_TYPES.includes(
+        file.type as (typeof ALLOWED_PICTURE_TYPES)[number],
+      )
+    ) {
+      toast.error("Only PNG, JPG, and WEBP images are allowed.");
+      event.target.value = "";
       return;
+    }
+
+    if (file.size > MAX_PICTURE_SIZE) {
+      toast.error("Image must be under 2MB.");
+      event.target.value = "";
+      return;
+    }
+
+    if (picturePreview) {
+      URL.revokeObjectURL(picturePreview);
     }
 
     setPictureFile(file);
     setPicturePreview(URL.createObjectURL(file));
   };
 
-  const clearPicture = () => {
-    setPictureFile(null);
-    if (picturePreview) URL.revokeObjectURL(picturePreview);
-    setPicturePreview(null);
-  };
-
-  // ── Reset all including file ──
   const handleClose = () => {
+    if (isLoading) return;
+
     reset();
     clearPicture();
     setOpen(false);
   };
 
   const onSubmit = async (data: SignupFormValues) => {
+    if (isLoading) return;
+
     setIsLoading(true);
+
     try {
-      const { salary, ...rest } = data;
-
       const formData = new FormData();
-      Object.entries(rest).forEach(([key, value]) => {
-        if (value !== undefined && value !== "") {
-          formData.append(key, String(value));
-        }
-      });
 
-      if (salary !== undefined) {
-        formData.append("salary", String(salary));
-      }
+      formData.append("name", data.name.trim());
+      formData.append("email", data.email.trim().toLowerCase());
+      formData.append("phone", data.phone.trim());
+      formData.append("address", data.address.trim());
+      formData.append("password", data.password);
 
       if (pictureFile) {
         formData.append("picture", pictureFile);
       }
 
-      const res = await registerUser(formData);
-      //   console.log("Register res", res);
-      if (res) {
-        toast.success("Account created successfully!");
-        handleClose();
-        refetch();
+      const response = await registerUser(formData);
+
+      if (!response.success) {
+        toast.error(response.message || "Registration failed.");
+        return;
       }
+
+      toast.success(response.message || "Account created successfully!");
+
+      reset();
+      clearPicture();
+      setOpen(false);
+
+      await refetch();
     } catch (error) {
-      console.error(error);
+      console.error("Register form error:", error);
+
       toast.error("Registration failed. Please try again.");
-      setIsLoading(false);
     } finally {
       setIsLoading(false);
     }
@@ -362,104 +396,6 @@ export default function RegisterModal({ refetch }: any) {
                 />
               </label>
             )}
-          </div>
-
-          {/* Salary & Role — side by side */}
-          <div className="grid grid-cols-1 gap-3">
-            {/* Salary */}
-            <div className="space-y-1.5">
-              <Label
-                htmlFor="salary"
-                className="text-xs font-semibold tracking-widest uppercase"
-              >
-                Salary{" "}
-                <span className="text-[#96999A] normal-case font-normal">
-                  (optional)
-                </span>
-              </Label>
-              <Input
-                id="salary"
-                type="number"
-                min={0}
-                placeholder="e.g. 20,000"
-                {...registerField("salary")}
-              />
-              {errors.salary && (
-                <p className="text-xs text-red-400">{errors.salary.message}</p>
-              )}
-            </div>
-            <div className="space-y-1.5">
-              <Label
-                htmlFor="commissionSalary"
-                className="text-xs font-semibold tracking-widest uppercase"
-              >
-                Commission Based Salary{" "}
-                <span className="text-[#96999A] normal-case font-normal">
-                  (optional)
-                </span>
-              </Label>
-              <Input
-                id="commissionSalary"
-                type="number"
-                min={0}
-                placeholder="e.g. 25"
-                {...registerField("commissionSalary")}
-              />
-              {errors.commissionSalary && (
-                <p className="text-xs text-red-400">
-                  {errors?.commissionSalary?.message}
-                </p>
-              )}
-            </div>
-
-            {/* Role */}
-            {/*<div className="space-y-2">*/}
-            {/*    <Label>Role</Label>*/}
-            {/*    <Select*/}
-            {/*        onValueChange={(val) => setValue("role", val as Role, { shouldValidate: true })}*/}
-            {/*        value={registerField("role").value as string} // controlled*/}
-            {/*    >*/}
-            {/*        <SelectTrigger>*/}
-            {/*            <SelectValue placeholder="Select role" />*/}
-            {/*        </SelectTrigger>*/}
-            {/*        <SelectContent position="popper">*/}
-            {/*            {Object.values(Role).map((r) => (*/}
-            {/*                <SelectItem key={r} value={r}>*/}
-            {/*                    {r}*/}
-            {/*                </SelectItem>*/}
-            {/*            ))}*/}
-            {/*        </SelectContent>*/}
-            {/*    </Select>*/}
-            {/*    {errors.role && <p className="text-xs text-red-500">{errors.role.message}</p>}*/}
-            {/*</div>*/}
-
-            <div className="space-y-2">
-              <Label>Role</Label>
-              <Controller
-                name="role"
-                control={control} // from useForm
-                render={({ field }) => (
-                  <Select
-                    {...field} // connects value and onChange
-                    onValueChange={(val) => field.onChange(val)} // update RHF state
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select role" />
-                    </SelectTrigger>
-                    <SelectContent position="popper">
-                      {Object.values(Role).map((r) => (
-                        <SelectItem key={r} value={r}>
-                          {r}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                )}
-              />
-              {errors.role && (
-                <p className="text-xs text-red-500">{errors.role.message}</p>
-              )}
-            </div>
           </div>
 
           {/* Password */}

@@ -225,16 +225,16 @@ export default function UpdateUserModal({
         <ScrollArea className="max-h-[70vh] pr-2">
           <div className="px-6 py-4">
             <Tabs defaultValue="general" className="w-full">
-              <TabsList className="grid w-full grid-cols-2 bg-linear-to-r from-amber-100 to-amber-50 dark:from-amber-950/40 dark:to-amber-900/20 p-1 rounded-lg mb-6">
+              <TabsList className="grid w-full grid-cols-2 bg-linear-to-r from-[#007BFF] to-[#007BFF] dark:from-amber-950/40 dark:to-[#007BFF]/20 p-1 rounded-lg mb-6">
                 <TabsTrigger
                   value="general"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
+                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
                 >
                   General Info
                 </TabsTrigger>
                 <TabsTrigger
                   value="permissions"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-amber-700 dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
+                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
                 >
                   Permissions
                 </TabsTrigger>
@@ -244,9 +244,9 @@ export default function UpdateUserModal({
                 <TabsContent value="general" className="space-y-5">
                   {/* Admin Alert */}
                   {selectedRole === "ADMIN" && (
-                    <div className="flex items-start gap-3 p-4 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/50 rounded-lg">
-                      <AlertCircle className="h-5 w-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-                      <div className="text-sm text-amber-900 dark:text-amber-100">
+                    <div className="flex items-start gap-3 p-4 bg-[#007BFF] dark:bg-[#007BFF] border border-amber-200 dark:border-amber-800/50 rounded-lg">
+                      <AlertCircle className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF] shrink-0 mt-0.5" />
+                      <div className="text-sm text-[#007BFF] dark:text-[#007BFF]">
                         <p className="font-semibold">Admin Role Selected</p>
                         <p className="text-xs mt-1">
                           Admins automatically have access to all pages and
@@ -267,7 +267,7 @@ export default function UpdateUserModal({
                     <Input
                       id="name"
                       placeholder="e.g., John Doe"
-                      className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500 dark:focus:ring-amber-400"
+                      className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0 dark:focus:ring-[#007BFF]"
                       {...registerField("name")}
                     />
                     {errors.name && (
@@ -291,7 +291,7 @@ export default function UpdateUserModal({
                         id="email"
                         type="email"
                         placeholder="user@example.com"
-                        className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500"
+                        className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0"
                         {...registerField("email")}
                       />
                       {errors.email && (
@@ -313,7 +313,7 @@ export default function UpdateUserModal({
                         id="phone"
                         type="tel"
                         placeholder="+880 1XXX-XXXXXX"
-                        className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500"
+                        className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0"
                         {...registerField("phone")}
                       />
                       {errors.phone && (
@@ -336,7 +336,7 @@ export default function UpdateUserModal({
                       id="address"
                       rows={3}
                       placeholder="House no., Road, Area, City"
-                      className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500 resize-none"
+                      className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0 resize-none"
                       {...registerField("address")}
                     />
                     {errors.address && (
@@ -352,7 +352,7 @@ export default function UpdateUserModal({
                       Profile Picture (Optional)
                     </Label>
                     {picturePreview ? (
-                      <div className="flex items-center gap-4 border-2 border-amber-200 dark:border-amber-800/50 p-3 rounded-lg bg-amber-50/30 dark:bg-amber-950/20">
+                      <div className="flex items-center gap-4 border-2 border-amber-200 dark:border-amber-800/50 p-3 rounded-lg bg-[#007BFF]/30 dark:bg-amber-950/20">
                         <Image
                           src={picturePreview}
                           alt="Preview"
@@ -360,7 +360,7 @@ export default function UpdateUserModal({
                           height={500}
                           priority
                           quality={90}
-                          className="h-20 w-20 object-cover rounded-lg border-2 border-amber-200 dark:border-amber-700"
+                          className="h-20 w-20 object-cover rounded-lg border-2 border-amber-200 dark:border-[#007BFF]"
                         />
                         <div className="flex-1">
                           <p className="font-medium text-sm">
@@ -385,9 +385,9 @@ export default function UpdateUserModal({
                     ) : (
                       <label
                         htmlFor="picture-upload"
-                        className="flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-amber-300 dark:border-amber-700 px-4 py-8 cursor-pointer hover:bg-amber-50/50 dark:hover:bg-amber-950/20 transition-colors"
+                        className="flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-amber-300 dark:border-[#007BFF] px-4 py-8 cursor-pointer hover:bg-[#007BFF]/50 dark:hover:bg-amber-950/20 transition-colors"
                       >
-                        <Upload className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                        <Upload className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
                         <div className="text-center">
                           <p className="text-sm font-medium text-foreground">
                             Click to upload photo
@@ -420,7 +420,7 @@ export default function UpdateUserModal({
                         value={selectedRole ?? ""}
                         onValueChange={(val) => setValue("role", val as Role)}
                       >
-                        <SelectTrigger className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500">
+                        <SelectTrigger className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0">
                           <SelectValue placeholder="Select role" />
                         </SelectTrigger>
                         <SelectContent position="popper">
@@ -451,7 +451,7 @@ export default function UpdateUserModal({
                         type="number"
                         min={0}
                         placeholder="20,000"
-                        className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500"
+                        className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0"
                         {...registerField("salary")}
                       />
                       {errors.salary && (
@@ -474,7 +474,7 @@ export default function UpdateUserModal({
                         type="number"
                         min={0}
                         placeholder="5%"
-                        className="border-gray-300 dark:border-gray-600 focus:border-amber-500 focus:ring-amber-500"
+                        className="border-gray-300 dark:border-gray-600 focus:border-[#007BFF]0 focus:ring-[#007BFF]0"
                         {...registerField("commissionSalary")}
                       />
                       {errors.commissionSalary && (
@@ -498,11 +498,11 @@ export default function UpdateUserModal({
                   </div>
 
                   {selectedRole === "ADMIN" ? (
-                    <div className="p-6 text-center border-2 border-dashed border-amber-300 dark:border-amber-700 rounded-lg bg-amber-50/30 dark:bg-amber-950/20">
-                      <div className="inline-block p-3 bg-amber-100 dark:bg-amber-900/40 rounded-full mb-3">
+                    <div className="p-6 text-center border-2 border-dashed border-amber-300 dark:border-[#007BFF] rounded-lg bg-[#007BFF]/30 dark:bg-amber-950/20">
+                      <div className="inline-block p-3 bg-[#007BFF] dark:bg-[#007BFF]/40 rounded-full mb-3">
                         <span className="text-2xl">👑</span>
                       </div>
-                      <p className="font-semibold text-amber-900 dark:text-amber-100">
+                      <p className="font-semibold text-[#007BFF] dark:text-[#007BFF]">
                         Full System Access
                       </p>
                       <p className="text-sm text-amber-800/70 dark:text-amber-200/70 mt-2">
@@ -533,7 +533,7 @@ export default function UpdateUserModal({
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="hover:cursor-pointer px-8 bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="hover:cursor-pointer px-8 bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <span className="flex items-center gap-2">

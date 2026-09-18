@@ -1,46 +1,65 @@
 
+import type {
+  BaseQueryFn,
+} from "@reduxjs/toolkit/query";
+
+import type {
+  AxiosRequestConfig,
+  AxiosError,
+} from "axios";
+
 import { axiosInstance } from "@/lib/axios";
-import { getCookie } from "@/utils/tokenHandlers";
-import { BaseQueryFn } from "@reduxjs/toolkit/query";
-import { AxiosError, AxiosRequestConfig } from "axios";
+
+interface AxiosBaseQueryArgs {
+  url: string;
+  method?: AxiosRequestConfig["method"];
+  data?: AxiosRequestConfig["data"];
+  params?: AxiosRequestConfig["params"];
+  headers?: AxiosRequestConfig["headers"];
+}
+
+interface AxiosBaseQueryError {
+  status: number | string;
+  data: unknown;
+}
 
 const axiosBaseQuery =
   (): BaseQueryFn<
-    {
-      url: string;
-      method?: AxiosRequestConfig["method"];
-      data?: AxiosRequestConfig["data"];
-      params?: AxiosRequestConfig["params"];
-      headers?: AxiosRequestConfig["headers"];
-    },
+    AxiosBaseQueryArgs,
     unknown,
-    unknown
+    AxiosBaseQueryError
   > =>
-    async ({ url, method, data, params, headers }) => {
-      const accessToken = await getCookie("accessToken");
-      try {
-        const result = await axiosInstance({
-          url: url,
-          method,
-          data,
-          params,
-          headers: {
-            ...headers,
-            ...(accessToken ? { "Authorization": accessToken } : {}),
-          },
-          withCredentials: true,
-        });
+  async (
+    { url, method = "GET", data, params, headers },
+    { signal }
+  ) => {
+    try {
+      const result = await axiosInstance({
+        url,
+        method,
+        data,
+        params,
+        headers,
+        withCredentials: true,
+        signal,
+      });
 
-        return { data: result.data };
-      } catch (axiosError) {
-        const err = axiosError as AxiosError;
-        return {
-          error: {
-            status: err.response?.status,
-            data: err.response?.data || err.message,
-          },
-        };
-      }
-    };
+      return {
+        data: result.data,
+      };
+    } catch (error) {
+      const axiosError = error as AxiosError;
+
+      return {
+        error: {
+          status: axiosError.response?.status ?? "FETCH_ERROR",
+          data:
+            axiosError.response?.data ??
+            axiosError.message ??
+            "Something went wrong",
+        },
+      };
+    }
+  };
 
 export default axiosBaseQuery;

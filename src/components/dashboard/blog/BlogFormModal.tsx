@@ -28,7 +28,7 @@ const inputCls = (err?: boolean) =>
   `w-full h-10 px-3 rounded-xl border ${
     err
       ? "border-red-400 dark:border-red-600 focus:ring-red-500/30"
-      : "border-gray-200 dark:border-gray-700 focus:ring-amber-500/30 focus:border-amber-500"
+      : "border-gray-200 dark:border-gray-700 focus:ring-[#007BFF]0/30 focus:border-[#007BFF]0"
   } bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200
   placeholder:text-gray-400 focus:outline-none focus:ring-2 transition-all`;
 
@@ -36,12 +36,12 @@ const textareaCls = (err?: boolean) =>
   `w-full px-3 py-2.5 rounded-xl border ${
     err
       ? "border-red-400 dark:border-red-600"
-      : "border-gray-200 dark:border-gray-700 focus:border-amber-500"
+      : "border-gray-200 dark:border-gray-700 focus:border-[#007BFF]0"
   } bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200
-  placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500/30 transition-all resize-none`;
+  placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#007BFF]0/30 transition-all resize-none`;
 
 const selectCls =
-  "w-full h-10 pl-3 pr-8 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 transition-all appearance-none cursor-pointer";
+  "w-full h-10 pl-3 pr-8 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-[#007BFF]0/30 focus:border-[#007BFF]0 transition-all appearance-none cursor-pointer";
 
 const labelCls =
   "block text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide mb-1.5";
@@ -270,7 +270,7 @@ export function BlogFormModal({ isOpen, editBlog, onClose }: Props) {
                       {...register("featured")}
                       className="sr-only peer"
                     />
-                    <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-gray-700 peer-checked:bg-amber-500 transition-colors" />
+                    <div className="w-10 h-5 rounded-full bg-gray-200 dark:bg-gray-700 peer-checked:bg-[#007BFF]0 transition-colors" />
                     <div className="absolute left-0.5 top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform peer-checked:translate-x-5" />
                   </div>
                   <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -294,7 +294,7 @@ export function BlogFormModal({ isOpen, editBlog, onClose }: Props) {
             <button
               type="submit"
               disabled={isLoading}
-              className="h-10 px-5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-sm font-semibold flex items-center gap-2 disabled:opacity-70 transition-all"
+              className="h-10 px-5 rounded-xl bg-[#007BFF]0 hover:bg-[#007BFF] text-white text-sm font-semibold flex items-center gap-2 disabled:opacity-70 transition-all"
             >
               {isLoading ? (
                 <>

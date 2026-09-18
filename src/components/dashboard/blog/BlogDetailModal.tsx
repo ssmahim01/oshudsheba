@@ -32,7 +32,7 @@ export function BlogDetailModal({ blog, isOpen, onClose, onEdit }: Props) {
       <div className="relative z-10 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 w-full max-w-2xl mt-8 mb-8 overflow-hidden">
 
         {/* Banner */}
-        <div className="relative h-40 sm:h-52 bg-linear-to-br from-amber-100 to-amber-50 dark:from-gray-800 dark:to-gray-900">
+        <div className="relative h-40 sm:h-52 bg-linear-to-br from-[#007BFF] to-[#007BFF] dark:from-gray-800 dark:to-gray-900">
           {blog.banner ? (
             <Image src={blog.banner} alt="banner" fill className="object-cover" />
           ) : blog.thumbnail ? (
@@ -50,7 +50,7 @@ export function BlogDetailModal({ blog, isOpen, onClose, onEdit }: Props) {
 
           {/* Featured badge */}
           {blog.featured && (
-            <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500 text-white text-xs font-semibold shadow">
+            <div className="absolute top-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#007BFF]0 text-white text-xs font-semibold shadow">
               <Star className="h-3 w-3 fill-current" />
               Featured
             </div>
@@ -114,7 +114,7 @@ export function BlogDetailModal({ blog, isOpen, onClose, onEdit }: Props) {
                 {blog.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-0.5 rounded-md bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 text-xs font-medium border border-amber-200 dark:border-amber-800"
+                    className="px-2.5 py-0.5 rounded-md bg-[#007BFF] dark:bg-[#007BFF]/20 text-[#007BFF] dark:text-[#007BFF] text-xs font-medium border border-amber-200 dark:border-amber-800"
                   >
                     #{tag}
                   </span>
@@ -140,7 +140,7 @@ export function BlogDetailModal({ blog, isOpen, onClose, onEdit }: Props) {
             </button>
             <button
               onClick={() => { onClose(); onEdit(blog); }}
-              className="flex-1 h-10 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition-all"
+              className="flex-1 h-10 rounded-xl bg-[#007BFF]0 hover:bg-[#007BFF] text-white text-sm font-medium transition-all"
             >
               Edit Blog
             </button>

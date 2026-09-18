@@ -23,8 +23,8 @@ type SortDir = "asc" | "desc";
 function SortIcon({ active, dir }: { active: boolean; dir: SortDir }) {
   if (!active) return <ArrowUpDown className="h-3 w-3 text-gray-400 ml-1 inline" />;
   return dir === "asc"
-    ? <ArrowUp className="h-3 w-3 text-amber-500 ml-1 inline" />
-    : <ArrowDown className="h-3 w-3 text-amber-500 ml-1 inline" />;
+    ? <ArrowUp className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
+    : <ArrowDown className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />;
 }
 
 export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTableProps) {
@@ -44,10 +44,10 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
             <p className="text-sm font-bold text-gray-900 dark:text-gray-50">Staff Earnings</p>
             <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Revenue breakdown by staff member</p>
           </div>
-          <Users className="h-4 w-4 text-amber-500" />
+          <Users className="h-4 w-4 text-[#007BFF]0" />
         </div>
         <div className="flex flex-col items-center justify-center py-16 gap-3">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20">
+          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
             <Users className="h-7 w-7 text-amber-300 dark:text-amber-800" />
           </div>
           <p className="text-sm text-gray-400 dark:text-gray-500">No staff earnings data for this period</p>
@@ -77,15 +77,15 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
           <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">
             Revenue breakdown by staff member
             {dateLabel && (
-              <span className="ml-1.5 inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-[10px] font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400">
+              <span className="ml-1.5 inline-flex items-center gap-1 rounded-full border border-amber-200 bg-[#007BFF] px-2 py-0.5 text-[10px] font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
                 {dateLabel}
               </span>
             )}
           </p>
         </div>
         <div className="flex items-center gap-2 shrink-0">
-          <TrendingUp className="h-4 w-4 text-amber-500" />
-          <span className="text-xs font-bold tabular-nums text-amber-600 dark:text-amber-400">
+          <TrendingUp className="h-4 w-4 text-[#007BFF]0" />
+          <span className="text-xs font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
             ৳{totalRevenue.toLocaleString()}
           </span>
         </div>
@@ -94,35 +94,35 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
       <ScrollArea className="w-full">
         <Table>
           <TableHeader>
-            <TableRow className="bg-amber-50/40 hover:bg-amber-50/40 dark:bg-amber-900/5 dark:hover:bg-amber-900/5 border-b border-amber-100/80 dark:border-amber-900/20">
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 pl-5 w-8">
+            <TableRow className="bg-[#1258a3] hover:bg-[#007BFF] dark:bg-[#007BFF]/5 dark:hover:bg-[#007BFF]/5 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60 pl-5 w-8">
                 #
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none"
+                className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF] cursor-pointer select-none"
                 onClick={() => handleSort("sellerName")}
               >
                 Staff Member
                 <SortIcon active={sortKey === "sellerName"} dir={sortDir} />
               </TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF]">
                 Phone
               </TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF]">
                 Total Order Value
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 cursor-pointer select-none text-center"
+                className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF] cursor-pointer select-none text-center"
                 onClick={() => handleSort("totalOrders")}
               >
                 Orders
                 <SortIcon active={sortKey === "totalOrders"} dir={sortDir} />
               </TableHead>
-              <TableHead className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 text-right">
+              <TableHead className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF] text-right">
                Commission Per Product
               </TableHead>
               <TableHead
-                className="text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60 text-right pr-5 cursor-pointer select-none"
+                className="text-[10px] font-bold uppercase tracking-widest bg-[#1258a3] hover:bg-[#007BFF] text-right pr-5 cursor-pointer select-none"
                 onClick={() => handleSort("totalEarnings")}
               >
                 Total Salary / Commission
@@ -143,7 +143,7 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
               return (
                 <TableRow key={staff._id}
                   className={cn(
-                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-amber-50/30 dark:hover:bg-amber-900/5",
+                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/30 dark:hover:bg-[#007BFF]/5",
                     idx % 2 === 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50/30 dark:bg-gray-800/20",
                   )}>
                   {/* Rank */}
@@ -167,7 +167,7 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
                         <div className="mt-1 flex items-center gap-1.5">
                           <div className="h-1 w-16 rounded-full bg-gray-100 dark:bg-gray-800">
                             <div
-                              className="h-1 rounded-full bg-amber-400 transition-all duration-500"
+                              className="h-1 rounded-full bg-[#007BFF] transition-all duration-500"
                               style={{ width: `${share}%` }}
                             />
                           </div>
@@ -188,7 +188,7 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
                   {/* Orders */}
                   <TableCell className="text-center">
                     <Badge variant="outline"
-                      className="rounded-full border-amber-200 bg-amber-50 text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400 tabular-nums">
+                      className="rounded-full border-amber-200 bg-[#007BFF] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF] tabular-nums">
                       {staff.totalOrders}
                     </Badge>
                   </TableCell>
@@ -197,7 +197,7 @@ export function StaffEarningsTable({ staffEarnings, dateLabel }: StaffEarningsTa
                     ৳{avg.toLocaleString()}
                   </TableCell>
                   {/* Revenue */}
-                  <TableCell className="text-center pr-5 font-bold tabular-nums text-amber-600 dark:text-amber-400">
+                  <TableCell className="text-center pr-5 font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                     ৳{staff.totalEarnings.toLocaleString()}
                   </TableCell>
                 </TableRow>

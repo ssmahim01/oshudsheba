@@ -104,7 +104,7 @@ export function DamageOrderModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl max-h-[90vh] gap-0 p-0 overflow-hidden rounded-xl border-gray-200/80 dark:border-gray-700/60">
-        <div className="h-1 w-full bg-linear-to-r from-red-500 via-orange-500 to-amber-500" />
+        <div className="h-1 w-full bg-linear-to-r from-red-500 via-orange-500 to-[#007BFF]0" />
 
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-50 dark:bg-red-900/20">

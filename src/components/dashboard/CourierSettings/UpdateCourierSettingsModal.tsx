@@ -181,7 +181,7 @@ export function UpdateCourierSettingsModal({
         <ScrollArea className="max-h-[70vh] pr-4">
           <div className="space-y-6">
             {/* Basic Information */}
-            <Card className="border-0 bg-linear-to-br from-amber-50/50 to-orange-50/30 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
+            <Card className="border-0 bg-linear-to-br from-[#007BFF]/50 to-orange-50/30 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
               <div className="space-y-4">
                 <h3 className="font-semibold text-gray-900 dark:text-gray-100">
                   Basic Information
@@ -363,7 +363,7 @@ export function UpdateCourierSettingsModal({
                     variant="outline"
                     size="sm"
                     onClick={handleAddConfig}
-                    className="gap-2 rounded-lg border-amber-200 hover:bg-amber-50 dark:border-amber-800 dark:hover:bg-amber-950/30"
+                    className="gap-2 rounded-lg border-amber-200 hover:bg-[#007BFF] dark:border-amber-800 dark:hover:bg-[#007BFF]"
                   >
                     <Plus className="h-4 w-4" />
                     Add Config
@@ -421,7 +421,7 @@ export function UpdateCourierSettingsModal({
                             <button
                               type="button"
                               onClick={() => toggleSecretVisibility(index)}
-                              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-amber-600"
+                              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#007BFF]"
                             >
                               {showSecrets[index] ? (
                                 <EyeOff className="h-4 w-4" />
@@ -461,7 +461,7 @@ export function UpdateCourierSettingsModal({
           <Button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="gap-2 hover:cursor-pointer rounded-lg bg-linear-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 disabled:opacity-50"
+            className="gap-2 hover:cursor-pointer rounded-lg bg-linear-to-r from-[#007BFF]0 to-orange-500 hover:from-[#007BFF] hover:to-orange-600 disabled:opacity-50"
           >
             {isLoading ? "Updating..." : "Update Settings"}
           </Button>

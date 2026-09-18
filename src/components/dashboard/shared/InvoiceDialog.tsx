@@ -142,14 +142,14 @@ export function InvoiceDialog({
           </DialogHeader>
 
           {/* ── Sticky toolbar ── */}
-          <div className="sticky top-0 z-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-amber-100 dark:border-amber-900/40 px-3 py-3 print:hidden">
+          <div className="sticky top-0 z-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-[#007BFF] dark:border-[#007BFF]/40 px-3 py-3 print:hidden">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-3 min-w-0">
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/30 shrink-0">
-                  <FileText className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF] shrink-0">
+                  <FileText className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
                 </div>
                 <div className="min-w-0">
-                  <h2 className="font-bold text-base text-amber-900 dark:text-amber-300 truncate">
+                  <h2 className="font-bold text-base text-[#007BFF] dark:text-amber-300 truncate">
                     Invoice #{formatInvoiceNumber(order._id)}
                   </h2>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -162,7 +162,7 @@ export function InvoiceDialog({
                   variant="outline"
                   size="sm"
                   onClick={handlePrint}
-                  className="gap-1.5 hover:cursor-pointer border-amber-200 dark:border-amber-800 hover:bg-amber-50 dark:hover:bg-amber-900/20"
+                  className="gap-1.5 hover:cursor-pointer border-amber-200 dark:border-amber-800 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20"
                 >
                   <Printer className="h-4 w-4" />
                   Print
@@ -171,7 +171,7 @@ export function InvoiceDialog({
                   size="sm"
                   onClick={handleDownloadPDF}
                   disabled={isDownloading}
-                  className="gap-1.5 hover:cursor-pointer bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-none"
+                  className="gap-1.5 hover:cursor-pointer bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF] text-white shadow-md shadow-amber-200 dark:shadow-none"
                 >
                   <Download className="h-4 w-4" />
                   {isDownloading ? "Downloading…" : "Download PDF"}
@@ -196,10 +196,10 @@ export function InvoiceDialog({
             </div>
 
             {/* ── Gold top bar ── */}
-            <div className="h-1.25 bg-linear-to-r from-amber-700 via-amber-500 to-amber-700 rounded-full" />
+            <div className="h-1.25 bg-linear-to-r from-[#007BFF] via-[#007BFF]0 to-[#007BFF] rounded-full" />
 
             {/* ── HEADER ── */}
-            <div className="flex flex-col sm:flex-row justify-between items-start gap-6 pb-5 border-b-2 border-amber-600 relative z-10">
+            <div className="flex flex-col sm:flex-row justify-between items-start gap-6 pb-5 border-b-2 border-[#007BFF] relative z-10">
               {/* Left: brand */}
               <div className="space-y-2">
                 <Link href="/" aria-label="Oshud Sheba">
@@ -223,7 +223,7 @@ export function InvoiceDialog({
 
               {/* Right: invoice meta */}
               <div className="text-right space-y-2 w-full sm:w-auto">
-                <h1 className="text-4xl sm:text-5xl font-black text-amber-700 dark:text-amber-400 tracking-widest">
+                <h1 className="text-4xl sm:text-5xl font-black text-[#007BFF] dark:text-[#007BFF] tracking-widest">
                   INVOICE
                 </h1>
                 <div className="text-xs sm:text-sm space-y-1.5">
@@ -249,7 +249,7 @@ export function InvoiceDialog({
                       </span>
                     </p>
                   ))}
-                  {/* <Badge className="mt-1 text-xs bg-amber-100 text-amber-900 dark:bg-amber-900/30 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+                  {/* <Badge className="mt-1 text-xs bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300 border border-amber-300 dark:border-[#007BFF]">
                     {order.orderStatus || "PENDING"}
                   </Badge> */}
                 </div>
@@ -259,8 +259,8 @@ export function InvoiceDialog({
             {/* ── BILLING / SHIPPING INFO ── */}
             <div className="grid sm:grid-cols-2 gap-4 relative z-50">
               {/* Bill To */}
-              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg p-4 bg-amber-50/40 dark:bg-amber-900/10">
-                <h3 className="text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-3 pb-2 border-b border-amber-100 dark:border-amber-800">
+              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg p-4 bg-[#007BFF]/40 dark:bg-[#007BFF]/10">
+                <h3 className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF] uppercase tracking-wider mb-3 pb-2 border-b border-[#007BFF] dark:border-amber-800">
                   Bill To
                 </h3>
                 {[
@@ -280,8 +280,8 @@ export function InvoiceDialog({
               </div>
 
               {/* Ship To */}
-              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg p-4 bg-amber-50/40 dark:bg-amber-900/10">
-                <h3 className="text-[9px] font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-3 pb-2 border-b border-amber-100 dark:border-amber-800">
+              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg p-4 bg-[#007BFF]/40 dark:bg-[#007BFF]/10">
+                <h3 className="text-[9px] font-bold text-[#007BFF] dark:text-[#007BFF] uppercase tracking-wider mb-3 pb-2 border-b border-[#007BFF] dark:border-amber-800">
                   Ship To
                 </h3>
                 {[
@@ -307,23 +307,23 @@ export function InvoiceDialog({
 
             {/* ── ITEMS TABLE ── */}
             <div className="relative z-50">
-              {/* <h3 className="text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-3">
+              {/* <h3 className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF] uppercase tracking-wider mb-3">
                 Order Details
               </h3> */}
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
                 <table className="w-full text-sm">
-                  <thead className="bg-amber-50 dark:bg-amber-900/20">
+                  <thead className="bg-[#007BFF] dark:bg-[#007BFF]/20">
                     <tr>
-                      <th className="text-left p-3 font-bold text-amber-800 dark:text-amber-400 border-b-2 border-amber-600 text-xs uppercase tracking-wide">
+                      <th className="text-left p-3 font-bold text-amber-800 dark:text-[#007BFF] border-b-2 border-[#007BFF] text-xs uppercase tracking-wide">
                         Product
                       </th>
-                      <th className="text-center p-3 font-bold text-amber-800 dark:text-amber-400 border-b-2 border-amber-600 text-xs uppercase tracking-wide">
+                      <th className="text-center p-3 font-bold text-amber-800 dark:text-[#007BFF] border-b-2 border-[#007BFF] text-xs uppercase tracking-wide">
                         Qty
                       </th>
-                      <th className="text-right p-3 font-bold text-amber-800 dark:text-amber-400 border-b-2 border-amber-600 text-xs uppercase tracking-wide">
+                      <th className="text-right p-3 font-bold text-amber-800 dark:text-[#007BFF] border-b-2 border-[#007BFF] text-xs uppercase tracking-wide">
                         Unit Price
                       </th>
-                      <th className="text-right p-3 font-bold text-amber-800 dark:text-amber-400 border-b-2 border-amber-600 text-xs uppercase tracking-wide">
+                      <th className="text-right p-3 font-bold text-amber-800 dark:text-[#007BFF] border-b-2 border-[#007BFF] text-xs uppercase tracking-wide">
                         Subtotal
                       </th>
                     </tr>
@@ -340,7 +340,7 @@ export function InvoiceDialog({
                           key={i}
                           className={`border-b border-gray-100 dark:border-gray-800 ${
                             i % 2 === 1
-                              ? "bg-amber-50/30 dark:bg-amber-900/10"
+                              ? "bg-[#007BFF]/30 dark:bg-[#007BFF]/10"
                               : "bg-white dark:bg-transparent"
                           }`}
                         >
@@ -373,8 +373,8 @@ export function InvoiceDialog({
 
             {/* ── TOTALS ── */}
             <div className="flex justify-between items-center gap-5 relative z-50">
-              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg bg-amber-50/40 dark:bg-amber-900/10 p-4 relative z-10">
-              <h3 className="text-sm font-bold text-amber-800 dark:text-amber-400 mb-3">
+              <div className="border border-amber-200 dark:border-amber-800/50 rounded-lg bg-[#007BFF]/40 dark:bg-[#007BFF]/10 p-4 relative z-10">
+              <h3 className="text-sm font-bold text-amber-800 dark:text-[#007BFF] mb-3">
                 প্রোডাক্ট নির্দেশনা ও শর্তাবলী:
               </h3>
               <ul className="space-y-2.5">
@@ -389,7 +389,7 @@ export function InvoiceDialog({
                 ))}
               </ul>
             </div>
-              <div className="w-full border border-amber-300 dark:border-amber-700/50 rounded-lg bg-amber-50/50 dark:bg-amber-900/10 p-4 space-y-2.5">
+              <div className="w-full border border-amber-300 dark:border-[#007BFF]/50 rounded-lg bg-[#007BFF]/50 dark:bg-[#007BFF]/10 p-4 space-y-2.5">
                 {[
                   {
                     lbl: "Products Subtotal",
@@ -437,13 +437,13 @@ export function InvoiceDialog({
                   </div>
                 )}
 
-                <Separator className="bg-amber-300 dark:bg-amber-700" />
+                <Separator className="bg-amber-300 dark:bg-[#007BFF]" />
 
                 <div className="flex justify-between items-center">
                   <span className="text-base font-black text-amber-800 dark:text-amber-300">
                     Total Amount:
                   </span>
-                  <span className="text-lg font-black text-amber-700 dark:text-amber-300">
+                  <span className="text-lg font-black text-[#007BFF] dark:text-amber-300">
                     {formatCurrency(grandTotal)}
                   </span>
                 </div>
@@ -452,15 +452,15 @@ export function InvoiceDialog({
           
 
             {/* ── FOOTER ── */}
-            <div className="pt-5 border-t-2 border-amber-600 text-center space-y-1.5 relative z-10">
-              <p className="text-base font-bold text-amber-700 dark:text-amber-400">
+            <div className="pt-5 border-t-2 border-[#007BFF] text-center space-y-1.5 relative z-10">
+              <p className="text-base font-bold text-[#007BFF] dark:text-[#007BFF]">
                 ধন্যবাদ ফারিন ফিউশনের সাথে থাকার জন্য!
               </p>
              
              
               <div className="flex items-center justify-center gap-3 pt-2">
                 <Separator className="flex-1 max-w-20 bg-amber-200 dark:bg-amber-800" />
-                {/* <span className="text-xs font-bold text-amber-700 dark:text-amber-400 tracking-wider">
+                {/* <span className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF] tracking-wider">
                   Quality Products, Premium Service
                 </span> */}
                 <Separator className="flex-1 max-w-20 bg-amber-200 dark:bg-amber-800" />
@@ -471,7 +471,7 @@ export function InvoiceDialog({
             </div>
 
             {/* ── Gold bottom bar ── */}
-            {/* <div className="h-1.25 bg-linear-to-r from-amber-700 via-amber-500 to-amber-700 rounded-full" /> */}
+            {/* <div className="h-1.25 bg-linear-to-r from-[#007BFF] via-[#007BFF]0 to-[#007BFF] rounded-full" /> */}
           </div>
         </ScrollArea>
       </DialogContent>

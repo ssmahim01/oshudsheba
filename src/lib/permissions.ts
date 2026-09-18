@@ -25,7 +25,10 @@ export type UserRole =
   | "MANAGER"
   | "MODERATOR"
   | "CUSTOMER"
-  | "TELESALES";
+  | "TELESALES"
+  | "GENERALSTAFF"
+  | "PHARMACIST"
+  | "VENDOR";
 
 export interface UserPermissions {
   role: UserRole;
@@ -80,6 +83,21 @@ export const defaultRolePermissions: Record<UserRole, PageAccess[]> = {
     "pos",
   ],
   MODERATOR: ["dashboard", "product-management", "my-orders", "leads"],
+  GENERALSTAFF: ["dashboard", "my-orders"],
+  PHARMACIST: [
+    "dashboard",
+    "product-management",
+    "orders-management",
+    "leads",
+    "pos",
+  ],
+  VENDOR: [
+    "dashboard",
+    "product-management",
+    "orders-management",
+    "leads",
+    "pos",
+  ],
   CUSTOMER: ["dashboard", "my-orders"],
 };
 

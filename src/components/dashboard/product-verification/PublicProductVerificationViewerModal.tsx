@@ -110,7 +110,7 @@ export default function PublicVerificationViewerModal({
                 href={verification.mediaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-amber-600 dark:text-amber-400 hover:underline font-medium"
+                className="inline-flex items-center gap-2 text-[#007BFF] dark:text-[#007BFF] hover:underline font-medium"
               >
                 <ExternalLink className="w-4 h-4" />
                 Open Full Document
@@ -133,7 +133,7 @@ export default function PublicVerificationViewerModal({
 
       case "EXTERNAL_LINK":
         return (
-          <div className="w-full p-6 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-200 dark:border-amber-800">
+          <div className="w-full p-6 bg-[#007BFF] dark:bg-[#007BFF]/20 rounded-lg border border-amber-200 dark:border-amber-800">
             <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
               This resource is available at an external link
             </p>
@@ -141,7 +141,7 @@ export default function PublicVerificationViewerModal({
               href={verification.mediaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 text-white rounded-lg font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-amber-800 text-white rounded-lg font-medium transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
               Visit Resource
@@ -161,11 +161,11 @@ export default function PublicVerificationViewerModal({
         <div className="flex items-start justify-between mb-2">
           <div className="flex-1">
             <div className="flex items-center gap-3 mb-2">
-              <span className="inline-block px-3 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-xs font-semibold rounded-full">
+              <span className="inline-block px-3 py-1 bg-[#007BFF] dark:bg-[#007BFF]/40 text-[#007BFF] dark:text-amber-300 text-xs font-semibold rounded-full">
                 {verification.category}
               </span>
               {verification?.featured && (
-                <span className="inline-block px-3 py-1 bg-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-semibold rounded-full">
+                <span className="inline-block px-3 py-1 bg-[#007BFF]0/20 text-[#007BFF] dark:text-[#007BFF] text-xs font-semibold rounded-full">
                   ★ Featured
                 </span>
               )}

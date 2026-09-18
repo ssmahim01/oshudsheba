@@ -55,12 +55,12 @@ const PROVIDER_STYLES: Record<
   }
 > = {
   STEADFAST: {
-    linear: "from-amber-500/15 via-orange-500/8 to-transparent",
-    border: "border-amber-300/60 dark:border-amber-700/50",
+    linear: "from-[#007BFF]0/15 via-orange-500/8 to-transparent",
+    border: "border-amber-300/60 dark:border-[#007BFF]/50",
     badge:
-      "bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-900/30 dark:text-amber-200 dark:border-amber-700",
+      "bg-[#007BFF] text-[#007BFF] border-amber-300 dark:bg-[#007BFF] dark:text-amber-200 dark:border-[#007BFF]",
     icon: "🚚",
-    glow: "group-hover:shadow-amber-200/50 dark:group-hover:shadow-amber-900/40",
+    glow: "group-hover:shadow-amber-200/50 dark:group-hover:shadow-[#007BFF]/40",
   },
   PAPERFLY: {
     linear: "from-blue-500/15 via-cyan-500/8 to-transparent",
@@ -339,7 +339,7 @@ function CourierCard({
           </span>
 
           {configEntries.length > 0 && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-700 dark:bg-amber-900/20 dark:text-amber-400">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] px-2.5 py-1 text-[10px] font-bold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
               <Settings2 className="h-2.5 w-2.5" />
               {configEntries.length} key{configEntries.length !== 1 ? "s" : ""}
             </span>
@@ -426,7 +426,7 @@ function CourierCard({
                       <button
                         type="button"
                         onClick={() => toggleSecret(i)}
-                        className="shrink-0 rounded-md p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-amber-600 dark:hover:bg-gray-700 dark:hover:text-amber-400"
+                        className="shrink-0 rounded-md p-1 text-gray-400 transition-colors hover:bg-gray-100 hover:text-[#007BFF] dark:hover:bg-gray-700 dark:hover:text-[#007BFF]"
                         aria-label={revealed ? "Hide value" : "Show value"}
                       >
                         {revealed ? (
@@ -454,8 +454,8 @@ function CourierCard({
               className={cn(
                 "group/btn inline-flex items-center gap-1 rounded-lg px-2.5 py-1.5",
                 "text-[11px] font-semibold transition-all duration-200",
-                "text-gray-500 hover:text-amber-600 dark:text-gray-400 dark:hover:text-amber-400",
-                "hover:bg-amber-50 dark:hover:bg-amber-900/20",
+                "text-gray-500 hover:text-[#007BFF] dark:text-gray-400 dark:hover:text-[#007BFF]",
+                "hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20",
               )}
             >
               View
@@ -491,8 +491,8 @@ export function CourierSettingsGrid({
   if (data.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50/50 py-20 dark:border-gray-800 dark:bg-gray-900/50">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20 mb-4">
-          <Truck className="h-8 w-8 text-amber-400 dark:text-amber-600" />
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20 mb-4">
+          <Truck className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
         </div>
         <p className="text-base font-semibold text-gray-700 dark:text-gray-300">
           No courier providers configured

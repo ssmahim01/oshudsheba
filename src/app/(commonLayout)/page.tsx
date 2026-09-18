@@ -5,7 +5,8 @@ export default function Home() {
   return (
     <div>
       <Suspense fallback={null}>
-        <HomePage />
+        <p>Coming Soon.....</p>
+        {/* <HomePage /> */}
       </Suspense>
     </div>
   );

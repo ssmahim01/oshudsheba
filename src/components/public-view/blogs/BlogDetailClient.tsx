@@ -66,7 +66,7 @@ export function BlogDetailClient({ slug }: Props) {
         <div className="flex justify-center mt-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-amber-600 dark:text-amber-400 font-medium hover:underline"
+            className="inline-flex items-center gap-2 text-sm text-[#007BFF] dark:text-[#007BFF] font-medium hover:underline"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to all blogs
@@ -83,7 +83,7 @@ export function BlogDetailClient({ slug }: Props) {
       {/* Back link */}
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 mb-8 group transition-colors"
+        className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-[#007BFF] dark:hover:text-[#007BFF] mb-8 group transition-colors"
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         All articles
@@ -91,7 +91,7 @@ export function BlogDetailClient({ slug }: Props) {
 
       {/* Banner */}
       {blog.banner && (
-        <div className="relative h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden mb-8 shadow-md bg-amber-50 dark:bg-gray-800">
+        <div className="relative h-56 sm:h-72 lg:h-80 rounded-2xl overflow-hidden mb-8 shadow-md bg-[#007BFF] dark:bg-gray-800">
           <Image
             src={blog.banner}
             alt={blog.title}
@@ -111,7 +111,7 @@ export function BlogDetailClient({ slug }: Props) {
           <BlogCategoryBadge category={blog.category} size="md" />
 
           {blog.featured && (
-            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-semibold">
+            <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#007BFF] dark:bg-[#007BFF] text-[#007BFF] dark:text-[#007BFF] text-xs font-semibold">
               <Star className="h-3 w-3 fill-current" />
               Featured
             </span>
@@ -159,7 +159,7 @@ export function BlogDetailClient({ slug }: Props) {
         </div>
 
         {/* Divider */}
-        <div className="mt-6 h-px bg-linear-to-r from-amber-400/60 via-amber-200/30 to-transparent" />
+        <div className="mt-6 h-px bg-linear-to-r from-[#007BFF]/60 via-amber-200/30 to-transparent" />
       </header>
 
       {/* Thumbnail (if no banner, show as inline image) */}
@@ -193,7 +193,7 @@ export function BlogDetailClient({ slug }: Props) {
           {blog.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 text-xs font-medium border border-amber-200 dark:border-amber-800"
+              className="px-3 py-1 rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20 text-[#007BFF] dark:text-[#007BFF] text-xs font-medium border border-amber-200 dark:border-amber-800"
             >
               #{tag}
             </span>

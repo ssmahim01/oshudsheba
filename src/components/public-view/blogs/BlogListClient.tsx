@@ -29,8 +29,8 @@ export function BlogListClient() {
 
       {/* Refresh indicator */}
       {!isLoading && isFetching && (
-        <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 animate-pulse">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-500 inline-block" />
+        <div className="flex items-center gap-2 text-xs text-[#007BFF] dark:text-[#007BFF] animate-pulse">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#007BFF]0 inline-block" />
           Refreshing…
         </div>
       )}

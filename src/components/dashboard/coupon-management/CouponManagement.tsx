@@ -91,8 +91,8 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-amber-900/40">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-amber-50/0 transition-all duration-300 group-hover:bg-amber-50/30 dark:group-hover:bg-amber-900/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/30 dark:group-hover:bg-[#007BFF]/5" />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -131,7 +131,7 @@ function CopyCodeButton({ code }: { code: string }) {
     <button
       onClick={handle}
       title="Copy code"
-      className="ml-1 rounded p-0.5 text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+      className="ml-1 rounded p-0.5 text-gray-400 hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
     >
       {copied ? (
         <Check className="h-3 w-3 text-emerald-500" />
@@ -148,7 +148,7 @@ function TableSkeleton() {
       {[...Array(6)].map((_, i) => (
         <div
           key={i}
-          className="h-16 animate-pulse rounded-xl bg-amber-50/60 dark:bg-amber-900/10"
+          className="h-16 animate-pulse rounded-xl bg-[#007BFF]/60 dark:bg-[#007BFF]/10"
           style={{ animationDelay: `${i * 60}ms` }}
         />
       ))}
@@ -277,8 +277,8 @@ export default function CouponManagement() {
       <div className="flex items-start justify-between gap-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-              <Tag className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+              <Tag className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
               Coupons
@@ -290,7 +290,7 @@ export default function CouponManagement() {
         </div>
         <Button
           onClick={() => setCreateOpen(true)}
-          className="hover:cursor-pointer group gap-2 rounded-md bg-amber-500 text-white hover:bg-amber-600 dark:bg-amber-600 dark:hover:bg-amber-500 relative overflow-hidden transition-all duration-200 active:scale-95 shrink-0"
+          className="hover:cursor-pointer group gap-2 rounded-md bg-[#007BFF]0 text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0 relative overflow-hidden transition-all duration-200 active:scale-95 shrink-0"
         >
           <span
             aria-hidden
@@ -308,7 +308,7 @@ export default function CouponManagement() {
           label="Total Coupons"
           value={totalCount}
           icon={Tag}
-          accent="bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
         />
         <StatCard
           label="Active"
@@ -346,7 +346,7 @@ export default function CouponManagement() {
               placeholder="Search by coupon code…"
               value={localSearch}
               onChange={handleSearchInput}
-              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors font-mono tracking-wider"
+              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors font-mono tracking-wider"
             />
             {localSearch && (
               <button
@@ -368,7 +368,7 @@ export default function CouponManagement() {
                 setPage(1);
               }}
             >
-              <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+              <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
                 <SelectValue placeholder="All Status" />
               </SelectTrigger>
               <SelectContent className="rounded-xl">
@@ -403,7 +403,7 @@ export default function CouponManagement() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="group h-10 shrink-0 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 dark:border-gray-700 dark:text-gray-400 dark:hover:border-amber-700 dark:hover:text-amber-400 transition-colors"
+              className="group h-10 shrink-0 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
               Reset
@@ -421,13 +421,13 @@ export default function CouponManagement() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <Search className="h-3 w-3" />
                 &quot;{search}&quot;
                 <button
                   onClick={clearSearch}
-                  className="ml-0.5 hover:text-amber-900"
+                  className="ml-0.5 hover:text-[#007BFF]"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -483,7 +483,7 @@ export default function CouponManagement() {
           </div>
         ) : filteredCoupons.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
               <Tag className="h-8 w-8 text-amber-300 dark:text-amber-800" />
             </div>
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
@@ -497,7 +497,7 @@ export default function CouponManagement() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-amber-100/80 bg-amber-50/50 dark:border-amber-900/20 dark:bg-amber-900/5">
+                <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/50 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
                   {[
                     { label: "Code", cls: "pl-5 min-w-[140px]" },
                     { label: "Type & Value", cls: "" },
@@ -513,7 +513,7 @@ export default function CouponManagement() {
                     <th
                       key={col.label}
                       className={cn(
-                        "py-3 px-3 text-[10px] font-bold uppercase tracking-widest text-amber-700/60 dark:text-amber-500/60",
+                        "py-3 px-3 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60",
                         col.cls,
                       )}
                     >
@@ -539,14 +539,14 @@ export default function CouponManagement() {
                         "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors duration-100",
                         idx % 2 === 0
                           ? "bg-white dark:bg-gray-900"
-                          : "bg-amber-50/10 dark:bg-amber-900/5",
-                        "hover:bg-amber-50/40 dark:hover:bg-amber-900/10",
+                          : "bg-[#007BFF]/10 dark:bg-[#007BFF]/5",
+                        "hover:bg-[#007BFF]/40 dark:hover:bg-[#007BFF]/10",
                       )}
                     >
                       {/* Code */}
                       <td className="px-3 pl-5 py-3.5">
                         <div className="flex items-center gap-1.5">
-                          <code className="rounded-md bg-amber-50 px-2 py-0.5 font-mono text-sm font-bold tracking-widest text-amber-700 dark:bg-amber-900/20 dark:text-amber-400">
+                          <code className="rounded-md bg-[#007BFF] px-2 py-0.5 font-mono text-sm font-bold tracking-widest text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
                             {coupon.code}
                           </code>
                           <CopyCodeButton code={coupon.code} />
@@ -563,12 +563,12 @@ export default function CouponManagement() {
                             className={cn(
                               "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg",
                               coupon.discountType === "PERCENT"
-                                ? "bg-amber-50 dark:bg-amber-900/20"
+                                ? "bg-[#007BFF] dark:bg-[#007BFF]/20"
                                 : "bg-emerald-50 dark:bg-emerald-900/20",
                             )}
                           >
                             {coupon.discountType === "PERCENT" ? (
-                              <Percent className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                              <Percent className="h-3.5 w-3.5 text-[#007BFF] dark:text-[#007BFF]" />
                             ) : (
                               <DollarSign className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
                             )}
@@ -622,7 +622,7 @@ export default function CouponManagement() {
                                   ? "bg-red-500"
                                   : pct >= 80
                                     ? "bg-orange-500"
-                                    : "bg-amber-500",
+                                    : "bg-[#007BFF]0",
                               )}
                               style={{ width: `${pct}%` }}
                             />
@@ -737,7 +737,7 @@ export default function CouponManagement() {
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>
@@ -755,7 +755,7 @@ export default function CouponManagement() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-amber-400 text-amber-700 bg-amber-50 dark:border-amber-700 dark:text-amber-400 dark:bg-amber-900/20",
+                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}
@@ -769,7 +769,7 @@ export default function CouponManagement() {
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>
@@ -778,11 +778,11 @@ export default function CouponManagement() {
         </div>
       )}
 
-      <div className="rounded-2xl border border-amber-200/60 bg-amber-50/40 p-4 dark:border-amber-900/30 dark:bg-amber-900/10">
-        <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-amber-600/70 dark:text-amber-500/70">
+      <div className="rounded-2xl border border-amber-200/60 bg-[#007BFF]/40 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+        <p className="mb-2 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70">
           How Coupons Work
         </p>
-        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs text-amber-700/80 dark:text-amber-400/80">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 text-xs text-[#007BFF]/80 dark:text-[#007BFF]/80">
           <div className="flex items-start gap-2">
             <Percent className="mt-0.5 h-3.5 w-3.5 shrink-0" />
             <span>

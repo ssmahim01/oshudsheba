@@ -99,7 +99,7 @@ export function ConfirmOrderModal({
             onClick={() => onConfirm(order?._id as any)
             }
             disabled={loading}
-            className="min-w-30 hover:cursor-pointer hover:scale-105 bg-amber-600 hover:bg-amber-700 transition-transform ease-in-out duration-500"
+            className="min-w-30 hover:cursor-pointer hover:scale-105 bg-[#007BFF] hover:bg-[#007BFF] transition-transform ease-in-out duration-500"
           >
             {loading ? <Spinner className="mr-2 h-4 w-4" /> : null}
             {loading

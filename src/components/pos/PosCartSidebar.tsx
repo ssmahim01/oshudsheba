@@ -541,9 +541,9 @@ export function POSCartSidebar({
 
       {/* ── Waiting-for-stock notice ── */}
       {waitingStockCount > 0 && (
-        <div className="mx-4 mb-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 dark:border-amber-800/60 dark:bg-amber-900/20">
-          <PackageSearch className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
-          <p className="text-[11px] leading-relaxed text-amber-700 dark:text-amber-400">
+        <div className="mx-4 mb-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-[#007BFF] px-3 py-2 dark:border-amber-800/60 dark:bg-[#007BFF]/20">
+          <PackageSearch className="mt-0.5 h-4 w-4 shrink-0 text-[#007BFF] dark:text-[#007BFF]" />
+          <p className="text-[11px] leading-relaxed text-[#007BFF] dark:text-[#007BFF]">
             {waitingStockCount} unit(s) exceed current stock and will be marked{" "}
             <span className="font-semibold">Waiting for Stock</span> until
             restocked.

@@ -26,7 +26,7 @@ const orderStatusStyles: Record<string, string> = {
   CONFIRMED:
     "bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-800",
   PENDING:
-    "bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800",
+    "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF] dark:text-[#007BFF] dark:border-amber-800",
   COMPLETED:
     "bg-lime-100 text-lime-700 border-lime-200 dark:bg-lime-900/30 dark:text-lime-400 dark:border-lime-800",
   CANCELLED:
@@ -63,7 +63,7 @@ const deliveryStatusStyles: Record<string, string> = {
     "bg-orange-100 text-orange-700 border-orange-200 dark:bg-orange-900/30 dark:text-orange-400 dark:border-orange-800",
   HOLD: "bg-yellow-100 text-yellow-700 border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-400 dark:border-yellow-800",
   PENDING:
-    "bg-amber-100 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800",
+    "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF] dark:text-[#007BFF] dark:border-amber-800",
 
   // Initial states
   NOT_SHIPPED:

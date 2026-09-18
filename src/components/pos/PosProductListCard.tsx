@@ -114,7 +114,7 @@ export function POSProductListCard({
                     className={cn(
                       "h-3 w-3",
                       i < Math.round(product.ratings ?? 0)
-                        ? "fill-amber-400 text-amber-400"
+                        ? "fill-[#007BFF] text-[#007BFF]"
                         : "fill-transparent text-gray-300 dark:text-gray-600",
                     )}
                   />

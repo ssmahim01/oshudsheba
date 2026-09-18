@@ -289,7 +289,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-hidden flex flex-col">
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" />
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-xl font-bold text-gray-900 dark:text-white">
@@ -305,7 +305,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
             {/* Smart Order Selection with Search */}
             <div className="space-y-3">
               <Label className="flex items-center gap-1.5 text-sm font-semibold">
-                <Package className="h-4 w-4 text-amber-500" />
+                <Package className="h-4 w-4 text-[#007BFF]0" />
                 Select Order <span className="text-red-500">*</span>
               </Label>
 
@@ -316,7 +316,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
                   value={orderSearch}
                   onChange={(e) => setOrderSearch(e.target.value)}
                   onFocus={() => setDropdownOpen(true)}
-                  className="h-10 rounded-lg border-gray-200 bg-gray-50/60 pl-9 pr-8 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800"
+                  className="h-10 rounded-lg border-gray-200 bg-gray-50/60 pl-9 pr-8 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800"
                 />
                 {orderSearch ? (
                   <button
@@ -385,7 +385,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
                               className={cn(
                                 "w-full rounded-lg px-3 py-2.5 text-left transition-colors mb-1",
                                 selectedOrder === order._id
-                                  ? "bg-amber-50 dark:bg-amber-900/20"
+                                  ? "bg-[#007BFF] dark:bg-[#007BFF]/20"
                                   : "hover:bg-gray-50/60 dark:hover:bg-gray-800/40",
                               )}
                             >
@@ -428,7 +428,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
                                     {order.orderStatus}
                                   </Badge>
                                   {selectedOrder === order._id && (
-                                    <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400 text-xs">
+                                    <Badge className="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF] text-xs">
                                       Selected
                                     </Badge>
                                   )}
@@ -445,14 +445,14 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
 
               {/* Selected Order Summary */}
               {selectedOrderDisplay && (
-                <div className="rounded-lg border border-amber-200/50 bg-amber-50/30 p-3 dark:border-amber-900/30 dark:bg-amber-900/10">
+                <div className="rounded-lg border border-amber-200/50 bg-[#007BFF]/30 p-3 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-sm font-semibold text-gray-900 dark:text-white">
                         {selectedOrderDisplay.customOrderId ||
                           selectedOrderDisplay._id.slice(0, 12)}
                       </span>
-                      <span className="text-xs font-medium text-amber-600 dark:text-amber-400">
+                      <span className="text-xs font-medium text-[#007BFF] dark:text-[#007BFF]">
                         ৳{selectedOrderDisplay.total?.toFixed(2)}
                       </span>
                     </div>
@@ -571,7 +571,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
                                             className={cn(
                                               "mb-1 w-full rounded-lg p-3 text-left transition-all",
                                               selected
-                                                ? "bg-amber-50 dark:bg-amber-900/20"
+                                                ? "bg-[#007BFF] dark:bg-[#007BFF]/20"
                                                 : "hover:bg-gray-50 dark:hover:bg-gray-800",
                                             )}
                                           >
@@ -604,7 +604,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
                                               </div>
 
                                               {selected && (
-                                                <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                                                <Badge className="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]">
                                                   Selected
                                                 </Badge>
                                               )}
@@ -828,7 +828,7 @@ export const CreateReturnModal: React.FC<CreateReturnModalProps> = ({
           <Button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="gap-2 bg-amber-600 hover:cursor-pointer hover:bg-amber-700 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className="gap-2 bg-[#007BFF] hover:cursor-pointer hover:bg-[#007BFF] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
           >
             {isLoading ? "Creating..." : "Create Return"}
           </Button>

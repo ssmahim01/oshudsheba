@@ -52,7 +52,7 @@ export function ProductVerificationCard({
             </p>
           </div>
           {data.featured && (
-            <Star className="w-5 h-5 text-amber-400 fill-amber-400 shrink-0" />
+            <Star className="w-5 h-5 text-[#007BFF] fill-[#007BFF] shrink-0" />
           )}
         </div>
 

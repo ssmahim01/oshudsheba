@@ -54,10 +54,10 @@ const CATEGORY_COLORS: Record<
       "bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300",
   },
   Accessories: {
-    bg: "bg-amber-50 dark:bg-amber-950/20",
-    text: "text-amber-700 dark:text-amber-300",
+    bg: "bg-[#007BFF] dark:bg-amber-950/20",
+    text: "text-[#007BFF] dark:text-amber-300",
     badge:
-      "bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300",
+      "bg-[#007BFF] dark:bg-[#007BFF]/40 text-[#007BFF] dark:text-amber-300",
   },
 };
 
@@ -92,7 +92,7 @@ function VerificationCard({ verification, onWatch }: VerificationCardProps) {
             loading="lazy"
           />
         ) : (
-          <div className="w-full h-full bg-linear-to-br from-amber-100 dark:from-amber-900/30 to-orange-100 dark:to-orange-900/30 flex items-center justify-center">
+          <div className="w-full h-full bg-linear-to-br from-[#007BFF] dark:from-[#007BFF] to-orange-100 dark:to-orange-900/30 flex items-center justify-center">
             <div className="text-slate-400 dark:text-slate-500">
               {mediaIcon}
             </div>
@@ -115,7 +115,7 @@ function VerificationCard({ verification, onWatch }: VerificationCardProps) {
 
         {/* Featured Badge */}
         {verification.featured && (
-          <div className="absolute top-3 right-3 bg-amber-500 dark:bg-amber-600 text-white px-2 py-1 rounded-md flex items-center gap-1 text-xs font-semibold">
+          <div className="absolute top-3 right-3 bg-[#007BFF]0 dark:bg-[#007BFF] text-white px-2 py-1 rounded-md flex items-center gap-1 text-xs font-semibold">
             <Star className="w-3 h-3 fill-current" />
             Featured
           </div>
@@ -145,7 +145,7 @@ function VerificationCard({ verification, onWatch }: VerificationCardProps) {
         {/* Title */}
         <Link
           href={`/product/${verification?.product?.slug}`}
-          className="font-bold text-base hover:text-amber-600 transition-colors line-clamp-2 uppercase"
+          className="font-bold text-base hover:text-[#007BFF] transition-colors line-clamp-2 uppercase"
         >
           {verification.product?.title}
         </Link>
@@ -209,7 +209,7 @@ export default function ProductVerificationSection() {
 
           {/* CTA Button */}
           <Link href="/product-verification">
-            <Button className="hover:cursor-pointer bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800 text-white px-6 py-2 rounded-lg flex items-center gap-2 mx-auto transition-all duration-300 hover:scale-105">
+            <Button className="hover:cursor-pointer bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-amber-800 text-white px-6 py-2 rounded-lg flex items-center gap-2 mx-auto transition-all duration-300 hover:scale-105">
               View All Guides
               <ArrowRight className="w-4 h-4" />
             </Button>

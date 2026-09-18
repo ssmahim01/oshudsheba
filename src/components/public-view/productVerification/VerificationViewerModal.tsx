@@ -116,7 +116,7 @@ export function VerificationViewerModal({
                 </p>
                 <Button
                   asChild
-                  className="bg-amber-600 hover:bg-amber-700 text-white"
+                  className="bg-[#007BFF] hover:bg-[#007BFF] text-white"
                 >
                   <a href={verification.mediaUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-4 w-4 mr-2" />
@@ -133,7 +133,7 @@ export function VerificationViewerModal({
                 </p>
                 <Button
                   asChild
-                  className="bg-amber-600 hover:bg-amber-700 text-white"
+                  className="bg-[#007BFF] hover:bg-[#007BFF] text-white"
                 >
                   <a href={verification.mediaUrl} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-4 w-4 mr-2" />
@@ -206,7 +206,7 @@ export function VerificationViewerModal({
                   {verification.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300 rounded-full text-sm font-medium"
                     >
                       {tag}
                     </span>
@@ -236,7 +236,7 @@ export function VerificationViewerModal({
             </Button>
             <Button
               onClick={() => onOpenChange(false)}
-              className="flex-1 bg-amber-600 hover:bg-amber-700 text-white"
+              className="flex-1 bg-[#007BFF] hover:bg-[#007BFF] text-white"
             >
               Close
             </Button>

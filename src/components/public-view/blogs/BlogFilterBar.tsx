@@ -17,8 +17,8 @@ interface Props {
 const pillCls = (active: boolean) =>
   `h-9 px-4 rounded-full text-sm font-medium border transition-all cursor-pointer whitespace-nowrap ${
     active
-      ? "bg-amber-500 border-amber-500 text-white shadow-sm"
-      : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600"
+      ? "bg-[#007BFF]0 border-[#007BFF]0 text-white shadow-sm"
+      : "bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#007BFF] hover:text-[#007BFF]"
   }`;
 
 export function BlogFilterBar({ params, onSearch, onCategory, onFeatured, onReset }: Props) {
@@ -44,7 +44,7 @@ export function BlogFilterBar({ params, onSearch, onCategory, onFeatured, onRese
             w-full h-11 pl-11 pr-10 rounded-2xl border border-gray-200 dark:border-gray-700
             bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-200
             placeholder:text-gray-400 focus:outline-none focus:ring-2
-            focus:ring-amber-400/50 focus:border-amber-400 transition-all shadow-sm
+            focus:ring-[#007BFF]/50 focus:border-[#007BFF] transition-all shadow-sm
           "
         />
         {searchInput && (

@@ -52,7 +52,7 @@ export default function OshudShebaFooter() {
           <div>
             <Link href="/">
               <Image
-                src="/assets/FRN-Logo-scaled.webp"
+                src="/assets/oshudsheba.png"
                 alt="Oshud Sheba"
                 width={180}
                 height={50}

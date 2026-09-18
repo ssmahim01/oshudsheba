@@ -55,7 +55,7 @@ export function BlogPagination({
         <button
           onClick={() => onPage(page - 1)}
           disabled={page === 1}
-          className="h-9 w-9 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="h-9 w-9 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20 hover:border-amber-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
@@ -71,8 +71,8 @@ export function BlogPagination({
               onClick={() => onPage(p as number)}
               className={`h-9 min-w-9 px-2 rounded-xl text-sm font-medium transition-all border ${
                 p === page
-                  ? "bg-amber-500 border-amber-500 text-white shadow-sm"
-                  : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300"
+                  ? "bg-[#007BFF]0 border-[#007BFF]0 text-white shadow-sm"
+                  : "border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20 hover:border-amber-300"
               }`}
             >
               {p}
@@ -83,7 +83,7 @@ export function BlogPagination({
         <button
           onClick={() => onPage(page + 1)}
           disabled={page === totalPage}
-          className="h-9 w-9 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:border-amber-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+          className="h-9 w-9 flex items-center justify-center rounded-xl border border-gray-200 dark:border-gray-700 text-gray-500 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20 hover:border-amber-300 disabled:opacity-40 disabled:cursor-not-allowed transition-all"
         >
           <ChevronRight className="h-4 w-4" />
         </button>

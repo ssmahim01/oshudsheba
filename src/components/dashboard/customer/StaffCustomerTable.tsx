@@ -55,7 +55,7 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
       <Card className="border-gray-200 dark:border-gray-700">
         <div className="flex items-center justify-center py-12">
           <div className="flex flex-col items-center gap-2">
-            <div className="h-3 w-3 rounded-full bg-amber-500 animate-pulse" />
+            <div className="h-3 w-3 rounded-full bg-[#007BFF]0 animate-pulse" />
             <span className="text-sm text-gray-600 dark:text-gray-400">
               Loading customers...
             </span>
@@ -94,24 +94,24 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
     <Card className="border-gray-200 dark:border-gray-700 p-0 overflow-hidden">
       <ScrollArea className="w-full md:max-w-full max-w-md">
         <Table>
-          <TableHeader className="bg-linear-to-r from-amber-50 to-amber-50/50 dark:from-amber-950/30 dark:to-amber-950/10">
-            <TableRow className="border-b border-amber-200 dark:border-amber-900/30 hover:bg-transparent">
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+          <TableHeader className="bg-linear-to-r from-[#007BFF] to-[#007BFF]/50 dark:from-[#007BFF] dark:to-amber-950/10">
+            <TableRow className="border-b border-amber-200 dark:border-[#007BFF] hover:bg-transparent">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Customer Name
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Contact
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Orders
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Total Spent
               </TableHead>
-              <TableHead className="text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Last Order
               </TableHead>
-              <TableHead className="text-right text-amber-900 dark:text-amber-100 font-bold">
+              <TableHead className="text-right text-[#007BFF] dark:text-[#007BFF] font-bold">
                 Actions
               </TableHead>
             </TableRow>
@@ -121,7 +121,7 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
             {customers.map((customer) => (
               <TableRow
                 key={customer.phone}
-                className="border-b border-gray-100 dark:border-gray-800 hover:bg-amber-50/20 dark:hover:bg-amber-950/10 transition-colors"
+                className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/20 dark:hover:bg-amber-950/10 transition-colors"
               >
                 <TableCell className="font-semibold text-gray-900 dark:text-white">
                   {customer.fullName}
@@ -164,7 +164,7 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8 hover:bg-amber-100 dark:hover:bg-amber-900/20"
+                        className="h-8 w-8 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20"
                       >
                         <MoreHorizontal className="h-4 w-4 text-gray-600 dark:text-gray-400" />
                       </Button>
@@ -175,7 +175,7 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
                         onClick={() => onView?.(customer)}
                         className="cursor-pointer gap-2"
                       >
-                        <Eye className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                        <Eye className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                         <span>View Details</span>
                       </DropdownMenuItem>
 

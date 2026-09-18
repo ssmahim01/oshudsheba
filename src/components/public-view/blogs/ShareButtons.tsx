@@ -43,7 +43,7 @@ export function ShareButtons({ title, slug }: Props) {
       {/* Copy link */}
       <button
         onClick={copy}
-        className={`${btnCls} border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-amber-400 hover:text-amber-600 bg-white dark:bg-gray-900`}
+        className={`${btnCls} border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-400 hover:border-[#007BFF] hover:text-[#007BFF] bg-white dark:bg-gray-900`}
       >
         {copied ? <Check className="h-3.5 w-3.5 text-emerald-500" /> : <Link2 className="h-3.5 w-3.5" />}
         {copied ? "Copied!" : "Copy link"}

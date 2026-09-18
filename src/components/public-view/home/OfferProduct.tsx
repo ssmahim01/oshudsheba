@@ -63,7 +63,7 @@ const OfferProduct = () => {
               <div className="mt-5 flex justify-center">
                 <Button
                     onClick={() => router.push("/shop")}
-                    className="h-9 rounded-md cursor-pointer bg-amber-500 px-4 text-sm font-medium text-white hover:bg-amber-600">
+                    className="h-9 rounded-md cursor-pointer bg-[#007BFF]0 px-4 text-sm font-medium text-white hover:bg-[#007BFF]">
                   Go Shopping <ArrowRight className="size-4" />
                 </Button>
               </div>
@@ -129,7 +129,7 @@ const OfferProduct = () => {
                               <span className="text-gray-400 line-through mr-1">
                                 ৳{item.price}
                               </span>
-                                    <span className="font-semibold text-amber-600">
+                                    <span className="font-semibold text-[#007BFF]">
                                 ৳{item.discountPrice}
                               </span>
                                   </>

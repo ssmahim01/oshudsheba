@@ -101,7 +101,7 @@ export function POSCartItemComponent({
           <div
             className={cn(
               "flex items-center gap-1.5 rounded-md px-2 py-1",
-              "bg-amber-50 text-amber-700 dark:bg-amber-900/20 dark:text-amber-400",
+              "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]",
             )}
           >
             <PackageSearch className="h-3 w-3 shrink-0" />

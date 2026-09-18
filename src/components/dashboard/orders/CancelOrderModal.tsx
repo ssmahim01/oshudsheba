@@ -106,21 +106,21 @@ export function CancelOrderModal({
               </div>
 
               {/* Warning Message */}
-              <div className="rounded-lg border border-amber-200/60 bg-amber-50/60 p-3.5 dark:border-amber-900/30 dark:bg-amber-900/10">
-                <p className="text-sm font-medium text-amber-900 dark:text-amber-200">
+              <div className="rounded-lg border border-amber-200/60 bg-[#007BFF]/60 p-3.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+                <p className="text-sm font-medium text-[#007BFF] dark:text-amber-200">
                   Cancelling will:
                 </p>
                 <ul className="mt-2 space-y-1.5 text-xs text-amber-800 dark:text-amber-300">
                   <li className="flex items-center gap-2">
-                    <span className="h-1 w-1 rounded-full bg-amber-500" />
+                    <span className="h-1 w-1 rounded-full bg-[#007BFF]0" />
                     Set order status to CANCELLED
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1 w-1 rounded-full bg-amber-500" />
+                    <span className="h-1 w-1 rounded-full bg-[#007BFF]0" />
                     Set delivery status to CANCELLED
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="h-1 w-1 rounded-full bg-amber-500" />
+                    <span className="h-1 w-1 rounded-full bg-[#007BFF]0" />
                     This cannot be undone immediately
                   </li>
                 </ul>

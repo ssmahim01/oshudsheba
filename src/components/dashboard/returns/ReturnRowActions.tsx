@@ -46,7 +46,7 @@ export const ReturnRowActions: React.FC<ReturnRowActionsProps> = ({
           onClick={onStatusChange}
           className="gap-2 cursor-pointer"
         >
-          <RefreshCw className="h-4 w-4 text-amber-600" />
+          <RefreshCw className="h-4 w-4 text-[#007BFF]" />
           <span>Update Status</span>
         </DropdownMenuItem>
 

@@ -513,7 +513,7 @@ const UpdateProduct = () => {
                         onWheel={(e) => e.currentTarget.blur()}
                         placeholder="e.g., 5 to add, -5 to subtract"
                         {...register("adjustStock")}
-                        className="border-amber-200 focus:border-amber-400 dark:border-amber-800/40 dark:focus:border-amber-600"
+                        className="border-amber-200 focus:border-[#007BFF] dark:border-amber-800/40 dark:focus:border-[#007BFF]"
                       />
                       <p className="text-[11px] text-gray-500 dark:text-gray-400">
                         Enter positive number to add stock, negative to remove
@@ -584,7 +584,7 @@ const UpdateProduct = () => {
                   {oldImages.map((img, i) => (
                     <div
                       key={`old-${i}`}
-                      className="group relative w-full aspect-square rounded-lg overflow-hidden border border-amber-200/30 dark:border-amber-900/30 hover:border-amber-400/60 dark:hover:border-amber-600/60 transition-all duration-200"
+                      className="group relative w-full aspect-square rounded-lg overflow-hidden border border-amber-200/30 dark:border-[#007BFF] hover:border-[#007BFF]/60 dark:hover:border-[#007BFF]/60 transition-all duration-200"
                     >
                       <Image
                         src={img}
@@ -623,9 +623,9 @@ const UpdateProduct = () => {
                 </span>
               </div>
 
-              <label className="border-2 border-dashed border-amber-200/50 dark:border-amber-900/50 rounded-xl p-8 flex flex-col items-center cursor-pointer hover:border-amber-500/80 dark:hover:border-amber-500/60 hover:bg-amber-50/30 dark:hover:bg-amber-950/20 transition-all duration-300 active:scale-95">
+              <label className="border-2 border-dashed border-amber-200/50 dark:border-[#007BFF]/50 rounded-xl p-8 flex flex-col items-center cursor-pointer hover:border-[#007BFF]0/80 dark:hover:border-[#007BFF]0/60 hover:bg-[#007BFF]/30 dark:hover:bg-amber-950/20 transition-all duration-300 active:scale-95">
                 <div className="relative mb-3">
-                  <Upload className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+                  <Upload className="w-8 h-8 text-[#007BFF] dark:text-[#007BFF]" />
                 </div>
                 <span className="text-sm font-medium text-foreground">
                   Drop new images or click to upload
@@ -648,14 +648,14 @@ const UpdateProduct = () => {
               {uploadingImages && (
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <Loader2 className="w-4 h-4 animate-spin text-amber-600" />
+                    <Loader2 className="w-4 h-4 animate-spin text-[#007BFF]" />
                     <span className="text-sm text-muted-foreground">
                       Uploading to Cloudinary... {uploadProgress}%
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2 dark:bg-gray-700 overflow-hidden">
                     <div
-                      className="bg-linear-to-r from-amber-500 to-amber-600 h-full transition-all duration-300"
+                      className="bg-linear-to-r from-[#007BFF]0 to-[#007BFF] h-full transition-all duration-300"
                       style={{ width: `${uploadProgress}%` }}
                     />
                   </div>
@@ -668,7 +668,7 @@ const UpdateProduct = () => {
                   {previews.map((src, i) => (
                     <div
                       key={`new-${i}`}
-                      className="group relative w-full aspect-square rounded-lg overflow-hidden border border-amber-200/30 dark:border-amber-900/30 hover:border-amber-400/60 dark:hover:border-amber-600/60 transition-all duration-200"
+                      className="group relative w-full aspect-square rounded-lg overflow-hidden border border-amber-200/30 dark:border-[#007BFF] hover:border-[#007BFF]/60 dark:hover:border-[#007BFF]/60 transition-all duration-200"
                     >
                       <Image
                         src={src}
@@ -698,7 +698,7 @@ const UpdateProduct = () => {
               )}
             </div>
             <Button
-              className="hover:cursor-pointer w-full bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="hover:cursor-pointer w-full bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
               type="submit"
               disabled={isLoading || uploadingImages}
             >

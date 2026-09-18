@@ -72,8 +72,8 @@ export function BlogTableSkeleton({ rows = 8 }: { rows?: number }) {
 export function BlogEmptyState({ onAdd }: { onAdd: () => void }) {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4 text-center">
-      <div className="h-16 w-16 rounded-2xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-4">
-        <BookOpen className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+      <div className="h-16 w-16 rounded-2xl bg-[#007BFF] dark:bg-[#007BFF] flex items-center justify-center mb-4">
+        <BookOpen className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
       </div>
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
         No blogs found
@@ -83,7 +83,7 @@ export function BlogEmptyState({ onAdd }: { onAdd: () => void }) {
       </p>
       <button
         onClick={onAdd}
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-600 text-white text-sm font-medium transition-colors"
+        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#007BFF]0 hover:bg-[#007BFF] text-white text-sm font-medium transition-colors"
       >
         <Plus className="h-4 w-4" />
         Create Blog

@@ -17,11 +17,11 @@ export default function FormHeader({
     return (
         <div className="flex items-center gap-3">
             {/* Icon */}
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
                 {type === "create" ? (
                     <Plus className="h-4 w-4 text-green-600 dark:text-green-400" />
                 ) : (
-                    <PencilLine className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+                    <PencilLine className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
                 )}
             </div>
 

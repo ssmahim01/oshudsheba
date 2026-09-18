@@ -1,228 +1,129 @@
+"use client";
 
-"use client"
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Leaf, Lock, User } from "lucide-react";
 
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { Eye, EyeOff } from 'lucide-react'
-
+import { AUTH_ROUTES } from "@/constants/auth";
+import { useLogin } from "@/hooks/useLogin";
 import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Label } from '@/components/ui/label'
+  loginDefaultValues,
+  loginSchema,
+  type LoginFormValues,
+} from "@/lib/validations/auth";
 
-import Image from 'next/image'
-import logo from "../../../public/assets/FRN-Logo-scaled.webp"
-import { toast } from 'sonner'
-import { loginUser } from '@/utils/loginUser'
-import { useUser } from '@/context/UserContext'
-import {useRouter} from "next/navigation";
-
-
-const loginSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
-})
-
-type LoginFormValues = z.infer<typeof loginSchema>
+import AuthButton from "./AuthButton";
+import AuthCard from "./AuthCard";
+import AuthInput from "./AuthInput";
+import SocialAuthButtons from "./SocialAuthButtons";
+import { authLinkClass } from "./auth-styles";
 
 interface LoginFormProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onSwitchToSignup: () => void;
-  onSwitchToForgot?: () => void;
+  forgotPasswordHref?: string;
+  registerHref?: string;
 }
 
-export function LoginForm({
-  isOpen,
-  onClose,
-  onSwitchToSignup,
-  onSwitchToForgot,
+export default function LoginForm({
+  forgotPasswordHref = AUTH_ROUTES.forgotPassword,
+  registerHref = AUTH_ROUTES.register,
 }: LoginFormProps) {
-  const [isLoading, setIsLoading] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
-  const { login } = useUser();
-  const router = useRouter();
+  const { submit, isLoading } = useLogin();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
-  })
+    defaultValues: loginDefaultValues,
+  });
 
   const onSubmit = async (data: LoginFormValues) => {
-     setIsLoading(true)
-        const res = await loginUser(data);
+    const succeeded = await submit(data);
 
-        if (res.success) {
-            login(res.user.user);
-            if (res.user.user.role === "CUSTOMER" || res.user.user.role === "GENERALSTAFF") {
-                router.push("/staff/dashboard");
-            } else if ((res.user.user.role === "MANAGER") || (res.user.user.role === "MODERATOR"
-             || (res.user.user.role === "ADMIN") || (res.user.user.role === "TELESALES")
-            )) {
-                router.push("/staff/dashboard");
-            } else {
-                router.push("/");
-            }
-            toast.success("Login successful!");
-            setIsLoading(false)
-            onClose();
-        } else {
-            toast.error(res.message || "Login failed!");
-            setIsLoading(false)
-        }
-  }
+    if (succeeded) reset();
+  };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent
-        className="
-          sm:max-w-md max-h-[90vh] overflow-y-auto
-          border border-[#c9a84c]
-          bg-[#2D3436]
-          text-white
-          p-6
-        "
-      >
-        {/* Gold accent line at top */}
-        <div className="absolute left-0 right-0 top-0 h-0.5 rounded-t-lg bg-linear-to-r from-transparent via-[#c9a84c] to-transparent" />
-
-        {/* Header */}
-        <DialogHeader className="flex flex-col items-center gap-2 pb-2">
-          <Image
-            src={logo}
-            alt="Oshud Sheba"
-            height={60}
-            width={120}
-            className="object-contain"
-          />
-          <DialogTitle className="text-xl font-bold tracking-widest text-[#c9a84c] uppercase">
-            Welcome Back
-          </DialogTitle>
-          <DialogDescription className="text-[#96999A] text-sm tracking-wide">
-            Log in to continue to Oshud Sheba
-          </DialogDescription>
-        </DialogHeader>
-
-        {/* Divider */}
-        <div className="my-1 h-px bg-[#3d4f51]" />
-
-        {/* Form */}
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 pt-1">
-
-          {/* Email */}
-          <div className="space-y-1.5">
-            <Label className="text-[#c9a84c] text-xs font-semibold tracking-widest uppercase">
-              Email Address
-            </Label>
-            <Input
-              type="email"
-              placeholder="you@example.com"
-              {...register("email")}
-              className="
-                border-[#4a5568] bg-[#1e2829]
-                text-white placeholder:text-[#96999A]
-                focus-visible:ring-[#c9a84c] focus-visible:border-[#c9a84c]
-                transition-colors
-              "
-            />
-            {errors.email && (
-              <p className="text-xs text-red-400">{errors.email.message}</p>
-            )}
-          </div>
-
-          {/* Password */}
-          <div className="space-y-1.5">
-            <Label className="text-[#c9a84c] text-xs font-semibold tracking-widest uppercase">
-              Password
-            </Label>
-            <div className="relative">
-              <Input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-                {...register("password")}
-                className="
-                  border-[#4a5568] bg-[#1e2829]
-                  text-white placeholder:text-[#96999A] pr-10
-                  focus-visible:ring-[#c9a84c] focus-visible:border-[#c9a84c]
-                  transition-colors
-                "
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword((v) => !v)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#96999A] hover:text-[#c9a84c] transition-colors"
-              >
-                {showPassword
-                  ? <EyeOff className="h-4 w-4" />
-                  : <Eye className="h-4 w-4" />
-                }
-              </button>
-            </div>
-            {errors.password && (
-              <p className="text-xs text-red-400">{errors.password.message}</p>
-            )}
-          </div>
-
-          {/* Forgot password */}
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={() => { onClose(); onSwitchToForgot?.(); }}
-              className="text-xs text-[#c9a84c] hover:underline transition-opacity font-medium"
-            >
-              Forgot password?
-            </button>
-          </div>
-
-          {/* Submit */}
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="
-              w-full
-              bg-[#c9a84c] hover:bg-[#d4b86a]
-              text-[#0f1e0f] font-bold tracking-widest uppercase
-              transition-colors disabled:opacity-60
-            "
-          >
-            {isLoading ? (
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-[#0f1e0f] border-t-transparent" />
-                Logging in...
-              </span>
-            ) : (
-              "Log In"
-            )}
-          </Button>
-        </form>
-
-        {/* Divider */}
-        <div className="my-1 h-px bg-[#3d4f51]" />
-
-        {/* Switch to signup */}
-        <p className="text-center text-sm text-[#96999A]">
-          Don&apos;t have an account?{" "}
-          <button
-            type="button"
-            onClick={() => { onClose(); onSwitchToSignup(); }}
-            className="text-[#c9a84c] font-semibold hover:underline transition-opacity"
-          >
-            Sign up
-          </button>
+    <AuthCard>
+      <header className="mb-6 space-y-1.5">
+        <h1 className="text-2xl font-bold tracking-tight text-oshud-navy sm:text-3xl dark:text-white">
+          Welcome back
+        </h1>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          Log in to continue to OshudSheba
         </p>
-      </DialogContent>
-    </Dialog>
-  )
+      </header>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>
+        <AuthInput
+          id="identifier"
+          label="Email or mobile number"
+          icon={User}
+          type="text"
+          autoComplete="username"
+          placeholder="Enter your email or mobile number"
+          disabled={isLoading}
+          error={errors.identifier?.message}
+          {...register("identifier")}
+        />
+
+        <AuthInput
+          id="password"
+          label="Password"
+          icon={Lock}
+          type="password"
+          autoComplete="current-password"
+          placeholder="Enter your password"
+          disabled={isLoading}
+          error={errors.password?.message}
+          {...register("password")}
+        />
+
+        <div className="flex justify-end">
+          <Link
+            href={forgotPasswordHref}
+            className={`${authLinkClass} text-xs`}
+          >
+            Forgot password?
+          </Link>
+        </div>
+
+        <AuthButton type="submit" isLoading={isLoading} loadingText="Logging in…">
+          Log in
+        </AuthButton>
+      </form>
+
+      <div className="my-5 flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+        <span className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+        or
+        <span className="h-px flex-1 bg-slate-200 dark:bg-slate-700" />
+      </div>
+
+      <SocialAuthButtons disabled={isLoading} />
+
+      <p className="mt-6 text-center text-sm text-slate-600 dark:text-slate-400">
+        Don&apos;t have an account?{" "}
+        <Link href={registerHref} className={authLinkClass}>
+          Sign up
+        </Link>
+      </p>
+
+      <div className="mt-6 flex items-center gap-3 rounded-2xl bg-sky-50 p-4 dark:bg-white/5">
+        <span className="grid size-10 shrink-0 place-items-center rounded-full bg-white text-oshud-green shadow-sm dark:bg-slate-800 dark:text-emerald-400">
+          <Leaf className="size-5" aria-hidden="true" />
+        </span>
+        <div>
+          <p className="text-sm font-semibold text-oshud-navy dark:text-slate-100">
+            Your health is our priority
+          </p>
+          <p className="text-xs text-slate-600 dark:text-slate-400">
+            Safe. Genuine. Reliable.
+          </p>
+        </div>
+      </div>
+    </AuthCard>
+  );
 }

@@ -368,7 +368,7 @@ export function EditCouponModal({
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="px-8 hover:cursor-pointer bg-linear-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60"
+                className="px-8 hover:cursor-pointer bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60"
               >
                 {isLoading ? (
                   <span className="flex items-center gap-2">

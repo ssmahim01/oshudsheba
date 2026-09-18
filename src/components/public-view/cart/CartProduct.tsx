@@ -111,8 +111,8 @@ const CartProduct = () => {
                     </CarouselContent>
 
                     {/* Navigation Buttons */}
-                    <CarouselPrevious className="flex w-10 h-10 md:w-12 md:h-12 -left-2 md:-left-4 bg-gray-900 text-white hover:bg-amber-400 transition rounded-full" />
-                    <CarouselNext className="flex w-10 h-10 md:w-12 md:h-12 -right-2 md:-right-4 bg-gray-900 text-white hover:bg-amber-400 transition rounded-full" />
+                    <CarouselPrevious className="flex w-10 h-10 md:w-12 md:h-12 -left-2 md:-left-4 bg-gray-900 text-white hover:bg-[#007BFF] transition rounded-full" />
+                    <CarouselNext className="flex w-10 h-10 md:w-12 md:h-12 -right-2 md:-right-4 bg-gray-900 text-white hover:bg-[#007BFF] transition rounded-full" />
 
                 </Carousel>
 

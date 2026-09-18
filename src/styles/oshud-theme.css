@@ -1,0 +1,12 @@
+/*
+ * OshudSheba auth theme tokens (Tailwind CSS v4).
+ * Paste this block into your global stylesheet (e.g. app/globals.css),
+ * or `@import "../styles/oshud-theme.css";` after `@import "tailwindcss";`.
+ */
+@theme {
+  --color-oshud-blue: #007bff; /* main brand color */
+  --color-oshud-blue-dark: #0062cc; /* AA-contrast variant for links on white */
+  --color-oshud-teal: #0ea5a4;
+  --color-oshud-green: #16a34a;
+  --color-oshud-navy: #0b2545;
+}

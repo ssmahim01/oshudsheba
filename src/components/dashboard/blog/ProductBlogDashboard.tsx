@@ -89,7 +89,7 @@ export function ProductBlogDashboard() {
             onClick={openCreate}
             className="
               inline-flex items-center gap-2 h-10 px-4 rounded-xl
-              bg-amber-500 hover:bg-amber-600 active:bg-amber-700
+              bg-[#007BFF]0 hover:bg-[#007BFF] active:bg-[#007BFF]
               text-white text-sm font-semibold shadow-sm
               transition-all duration-150 self-start sm:self-auto
             "
@@ -119,8 +119,8 @@ export function ProductBlogDashboard() {
 
         {/* ── Refetch indicator ── */}
         {showRefetch && (
-          <div className="flex items-center gap-2 text-xs text-amber-600 dark:text-amber-400 mb-3 animate-pulse">
-            <div className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+          <div className="flex items-center gap-2 text-xs text-[#007BFF] dark:text-[#007BFF] mb-3 animate-pulse">
+            <div className="h-1.5 w-1.5 rounded-full bg-[#007BFF]0" />
             Refreshing…
           </div>
         )}

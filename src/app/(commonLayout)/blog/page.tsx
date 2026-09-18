@@ -18,7 +18,7 @@ export default function BlogPage() {
       {/* Hero header */}
       <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="max-w-352 mx-auto px-4 sm:px-6 py-14 text-center">
-          <p className="text-amber-600 dark:text-amber-400 text-xs font-bold tracking-[0.3em] uppercase mb-3">
+          <p className="text-[#007BFF] dark:text-[#007BFF] text-xs font-bold tracking-[0.3em] uppercase mb-3">
             OshudSheba Journal
           </p>
           <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white tracking-tight mb-4">

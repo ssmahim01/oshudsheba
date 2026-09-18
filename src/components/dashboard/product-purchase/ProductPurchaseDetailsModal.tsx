@@ -33,7 +33,7 @@
 //   const colors: Record<string, string> = {
 //     FULL: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300",
 //     ADVANCE:
-//       "bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-300",
+//       "bg-[#007BFF] text-amber-800 dark:bg-[#007BFF]/20 dark:text-amber-300",
 //     DUE: "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300",
 //   };
 
@@ -103,22 +103,22 @@
 
 //         <ScrollArea className="space-y-6 h-[70vh] px-4">
 //           {/* Header Info */}
-//           <Card className="mb-4 border-amber-200 dark:border-amber-800/50 bg-amber-50/50 dark:bg-amber-950/20">
+//           <Card className="mb-4 border-amber-200 dark:border-amber-800/50 bg-[#007BFF]/50 dark:bg-amber-950/20">
 //             <CardContent className="pt-6">
 //               <div className="grid grid-cols-2 gap-4">
 //                 <div>
-//                   <p className="text-xs text-amber-900/70 dark:text-amber-200/70 font-semibold">
+//                   <p className="text-xs text-[#007BFF]/70 dark:text-amber-200/70 font-semibold">
 //                     PURCHASE ID
 //                   </p>
-//                   <p className="font-mono text-sm font-bold text-amber-900 dark:text-amber-100 mt-1">
+//                   <p className="font-mono text-sm font-bold text-[#007BFF] dark:text-[#007BFF] mt-1">
 //                     {purchase._id}
 //                   </p>
 //                 </div>
 //                 <div>
-//                   <p className="text-xs text-amber-900/70 dark:text-amber-200/70 font-semibold">
+//                   <p className="text-xs text-[#007BFF]/70 dark:text-amber-200/70 font-semibold">
 //                     PURCHASE DATE
 //                   </p>
-//                   <p className="font-medium text-amber-900 dark:text-amber-100 mt-1">
+//                   <p className="font-medium text-[#007BFF] dark:text-[#007BFF] mt-1">
 //                     {new Date(purchase.purchaseDate).toLocaleDateString()}
 //                   </p>
 //                 </div>
@@ -272,9 +272,9 @@
 //           </Card>
 
 //           {/* Financial Summary */}
-//           {/* <Card className="border-2 border-amber-200 dark:border-amber-800/50 bg-amber-50/30 dark:bg-amber-950/10">
+//           {/* <Card className="border-2 border-amber-200 dark:border-amber-800/50 bg-[#007BFF]/30 dark:bg-amber-950/10">
 //               <CardHeader>
-//                 <CardTitle className="text-base text-amber-900 dark:text-amber-100">
+//                 <CardTitle className="text-base text-[#007BFF] dark:text-[#007BFF]">
 //                   Financial Summary
 //                 </CardTitle>
 //               </CardHeader>
@@ -476,7 +476,7 @@ const getPaymentTypeColor = (type: string) => {
   const colors: Record<string, string> = {
     FULL: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300",
     ADVANCE:
-      "bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-300",
+      "bg-[#007BFF] text-amber-800 dark:bg-[#007BFF]/20 dark:text-amber-300",
     DUE: "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300",
   };
 
@@ -548,22 +548,22 @@ const ProductPurchaseDetailsModal: React.FC<
 
         <ScrollArea className="space-y-6 h-[70vh] px-4">
           {/* Header Info */}
-          <Card className="mb-4 border-amber-200 dark:border-amber-800/50 bg-amber-50/50 dark:bg-amber-950/20">
+          <Card className="mb-4 border-amber-200 dark:border-amber-800/50 bg-[#007BFF]/50 dark:bg-amber-950/20">
             <CardContent className="pt-6">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-xs text-amber-900/70 dark:text-amber-200/70 font-semibold">
+                  <p className="text-xs text-[#007BFF]/70 dark:text-amber-200/70 font-semibold">
                     PURCHASE ID
                   </p>
-                  <p className="font-mono text-sm font-bold text-amber-900 dark:text-amber-100 mt-1">
+                  <p className="font-mono text-sm font-bold text-[#007BFF] dark:text-[#007BFF] mt-1">
                     {purchase._id}
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-amber-900/70 dark:text-amber-200/70 font-semibold">
+                  <p className="text-xs text-[#007BFF]/70 dark:text-amber-200/70 font-semibold">
                     PURCHASE DATE
                   </p>
-                  <p className="font-medium text-amber-900 dark:text-amber-100 mt-1">
+                  <p className="font-medium text-[#007BFF] dark:text-[#007BFF] mt-1">
                     {new Date(purchase.purchaseDate).toLocaleDateString()}
                   </p>
                 </div>
@@ -723,9 +723,9 @@ const ProductPurchaseDetailsModal: React.FC<
           </Card>
 
           {/* Financial Summary */}
-          {/* <Card className="border-2 border-amber-200 dark:border-amber-800/50 bg-amber-50/30 dark:bg-amber-950/10">
+          {/* <Card className="border-2 border-amber-200 dark:border-amber-800/50 bg-[#007BFF]/30 dark:bg-amber-950/10">
               <CardHeader>
-                <CardTitle className="text-base text-amber-900 dark:text-amber-100">
+                <CardTitle className="text-base text-[#007BFF] dark:text-[#007BFF]">
                   Financial Summary
                 </CardTitle>
               </CardHeader>

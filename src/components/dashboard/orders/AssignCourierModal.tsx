@@ -35,7 +35,7 @@ const [selected, setSelected] =
         {/* Header */}
         <div className="border-b border-gray-200 px-6 py-5">
           <div className="flex items-center gap-3 mb-1">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-amber-400 to-amber-500 shadow-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-[#007BFF] to-[#007BFF]0 shadow-sm">
               <Truck className="h-4 w-4 text-white" />
             </div>
             <DialogTitle className="text-base font-semibold text-gray-900 tracking-tight">
@@ -59,19 +59,19 @@ const [selected, setSelected] =
                onClick={() => setSelected(provider.value as CourierProvider)}
                 className={cn(
                   "group hover:cursor-pointer w-full rounded-lg border text-left transition-all duration-150",
-                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-1",
+                  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF] focus-visible:ring-offset-1",
                   isSelected
-                    ? "border-amber-400 bg-amber-50 shadow-sm"
-                    : "border-gray-200 bg-white hover:border-amber-300 hover:bg-amber-50/40",
+                    ? "border-[#007BFF] bg-[#007BFF] shadow-sm"
+                    : "border-gray-200 bg-white hover:border-amber-300 hover:bg-[#007BFF]/40",
                 )}
               >
                 <div className="flex items-start gap-4 p-4">
                   {/* Radio indicator */}
                   <div className="mt-0.5 shrink-0">
                     {isSelected ? (
-                      <CheckCircle2 className="h-5 w-5 text-amber-500" />
+                      <CheckCircle2 className="h-5 w-5 text-[#007BFF]0" />
                     ) : (
-                      <div className="h-5 w-5 rounded-full border-2 border-gray-300 group-hover:border-amber-400 transition-colors" />
+                      <div className="h-5 w-5 rounded-full border-2 border-gray-300 group-hover:border-[#007BFF] transition-colors" />
                     )}
                   </div>
 
@@ -81,7 +81,7 @@ const [selected, setSelected] =
                       <span
                         className={cn(
                           "text-sm font-semibold transition-colors",
-                          isSelected ? "text-amber-700" : "text-gray-800",
+                          isSelected ? "text-[#007BFF]" : "text-gray-800",
                         )}
                       >
                         {provider.name}
@@ -90,7 +90,7 @@ const [selected, setSelected] =
                         className={cn(
                           "shrink-0 text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full",
                           isSelected
-                            ? "bg-amber-100 text-amber-600 border border-amber-300"
+                            ? "bg-[#007BFF] text-[#007BFF] border border-amber-300"
                             : "bg-gray-100 text-gray-500 border border-gray-200",
                         )}
                       >
@@ -112,8 +112,8 @@ const [selected, setSelected] =
                               className={cn(
                                 "h-3 w-3 shrink-0 transition-colors",
                                 isSelected
-                                  ? "text-amber-500"
-                                  : "text-gray-400 group-hover:text-amber-400",
+                                  ? "text-[#007BFF]0"
+                                  : "text-gray-400 group-hover:text-[#007BFF]",
                               )}
                             />
                             <span className="text-xs text-gray-500">
@@ -137,7 +137,7 @@ const [selected, setSelected] =
             disabled={loading}
             className={cn(
               "w-full hover:cursor-pointer h-10 rounded-lg font-semibold text-sm tracking-wide border-0",
-              "bg-linear-to-b from-amber-400 to-amber-600 hover:from-amber-600 hover:to-amber-500",
+              "bg-linear-to-b from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-[#007BFF]0",
               "text-white shadow-sm hover:shadow-md transition-all duration-150",
               "disabled:opacity-50 disabled:cursor-not-allowed",
             )}

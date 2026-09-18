@@ -32,14 +32,14 @@ const ProductImageGallery: React.FC<Props> = ({ images = [], title }) => {
 
   return (
     <div className="flex flex-col sm:flex-row gap-4">
-      <div className="p-2 bg-amber-50 flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible order-2 sm:order-1">
+      <div className="p-2 bg-[#007BFF] flex sm:flex-col gap-2 overflow-x-auto sm:overflow-visible order-2 sm:order-1">
         {images.map((img, i) => (
           <button
             key={i}
             onClick={() => handleThumbClick(i)}
             className={cn(
               "w-14 sm:w-[150] h-14 sm:h-[150] rounded-lg overflow-hidden border-2 shrink-0",
-              activeIndex === i ? "border-amber-500" : "border-gray-200",
+              activeIndex === i ? "border-[#007BFF]0" : "border-gray-200",
             )}
           >
             <Image

@@ -1,40 +1,46 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use server";
 
-"use server"
+interface RegisterResponse {
+  success: boolean;
+  message?: string;
+  data?: unknown;
+}
 
-import config from "@/config";
-
-export const registerUser = async (formData: FormData) => {
+export const registerUser = async (
+  formData: FormData,
+): Promise<RegisterResponse> => {
   try {
     const data = Object.fromEntries(formData.entries());
 
-    const res = await fetch(`${config.baseUrl}/user/create-user`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/user/create-user`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
+      cache: "no-store",
     });
 
-    const result = await res.json();
+    const result = (await response.json()) as RegisterResponse;
 
-    // console.log("REsult ", result)
-
-    // 🔥 important fix
-    if (!res.ok) {
+    if (!response.ok || !result.success) {
       return {
         success: false,
-        message: result.message || "Registration failed"
+        message: result.message || "Registration failed.",
       };
     }
 
-    return result;
+    return {
+      success: true,
+      data: result.data,
+      message: result.message || "Registration successful.",
+    };
+  } catch (error) {
+    console.error("Registration error:", error);
 
-  } catch (error: any) {
-    console.error(error);
     return {
       success: false,
-      message: error?.message || "Registration failed"
+      message: "Unable to register. Please try again.",
     };
   }
 };

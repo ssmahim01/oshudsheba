@@ -115,7 +115,7 @@ const PRESETS = [
 
 const ORDER_STATUS_OPTIONS = [
   { value: "ALL", label: "All Statuses" },
-  { value: "PENDING", label: "Pending", dot: "bg-amber-500" },
+  { value: "PENDING", label: "Pending", dot: "bg-[#007BFF]0" },
   { value: "CONFIRMED", label: "Confirmed", dot: "bg-emerald-500" },
   { value: "COURIERASSIGNED", label: "Courier Assigned", dot: "bg-blue-500" },
   { value: "NO_RESPONSE", label: "No Response", dot: "bg-rose-500" },
@@ -155,8 +155,8 @@ function StatCard({
   trend?: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-amber-900/40">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-amber-50/0 transition-all duration-300 group-hover:bg-amber-50/30 dark:group-hover:bg-amber-900/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/30 dark:group-hover:bg-[#007BFF]/5" />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -192,7 +192,7 @@ function StatCard({
 
 const STATUS_BADGE: Record<string, string> = {
   PENDING:
-    "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   CONFIRMED:
     "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-400 dark:border-emerald-800",
   COURIERASSIGNED:
@@ -251,8 +251,8 @@ function StaffSalaryView({
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] gap-8 py-12">
       <div className="flex flex-col items-center gap-3">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-50 dark:bg-amber-900/20">
-          <BadgeCheck className="h-8 w-8 text-amber-500 dark:text-amber-400" />
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+          <BadgeCheck className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
         </div>
         <div className="text-center">
           <h2 className="text-xl font-bold text-gray-900 dark:text-gray-50">
@@ -264,18 +264,18 @@ function StaffSalaryView({
         </div>
       </div>
       <div className="w-full max-w-sm">
-        <div className="group relative overflow-hidden rounded-2xl border-2 border-amber-200 bg-linear-to-br from-amber-50 to-orange-50 px-8 py-8 text-center transition-all duration-300 hover:border-amber-300 hover:shadow-lg dark:border-amber-800/60 dark:from-amber-900/20 dark:to-orange-900/10">
-          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-amber-100/0 transition-all duration-300 group-hover:bg-amber-100/20 dark:group-hover:bg-amber-900/10" />
+        <div className="group relative overflow-hidden rounded-2xl border-2 border-amber-200 bg-linear-to-br from-[#007BFF] to-orange-50 px-8 py-8 text-center transition-all duration-300 hover:border-amber-300 hover:shadow-lg dark:border-amber-800/60 dark:from-[#007BFF]/20 dark:to-orange-900/10">
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/20 dark:group-hover:bg-[#007BFF]/10" />
           <div className="relative space-y-4">
             <div className="flex items-center justify-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-900/30">
-                <Wallet className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]">
+                <Wallet className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
               </div>
-              <p className="text-sm font-bold uppercase tracking-widest text-amber-600/70 dark:text-amber-500/70">
+              <p className="text-sm font-bold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70">
                 Total Salary
               </p>
             </div>
-            <p className="text-5xl font-bold tabular-nums text-amber-600 dark:text-amber-400">
+            <p className="text-5xl font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
               ৳{(totalSalary ?? 0).toLocaleString()}
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
@@ -284,9 +284,9 @@ function StaffSalaryView({
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-2.5 rounded-xl border border-amber-200/60 bg-amber-50/40 px-4 py-3 dark:border-amber-900/30 dark:bg-amber-900/10">
-        <Banknote className="h-4 w-4 shrink-0 text-amber-500" />
-        <p className="text-xs text-amber-700 dark:text-amber-400">
+      <div className="flex items-center gap-2.5 rounded-xl border border-amber-200/60 bg-[#007BFF]/40 px-4 py-3 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+        <Banknote className="h-4 w-4 shrink-0 text-[#007BFF]0" />
+        <p className="text-xs text-[#007BFF] dark:text-[#007BFF]">
           Contact your administrator for salary details or payroll queries.
         </p>
       </div>
@@ -423,8 +423,8 @@ export default function DashboardOverview() {
         key: "PENDING",
         label: "Pending",
         icon: Clock,
-        cls: "border-amber-200 bg-amber-50/60 dark:border-amber-900/30 dark:bg-amber-900/10",
-        val: "text-amber-700 dark:text-amber-400",
+        cls: "border-blue-200 bg-blue-100 dark:border-blue-200 dark:bg-blue-50",
+        val: "text-blue-500 dark:text-blue-100",
         count: data.orderStats?.PENDING ?? 0,
       },
       {
@@ -502,8 +502,8 @@ export default function DashboardOverview() {
     return (
       <div className="min-h-screen bg-background p-4 md:p-8">
         <div className="mb-8 flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <Wallet className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <Wallet className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
           <div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
@@ -541,8 +541,8 @@ export default function DashboardOverview() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-              <TrendingUp className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+              <TrendingUp className="h-4 w-4 text-white" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
               {roleLabel}
@@ -558,9 +558,9 @@ export default function DashboardOverview() {
         </div>
         <div className="flex gap-2 items-center">
           <span className="text-lg text-gray-800 font-semibold">Welcome</span>
-          <div className="hidden sm:flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3.5 py-1.5 dark:border-amber-900/40 dark:bg-amber-900/20">
-            <User className="h-3.5 w-3.5 text-amber-500" />
-            <span className="text-xs font-semibold text-amber-700 dark:text-amber-400">
+          <div className="hidden sm:flex items-center gap-2 rounded-full border border-amber-200 bg-[#007BFF] px-3.5 py-1.5 dark:border-[#007BFF]/40 dark:bg-[#007BFF]/20">
+            <User className="h-3.5 w-3.5 text-white" />
+            <span className="text-xs font-semibold text-[#cbd6e1] dark:text-[#d6e0eb]">
               {me?.data?.name ?? "Welcome"}
             </span>
           </div>
@@ -574,7 +574,7 @@ export default function DashboardOverview() {
             value={orderStatus || "ALL"}
             onValueChange={(v) => setOrderStatus(v === "ALL" ? "" : v)}
           >
-            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
               <SelectValue placeholder="All Statuses" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
@@ -601,8 +601,8 @@ export default function DashboardOverview() {
                 className={cn(
                   "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-amber-50/40 hover:text-amber-700 dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-amber-400",
+                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -625,11 +625,11 @@ export default function DashboardOverview() {
             </PopoverTrigger>
             <PopoverContent
               align="start"
-              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-amber-900/40 shadow-xl overflow-hidden"
+              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-[#007BFF]/40 shadow-xl overflow-hidden"
             >
               <div className="flex flex-col sm:flex-row">
-                <div className="border-b border-amber-100 dark:border-amber-900/30 sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
+                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Quick select
                   </p>
                   {PRESETS.map((preset) => {
@@ -646,8 +646,8 @@ export default function DashboardOverview() {
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                           isActive
-                            ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
-                            : "text-gray-600 hover:bg-amber-50 hover:text-amber-700 dark:text-gray-400 dark:hover:bg-amber-900/10 dark:hover:text-amber-400",
+                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -656,7 +656,7 @@ export default function DashboardOverview() {
                   })}
                   {dateFrom && (
                     <>
-                      <div className="my-1.5 border-t border-amber-100 dark:border-amber-900/30" />
+                      <div className="my-1.5 border-t border-[#007BFF] dark:border-[#007BFF]" />
                       <button
                         onClick={clearDate}
                         className="w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium text-red-500 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
@@ -667,7 +667,7 @@ export default function DashboardOverview() {
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Custom range
                   </p>
                   <Calendar
@@ -679,15 +679,15 @@ export default function DashboardOverview() {
                     initialFocus
                     classNames={{
                       day_selected:
-                        "bg-amber-500 text-white hover:bg-amber-500 dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 dark:bg-[#007BFF]",
                       day_range_middle:
-                        "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
-                        "bg-amber-500 text-white rounded-l-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
-                        "bg-amber-500 text-white rounded-r-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
                       day_today:
-                        "border border-amber-400 text-amber-700 font-bold dark:border-amber-600 dark:text-amber-400",
+                        "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF] dark:text-[#007BFF]",
                     }}
                   />
                 </div>
@@ -700,7 +700,7 @@ export default function DashboardOverview() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="group h-10 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 dark:border-gray-700 dark:text-gray-400 dark:hover:border-amber-700 dark:hover:text-amber-400 transition-colors"
+              className="group h-10 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
               Reset
@@ -713,13 +713,13 @@ export default function DashboardOverview() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
                 <button
                   onClick={clearDate}
-                  className="ml-0.5 hover:text-amber-900 dark:hover:text-amber-200"
+                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -791,7 +791,7 @@ export default function DashboardOverview() {
                       label="Total Orders"
                       value={data.totalOrders}
                       icon={ShoppingBag}
-                      accent="bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+                      accent="bg-[#007BFF] text-white dark:bg-[#007BFF]/20 dark:text-white"
                     />
                     <StatCard
                       label="Courier Assigned"
@@ -1056,7 +1056,7 @@ export default function DashboardOverview() {
                     Last 5 orders matching your filters
                   </p>
                 </div>
-                <Truck className="h-4 w-4 text-amber-500" />
+                <Truck className="h-4 w-4 text-[#007BFF]0" />
               </div>
               <div className="divide-y divide-gray-100/80 dark:divide-gray-800/60">
                 <RecentOrdersTable orders={data.recentOrders} />

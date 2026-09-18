@@ -52,6 +52,9 @@ export enum Role {
   MANAGER = "MANAGER",
   MODERATOR = "MODERATOR",
   TELESALES = "TELESALES",
+  VENDOR = "VENDOR",
+
+  PHARMACIST = "PHARMACIST",
 }
 export enum IsActive {
   ACTIVE = "ACTIVE",

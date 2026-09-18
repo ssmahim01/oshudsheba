@@ -42,7 +42,7 @@ export function BlogFilterToolbar({
     params.searchTerm;
 
   const selectCls =
-    "h-9 pl-3 pr-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:border-amber-500 transition-all appearance-none cursor-pointer";
+    "h-9 pl-3 pr-8 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm text-gray-700 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-[#007BFF]0/40 focus:border-[#007BFF]0 transition-all appearance-none cursor-pointer";
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm p-4 mb-4 space-y-3">
@@ -59,7 +59,7 @@ export function BlogFilterToolbar({
               w-full h-9 pl-9 pr-9 rounded-lg border border-gray-200 dark:border-gray-700
               bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-200
               placeholder:text-gray-400 focus:outline-none focus:ring-2
-              focus:ring-amber-500/40 focus:border-amber-500 transition-all
+              focus:ring-[#007BFF]0/40 focus:border-[#007BFF]0 transition-all
             "
           />
           {searchInput && (
@@ -77,7 +77,7 @@ export function BlogFilterToolbar({
           className={`
             flex items-center gap-2 h-9 px-3 rounded-lg border text-sm font-medium transition-all
             ${showFilters
-              ? "border-amber-500 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400"
+              ? "border-[#007BFF]0 bg-[#007BFF] dark:bg-[#007BFF]/20 text-[#007BFF] dark:text-[#007BFF]"
               : "border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-600 dark:text-gray-400 hover:border-gray-300"
             }
           `}
@@ -85,7 +85,7 @@ export function BlogFilterToolbar({
           <SlidersHorizontal className="h-4 w-4" />
           <span className="hidden sm:inline">Filters</span>
           {hasActiveFilters && (
-            <span className="flex h-1.5 w-1.5 rounded-full bg-amber-500" />
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[#007BFF]0" />
           )}
         </button>
 

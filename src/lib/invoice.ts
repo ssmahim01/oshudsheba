@@ -10,7 +10,7 @@ export const BRAND_COLOR_DARK = "#92400E";
 export function generatePDFFileName(order: Order): string {
   const orderDate = format(new Date(order.createdAt), "yyyy-MM-dd");
   const orderNumber = order?.customOrderId || order._id.slice(0, 8).toUpperCase();
-  return `FARIN-FUSION-INV-${orderNumber}-${orderDate}.pdf`;
+  return `OSHUD-SHEBA-INV-${orderNumber}-${orderDate}.pdf`;
 }
 
 export function formatInvoiceNumber(orderId: string): string {
@@ -60,7 +60,7 @@ export function getPaymentStatusColor(status: string): {
 export function getOrderStatusColor(status: string): string {
   switch (status) {
     case "CONFIRMED":
-      return "text-amber-600";
+      return "text-[#007BFF]";
     case "PENDING":
       return "text-yellow-600";
     case "COMPLETED":

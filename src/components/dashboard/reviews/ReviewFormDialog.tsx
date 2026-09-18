@@ -50,7 +50,7 @@ interface ReviewFormDialogProps {
 }
 
 const inputCls =
-  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 export function ReviewFormDialog({
   open,
@@ -293,7 +293,7 @@ export function ReviewFormDialog({
                           className={cn(
                             "flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors",
                             isSelected
-                              ? "bg-amber-50 dark:bg-amber-900/10"
+                              ? "bg-[#007BFF] dark:bg-[#007BFF]/10"
                               : "hover:bg-gray-50/60 dark:hover:bg-gray-800/40",
                           )}
                         >
@@ -308,8 +308,8 @@ export function ReviewFormDialog({
                               />
                             </div>
                           ) : (
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                              <ImageIcon className="h-4 w-4 text-amber-400" />
+                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                              <ImageIcon className="h-4 w-4 text-[#007BFF]" />
                             </div>
                           )}
                           <div className="min-w-0 flex-1">
@@ -318,7 +318,7 @@ export function ReviewFormDialog({
                             </p>
                           </div>
                           {isSelected && (
-                            <Check className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
+                            <Check className="h-4 w-4 shrink-0 text-[#007BFF] dark:text-[#007BFF]" />
                           )}
                         </button>
                       );
@@ -330,7 +330,7 @@ export function ReviewFormDialog({
 
             {/* Selected Product Display */}
             {selectedProduct && (
-              <div className="mt-3 p-3 rounded-lg border border-amber-200/50 bg-amber-50/30 dark:border-amber-900/30 dark:bg-amber-900/10">
+              <div className="mt-3 p-3 rounded-lg border border-amber-200/50 bg-[#007BFF]/30 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                 <div className="flex items-center gap-2">
                   {selectedProduct.images?.[0] ? (
                     <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg">
@@ -343,8 +343,8 @@ export function ReviewFormDialog({
                       />
                     </div>
                   ) : (
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900/40">
-                      <ImageIcon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/40">
+                      <ImageIcon className="h-6 w-6 text-[#007BFF] dark:text-[#007BFF]" />
                     </div>
                   )}
                   <div className="min-w-0 flex-1">
@@ -401,7 +401,7 @@ export function ReviewFormDialog({
                     onClick={() => setValue("rating", star)}
                     className={`text-2xl cursor-pointer transition-colors ${
                       star <= rating
-                        ? "text-amber-400"
+                        ? "text-[#007BFF]"
                         : "text-gray-300 dark:text-gray-600"
                     }`}
                   >
@@ -460,7 +460,7 @@ export function ReviewFormDialog({
                 </button>
               </div>
             ) : (
-              <label className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center cursor-pointer hover:border-amber-500 transition">
+              <label className="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center cursor-pointer hover:border-[#007BFF]0 transition">
                 <Upload className="h-8 w-8 mx-auto mb-2 text-gray-400" />
                 <p className="text-sm">Click to upload image</p>
                 <input
@@ -502,7 +502,7 @@ export function ReviewFormDialog({
             <Button
               type="submit"
               disabled={isLoading}
-              className="bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-800"
+              className="bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-amber-800"
             >
               {isLoading && <Loader2 className="h-4 w-4 mr-2 animate-spin" />}
               {review ? "Update Review" : "Create Review"}

@@ -32,7 +32,7 @@ export function BlogPagination({ page, totalPage, total, limit, onPage }: Props)
   const btnCls = (active: boolean) =>
     `h-8 min-w-[2rem] px-2 rounded-lg text-sm font-medium transition-all ${
       active
-        ? "bg-amber-500 text-white shadow-sm"
+        ? "bg-[#007BFF]0 text-white shadow-sm"
         : "text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
     }`;
 

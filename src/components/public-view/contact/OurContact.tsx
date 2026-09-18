@@ -198,7 +198,7 @@ export default function Contacts() {
                         value={formData.firstName}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
-                        className="border-slate-200 dark:border-slate-700 focus:ring-amber-500 focus:border-amber-500 dark:focus:ring-amber-400 dark:focus:border-amber-400 transition-all duration-200"
+                        className="border-slate-200 dark:border-slate-700 focus:ring-[#007BFF]0 focus:border-[#007BFF]0 dark:focus:ring-[#007BFF] dark:focus:border-[#007BFF] transition-all duration-200"
                         disabled={loading}
                       />
                       {touched.firstName && !formData.firstName && (
@@ -218,7 +218,7 @@ export default function Contacts() {
                         value={formData.lastName}
                         onChange={handleInputChange}
                         onBlur={handleBlur}
-                        className="border-slate-200 dark:border-slate-700 focus:ring-amber-500 focus:border-amber-500 dark:focus:ring-amber-400 dark:focus:border-amber-400 transition-all duration-200"
+                        className="border-slate-200 dark:border-slate-700 focus:ring-[#007BFF]0 focus:border-[#007BFF]0 dark:focus:ring-[#007BFF] dark:focus:border-[#007BFF] transition-all duration-200"
                         disabled={loading}
                       />
                       {touched.lastName && !formData.lastName && (
@@ -240,7 +240,7 @@ export default function Contacts() {
                       value={formData.email}
                       onChange={handleInputChange}
                       onBlur={handleBlur}
-                      className="border-slate-200 dark:border-slate-700 focus:ring-amber-500 focus:border-amber-500 dark:focus:ring-amber-400 dark:focus:border-amber-400 transition-all duration-200"
+                      className="border-slate-200 dark:border-slate-700 focus:ring-[#007BFF]0 focus:border-[#007BFF]0 dark:focus:ring-[#007BFF] dark:focus:border-[#007BFF] transition-all duration-200"
                       disabled={loading}
                     />
                     {touched.email && !formData.email && (
@@ -261,7 +261,7 @@ export default function Contacts() {
                       onChange={handleInputChange}
                       onBlur={handleBlur}
                       rows={5}
-                      className="border-slate-200 dark:border-slate-700 focus:ring-amber-500 focus:border-amber-500 dark:focus:ring-amber-400 dark:focus:border-amber-400 resize-none transition-all duration-200"
+                      className="border-slate-200 dark:border-slate-700 focus:ring-[#007BFF]0 focus:border-[#007BFF]0 dark:focus:ring-[#007BFF] dark:focus:border-[#007BFF] resize-none transition-all duration-200"
                       disabled={loading}
                     />
                     {touched.message && !formData.message && (
@@ -310,7 +310,7 @@ export default function Contacts() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">{info.label}</p>
-                        <p className="text-foreground font-semibold group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                        <p className="text-foreground font-semibold group-hover:text-[#007BFF] dark:group-hover:text-[#007BFF] transition-colors">
                           {info.value}
                         </p>
                       </div>
@@ -320,7 +320,7 @@ export default function Contacts() {
               </Card>
 
               {/* Subscribe Section */}
-              <Card className="p-4 border-slate-200 dark:border-slate-800 bg-linear-to-br from-amber-50 to-white dark:from-amber-950/20 dark:to-slate-900">
+              <Card className="p-4 border-slate-200 dark:border-slate-800 bg-linear-to-br from-[#007BFF] to-white dark:from-amber-950/20 dark:to-slate-900">
                 <h3 className="text-xl font-bold text-foreground mb-4">Subscribe us</h3>
 
                 <div className="grid grid-cols-5 gap-2">
@@ -382,7 +382,7 @@ export default function Contacts() {
             ].map((store, index) => (
               <Card key={index} className="p-6 border-slate-200 dark:border-slate-800 hover:shadow-lg dark:hover:shadow-slate-900/50 transition-all duration-200">
                 <div className="flex items-start gap-3 mb-4">
-                  <MapPinIcon className="w-6 h-6 text-amber-600 dark:text-amber-400 shrink-0 mt-1" />
+                  <MapPinIcon className="w-6 h-6 text-[#007BFF] dark:text-[#007BFF] shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-lg text-foreground">{store.title}</h3>
                     <p className="text-sm text-muted-foreground">{store.address}</p>
@@ -390,11 +390,11 @@ export default function Contacts() {
                 </div>
 
                 <div className="space-y-2 border-t border-slate-200 dark:border-slate-800 pt-4">
-                  <a href={`tel:${store.phone}`} className="flex items-center gap-2 text-foreground hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                  <a href={`tel:${store.phone}`} className="flex items-center gap-2 text-foreground hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors">
                     <Phone className="w-4 h-4" />
                     <span className="text-sm">{store.phone}</span>
                   </a>
-                  <a href={`mailto:${store.email}`} className="flex items-center gap-2 text-foreground hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
+                  <a href={`mailto:${store.email}`} className="flex items-center gap-2 text-foreground hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors">
                     <Mail className="w-4 h-4" />
                     <span className="text-sm">{store.email}</span>
                   </a>

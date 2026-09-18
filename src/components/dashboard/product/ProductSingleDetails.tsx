@@ -371,7 +371,7 @@ export default function ProductSingleDetails() {
               {/* Header */}
               <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-800/60 border-b border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-2">
-                  <ScanLine className="h-4 w-4 text-amber-600" />
+                  <ScanLine className="h-4 w-4 text-[#007BFF]" />
                   <span className="text-sm font-semibold">Product Barcode</span>
                 </div>
 
@@ -392,7 +392,7 @@ export default function ProductSingleDetails() {
                       variant="outline"
                       size="sm"
                       onClick={copyBarcode}
-                      className="h-8 gap-1.5 text-xs border-gray-200 dark:border-gray-700 hover:border-amber-400 hover:text-amber-600 transition-colors"
+                      className="h-8 gap-1.5 text-xs border-gray-200 dark:border-gray-700 hover:border-[#007BFF] hover:text-[#007BFF] transition-colors"
                       title="Copy barcode number"
                     >
                       {copied ? (
@@ -447,7 +447,7 @@ export default function ProductSingleDetails() {
 
                     {/* Barcode value pill */}
                     {/* <div className="flex items-center justify-center">
-                      <code className="flex items-center gap-2 text-sm font-mono bg-amber-50 dark:bg-amber-900/20 text-amber-800 dark:text-amber-300 px-4 py-2 rounded-full border border-amber-200 dark:border-amber-700 select-all">
+                      <code className="flex items-center gap-2 text-sm font-mono bg-[#007BFF] dark:bg-[#007BFF]/20 text-amber-800 dark:text-amber-300 px-4 py-2 rounded-full border border-amber-200 dark:border-[#007BFF] select-all">
                         <BarcodeIcon className="h-4 w-4 opacity-60" />
                         {product.barcode}
                       </code>
@@ -481,8 +481,8 @@ export default function ProductSingleDetails() {
                 ) : (
                   /* ── No barcode: generate prompt ── */
                   <div className="flex flex-col items-center gap-4 py-6 text-center">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700">
-                      <BarcodeIcon className="h-7 w-7 text-amber-500" />
+                    <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#007BFF] dark:bg-[#007BFF]/20 border border-amber-200 dark:border-[#007BFF]">
+                      <BarcodeIcon className="h-7 w-7 text-[#007BFF]0" />
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
@@ -496,7 +496,7 @@ export default function ProductSingleDetails() {
                     <Button
                       onClick={handleGenerateBarcode}
                       disabled={isGenerating}
-                      className="gap-2 bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-none"
+                      className="gap-2 bg-[#007BFF]0 hover:bg-[#007BFF] text-white shadow-md shadow-amber-200 dark:shadow-none"
                     >
                       {isGenerating ? (
                         <Loader2 className="h-4 w-4 animate-spin" />
@@ -537,7 +537,7 @@ export default function ProductSingleDetails() {
                   ))}
 
                   {/* Barcode row with inline copy */}
-                  <TableRow className="bg-amber-50/40 dark:bg-amber-900/10">
+                  <TableRow className="bg-[#007BFF]/40 dark:bg-[#007BFF]/10">
                     <TableCell className="font-semibold w-44">
                       Barcode Number
                     </TableCell>
@@ -550,7 +550,7 @@ export default function ProductSingleDetails() {
                           <button
                             onClick={copyBarcode}
                             title="Copy barcode number"
-                            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-amber-600 transition-colors"
+                            className="flex items-center gap-1 text-xs text-muted-foreground hover:text-[#007BFF] transition-colors"
                           >
                             {copied ? (
                               <Check className="h-3.5 w-3.5 text-emerald-500" />

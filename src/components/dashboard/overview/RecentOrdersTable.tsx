@@ -62,12 +62,12 @@ const statusColors: Record<string, { bg: string; text: string }> = {
 export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
   if (!orders || orders.length === 0) {
     return (
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6">
         <h3 className="mb-6 text-lg font-semibold text-foreground">
           Recent Orders
         </h3>
-        <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-amber-200/40 bg-amber-50/30 py-12 dark:border-amber-900/30 dark:bg-amber-950/10">
-          <ShoppingBag className="mb-3 h-10 w-10 text-amber-600/60 dark:text-amber-400/60" />
+        <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-amber-200/40 bg-[#007BFF]/30 py-12 dark:border-[#007BFF] dark:bg-amber-950/10">
+          <ShoppingBag className="mb-3 h-10 w-10 text-[#007BFF]/60 dark:text-[#007BFF]/60" />
           <p className="text-foreground font-medium">No recent orders</p>
           <p className="mt-1 text-sm text-muted-foreground">
             Orders will appear here as they are placed
@@ -78,24 +78,24 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
   }
 
   return (
-    <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-0 overflow-hidden">
+    <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-0 overflow-hidden">
       <ScrollArea className="w-full">
         <Table>
-          <TableHeader className="bg-amber-50/50 dark:bg-amber-950/20">
-            <TableRow className="border-b border-amber-200/30 hover:bg-transparent dark:border-amber-900/30">
-              <TableHead className="font-semibold text-amber-900 dark:text-amber-200 whitespace-nowrap">
+          <TableHeader className="bg-[#1258a3] hover:bg-[#007BFF]">
+            <TableRow className="border-b border-amber-200/30 hover:bg-transparent dark:border-[#007BFF]">
+              <TableHead className="font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Order ID
               </TableHead>
-              <TableHead className="font-semibold text-amber-900 dark:text-amber-200 whitespace-nowrap">
+              <TableHead className="font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Customer
               </TableHead>
-              <TableHead className="text-right font-semibold text-amber-900 dark:text-amber-200 whitespace-nowrap">
+              <TableHead className="text-right font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Total
               </TableHead>
-              <TableHead className="font-semibold text-amber-900 dark:text-amber-200 whitespace-nowrap">
+              <TableHead className="font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Status
               </TableHead>
-              <TableHead className="font-semibold text-amber-900 dark:text-amber-200 whitespace-nowrap">
+              <TableHead className="font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Date
               </TableHead>
             </TableRow>
@@ -135,9 +135,9 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
               return (
                 <TableRow
                   key={order._id}
-                  className="border-b border-amber-100/50 hover:bg-amber-50/40 dark:border-amber-900/20 dark:hover:bg-amber-950/20 transition-all duration-200"
+                  className="border-b border-[#007BFF]/50 hover:bg-[#007BFF]/40 dark:border-[#007BFF]/20 dark:hover:bg-amber-950/20 transition-all duration-200"
                 >
-                  <TableCell className="font-mono text-sm font-semibold text-amber-900 dark:text-amber-300 whitespace-nowrap">
+                  <TableCell className="font-mono text-sm font-semibold text-[#007BFF] dark:text-amber-300 whitespace-nowrap">
                     {order.customOrderId || order._id?.slice(0, 8)}
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
@@ -150,7 +150,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell className="text-right font-semibold text-amber-700 dark:text-amber-400 whitespace-nowrap">
+                  <TableCell className="text-right font-semibold text-[#007BFF] dark:text-[#007BFF] whitespace-nowrap">
                     ৳{order.total || "0.00"}
                   </TableCell>
                   <TableCell className="whitespace-nowrap">
@@ -161,7 +161,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
                   <TableCell className="whitespace-nowrap">
                     <div className="flex flex-col gap-1">
                       <div className="flex items-center gap-1.5 text-xs font-medium text-foreground">
-                        <Clock className="h-3.5 w-3.5 text-amber-600 dark:text-amber-400" />
+                        <Clock className="h-3.5 w-3.5 text-[#007BFF] dark:text-[#007BFF]" />
                         {orderDate}
                       </div>
                       <span className="text-xs text-muted-foreground">
@@ -179,7 +179,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
         </Table>
         <ScrollBar
           orientation="horizontal"
-          className="bg-amber-200/30 dark:bg-amber-900/30"
+          className="bg-amber-200/30 dark:bg-[#007BFF]"
         />
       </ScrollArea>
     </Card>

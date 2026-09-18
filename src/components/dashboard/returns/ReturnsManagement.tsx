@@ -152,7 +152,7 @@ const ReturnsManagement = () => {
           </p>
           <button
             onClick={() => refetch()}
-            className="mt-4 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
+            className="mt-4 px-4 py-2 bg-[#007BFF] text-white rounded-lg hover:bg-[#007BFF] transition-colors"
           >
             Retry
           </button>

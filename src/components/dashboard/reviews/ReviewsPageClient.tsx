@@ -161,7 +161,7 @@ export function ReviewsPageClient() {
         </h1>
         <Button
           onClick={() => handleOpenForm()}
-          className="bg-amber-600 hover:cursor-pointer hover:bg-amber-700 text-white"
+          className="bg-[#007BFF] hover:cursor-pointer hover:bg-[#007BFF] text-white"
         >
           <Plus className="h-4 w-4 mr-2" />
           Create Review

@@ -13,7 +13,7 @@ export function DashboardLoading() {
       </div>
 
       {/* Filters Skeleton */}
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6">
         <div className="space-y-4">
           <div className="h-5 w-32 animate-pulse rounded-lg bg-muted" />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -29,7 +29,7 @@ export function DashboardLoading() {
         {[...Array(4)].map((_, i) => (
           <Card
             key={i}
-            className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-5"
+            className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-5"
           >
             <div className="space-y-3">
               <div className="h-4 w-24 animate-pulse rounded bg-muted" />
@@ -45,7 +45,7 @@ export function DashboardLoading() {
         {[...Array(2)].map((_, i) => (
           <Card
             key={i}
-            className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6"
+            className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6"
           >
             <div className="space-y-4">
               <div className="h-5 w-40 animate-pulse rounded bg-muted" />
@@ -56,7 +56,7 @@ export function DashboardLoading() {
       </div>
 
       {/* Tables Skeleton */}
-      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-amber-900/40 dark:from-card dark:via-card dark:to-card/50 p-6">
+      <Card className="border-amber-200/40 bg-linear-to-br from-card via-card to-card/70 dark:border-[#007BFF]/40 dark:from-card dark:via-card dark:to-card/50 p-6">
         <div className="space-y-4">
           <div className="h-5 w-40 animate-pulse rounded bg-muted" />
           <div className="space-y-3">

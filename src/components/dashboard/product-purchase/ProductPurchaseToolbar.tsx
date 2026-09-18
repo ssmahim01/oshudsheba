@@ -85,7 +85,7 @@ export const ProductPurchaseToolbar: React.FC<ProductPurchaseToolbarProps> = ({
         <Button
           onClick={handleReset}
           variant="outline"
-          className="border-amber-200 dark:border-amber-800 hover:bg-amber-50 dark:hover:bg-amber-950/20"
+          className="border-amber-200 dark:border-amber-800 hover:bg-[#007BFF] dark:hover:bg-amber-950/20"
         >
           <RotateCcw className="h-4 w-4 mr-2" />
           Reset
@@ -94,7 +94,7 @@ export const ProductPurchaseToolbar: React.FC<ProductPurchaseToolbarProps> = ({
         {/* Create Button */}
         <Button
           onClick={() => onCreate?.()}
-          className="bg-amber-600 hover:cursor-pointer dark:bg-amber-700 hover:bg-amber-700 dark:hover:bg-amber-800 text-white"
+          className="bg-[#007BFF] hover:cursor-pointer dark:bg-[#007BFF] hover:bg-[#007BFF] dark:hover:bg-amber-800 text-white"
         >
           <span className="text-lg mr-2">+</span>
           Create Purchase

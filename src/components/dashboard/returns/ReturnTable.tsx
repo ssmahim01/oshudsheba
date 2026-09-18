@@ -127,7 +127,7 @@ export const ReturnTable: React.FC<ReturnTableProps> = ({
 
                 {/* Products Count */}
                 <td className="px-6 py-4 text-center">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-amber-100 text-sm font-semibold text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#007BFF] text-sm font-semibold text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]">
                     {returnItem.returnedProducts?.length || 0}
                   </span>
                 </td>

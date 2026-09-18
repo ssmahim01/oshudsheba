@@ -78,7 +78,7 @@ export function BestSellingProductsClient({
                     <div className="mt-3">
                       {product.discountPrice ? (
                         <div className="flex items-center gap-2">
-                          <span className="font-bold text-amber-600">
+                          <span className="font-bold text-[#007BFF]">
                             ৳{product.discountPrice}
                           </span>
 
@@ -87,7 +87,7 @@ export function BestSellingProductsClient({
                           </span>
                         </div>
                       ) : (
-                        <span className="font-bold text-amber-600">
+                        <span className="font-bold text-[#007BFF]">
                           ৳{product.price}
                         </span>
                       )}

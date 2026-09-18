@@ -10,8 +10,8 @@ interface VerificationEmptyProps {
 export function VerificationEmpty({ onReset }: VerificationEmptyProps) {
   return (
     <div className="flex flex-col items-center justify-center py-20 px-4">
-      <div className="rounded-full bg-amber-100 dark:bg-amber-950 p-4 mb-4">
-        <Search className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+      <div className="rounded-full bg-[#007BFF] dark:bg-amber-950 p-4 mb-4">
+        <Search className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
       </div>
       <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
         No Verification Resources Found
@@ -23,7 +23,7 @@ export function VerificationEmpty({ onReset }: VerificationEmptyProps) {
       {onReset && (
         <Button
           onClick={onReset}
-          className="bg-amber-600 hover:bg-amber-700 text-white"
+          className="bg-[#007BFF] hover:bg-[#007BFF] text-white"
         >
           Reset Filters
         </Button>

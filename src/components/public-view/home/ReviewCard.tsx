@@ -11,8 +11,8 @@ interface Props {
 
 export function ReviewCard({ review }: Props) {
   return (
-    <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-amber-100">
-      <div className="relative h-52 bg-linear-to-b from-amber-200 to-amber-100">
+    <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-[#007BFF]">
+      <div className="relative h-52 bg-linear-to-b from-amber-200 to-[#007BFF]">
         <Image
           src={review.product?.images?.[0] || "/placeholder-product.jpg"}
           alt={review.product?.title || ""}
@@ -38,7 +38,7 @@ export function ReviewCard({ review }: Props) {
               key={i}
               className={`h-4 w-4 ${
                 i < review.rating
-                  ? "fill-amber-500 text-amber-500"
+                  ? "fill-[#007BFF]0 text-[#007BFF]0"
                   : "text-gray-300"
               }`}
             />
@@ -49,7 +49,7 @@ export function ReviewCard({ review }: Props) {
       <div className="p-4">
         <Link
           href={`/product/${review.product?.slug}`}
-          className="font-bold text-base hover:text-amber-600 transition-colors line-clamp-2 uppercase"
+          className="font-bold text-base hover:text-[#007BFF] transition-colors line-clamp-2 uppercase"
         >
           {review.product?.title}
         </Link>

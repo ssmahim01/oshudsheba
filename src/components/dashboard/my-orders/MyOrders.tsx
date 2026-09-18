@@ -128,8 +128,8 @@ const STATUS_OPTIONS: {
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-amber-500",
-    chip: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    dot: "bg-[#007BFF]0",
+    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   {
     value: "CONFIRMED",
@@ -161,8 +161,8 @@ const DELIVERY_STATUSES = [
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-amber-500",
-    chip: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    dot: "bg-[#007BFF]0",
+    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   {
     value: "NOT_SHIPPED",
@@ -252,7 +252,7 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-gray-200/70 bg-white px-4 py-3.5 dark:border-gray-700/60 dark:bg-gray-900 hover:border-amber-200 dark:hover:border-amber-900/40 transition-colors">
+    <div className="flex items-center gap-3 rounded-xl border border-gray-200/70 bg-white px-4 py-3.5 dark:border-gray-700/60 dark:bg-gray-900 hover:border-amber-200 dark:hover:border-[#007BFF]/40 transition-colors">
       <div
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
@@ -565,8 +565,8 @@ export default function MyOrders() {
             Orders assigned to you — view, edit billing, and manage delivery
           </p>
         </div>
-        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-          <ShoppingBag className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+          <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
         </div>
       </div>
 
@@ -576,7 +576,7 @@ export default function MyOrders() {
           label="Total"
           value={stats?.total ?? 0}
           icon={ShoppingBag}
-          accent="bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
         />
         <StatCard
           label="Pending"
@@ -616,7 +616,7 @@ export default function MyOrders() {
               placeholder="Search by order ID, customer name or email…"
               value={localSearch}
               onChange={handleSearchInput}
-              className="h-10 pl-9 pr-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors"
+              className="h-10 pl-9 pr-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors"
             />
             {localSearch && (
               <button
@@ -636,7 +636,7 @@ export default function MyOrders() {
               value={orderStatus || "all"}
               onValueChange={handleStatusChange}
             >
-              <SelectTrigger className="h-10 w-44 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors">
+              <SelectTrigger className="h-10 w-44 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
                 <SelectValue placeholder="All Statuses" />
               </SelectTrigger>
               <SelectContent className="rounded-xl">
@@ -698,8 +698,8 @@ export default function MyOrders() {
                 className={cn(
                   "group inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-amber-50 text-amber-700 dark:border-amber-700 dark:bg-amber-900/20 dark:text-amber-400"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-amber-50/40 hover:text-amber-700 dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-amber-400",
+                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -724,12 +724,12 @@ export default function MyOrders() {
             <PopoverContent
               align="start"
               side="bottom"
-              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-amber-900/40 shadow-xl overflow-hidden"
+              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-[#007BFF]/40 shadow-xl overflow-hidden"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Presets */}
-                <div className="border-b border-amber-100 dark:border-amber-900/30 sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
+                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Quick select
                   </p>
                   {PRESETS.map((preset) => {
@@ -747,8 +747,8 @@ export default function MyOrders() {
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors duration-150",
                           isActive
-                            ? "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
-                            : "text-gray-600 hover:bg-amber-50 hover:text-amber-700 dark:text-gray-400 dark:hover:bg-amber-900/10 dark:hover:text-amber-400",
+                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -758,7 +758,7 @@ export default function MyOrders() {
 
                   {dateFrom && (
                     <>
-                      <div className="my-1.5 border-t border-amber-100 dark:border-amber-900/30" />
+                      <div className="my-1.5 border-t border-[#007BFF] dark:border-[#007BFF]" />
                       <button
                         onClick={() => {
                           clearDate();
@@ -774,7 +774,7 @@ export default function MyOrders() {
 
                 {/* Calendar */}
                 <div className="p-3">
-                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-amber-600/60 dark:text-amber-500/60">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
                     Custom range
                   </p>
                   <Calendar
@@ -787,15 +787,15 @@ export default function MyOrders() {
                     className="rounded-xl"
                     classNames={{
                       day_selected:
-                        "bg-amber-500 text-white hover:bg-amber-500 focus:bg-amber-500 dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 focus:bg-[#007BFF]0 dark:bg-[#007BFF]",
                       day_range_middle:
-                        "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
-                        "bg-amber-500 text-white rounded-l-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
-                        "bg-amber-500 text-white rounded-r-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
                       day_today:
-                        "border border-amber-400 text-amber-700 font-bold dark:border-amber-600 dark:text-amber-400",
+                        "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF] dark:text-[#007BFF]",
                     }}
                   />
                   {calRange?.from && !calRange?.to && (
@@ -814,7 +814,7 @@ export default function MyOrders() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="h-10 shrink-0 gap-1.5 rounded-lg border-gray-200 text-gray-600 hover:border-amber-300 hover:text-amber-700 dark:border-gray-700 dark:text-gray-400 dark:hover:border-amber-700 dark:hover:text-amber-400 transition-colors"
+              className="h-10 shrink-0 gap-1.5 rounded-lg border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset all
@@ -833,13 +833,13 @@ export default function MyOrders() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <Search className="h-3 w-3" />
                 &quot;{search}&quot;
                 <button
                   onClick={clearSearch}
-                  className="ml-0.5 hover:text-amber-900 dark:hover:text-amber-200"
+                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -897,13 +897,13 @@ export default function MyOrders() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
                 <button
                   onClick={clearDate}
-                  className="ml-0.5 hover:text-amber-900 dark:hover:text-amber-200"
+                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -922,7 +922,7 @@ export default function MyOrders() {
           className={cn(
             "px-4 py-2 text-sm font-semibold rounded-md transition",
             activeTab === "instant"
-              ? "bg-amber-500 text-white"
+              ? "bg-[#007BFF]0 text-white"
               : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
           )}
         >
@@ -967,7 +967,7 @@ export default function MyOrders() {
           className={cn(
             "px-4 py-2 text-sm font-semibold rounded-md transition",
             activeTab === "hold"
-              ? "bg-amber-500 text-white"
+              ? "bg-[#007BFF]0 text-white"
               : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
           )}
         >
@@ -1001,7 +1001,7 @@ export default function MyOrders() {
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>
@@ -1019,7 +1019,7 @@ export default function MyOrders() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-amber-400 text-amber-700 bg-amber-50 dark:border-amber-700 dark:text-amber-400 dark:bg-amber-900/20",
+                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}
@@ -1033,7 +1033,7 @@ export default function MyOrders() {
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>

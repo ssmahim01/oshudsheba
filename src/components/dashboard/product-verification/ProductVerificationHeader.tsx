@@ -27,7 +27,7 @@ export function ProductVerificationHeader({
         <Button
           onClick={onCreate}
           disabled={isLoading}
-          className="inline-flex items-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 dark:from-amber-600 dark:to-amber-700 dark:hover:from-amber-700 dark:hover:to-amber-800 text-white shadow-lg hover:shadow-xl transition-all duration-200 scale-hover"
+          className="inline-flex items-center gap-2 bg-linear-to-r from-[#007BFF]0 to-[#007BFF] hover:from-[#007BFF] hover:to-[#007BFF] dark:from-[#007BFF] dark:to-[#007BFF] dark:hover:from-[#007BFF] dark:hover:to-amber-800 text-white shadow-lg hover:shadow-xl transition-all duration-200 scale-hover"
         >
           <Plus className="w-5 h-5" />
           Add Verification

@@ -284,7 +284,7 @@ export function PartialUpdateOrderModal({
                                 htmlFor={`damage-${index}`}
                                 className="text-xs font-medium flex items-center gap-1.5 cursor-pointer"
                               >
-                                <AlertTriangle className="h-3 w-3 text-amber-600 dark:text-amber-400" />
+                                <AlertTriangle className="h-3 w-3 text-[#007BFF] dark:text-[#007BFF]" />
                                 Mark as Damage/Loss
                               </Label>
                             </div>
@@ -496,7 +496,7 @@ export function PartialUpdateOrderModal({
                     </p>
                   )}
                   {removeItems.some((item) => item.isDamage) && (
-                    <div className="flex items-center gap-1.5 mt-3 pt-3 border-t border-amber-200 dark:border-amber-900/50 text-xs text-amber-700 dark:text-amber-400">
+                    <div className="flex items-center gap-1.5 mt-3 pt-3 border-t border-amber-200 dark:border-[#007BFF]/50 text-xs text-[#007BFF] dark:text-[#007BFF]">
                       <AlertTriangle className="h-3 w-3" />
                       <span>
                         {removeItems.filter((item) => item.isDamage).length}{" "}

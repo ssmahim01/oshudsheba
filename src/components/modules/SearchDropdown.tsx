@@ -70,7 +70,7 @@ export function SearchDropdown({ query, onClose }: SearchDropdownProps) {
                 <li key={product._id}>
                   <button
                     onClick={() => handleProductClick(product.slug as string)}
-                    className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-amber-50/60 dark:hover:bg-amber-900/10"
+                    className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10"
                   >
                     {/* Thumbnail */}
                     <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
@@ -103,7 +103,7 @@ export function SearchDropdown({ query, onClose }: SearchDropdownProps) {
 
                     {/* Price */}
                     <div className="shrink-0 text-right">
-                      <p className="text-sm font-bold text-amber-500">
+                      <p className="text-sm font-bold text-[#007BFF]0">
                         ৳{" "}
                         {
                           hasDiscount ? product.discountPrice : product.price
@@ -125,7 +125,7 @@ export function SearchDropdown({ query, onClose }: SearchDropdownProps) {
           {/* VIEW ALL RESULTS footer */}
           <button
             onClick={handleViewAll}
-            className="w-full border-t border-gray-100 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-gray-700 transition-colors hover:bg-amber-50 hover:text-amber-700 dark:border-gray-800 dark:text-gray-300 dark:hover:bg-amber-900/10 dark:hover:text-amber-400"
+            className="w-full border-t border-gray-100 py-3.5 text-center text-xs font-bold uppercase tracking-widest text-gray-700 transition-colors hover:bg-[#007BFF] hover:text-[#007BFF] dark:border-gray-800 dark:text-gray-300 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]"
           >
             View All Results
           </button>

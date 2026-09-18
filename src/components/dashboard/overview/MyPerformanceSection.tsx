@@ -21,8 +21,8 @@ function StatCard({
   sub?: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-amber-900/40">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-amber-50/0 transition-all duration-300 group-hover:bg-amber-50/30 dark:group-hover:bg-amber-900/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/30 dark:group-hover:bg-[#007BFF]/5" />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -63,8 +63,8 @@ export function MyPerformanceSection({
       key: "PENDING",
       label: "Pending",
       icon: Clock,
-      cls: "border-amber-200 bg-amber-50/60 dark:border-amber-900/30 dark:bg-amber-900/10",
-      val: "text-amber-700 dark:text-amber-400",
+      cls: "border-amber-200 bg-[#007BFF]/60 dark:border-[#007BFF] dark:bg-[#007BFF]/10",
+      val: "text-[#007BFF] dark:text-[#007BFF]",
       count: performance.pendingOrders,
     },
     {
@@ -109,7 +109,7 @@ export function MyPerformanceSection({
       {dateLabel && (
         <p className="text-xs text-gray-400 dark:text-gray-500">
           Showing performance for{" "}
-          <span className="font-semibold text-amber-600 dark:text-amber-400">{dateLabel}</span>
+          <span className="font-semibold text-[#007BFF] dark:text-[#007BFF]">{dateLabel}</span>
         </p>
       )}
       <div
@@ -122,7 +122,7 @@ export function MyPerformanceSection({
           label="Total Orders"
           value={performance.totalOrders}
           icon={ShoppingBag}
-          accent="bg-amber-50 text-amber-600 dark:bg-amber-900/20 dark:text-amber-400"
+          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
         />
         <StatCard
           label="Revenue"

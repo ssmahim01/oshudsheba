@@ -42,9 +42,9 @@ export const StaffManagementStats: React.FC<StaffManagementStatsProps> = ({
       icon: <Users className="h-6 w-6" />,
       label: "Total Staffs",
       value: totalUsers,
-      color: "text-amber-600 dark:text-amber-400",
-      bgColor: "bg-amber-50 dark:bg-amber-950/30",
-      trendColor: "text-amber-600",
+      color: "text-[#007BFF] dark:text-[#007BFF]",
+      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]",
+      trendColor: "text-[#007BFF]",
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -90,12 +90,12 @@ export const StaffManagementStats: React.FC<StaffManagementStatsProps> = ({
       {stats.map((stat, index) => (
         <Card
           key={index}
-          className="overflow-hidden p-0 hover:shadow-lg transition-all duration-300 border border-amber-200/20 dark:border-amber-900/20 hover:border-amber-400/40 dark:hover:border-amber-600/40"
+          className="overflow-hidden p-0 hover:shadow-lg transition-all duration-300 border border-amber-200/20 dark:border-[#007BFF]/20 hover:border-[#007BFF]/40 dark:hover:border-[#007BFF]/40"
         >
           <CardContent className="p-0">
             {/* Header with background color */}
             <div
-              className={`${stat.bgColor} px-6 py-4 border-b border-amber-200/10 dark:border-amber-900/10`}
+              className={`${stat.bgColor} px-6 py-4 border-b border-amber-200/10 dark:border-[#007BFF]/10`}
             >
               <div className="flex items-center justify-between">
                 <div className={`p-3 rounded-lg ${stat.bgColor}`}>

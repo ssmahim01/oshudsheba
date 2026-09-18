@@ -97,7 +97,7 @@ export default function ProductVerificationClient() {
   return (
     <div className="">
       {/* Hero Section */}
-      <section className="bg-linear-to-br from-amber-50 via-orange-50 to-amber-100 dark:from-slate-900 dark:via-amber-950 dark:to-slate-900 pt-8 pb-12">
+      <section className="bg-linear-to-br from-[#007BFF] via-orange-50 to-[#007BFF] dark:from-slate-900 dark:via-amber-950 dark:to-slate-900 pt-8 pb-12">
         <div className="container mx-auto px-4">
           {isLoading ? <HeroSkeleton /> : <ProductVerificationHero />}
         </div>
@@ -185,7 +185,7 @@ export default function ProductVerificationClient() {
                           onClick={() => setPage(p)}
                           className={`px-3 py-2 rounded-lg ${
                             page === p
-                              ? "bg-amber-600 text-white"
+                              ? "bg-[#007BFF] text-white"
                               : "border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800"
                           }`}
                         >

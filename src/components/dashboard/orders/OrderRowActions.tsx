@@ -236,7 +236,7 @@ export function OrderRowActions({
             courier?.deliveryStatus !== "FAILED" &&
             onViewInvoice && (
               <DropdownMenuItem
-                className="gap-2 text-sm cursor-pointer text-amber-600 focus:text-amber-600 dark:text-amber-400"
+                className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
                 onClick={() => onViewInvoice(order)}
               >
                 <FileText className="h-3.5 w-3.5" />
@@ -289,7 +289,7 @@ export function OrderRowActions({
             !isWaitingStock &&
             !(isDelivered || isConfirmed) && (
               <DropdownMenuItem
-                className="gap-2 text-sm cursor-pointer text-amber-600 focus:text-amber-600 dark:text-amber-400"
+                className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
                 onClick={() => setEditOpenTiming(true)}
                 disabled={hasCourier && !isAdmin}
               >
@@ -475,7 +475,7 @@ export function OrderRowActions({
             isCompleted &&
             onMarkExchange && (
               <DropdownMenuItem
-                className="gap-2 text-sm cursor-pointer text-amber-600 focus:text-amber-600 dark:text-amber-400"
+                className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
                 onClick={() => onMarkExchange(order)}
               >
                 <RotateCcw className="h-3.5 w-3.5" />
@@ -568,8 +568,8 @@ export function OrderRowActions({
               </div>
             </div>
 
-            <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 dark:border-amber-800/40 dark:bg-amber-900/10">
-              <p className="text-xs leading-relaxed text-amber-700 dark:text-amber-300">
+            <div className="rounded-xl border border-amber-200 bg-[#007BFF] px-4 py-3 dark:border-amber-800/40 dark:bg-[#007BFF]/10">
+              <p className="text-xs leading-relaxed text-[#007BFF] dark:text-amber-300">
                 This will automatically:
                 <br />• Set delivery status → <strong>DELIVERED</strong>
                 <br />• Set order status → <strong>COMPLETED</strong>
@@ -651,7 +651,7 @@ export function OrderRowActions({
 
                 <div className="flex justify-between pt-2 border-t border-emerald-100 dark:border-emerald-800/40">
                   <span className="text-gray-500">New Status</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:bg-amber-900/20 dark:text-amber-400">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
                     PENDING
                   </span>
                 </div>

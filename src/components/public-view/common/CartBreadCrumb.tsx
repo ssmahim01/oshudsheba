@@ -29,9 +29,9 @@ export function CartBreadcrumb({ hasInvalidQty }: props) {
   const baseStyle = "cursor-pointer px-2 py-1 text-gray-300 transition-all duration-300"
 
   const activeStyle =
-    "text-white font-semibold border-b-3 border-amber-400 hover:text-amber-400"
+    "text-white font-semibold border-b-3 border-[#007BFF] hover:text-[#007BFF]"
 
-  const hoverStyle = "hover:text-amber-400"
+  const hoverStyle = "hover:text-[#007BFF]"
 
   return (
     <Breadcrumb className="container mx-auto px-4 py-5">

@@ -72,7 +72,7 @@ export function ReviewsFilters({
         <Button
           onClick={onReset}
           variant="outline"
-          className="border-amber-200 dark:border-amber-800 hover:bg-amber-50 dark:hover:bg-amber-950/20"
+          className="border-amber-200 dark:border-amber-800 hover:bg-[#007BFF] dark:hover:bg-amber-950/20"
         >
           <RotateCcw className="h-4 w-4 mr-2" />
           Reset

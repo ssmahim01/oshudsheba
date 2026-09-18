@@ -196,14 +196,14 @@ const CategoryByProductCard = ({ product}: ProductCardProps) => {
         >
           {/* TITLE */}
           <Link href={productHref}>
-            <p className="text-[13.5px] font-bold text-gray-900 hover:text-amber-400 transition-colors duration-150 leading-tight line-clamp-2">
+            <p className="text-[13.5px] font-bold text-gray-900 hover:text-[#007BFF] transition-colors duration-150 leading-tight line-clamp-2">
               {title}
             </p>
           </Link>
 
           {/* CATEGORY */}
           <Link href={categoryHref}>
-            <p className="text-[12px] font-bold text-gray-400 hover:text-amber-400 transition-colors duration-150 leading-tight line-clamp-2">
+            <p className="text-[12px] font-bold text-gray-400 hover:text-[#007BFF] transition-colors duration-150 leading-tight line-clamp-2">
               {category?.title}
             </p>
           </Link>
@@ -216,7 +216,7 @@ const CategoryByProductCard = ({ product}: ProductCardProps) => {
                 className={cn(
                   "w-3.5 h-3.5",
                   i < (ratings ?? 0)
-                    ? "fill-amber-400 text-amber-400"
+                    ? "fill-[#007BFF] text-[#007BFF]"
                     : "fill-none text-gray-300",
                 )}
               />
@@ -282,7 +282,7 @@ const CategoryByProductCard = ({ product}: ProductCardProps) => {
                 className={cn(
                   "w-full text-white text-[13px] font-semibold tracking-wide ",
                   "relative overflow-hidden h-10",
-                  "bg-[#1e2a38] hover:text-amber-400 transition-colors duration-300",
+                  "bg-[#1e2a38] hover:text-[#007BFF] transition-colors duration-300",
                   viewMode === "list" ? "w-30 px-4" : "w-full",
                   !product?.availableStock || product.availableStock <= 0
                     ? "opacity-50 cursor-not-allowed"

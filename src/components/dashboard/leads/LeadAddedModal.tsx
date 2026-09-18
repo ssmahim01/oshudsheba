@@ -99,7 +99,7 @@ function FormField({
 }
 
 const inputCls =
-  "h-9 cursor-pointer rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+  "h-9 cursor-pointer rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 const LeadAddedModal = ({ open, onOpenChange }: Props) => {
   const [createLead, { isLoading }] = useCreateLeadMutation();
@@ -149,12 +149,12 @@ const LeadAddedModal = ({ open, onOpenChange }: Props) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-115 gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60">
         {/* Accent bar */}
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-teal-500 to-cyan-500" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-teal-500 to-cyan-500" />
 
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <UserPlus className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <UserPlus className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
           <div>
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -317,8 +317,8 @@ const LeadAddedModal = ({ open, onOpenChange }: Props) => {
             disabled={isLoading}
             className={cn(
               "hover:cursor-pointer group relative overflow-hidden rounded-lg",
-              "bg-amber-600 text-white hover:bg-amber-700",
-              "dark:bg-amber-700 dark:hover:bg-amber-600",
+              "bg-[#007BFF] text-white hover:bg-[#007BFF]",
+              "dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
               "disabled:opacity-50 disabled:cursor-not-allowed",
               "transition-all duration-200 active:scale-95",
             )}

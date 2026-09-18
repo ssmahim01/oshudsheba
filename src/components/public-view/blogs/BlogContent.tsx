@@ -12,11 +12,11 @@ export function BlogContent({ content }: Props) {
           prose prose-gray dark:prose-invert max-w-none
           prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
           prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed
-          prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline
+          prose-a:text-[#007BFF] dark:prose-a:text-[#007BFF] prose-a:no-underline hover:prose-a:underline
           prose-strong:text-gray-900 dark:prose-strong:text-white
           prose-img:rounded-xl prose-img:shadow-md
-          prose-blockquote:border-l-amber-500 prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400
-          prose-code:text-amber-700 dark:prose-code:text-amber-300 prose-code:bg-amber-50 dark:prose-code:bg-amber-900/20
+          prose-blockquote:border-l-[#007BFF]0 prose-blockquote:text-gray-600 dark:prose-blockquote:text-gray-400
+          prose-code:text-[#007BFF] dark:prose-code:text-amber-300 prose-code:bg-[#007BFF] dark:prose-code:bg-[#007BFF]/20
           prose-ul:text-gray-700 dark:prose-ul:text-gray-300
           prose-ol:text-gray-700 dark:prose-ol:text-gray-300
         "

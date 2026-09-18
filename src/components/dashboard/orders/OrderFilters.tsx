@@ -86,8 +86,8 @@ const ORDER_STATUSES: {
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-amber-500",
-    chip: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    dot: "bg-[#007BFF]0",
+    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   {
     value: "CONFIRMED",
@@ -126,8 +126,8 @@ const DELIVERY_STATUSES = [
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-amber-500",
-    chip: "bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/20 dark:text-amber-400 dark:border-amber-800",
+    dot: "bg-[#007BFF]0",
+    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
   },
   {
     value: "NOT_SHIPPED",
@@ -195,7 +195,7 @@ const DATE_TYPES: { value: DateType; label: string; dot: string }[] = [
   { value: "delivered", label: "Delivered At", dot: "bg-blue-500" },
   { value: "partial", label: "Partial Delivered", dot: "bg-orange-500" },
   { value: "cancelled", label: "Cancelled At", dot: "bg-red-500" },
-  { value: "hold", label: "On Hold At", dot: "bg-amber-500" },
+  { value: "hold", label: "On Hold At", dot: "bg-[#007BFF]0" },
   { value: "noResponse", label: "No Response At", dot: "bg-rose-500" },
 ];
 
@@ -290,7 +290,7 @@ function TimeInput({ label, value, onChange, accentClass }: TimeInputProps) {
             "h-9 w-full rounded-lg border bg-white pl-7 pr-2 text-sm font-mono",
             "text-gray-900 dark:text-gray-50",
             "border-gray-200 dark:border-gray-700 dark:bg-gray-800/60",
-            "focus:outline-none focus:ring-1 focus:ring-amber-400 dark:focus:ring-amber-500",
+            "focus:outline-none focus:ring-1 focus:ring-[#007BFF] dark:focus:ring-[#007BFF]0",
             "transition-colors",
           )}
         />
@@ -436,7 +436,7 @@ export function OrderFilters({
             placeholder="Search by order ID, customer, phone…"
             value={localSearch}
             onChange={handleSearchInput}
-            className="h-10 pl-9 pr-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-amber-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-amber-500 transition-colors"
+            className="h-10 pl-9 pr-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors"
           />
           {localSearch && (
             <button
@@ -546,7 +546,7 @@ export function OrderFilters({
                 className={cn(
                   "inline-flex h-10 items-center gap-2 px-3 text-sm font-medium transition-colors duration-150 focus:outline-none",
                   dateFilter.from
-                    ? "text-amber-700 dark:text-amber-400"
+                    ? "text-[#007BFF] dark:text-[#007BFF]"
                     : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200",
                 )}
               >
@@ -592,7 +592,7 @@ export function OrderFilters({
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                           isActive
-                            ? "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400"
+                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
                             : "text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:hover:bg-gray-800",
                         )}
                       >
@@ -633,22 +633,22 @@ export function OrderFilters({
                     className="rounded-xl"
                     classNames={{
                       day_selected:
-                        "bg-amber-500 text-white hover:bg-amber-500 focus:bg-amber-500 dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 focus:bg-[#007BFF]0 dark:bg-[#007BFF]",
                       day_range_middle:
-                        "bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300",
+                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
-                        "bg-amber-500 text-white rounded-l-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
-                        "bg-amber-500 text-white rounded-r-full dark:bg-amber-600",
+                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
                       day_today:
-                        "border border-amber-400 text-amber-700 font-bold dark:border-amber-500 dark:text-amber-400",
+                        "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF]0 dark:text-[#007BFF]",
                     }}
                   />
 
                   {/* ── Time range inputs ── */}
                   <div className="rounded-xl border border-gray-100 bg-gray-50/60 p-3 dark:border-gray-800 dark:bg-gray-800/40 space-y-2">
                     <div className="flex items-center gap-1.5 mb-2">
-                      <Clock className="h-3.5 w-3.5 text-amber-500" />
+                      <Clock className="h-3.5 w-3.5 text-[#007BFF]0" />
                       <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
                         Time Range
                       </span>
@@ -659,7 +659,7 @@ export function OrderFilters({
                         label="From"
                         value={fromTime}
                         onChange={handleFromTimeChange}
-                        accentClass="text-amber-600 dark:text-amber-400"
+                        accentClass="text-[#007BFF] dark:text-[#007BFF]"
                       />
 
                       <div className="flex h-9 items-center pb-0.5">
@@ -684,10 +684,10 @@ export function OrderFilters({
                           ? applyTime(calendarRange.to, th, tm, 59)
                           : applyTime(calendarRange.from, th, tm, 59);
                         return (
-                          <div className="mt-2 rounded-lg border border-amber-200/60 bg-amber-50/40 px-2.5 py-1.5 dark:border-amber-900/30 dark:bg-amber-900/10">
+                          <div className="mt-2 rounded-lg border border-amber-200/60 bg-[#007BFF]/40 px-2.5 py-1.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                             <p className="text-[11px] font-mono text-amber-800 dark:text-amber-300 leading-relaxed">
                               {format(fromDt, "MMM d, yyyy · HH:mm")}{" "}
-                              <span className="text-amber-400">→</span>{" "}
+                              <span className="text-[#007BFF]">→</span>{" "}
                               {format(toDt, "MMM d, yyyy · HH:mm")}
                             </p>
                           </div>
@@ -744,7 +744,7 @@ export function OrderFilters({
           {searchFilter && (
             <Badge
               variant="outline"
-              className="flex items-center gap-1 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+              className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
             >
               <Search className="h-3 w-3" />
               &quot;{searchFilter}&quot;
@@ -808,7 +808,7 @@ export function OrderFilters({
           {dateFilter.from && (
             <Badge
               variant="outline"
-              className="flex items-center gap-1.5 rounded-full border-amber-200 bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+              className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
             >
               <Clock className="h-3 w-3" />
               {activeDateType && (

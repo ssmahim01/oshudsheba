@@ -125,7 +125,7 @@ export function ScheduleOrder({ value, onChange }: ScheduleOrderProps) {
           className={cn(
             "flex-1 max-w-43 rounded-lg text-xs font-semibold transition-all duration-200",
             isHold
-              ? "bg-amber-600 hover:bg-amber-700 text-white shadow-sm"
+              ? "bg-[#007BFF] hover:bg-[#007BFF] text-white shadow-sm"
               : "bg-gray-100 text-gray-600 hover:bg-gray-150 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700",
           )}
         >

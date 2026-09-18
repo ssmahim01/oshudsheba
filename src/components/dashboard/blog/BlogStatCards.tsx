@@ -36,8 +36,8 @@ export function BlogStatsCards({ blogs, total }: Props) {
       label: "Drafts",
       value: draft,
       icon: FileText,
-      iconBg: "bg-amber-100 dark:bg-amber-900/40",
-      iconColor: "text-amber-600 dark:text-amber-400",
+      iconBg: "bg-[#007BFF] dark:bg-[#007BFF]/40",
+      iconColor: "text-[#007BFF] dark:text-[#007BFF]",
       border: "border-amber-200 dark:border-amber-800",
     },
     {

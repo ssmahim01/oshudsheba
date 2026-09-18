@@ -57,7 +57,7 @@ interface ProductVerificationFormProps {
 }
 
 const inputCls =
-  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 export function ProductVerificationForm({
   open,
@@ -367,7 +367,7 @@ export function ProductVerificationForm({
                           className={cn(
                             "flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors",
                             isSelected
-                              ? "bg-amber-50 dark:bg-amber-900/10"
+                              ? "bg-[#007BFF] dark:bg-[#007BFF]/10"
                               : "hover:bg-gray-50/60 dark:hover:bg-gray-800/40",
                           )}
                         >
@@ -382,8 +382,8 @@ export function ProductVerificationForm({
                               />
                             </div>
                           ) : (
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                              <ImageIcon className="h-4 w-4 text-amber-400" />
+                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                              <ImageIcon className="h-4 w-4 text-[#007BFF]" />
                             </div>
                           )}
                           <div className="min-w-0 flex-1">
@@ -392,7 +392,7 @@ export function ProductVerificationForm({
                             </p>
                           </div>
                           {isSelected && (
-                            <Check className="h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" />
+                            <Check className="h-4 w-4 shrink-0 text-[#007BFF] dark:text-[#007BFF]" />
                           )}
                         </button>
                       );
@@ -404,7 +404,7 @@ export function ProductVerificationForm({
 
             {/* Selected product display */}
             {selectedProduct ? (
-              <div className="mt-3 flex items-center gap-3 rounded-lg border border-amber-200/50 bg-amber-50/30 p-3 dark:border-amber-900/30 dark:bg-amber-900/10">
+              <div className="mt-3 flex items-center gap-3 rounded-lg border border-amber-200/50 bg-[#007BFF]/30 p-3 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                 {selectedProduct.images?.[0] ? (
                   <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg">
                     <Image
@@ -416,8 +416,8 @@ export function ProductVerificationForm({
                     />
                   </div>
                 ) : (
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-900/40">
-                    <Package className="h-6 w-6 text-amber-600 dark:text-amber-400" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/40">
+                    <Package className="h-6 w-6 text-[#007BFF] dark:text-[#007BFF]" />
                   </div>
                 )}
                 <div className="min-w-0 flex-1">
@@ -649,8 +649,8 @@ export function ProductVerificationForm({
                 className={cn(
                   "relative flex flex-col items-center justify-center gap-3 w-full h-44 rounded-lg border-2 border-dashed cursor-pointer transition-colors select-none",
                   thumbnailDragOver
-                    ? "border-amber-500 bg-amber-50/40 dark:bg-amber-900/10"
-                    : "border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800 hover:border-amber-400 hover:bg-amber-50/20 dark:hover:bg-amber-900/5",
+                    ? "border-[#007BFF]0 bg-[#007BFF]/40 dark:bg-[#007BFF]/10"
+                    : "border-gray-300 dark:border-slate-600 bg-gray-50 dark:bg-slate-800 hover:border-[#007BFF] hover:bg-[#007BFF]/20 dark:hover:bg-[#007BFF]/5",
                   isSubmitting && "pointer-events-none opacity-60",
                 )}
               >
@@ -658,12 +658,12 @@ export function ProductVerificationForm({
                   className={cn(
                     "flex h-10 w-10 items-center justify-center rounded-full transition-colors",
                     thumbnailDragOver
-                      ? "bg-amber-100 dark:bg-amber-900/30"
+                      ? "bg-[#007BFF] dark:bg-[#007BFF]"
                       : "bg-gray-100 dark:bg-slate-700",
                   )}
                 >
                   {thumbnailDragOver ? (
-                    <Upload className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+                    <Upload className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
                   ) : (
                     <ImageIcon className="h-5 w-5 text-gray-400 dark:text-slate-400" />
                   )}
@@ -765,7 +765,7 @@ export function ProductVerificationForm({
             <Button
               type="submit"
               disabled={isSubmitting || isLoading || thumbnailUploading}
-              className="flex-1 hover:cursor-pointer bg-amber-600 hover:bg-amber-700"
+              className="flex-1 hover:cursor-pointer bg-[#007BFF] hover:bg-[#007BFF]"
             >
               {(isSubmitting || thumbnailUploading) && (
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />

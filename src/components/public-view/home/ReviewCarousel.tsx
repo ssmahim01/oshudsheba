@@ -87,7 +87,7 @@ export function ReviewsCarousel() {
                     prev === 0 ? pages.length - 1 : prev - 1
                   )
                 }
-                className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 rounded-full bg-amber-500 hover:bg-amber-600"
+                className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 rounded-full bg-[#007BFF]0 hover:bg-[#007BFF]"
               >
                 <ChevronLeft />
               </Button>
@@ -99,7 +99,7 @@ export function ReviewsCarousel() {
                     prev === pages.length - 1 ? 0 : prev + 1
                   )
                 }
-                className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 rounded-full bg-amber-500 hover:bg-amber-600"
+                className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 rounded-full bg-[#007BFF]0 hover:bg-[#007BFF]"
               >
                 <ChevronRight />
               </Button>
@@ -114,7 +114,7 @@ export function ReviewsCarousel() {
               onClick={() => setCurrentPage(idx)}
               className={`h-2 rounded-full transition-all ${
                 currentPage === idx
-                  ? "bg-amber-500 w-8"
+                  ? "bg-[#007BFF]0 w-8"
                   : "bg-amber-200 w-2"
               }`}
             />

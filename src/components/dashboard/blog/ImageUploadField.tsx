@@ -84,16 +84,16 @@ export function ImageUploadField({
           className={`
             w-full ${height} rounded-xl border-2 border-dashed
             border-gray-200 dark:border-gray-700
-            hover:border-amber-400 dark:hover:border-amber-600
+            hover:border-[#007BFF] dark:hover:border-[#007BFF]
             bg-gray-50 dark:bg-gray-800/50
             flex flex-col items-center justify-center gap-2
-            text-gray-400 hover:text-amber-500 transition-all
+            text-gray-400 hover:text-[#007BFF]0 transition-all
             disabled:opacity-60 disabled:cursor-not-allowed
           `}
         >
           {uploading ? (
             <>
-              <Loader2 className="h-5 w-5 animate-spin text-amber-500" />
+              <Loader2 className="h-5 w-5 animate-spin text-[#007BFF]0" />
               <span className="text-xs">Uploading…</span>
             </>
           ) : (

@@ -461,8 +461,8 @@ export default function OrdersManagement() {
             Manage and track all customer orders and shipments
           </p>
         </div>
-        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-          <ShoppingBag className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+          <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
         </div>
       </div>
 
@@ -508,7 +508,7 @@ export default function OrdersManagement() {
                         ? "bg-rose-500 text-white"
                         : tab.value === "scheduled"
                           ? "bg-blue-500 text-white"
-                          : "bg-amber-500 text-white"
+                          : "bg-[#007BFF]0 text-white"
                       : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
                   )}
                 >
@@ -634,7 +634,7 @@ export default function OrdersManagement() {
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>
@@ -652,7 +652,7 @@ export default function OrdersManagement() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-amber-400 text-amber-700 bg-amber-50 dark:border-amber-700 dark:text-amber-400 dark:bg-amber-900/20",
+                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}
@@ -666,7 +666,7 @@ export default function OrdersManagement() {
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
-                      : "cursor-pointer hover:text-amber-600"
+                      : "cursor-pointer hover:text-[#007BFF]"
                   }
                 />
               </PaginationItem>

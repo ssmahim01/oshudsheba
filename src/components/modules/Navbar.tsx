@@ -8,8 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useUser } from "@/context/UserContext";
 import NavSheet from "./NavSheet";
-import { LoginForm } from "@/components/auth/LoginForm";
-import { RegisterForm } from "@/components/auth/SignupForm";
 import type { FC } from "react";
 import { NavbarDropdown } from "./NavbarDropdown";
 import { useSelector } from "react-redux";
@@ -21,8 +19,6 @@ const Navbar: FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false);
-  const [signupOpen, setSignupOpen] = useState(false);
   const searchParams = useSearchParams();
 
   const { user, logout } = useUser();
@@ -55,11 +51,6 @@ const Navbar: FC = () => {
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
-
-  const handleCloseAuth = () => {
-    setLoginOpen(false);
-    setSignupOpen(false);
-  };
 
   const handleSearchChange = (val: string) => {
     setSearchQuery(val);
@@ -98,9 +89,9 @@ const Navbar: FC = () => {
     const auth = searchParams.get("auth");
 
     if (auth === "login") {
-      setTimeout(() => setLoginOpen(true), 100);
+      setTimeout(() => router.push("/login"));
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   return (
     <>
@@ -110,7 +101,7 @@ const Navbar: FC = () => {
         <div className="flex lg:hidden items-center container mx-auto justify-between h-16 px-4 gap-2">
           <Link href="/" aria-label="Oshud Sheba home">
             <Image
-              src="/assets/FRN-Logo-scaled.webp"
+              src="/assets/oshudsheba.png"
               alt="Oshud Sheba"
               width={120}
               height={36}
@@ -152,7 +143,7 @@ const Navbar: FC = () => {
             aria-label="Oshud Sheba home"
           >
             <Image
-              src="/assets/FRN-Logo-scaled.webp"
+              src="/assets/oshudsheba.png"
               alt="Oshud Sheba"
               width={140}
               height={48}
@@ -241,25 +232,23 @@ const Navbar: FC = () => {
               <NavbarDropdown user={user} onLogout={logout} />
             ) : (
               <div className="flex items-center text-sm font-semibold text-white whitespace-nowrap">
-                <Button
-                  variant="ghost"
-                  onClick={
-                    loginOpen ? handleCloseAuth : () => setLoginOpen(true)
-                  }
-                  className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
-                >
-                  Login
-                </Button>
+                <Link href="/login">
+                  <Button
+                    variant="ghost"
+                    className="px-2 text-white hover:text-[#007BFF] hover:bg-transparent"
+                  >
+                    Login
+                  </Button>
+                </Link>
                 <span className="text-[#96999A] font-normal">/</span>
-                <Button
-                  variant="ghost"
-                  onClick={
-                    signupOpen ? handleCloseAuth : () => setSignupOpen(true)
-                  }
-                  className="px-2 text-white hover:text-[#c9a84c] hover:bg-transparent"
-                >
-                  Register
-                </Button>
+                <Link href="/register">
+                  <Button
+                    variant="ghost"
+                    className="px-2 text-white hover:text-[#007BFF] hover:bg-transparent"
+                  >
+                    Register
+                  </Button>
+                </Link>
               </div>
             )}
           </div>
@@ -272,21 +261,7 @@ const Navbar: FC = () => {
         onOpenChange={setMobileNavOpen}
         searchQuery={searchQuery}
         onSearchChange={handleSearchChange}
-        onLoginClick={() => setLoginOpen(true)}
-        onRegisterClick={() => setSignupOpen(true)}
-      />
-
-      {/* Auth Modals */}
-      <LoginForm
-        isOpen={loginOpen}
-        onClose={handleCloseAuth}
-        onSwitchToSignup={() => setSignupOpen(true)}
-        onSwitchToForgot={handleCloseAuth}
-      />
-      <RegisterForm
-        isOpen={signupOpen}
-        onClose={handleCloseAuth}
-        onSwitchToLogin={() => setLoginOpen(true)}
+      
       />
     </>
   );

@@ -113,7 +113,7 @@ function FormField({
         htmlFor={htmlFor}
         className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400"
       >
-        <Icon className="h-3 w-3 text-amber-500 dark:text-amber-400" />
+        <Icon className="h-3 w-3 text-[#007BFF]0 dark:text-[#007BFF]" />
         {label}
         {required && <span className="text-red-400">*</span>}
       </Label>
@@ -137,7 +137,7 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 const inputCls =
-  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-amber-400 focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-amber-500 dark:focus:bg-gray-800";
+  "h-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors placeholder:text-gray-400 focus:border-[#007BFF] focus:bg-white dark:border-gray-700 dark:bg-gray-800/60 dark:placeholder:text-gray-600 dark:focus:border-[#007BFF]0 dark:focus:bg-gray-800";
 
 interface EditOrderModalProps {
   open: boolean;
@@ -375,12 +375,12 @@ export function EditOrderModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="w-full sm:max-w-160 gap-0 p-0 overflow-hidden rounded-2xl border-gray-200/80 dark:border-gray-700/60">
-        <div className="h-1 w-full bg-linear-to-r from-amber-500 via-orange-500 to-yellow-500" />
+        <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 via-orange-500 to-yellow-500" />
 
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-50 dark:bg-amber-900/20">
-            <FilePenLine className="h-4 w-4 text-amber-600 dark:text-amber-400" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+            <FilePenLine className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
           </div>
           <div className="min-w-0 flex-1">
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -393,8 +393,8 @@ export function EditOrderModal({
             </DialogDescription>
           </div>
           {cartProducts.length > 0 && (
-            <div className="shrink-0 rounded-full bg-amber-50 px-3 py-1 dark:bg-amber-900/20">
-              <span className="text-xs font-bold text-amber-700 dark:text-amber-400 tabular-nums">
+            <div className="shrink-0 rounded-full bg-[#007BFF] px-3 py-1 dark:bg-[#007BFF]/20">
+              <span className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
                 ৳{subtotal.toFixed(2)}
               </span>
             </div>
@@ -411,7 +411,7 @@ export function EditOrderModal({
             {/* ── Products ── */}
             <div>
               <SectionLabel>
-                <ShoppingCart className="h-3 w-3 text-amber-500" />
+                <ShoppingCart className="h-3 w-3 text-[#007BFF]0" />
                 Products ({cartProducts.length})
               </SectionLabel>
 
@@ -446,7 +446,7 @@ export function EditOrderModal({
                   <div className="absolute left-0 right-0 top-full z-50 mt-1.5 max-h-56 overflow-y-auto rounded-xl border border-gray-200/80 bg-white shadow-lg dark:border-gray-700/60 dark:bg-gray-900">
                     {isSearching ? (
                       <div className="flex items-center gap-2 px-3 py-3 text-xs text-gray-400">
-                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-amber-300 border-t-amber-600" />
+                        <span className="h-3 w-3 animate-spin rounded-full border-2 border-amber-300 border-t-[#007BFF]" />
                         Searching…
                       </div>
                     ) : availableProducts.length === 0 ? (
@@ -470,7 +470,7 @@ export function EditOrderModal({
                               "flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors",
                               inCart || outOfStock
                                 ? "cursor-default opacity-50"
-                                : "hover:bg-amber-50/60 dark:hover:bg-amber-900/10",
+                                : "hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10",
                             )}
                           >
                             {product.images?.[0] ? (
@@ -484,8 +484,8 @@ export function EditOrderModal({
                                 />
                               </div>
                             ) : (
-                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                                <ImageIcon className="h-4 w-4 text-amber-400" />
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                                <ImageIcon className="h-4 w-4 text-[#007BFF]" />
                               </div>
                             )}
                             <div className="min-w-0 flex-1">
@@ -511,12 +511,12 @@ export function EditOrderModal({
                             {inCart ? (
                               <Badge
                                 variant="outline"
-                                className="shrink-0 rounded-full border-amber-200 bg-amber-50 text-[10px] text-amber-600 dark:border-amber-800 dark:bg-amber-900/20 dark:text-amber-400"
+                                className="shrink-0 rounded-full border-amber-200 bg-[#007BFF] text-[10px] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
                               >
                                 Added
                               </Badge>
                             ) : (
-                              <Plus className="h-4 w-4 shrink-0 text-amber-500" />
+                              <Plus className="h-4 w-4 shrink-0 text-[#007BFF]0" />
                             )}
                           </button>
                         );
@@ -528,7 +528,7 @@ export function EditOrderModal({
 
               {/* Cart */}
               {cartProducts.length === 0 ? (
-                <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-amber-900/30">
+                <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-amber-200 py-8 dark:border-[#007BFF]">
                   <ShoppingCart className="h-8 w-8 text-amber-300 dark:text-amber-800" />
                   <p className="text-xs text-gray-400 dark:text-gray-500">
                     No products — search above to add
@@ -552,8 +552,8 @@ export function EditOrderModal({
                           />
                         </div>
                       ) : (
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                          <Package className="h-4 w-4 text-amber-400" />
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
+                          <Package className="h-4 w-4 text-[#007BFF]" />
                         </div>
                       )}
                       <div className="min-w-0 flex-1">
@@ -568,7 +568,7 @@ export function EditOrderModal({
                         <button
                           type="button"
                           onClick={() => updateQty(item.productId, -1)}
-                          className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
                         >
                           <Minus className="h-3 w-3" />
                         </button>
@@ -588,12 +588,12 @@ export function EditOrderModal({
                         <button
                           type="button"
                           onClick={() => updateQty(item.productId, 1)}
-                          className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-amber-50 hover:text-amber-700 dark:hover:bg-amber-900/20 dark:hover:text-amber-400 transition-colors"
+                          className="flex h-6 w-6 items-center justify-center rounded-md text-gray-500 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
                         >
                           <Plus className="h-3 w-3" />
                         </button>
                       </div>
-                      <p className="shrink-0 min-w-15 text-right text-sm font-bold tabular-nums text-amber-600 dark:text-amber-400">
+                      <p className="shrink-0 min-w-15 text-right text-sm font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                         ৳{(item.price * item.quantity).toFixed(2)}
                       </p>
                       <button
@@ -615,7 +615,7 @@ export function EditOrderModal({
             {/* ── Billing ── */}
             <div>
               <SectionLabel>
-                <User className="h-3 w-3 text-amber-500" />
+                <User className="h-3 w-3 text-[#007BFF]0" />
                 Billing Details
               </SectionLabel>
               <div className="space-y-4">
@@ -831,12 +831,12 @@ export function EditOrderModal({
 
               
 
-              <div className="flex mt-3 items-center justify-between rounded-xl border border-amber-200/60 bg-amber-50/40 px-4 py-2.5 dark:border-amber-900/30 dark:bg-amber-900/10">
-                <span className="text-xs font-semibold text-amber-700/70 dark:text-amber-500/70">
+              <div className="flex mt-3 items-center justify-between rounded-xl border border-amber-200/60 bg-[#007BFF]/40 px-4 py-2.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+                <span className="text-xs font-semibold text-[#007BFF]/70 dark:text-[#007BFF]0/70">
                   {cartProducts.reduce((s, p) => s + p.quantity, 0)} items
                   subtotal
                 </span>
-                <span className="text-base font-bold tabular-nums text-amber-600 dark:text-amber-400">
+                <span className="text-base font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
                   ৳{total}
                 </span>
               </div>
@@ -870,7 +870,7 @@ export function EditOrderModal({
             className={cn(
               "hover:cursor-pointer group relative overflow-hidden inline-flex items-center gap-1.5",
               "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-              "bg-amber-600 hover:bg-amber-700 dark:bg-amber-700 dark:hover:bg-amber-600",
+              "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
               "transition-all duration-200 active:scale-95",
               "disabled:opacity-50 disabled:cursor-not-allowed",
             )}
