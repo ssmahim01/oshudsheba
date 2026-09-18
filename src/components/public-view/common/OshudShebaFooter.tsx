@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import payments from "../../../../public/payments.webp";
+// import payments from "../../../../public/payments.webp";
 import FooterServiceStrip from "@/components/public-view/common/FooterServiceStrip";
 import { Facebook, Instagram } from "lucide-react";
 import { useGetAllCategoriesQuery } from "@/redux/features/category/category.api";
@@ -134,7 +134,7 @@ export default function OshudShebaFooter() {
           </p>
 
           <Image
-            src={payments}
+            src={"/assets/payments.webp"}
             alt="payments"
             width={220}
             height={220}
