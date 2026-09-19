@@ -47,7 +47,7 @@ export default function CustomerFavorites() {
         setIsLoading(true);
 
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/product/all-products?isCusFavorite=true`,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/product/all-products?isCusFavorite=true`,
         );
 
         const data = await res.json();

@@ -201,7 +201,7 @@ export function POSCartSidebar({
     const timeout = setTimeout(async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URl}/order/check-phone?phone=${customerData.phone}`,
+          `${process.env.NEXT_PUBLIC_BASE_URl}/order/check-phone?phone=${customerData.phone}`,
         );
         const data = await res.json();
 
