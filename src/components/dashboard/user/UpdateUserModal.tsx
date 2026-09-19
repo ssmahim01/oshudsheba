@@ -1,4 +1,3 @@
-
 /* eslint-disable react-hooks/incompatible-library */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
@@ -40,10 +39,20 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 enum Role {
   ADMIN = "ADMIN",
+
+  VENDOR = "VENDOR",
+
+  PHARMACIST = "PHARMACIST",
+
   MANAGER = "MANAGER",
+
   MODERATOR = "MODERATOR",
+
   TELESALES = "TELESALES",
+
   GENERALSTAFF = "GENERALSTAFF",
+
+  CUSTOMER = "CUSTOMER",
 }
 
 const updateUserSchema = z.object({
