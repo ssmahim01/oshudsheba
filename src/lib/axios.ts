@@ -1,9 +1,9 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
-import config from "@/config";
-
+// Browser requests must stay same-origin so the HttpOnly cookies set by the
+// login Server Action can reach the backend through the Next.js rewrite.
 export const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: "/api/backend",
   withCredentials: true,
 });
 

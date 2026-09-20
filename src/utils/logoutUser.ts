@@ -1,6 +1,6 @@
 "use server";
 
-import config from "@/config";
+import { serverFetch } from "./server-fetch";
 import { deleteCookie } from "./tokenHandlers";
 
 interface LogoutResponse {
@@ -10,8 +10,7 @@ interface LogoutResponse {
 
 export const logoutUser = async (): Promise<LogoutResponse> => {
   try {
-    const response = await fetch(`${config.baseUrl}/auth/logout`, {
-      method: "POST",
+    const response = await serverFetch.post("/auth/logout", {
       cache: "no-store",
     });
 
