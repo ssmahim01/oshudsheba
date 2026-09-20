@@ -7,13 +7,18 @@ const BACKEND_API_URL = config.baseUrl
 const serverFetchHelper = async (endpoint: string, options: RequestInit): Promise<Response> => {
     const { headers, ...restOptions } = options;
     const accessToken = await getCookie("accessToken");
+    const refreshToken = await getCookie("refreshToken");
+    const cookieHeader = [
+        accessToken ? `accessToken=${accessToken}` : null,
+        refreshToken ? `refreshToken=${refreshToken}` : null,
+    ]
+        .filter(Boolean)
+        .join("; ");
+
     const response = await fetch(`${BACKEND_API_URL}${endpoint}`, {
         headers: {
-            Cookie: accessToken ? `accessToken=${accessToken}` : "",
+            Cookie: cookieHeader,
             ...headers,
-            // ...(accessToken ? { "Authorization": `Bearer ${accessToken}` } : {}),
-            // ...(accessToken ? { "Authorization": accessToken } : {}),
-
         },
         ...restOptions,
     })
