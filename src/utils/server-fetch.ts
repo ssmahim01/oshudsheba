@@ -1,39 +1,58 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import config from "@/config";
 import { getCookie } from "./tokenHandlers";
 
-const BACKEND_API_URL = config.baseUrl
+const BACKEND_API_URL = config.baseUrl;
 
-const serverFetchHelper = async (endpoint: string, options: RequestInit): Promise<Response> => {
-    const { headers, ...restOptions } = options;
-    const accessToken = await getCookie("accessToken");
-    const response = await fetch(`${BACKEND_API_URL}${endpoint}`, {
-        headers: {
-            Cookie: accessToken ? `accessToken=${accessToken}` : "",
-            ...headers,
-            // ...(accessToken ? { "Authorization": `Bearer ${accessToken}` } : {}),
-            // ...(accessToken ? { "Authorization": accessToken } : {}),
+const serverFetchHelper = async (
+  endpoint: string,
+  options: RequestInit,
+): Promise<Response> => {
+  const { headers, ...restOptions } = options;
+  const accessToken = await getCookie("accessToken");
+  const refreshToken = await getCookie("refreshToken");
+  const cookieHeader = [
+    accessToken ? `accessToken=${accessToken}` : null,
+    refreshToken ? `refreshToken=${refreshToken}` : null,
+  ]
+    .filter(Boolean)
+    .join("; ");
 
-        },
-        ...restOptions,
-    })
+  const response = await fetch(`${BACKEND_API_URL}${endpoint}`, {
+    headers: {
+      Cookie: cookieHeader,
+      ...headers,
+    },
+    ...restOptions,
+  });
 
-    return response;
-}
+  return response;
+};
 
 export const serverFetch = {
-    get: async (endpoint: string, options: RequestInit = {}): Promise<Response> => serverFetchHelper(endpoint, { ...options, method: "GET" }),
+  get: async (endpoint: string, options: RequestInit = {}): Promise<Response> =>
+    serverFetchHelper(endpoint, { ...options, method: "GET" }),
 
-    post: async (endpoint: string, options: RequestInit = {}): Promise<Response> => serverFetchHelper(endpoint, { ...options, method: "POST" }),
+  post: async (
+    endpoint: string,
+    options: RequestInit = {},
+  ): Promise<Response> =>
+    serverFetchHelper(endpoint, { ...options, method: "POST" }),
 
-    put: async (endpoint: string, options: RequestInit = {}): Promise<Response> => serverFetchHelper(endpoint, { ...options, method: "PUT" }),
+  put: async (endpoint: string, options: RequestInit = {}): Promise<Response> =>
+    serverFetchHelper(endpoint, { ...options, method: "PUT" }),
 
-    patch: async (endpoint: string, options: RequestInit = {}): Promise<Response> => serverFetchHelper(endpoint, { ...options, method: "PATCH" }),
+  patch: async (
+    endpoint: string,
+    options: RequestInit = {},
+  ): Promise<Response> =>
+    serverFetchHelper(endpoint, { ...options, method: "PATCH" }),
 
-    delete: async (endpoint: string, options: RequestInit = {}): Promise<Response> => serverFetchHelper(endpoint, { ...options, method: "DELETE" }),
-
-}
-
+  delete: async (
+    endpoint: string,
+    options: RequestInit = {},
+  ): Promise<Response> =>
+    serverFetchHelper(endpoint, { ...options, method: "DELETE" }),
+};
 
 // import config from "@/config";
 

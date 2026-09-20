@@ -1,9 +1,7 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from "axios";
 
-import config from "@/config";
-
 export const axiosInstance = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: "/api/backend",
   withCredentials: true,
 });
 
@@ -41,12 +39,18 @@ const isLogoutRequest = (url?: string) => {
 
 const isTokenExpiredError = (error: AxiosError) => {
   const status = error.response?.status;
-
-  const responseData = error.response?.data as { message?: string } | undefined;
+  const responseData = error.response?.data as
+    | { message?: string; error?: string }
+    | undefined;
+  const errorMessage =
+    `${responseData?.message ?? ""} ${responseData?.error ?? ""}`.toLowerCase();
 
   return (
-    status === 401 ||
-    (status === 500 && responseData?.message === "jwt expired")
+    (status === 401 &&
+      (errorMessage.includes("jwt expired") ||
+        errorMessage.includes("token expired") ||
+        errorMessage.includes("expired token"))) ||
+    (status === 500 && errorMessage.includes("jwt expired"))
   );
 };
 
