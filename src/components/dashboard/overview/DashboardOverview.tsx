@@ -564,7 +564,7 @@ export default function DashboardOverview() {
           <span className="text-lg text-gray-800 font-semibold">Welcome</span>
           <div className="hidden sm:flex items-center gap-2 rounded-full border border-amber-200 bg-[#007BFF] px-3.5 py-1.5 dark:border-[#007BFF]/40 dark:bg-[#007BFF]/20">
             <User className="h-3.5 w-3.5 text-white" />
-            <span className="text-xs font-semibold text-[white dark:text-[#d6e0eb]">
+            <span className="text-xs font-semibold text-white dark:text-[#d6e0eb]">
               {me?.data?.name ?? "Welcome"}
             </span>
           </div>
@@ -717,7 +717,7 @@ export default function DashboardOverview() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:border-blue-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
@@ -970,7 +970,7 @@ export default function DashboardOverview() {
                       <Tooltip content={<ChartTooltip />} />
                       <Bar
                         dataKey="Revenue"
-                        fill="#f59e0b"
+                        fill="#007BFF"
                         radius={[6, 6, 0, 0]}
                         maxBarSize={36}
                       />
