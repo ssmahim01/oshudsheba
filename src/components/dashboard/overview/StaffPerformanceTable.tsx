@@ -198,7 +198,7 @@ export function StaffPerformanceTable({
                 <TableRow
                   key={staff._id}
                   className={cn(
-                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/30 dark:hover:bg-[#007BFF]/5",
+                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/5",
                     idx % 2 === 0
                       ? "bg-white dark:bg-gray-900"
                       : "bg-gray-50/30 dark:bg-gray-800/20",
@@ -254,7 +254,7 @@ export function StaffPerformanceTable({
                   <TableCell className="text-center">
                     <Badge
                       variant="outline"
-                      className="rounded-full border-amber-200 bg-[#007BFF] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF] tabular-nums"
+                      className="rounded-full border-blue-200 bg-[#007BFF] text-white dark:border-blue-800 dark:bg-[#007BFF]/20 dark:text-white/90 tabular-nums"
                     >
                       {staff.totalOrders}
                     </Badge>

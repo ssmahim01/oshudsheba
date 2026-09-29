@@ -274,7 +274,7 @@ export function ConfirmedProductsTable({
                 <TableRow
                   key={product.productId}
                   className={cn(
-                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/20 dark:hover:bg-[#007BFF]/5",
+                    "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/5",
                     displayIdx % 2 === 0
                       ? "bg-white dark:bg-gray-900"
                       : "bg-gray-50/30 dark:bg-gray-800/20",
@@ -338,7 +338,7 @@ export function ConfirmedProductsTable({
                         className={cn(
                           "text-[10px] font-bold",
                           share >= 20
-                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
+                            ? "bg-[#007BFF] text-white dark:bg-[#007BFF]"
                             : share >= 10
                               ? "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400"
                               : "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-400",

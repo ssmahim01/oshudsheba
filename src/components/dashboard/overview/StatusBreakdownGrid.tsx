@@ -20,7 +20,7 @@ interface StatusBreakdownGridProps {
 
 export function StatusBreakdownGrid({ items, total, onSelect }: StatusBreakdownGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
       {items.map(({ key, label, icon: Icon, cls, val, count }) => (
         <button
           type="button"

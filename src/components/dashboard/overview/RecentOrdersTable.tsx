@@ -82,7 +82,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
       <ScrollArea className="w-full">
         <Table>
           <TableHeader className="bg-[#1258a3] hover:bg-[#007BFF]">
-            <TableRow className="border-b border-amber-200/30 hover:bg-transparent dark:border-[#007BFF]">
+            <TableRow className="border-b border-blue-200/30 hover:bg-transparent dark:border-[#007BFF]">
               <TableHead className="font-semibold text-[#cbd6e1] dark:text-[#d6e0eb] whitespace-nowrap">
                 Order ID
               </TableHead>
@@ -135,7 +135,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
               return (
                 <TableRow
                   key={order._id}
-                  className="border-b border-[#007BFF]/50 hover:bg-[#007BFF]/40 dark:border-[#007BFF]/20 dark:hover:bg-amber-950/20 transition-all duration-200"
+                  className="border-b border-[#007BFF]/50 hover:bg-[#007BFF]/10 dark:border-[#007BFF]/20 dark:hover:bg-amber-950/20 transition-all duration-200"
                 >
                   <TableCell className="font-mono text-sm font-semibold text-[#007BFF] dark:text-amber-300 whitespace-nowrap">
                     {order.customOrderId || order._id?.slice(0, 8)}
@@ -150,7 +150,7 @@ export function RecentOrdersTable({ orders }: RecentOrdersTableProps) {
                       </span>
                     </div>
                   </TableCell>
-                  <TableCell className="text-right font-semibold text-[#007BFF] dark:text-[#007BFF] whitespace-nowrap">
+                  <TableCell className="text-right font-semibold text-gray-700 whitespace-nowrap">
                     ৳{order.total || "0.00"}
                   </TableCell>
                   <TableCell className="whitespace-nowrap">

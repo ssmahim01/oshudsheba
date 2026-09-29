@@ -785,7 +785,7 @@ export default function DashboardOverview() {
                 className={cn(
                   "grid gap-4",
                   isAdmin
-                    ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+                    ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
                     : "grid-cols-2 sm:grid-cols-3",
                 )}
               >
