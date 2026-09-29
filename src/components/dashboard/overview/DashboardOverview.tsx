@@ -564,7 +564,7 @@ export default function DashboardOverview() {
           <span className="text-lg text-gray-800 font-semibold">Welcome</span>
           <div className="hidden sm:flex items-center gap-2 rounded-full border border-amber-200 bg-[#007BFF] px-3.5 py-1.5 dark:border-[#007BFF]/40 dark:bg-[#007BFF]/20">
             <User className="h-3.5 w-3.5 text-white" />
-            <span className="text-xs font-semibold text-[#cbd6e1] dark:text-[#d6e0eb]">
+            <span className="text-xs font-semibold text-[white dark:text-[#d6e0eb]">
               {me?.data?.name ?? "Welcome"}
             </span>
           </div>
@@ -605,8 +605,8 @@ export default function DashboardOverview() {
                 className={cn(
                   "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
+                    ? "border-amber-300 bg-[#007BFF] text-white dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-white"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-blue-200 hover:bg-[#007BFF]/80 hover:text-white dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -651,7 +651,7 @@ export default function DashboardOverview() {
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                           isActive
                             ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
-                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-white dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -685,7 +685,7 @@ export default function DashboardOverview() {
                       day_selected:
                         "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 dark:bg-[#007BFF]",
                       day_range_middle:
-                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
+                        "bg-[#007BFF] text-white dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
                         "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
@@ -704,7 +704,7 @@ export default function DashboardOverview() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="group h-10 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
+              className="group h-10 gap-1.5 rounded-xl border-gray-200 text-gray-600 hover:border-blue-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
               Reset
