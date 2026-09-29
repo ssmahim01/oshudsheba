@@ -623,7 +623,7 @@ const UpdateProduct = () => {
                 </span>
               </div>
 
-              <label className="border-2 border-dashed border-amber-200/50 dark:border-[#007BFF]/50 rounded-xl p-8 flex flex-col items-center cursor-pointer hover:border-[#007BFF]0/80 dark:hover:border-[#007BFF]0/60 hover:bg-[#007BFF]/30 dark:hover:bg-amber-950/20 transition-all duration-300 active:scale-95">
+              <label className="border-2 border-dashed border-blue-200/50 dark:border-[#007BFF]/50 rounded-xl p-8 flex flex-col items-center cursor-pointer hover:border-[#007BFF]0/80 dark:hover:border-[#007BFF]0/60 hover:bg-[#007BFF]/10 dark:hover:bg-blue-950/20 transition-all duration-300 active:scale-95">
                 <div className="relative mb-3">
                   <Upload className="w-8 h-8 text-[#007BFF] dark:text-[#007BFF]" />
                 </div>
@@ -698,7 +698,7 @@ const UpdateProduct = () => {
               )}
             </div>
             <Button
-              className="hover:cursor-pointer w-full bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+              className="hover:cursor-pointer w-full bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-blue-800 text-white font-semibold transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
               type="submit"
               disabled={isLoading || uploadingImages}
             >

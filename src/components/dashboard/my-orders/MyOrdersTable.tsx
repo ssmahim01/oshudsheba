@@ -69,7 +69,7 @@ const ORDER_STATUS: Record<
 > = {
   PENDING: {
     label: "Pending",
-    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
+    cls: "bg-amber-500 text-white border-amber-200 dark:bg-orange-300 dark:text-white/80 dark:border-amber-800",
     icon: Clock,
   },
   CONFIRMED: {
@@ -109,7 +109,7 @@ const ORDER_STATUS: Record<
   },
   HOLD: {
     label: "Hold",
-    cls: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
+    cls: "bg-yellow-500 text-white border-amber-200 dark:bg-yellow-300 dark:text-white/90 dark:border-amber-800",
     icon: ClockCheckIcon,
   },
 };
@@ -175,7 +175,7 @@ export function MyOrdersTable({
     return (
       <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-amber-200 dark:border-[#007BFF] py-16 gap-3">
         <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-          <ShoppingBag className="h-7 w-7 text-[#007BFF]" />
+          <ShoppingBag className="h-7 w-7 text-white" />
         </div>
         <div className="text-center">
           <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
@@ -193,7 +193,7 @@ export function MyOrdersTable({
     <div className="overflow-x-auto rounded-xl border border-gray-200/80 dark:border-gray-700/60">
       <Table>
         <TableHeader>
-          <TableRow className="bg-[#007BFF]/60 hover:bg-[#007BFF]/60 dark:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
+          <TableRow className="bg-[#007BFF]/90 hover:bg-[#007BFF]/70 dark:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
             {[
               "Order ID",
               "Assigned By",
@@ -209,7 +209,7 @@ export function MyOrdersTable({
               <TableHead
                 key={h}
                 className={cn(
-                  "text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70",
+                  "text-[10px] font-bold uppercase tracking-widest text-white",
                   h === "Total" && "text-right",
                   h === "Actions" && "text-center",
                 )}
@@ -242,8 +242,8 @@ export function MyOrdersTable({
                   "border-b border-gray-100/80 dark:border-gray-800/50 transition-colors duration-100",
                   idx % 2 === 0
                     ? "bg-white dark:bg-gray-900"
-                    : "bg-[#007BFF]/20 dark:bg-[#007BFF]/5",
-                  "hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10",
+                    : "bg-[#007BFF]/10 dark:bg-[#007BFF]/5",
+                  "hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10",
                 )}
               >
                 {/* Order ID */}
@@ -289,7 +289,7 @@ export function MyOrdersTable({
 
                 {/* Total */}
                 <TableCell className="text-right">
-                  <span className="font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
+                  <span className="font-bold tabular-nums text-gray-700 dark:text-gray-300">
                     ৳{order.total?.toFixed(2) ?? "0.00"}
                   </span>
                 </TableCell>
@@ -370,7 +370,7 @@ export function MyOrdersTable({
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-7 w-7 rounded-lg text-gray-400 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
+                        className="h-7 w-7 rounded-lg text-gray-400 hover:bg-[#007BFF] hover:text-white dark:hover:bg-[#007BFF]/20 dark:hover:text-white transition-colors"
                       >
                         <MoreHorizontal className="h-4 w-4" />
                         <span className="sr-only">Actions</span>

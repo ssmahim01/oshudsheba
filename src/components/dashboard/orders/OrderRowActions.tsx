@@ -796,7 +796,7 @@ export function OrderRowActions({
               onClick={handleSaveSeller}
               disabled={!selectedSellerId || isSaving}
               className={cn(
-                "group relative overflow-hidden inline-flex items-center gap-1.5",
+                "group relative mb-2 hover:cursor-pointer overflow-hidden inline-flex items-center gap-1.5",
                 "rounded-lg px-4 py-2 text-sm font-semibold text-white",
                 "bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600",
                 "transition-all duration-200 active:scale-95",

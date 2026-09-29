@@ -537,7 +537,7 @@ export default function ProductSingleDetails() {
                   ))}
 
                   {/* Barcode row with inline copy */}
-                  <TableRow className="bg-[#007BFF]/40 dark:bg-[#007BFF]/10">
+                  <TableRow className="">
                     <TableCell className="font-semibold w-44">
                       Barcode Number
                     </TableCell>

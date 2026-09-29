@@ -512,33 +512,7 @@ export function OrderFilters({
 
         {/* ── Date type + Date-time picker (grouped pill) ── */}
         <div className="flex shrink-0 items-center gap-0 rounded-lg border border-gray-200 bg-gray-50/60 dark:border-gray-700 dark:bg-gray-800/60 overflow-hidden">
-          {/* Date type selector
-          {onDateTypeChange && (
-            <>
-              <Select
-                value={dateType}
-                onValueChange={(v) => onDateTypeChange(v as DateType)}
-              >
-                <SelectTrigger className="h-10 gap-1.5 border-0 border-r border-gray-200 dark:border-gray-700 bg-transparent rounded-none w-40 text-xs font-semibold text-gray-600 dark:text-gray-400 focus:ring-0 shadow-none">
-                  <div className="flex items-center gap-1.5 min-w-0">
-                    <span className={cn("h-1.5 w-1.5 shrink-0 rounded-full", activeDateType?.dot ?? "bg-slate-400")} />
-                    <span className="truncate">{activeDateType?.label ?? "Date type"}</span>
-                  </div>
-                </SelectTrigger>
-                <SelectContent className="rounded-xl">
-                  {DATE_TYPES.map((dt) => (
-                    <SelectItem key={dt.value} value={dt.value} className="cursor-pointer text-sm">
-                      <div className="flex items-center gap-2">
-                        <span className={cn("h-2 w-2 rounded-full", dt.dot)} />
-                        {dt.label}
-                      </div>
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </>
-          )} */}
-
+        
           {/* Date-time range trigger */}
           <Popover open={calendarOpen} onOpenChange={setCalendarOpen}>
             <PopoverTrigger asChild>
@@ -685,7 +659,7 @@ export function OrderFilters({
                           : applyTime(calendarRange.from, th, tm, 59);
                         return (
                           <div className="mt-2 rounded-lg border border-amber-200/60 bg-[#007BFF]/40 px-2.5 py-1.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
-                            <p className="text-[11px] font-mono text-amber-800 dark:text-amber-300 leading-relaxed">
+                            <p className="text-[11px] font-mono text-blue-800 dark:text-blue-300 leading-relaxed">
                               {format(fromDt, "MMM d, yyyy · HH:mm")}{" "}
                               <span className="text-[#007BFF]">→</span>{" "}
                               {format(toDt, "MMM d, yyyy · HH:mm")}
@@ -744,7 +718,7 @@ export function OrderFilters({
           {searchFilter && (
             <Badge
               variant="outline"
-              className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+              className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-white dark:border-amber-800 dark:bg-[#007BFF]/20"
             >
               <Search className="h-3 w-3" />
               &quot;{searchFilter}&quot;
@@ -808,11 +782,11 @@ export function OrderFilters({
           {dateFilter.from && (
             <Badge
               variant="outline"
-              className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+              className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:border-amber-800 dark:bg-[#007BFF]/20"
             >
               <Clock className="h-3 w-3" />
               {activeDateType && (
-                <span className="font-normal text-gray-500 dark:text-gray-400">
+                <span className="font-normal text-gray-50">
                   {activeDateType.label}:
                 </span>
               )}

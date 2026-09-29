@@ -566,7 +566,7 @@ export default function MyOrders() {
           </p>
         </div>
         <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-          <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
+          <ShoppingBag className="h-5 w-5 text-white" />
         </div>
       </div>
 
@@ -576,7 +576,7 @@ export default function MyOrders() {
           label="Total"
           value={stats?.total ?? 0}
           icon={ShoppingBag}
-          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+          accent="bg-[#007BFF] text-white dark:bg-[#007BFF]/20"
         />
         <StatCard
           label="Pending"
@@ -698,8 +698,8 @@ export default function MyOrders() {
                 className={cn(
                   "group inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
+                    ? "border-blue-300 bg-[#007BFF] text-white dark:border-[#007BFF] dark:bg-[#007BFF]/20"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-blue-200 hover:bg-[#007BFF]/70 hover:text-white dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-blue-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -729,7 +729,7 @@ export default function MyOrders() {
               <div className="flex flex-col sm:flex-row">
                 {/* Presets */}
                 <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
+                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]/60">
                     Quick select
                   </p>
                   {PRESETS.map((preset) => {
@@ -747,8 +747,8 @@ export default function MyOrders() {
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors duration-150",
                           isActive
-                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
-                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
+                            ? "bg-[#007BFF] text-white dark:bg-[#007BFF]"
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-white dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -814,7 +814,7 @@ export default function MyOrders() {
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="h-10 shrink-0 gap-1.5 rounded-lg border-gray-200 text-gray-600 hover:border-amber-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
+              className="h-10 shrink-0 gap-1.5 rounded-lg border-gray-200 text-gray-600 hover:border-blue-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
             >
               <RotateCcw className="h-3.5 w-3.5" />
               Reset all
@@ -833,7 +833,7 @@ export default function MyOrders() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-white dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-white"
               >
                 <Search className="h-3 w-3" />
                 &quot;{search}&quot;
@@ -897,7 +897,7 @@ export default function MyOrders() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                className="flex items-center gap-1.5 rounded-full border-blue-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:border-blue-800 dark:bg-[#007BFF]/20"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
@@ -1019,7 +1019,7 @@ export default function MyOrders() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
+                          "border-[#007BFF] text-white bg-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}

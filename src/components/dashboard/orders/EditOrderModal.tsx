@@ -365,10 +365,6 @@ export function EditOrderModal({
     }
   };
 
-  // const shipping = watch("shippingCost") || 0;
-  // const discount = watch("discount") || 0;
-  // const discountWithShipping = shipping - discount;
-
   const total = Math.max(0, subtotal);
   if (!order) return null;
 
@@ -380,7 +376,7 @@ export function EditOrderModal({
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-            <FilePenLine className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
+            <FilePenLine className="h-4 w-4 text-white dark:text-white/90" />
           </div>
           <div className="min-w-0 flex-1">
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -394,7 +390,7 @@ export function EditOrderModal({
           </div>
           {cartProducts.length > 0 && (
             <div className="shrink-0 rounded-full bg-[#007BFF] px-3 py-1 dark:bg-[#007BFF]/20">
-              <span className="text-xs font-bold text-[#007BFF] dark:text-[#007BFF] tabular-nums">
+              <span className="text-xs font-bold text-white/90 dark:text-white tabular-nums">
                 ৳{subtotal.toFixed(2)}
               </span>
             </div>
@@ -470,7 +466,7 @@ export function EditOrderModal({
                               "flex w-full items-center gap-3 px-3 py-2.5 text-left transition-colors",
                               inCart || outOfStock
                                 ? "cursor-default opacity-50"
-                                : "hover:bg-[#007BFF]/60 dark:hover:bg-[#007BFF]/10",
+                                : "hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10",
                             )}
                           >
                             {product.images?.[0] ? (
@@ -485,7 +481,7 @@ export function EditOrderModal({
                               </div>
                             ) : (
                               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]/20">
-                                <ImageIcon className="h-4 w-4 text-[#007BFF]" />
+                                <ImageIcon className="h-4 w-4 text-white" />
                               </div>
                             )}
                             <div className="min-w-0 flex-1">
@@ -511,7 +507,7 @@ export function EditOrderModal({
                             {inCart ? (
                               <Badge
                                 variant="outline"
-                                className="shrink-0 rounded-full border-amber-200 bg-[#007BFF] text-[10px] text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                                className="shrink-0 rounded-full border-amber-200 bg-[#007BFF] text-[10px] text-white/90 dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-white"
                               >
                                 Added
                               </Badge>
@@ -831,12 +827,12 @@ export function EditOrderModal({
 
               
 
-              <div className="flex mt-3 items-center justify-between rounded-xl border border-amber-200/60 bg-[#007BFF]/40 px-4 py-2.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
-                <span className="text-xs font-semibold text-[#007BFF]/70 dark:text-[#007BFF]0/70">
+              <div className="flex mt-3 items-center justify-between rounded-xl border border-amber-200/60 bg-[#007BFF]/80 px-4 py-2.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+                <span className="text-xs font-semibold text-white/90 dark:text-white">
                   {cartProducts.reduce((s, p) => s + p.quantity, 0)} items
                   subtotal
                 </span>
-                <span className="text-base font-bold tabular-nums text-[#007BFF] dark:text-[#007BFF]">
+                <span className="text-base font-bold tabular-nums text-white/90 dark:text-white">
                   ৳{total}
                 </span>
               </div>

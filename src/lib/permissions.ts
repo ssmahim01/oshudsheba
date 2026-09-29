@@ -7,16 +7,16 @@ export type PageAccess =
   | "product-management"
   | "product-stock-adjustment"
   | "returns"
-  | "product-verifications"
+  
   | "category-management"
   | "reviews-management"
   | "brand-management"
   | "coupons"
-  | "blogs"
+ 
   | "customer-management"
   | "my-customers"
   | "orders-management"
-  | "leads"
+  
   | "pos"
   | "courier-settings";
 
@@ -46,16 +46,16 @@ export const defaultRolePermissions: Record<UserRole, PageAccess[]> = {
     "product-stock-adjustment",
     "returns",
     "category-management",
-    "product-verifications",
+   
     "brand-management",
     "reviews-management",
     "coupons",
-    "blogs",
+   
     "staff-management",
     "customer-management",
     "my-customers",
     "orders-management",
-    "leads",
+    
     "my-orders",
     "pos",
     "courier-settings",
@@ -66,9 +66,9 @@ export const defaultRolePermissions: Record<UserRole, PageAccess[]> = {
     "category-management",
     "reviews-management",
     "coupons",
-    "blogs",
+    
     "orders-management",
-    "leads",
+  
     "my-orders",
     "pos",
   ],
@@ -78,24 +78,24 @@ export const defaultRolePermissions: Record<UserRole, PageAccess[]> = {
     "category-management",
     "coupons",
     "orders-management",
-    "leads",
+    
     "my-orders",
     "pos",
   ],
-  MODERATOR: ["dashboard", "product-management", "my-orders", "leads"],
+  MODERATOR: ["dashboard", "product-management", "my-orders"],
   GENERALSTAFF: ["dashboard", "my-orders"],
   PHARMACIST: [
     "dashboard",
     "product-management",
     "orders-management",
-    "leads",
+    
     "pos",
   ],
   VENDOR: [
     "dashboard",
     "product-management",
     "orders-management",
-    "leads",
+   
     "pos",
   ],
   CUSTOMER: ["dashboard", "my-orders"],
@@ -115,16 +115,14 @@ export const availablePages: { id: PageAccess; label: string; icon: string }[] =
     { id: "category-management", label: "Categories", icon: "📁" },
     { id: "brand-management", label: "Brands", icon: "🏷️" },
     { id: "reviews-management", label: "Reviews", icon: "💼" },
-    { id: "product-verifications", label: "Product Verifications", icon: "📦" },
+  
     { id: "coupons", label: "Coupons", icon: "🎁" },
-    { id: "blogs", label: "Blogs", icon: "📋" },
     { id: "purchase-products", label: "Purchase Products", icon: "🛒" },
     { id: "returns", label: "Returns", icon: "📦" },
     { id: "staff-management", label: "Staffs", icon: "👥" },
     { id: "customer-management", label: "Customers", icon: "👤" },
     { id: "my-customers", label: "My Customers", icon: "💼" },
     { id: "orders-management", label: "Orders", icon: "📦" },
-    { id: "leads", label: "Leads", icon: "🎯" },
     { id: "my-orders", label: "My Orders", icon: "📋" },
     { id: "pos", label: "POS", icon: "🛒" },
 

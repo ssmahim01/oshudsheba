@@ -106,7 +106,7 @@ export function CancelOrderModal({
               </div>
 
               {/* Warning Message */}
-              <div className="rounded-lg border border-amber-200/60 bg-[#007BFF]/60 p-3.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+              <div className="rounded-lg border border-amber-200/60 bg-[#007BFF]/10 p-3.5 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
                 <p className="text-sm font-medium text-[#007BFF] dark:text-amber-200">
                   Cancelling will:
                 </p>

@@ -150,10 +150,6 @@ export default function OrdersManagement() {
     useGetAllholdOrdersQuery(queryArgs, {
       skip: activeTab !== "hold",
     });
-  // const { data: allOrdersData } = useGetAllOrdersQuery({
-  //   page: 1,
-  //   limit: 1000,
-  // });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -392,17 +388,6 @@ export default function OrdersManagement() {
     }
   };
 
-  // const handlePageChange = (newPage: number) => {
-  //   setPage(newPage);
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
-
-  // const handleItemsPerPageChange = (newLimit: number) => {
-  //   setLimit(newLimit);
-  //   setPage(1);
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
-
   const orders =
     activeTab === "instant"
       ? (ordersData?.data as Order[]) || []
@@ -433,9 +418,6 @@ export default function OrdersManagement() {
             : HoldOrdersData?.meta;
   const totalCount = meta?.total ?? 0;
   const totalPages = meta?.totalPage ?? Math.ceil(totalCount / limit);
-  // const allOrders = (allOrdersData?.data as Order[]) || [];
-
-  // console.log(ordersData?.stats);
 
   const tabs: { value: ActiveTab; label: string; adminOnly?: boolean }[] = [
     { value: "instant", label: "Instant Orders" },
@@ -462,7 +444,7 @@ export default function OrdersManagement() {
           </p>
         </div>
         <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-          <ShoppingBag className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
+          <ShoppingBag className="h-5 w-5 text-white" />
         </div>
       </div>
 
@@ -508,7 +490,7 @@ export default function OrdersManagement() {
                         ? "bg-rose-500 text-white"
                         : tab.value === "scheduled"
                           ? "bg-blue-500 text-white"
-                          : "bg-[#007BFF]0 text-white"
+                          : "bg-[#007BFF] text-white"
                       : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
                   )}
                 >
@@ -612,7 +594,6 @@ export default function OrdersManagement() {
           />
         </TabsContent>
 
-        {/* ----------  */}
         {userRole === "ADMIN" && (
           <TabsContent value="damaged" className="space-y-6">
             <DamagedProductsSection
@@ -652,7 +633,7 @@ export default function OrdersManagement() {
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-[#007BFF] text-[#007BFF] bg-[#007BFF] dark:border-[#007BFF] dark:text-[#007BFF] dark:bg-[#007BFF]/20",
+                          "border-[#007BFF] text-white/95 bg-[#007BFF] dark:border-[#007BFF] dark:text-white/95 dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}

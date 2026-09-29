@@ -218,7 +218,7 @@ export function OrderModeChangeModal({
         {/* header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-            <TimerIcon className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
+            <TimerIcon className="h-5 w-5 text-white" />
           </div>
 
           <div className="min-w-0 flex-1">
@@ -405,7 +405,7 @@ export function OrderModeChangeModal({
             {order?.products?.map((item: any) => (
               <div
                 key={item?._id}
-                className="flex items-center gap-3.5 px-4 py-3.5 border-b border-border last:border-0 hover:cursor-pointer hover:bg-[#007BFF] duration-500 transition-all"
+                className="group flex items-center gap-3.5 px-4 py-3.5 border-b border-border last:border-0 hover:cursor-pointer hover:bg-[#007BFF] hover:text-white duration-500 transition-all"
               >
                 <Image
                   src={item?.product?.images[0]}
@@ -415,10 +415,10 @@ export function OrderModeChangeModal({
                   className="w-13 h-13 rounded-lg object-cover border border-border shrink-0"
                 />
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium truncate text-gray-700">
+                  <p className="text-sm font-medium truncate text-gray-700 group-hover:text-white">
                     {item?.product?.title}
                   </p>
-                  <div className="flex items-center gap-5 text-gray-700">
+                  <div className="flex items-center gap-5 text-gray-700 group-hover:text-white">
                     <p>Price : {item?.product?.price}</p>
                     <p>
                       Qty<span className=""></span>: {item?.quantity}
@@ -449,7 +449,7 @@ export function OrderModeChangeModal({
               onClick={HandleUpload}
               disabled={isUpdating}
               className={cn(
-                "group relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2 text-sm font-semibold text-white",
+                "group hover:cursor-pointer relative inline-flex items-center gap-1.5 overflow-hidden rounded-lg px-4 py-2 text-sm font-semibold text-white",
                 "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
                 "transition-all duration-200 active:scale-95",
                 "disabled:cursor-not-allowed disabled:opacity-50",

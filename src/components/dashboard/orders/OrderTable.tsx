@@ -108,7 +108,7 @@ export function OrderTable({
     <div className="overflow-x-auto rounded-lg border">
       <Table>
         <TableHeader>
-          <TableRow className="bg-[#007BFF]/60 hover:bg-[#007BFF]/60 dark:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
+          <TableRow className="bg-[#007BFF] hover:bg-[#007BFF]/80 dark:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20">
             {[
               "Order ID",
               "Assigned By",
@@ -124,7 +124,7 @@ export function OrderTable({
               <TableHead
                 key={h}
                 className={cn(
-                  "text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70 dark:text-[#007BFF]0/70",
+                  "text-[10px] font-bold uppercase tracking-widest text-white",
                   h === "Total" && "text-right",
                   h === "Actions" && "text-center",
                 )}

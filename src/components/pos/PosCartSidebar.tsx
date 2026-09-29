@@ -541,9 +541,9 @@ export function POSCartSidebar({
 
       {/* ── Waiting-for-stock notice ── */}
       {waitingStockCount > 0 && (
-        <div className="mx-4 mb-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-[#007BFF] px-3 py-2 dark:border-amber-800/60 dark:bg-[#007BFF]/20">
-          <PackageSearch className="mt-0.5 h-4 w-4 shrink-0 text-[#007BFF] dark:text-[#007BFF]" />
-          <p className="text-[11px] leading-relaxed text-[#007BFF] dark:text-[#007BFF]">
+        <div className="mx-4 mb-3 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-600 px-3 py-2 dark:border-amber-800/60 dark:bg-[#007BFF]/20">
+          <PackageSearch className="mt-0.5 h-4 w-4 shrink-0 text-white" />
+          <p className="text-[11px] leading-relaxed text-amber-100">
             {waitingStockCount} unit(s) exceed current stock and will be marked{" "}
             <span className="font-semibold">Waiting for Stock</span> until
             restocked.
@@ -564,9 +564,9 @@ export function POSCartSidebar({
           }
           className={cn(
             "hover:cursor-pointer w-full rounded-xl py-5 text-sm font-bold transition-all duration-200",
-            "bg-emerald-600 text-white hover:bg-emerald-700",
+            "bg-blue-600 text-white hover:bg-blue-700",
             "active:scale-[0.98]",
-            "dark:bg-emerald-700 dark:hover:bg-emerald-600",
+            "dark:bg-blue-700 dark:hover:bg-blue-600",
             "disabled:opacity-50 disabled:cursor-not-allowed",
           )}
         >

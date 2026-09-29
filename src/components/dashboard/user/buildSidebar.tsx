@@ -41,7 +41,6 @@ const iconMap: Record<PageAccess, React.ReactNode> = {
   "orders-management": <ListOrdered className="h-5 w-5" />,
   "user-management": <Users className="h-5 w-5" />,
   "product-stock-adjustment": <Box className="h-5 w-5" />,
-  "product-verifications": <Box className="h-5 w-5" />,
   "staff-management": <Users className="h-5 w-5" />,
   "customer-management": <User className="h-5 w-5" />,
   "reviews-management": <Star className="h-5 w-5" />,
@@ -53,8 +52,6 @@ const iconMap: Record<PageAccess, React.ReactNode> = {
   "brand-management": <Tag className="h-5 w-5" />,
 
   coupons: <Ticket className="h-5 w-5" />,
-  blogs: <ListOrdered className="h-5 w-5" />,
-  leads: <Target className="h-5 w-5" />,
   pos: <Store className="h-5 w-5" />,
   "courier-settings": <Settings className="h-5 w-5" />,
 };
@@ -65,17 +62,17 @@ const pageHrefMap: Record<any, string> = {
   "category-management": "/staff/dashboard/admin/category-management",
   "brand-management": "/staff/dashboard/admin/brand-management",
   "purchase-products": "/staff/dashboard/purchase-products",
-  "product-verifications": "/staff/dashboard/product-verifications",
+
   returns: "/staff/dashboard/returns",
   
   coupons: "/staff/dashboard/coupons",
-  blogs: "/staff/dashboard/blog",
+ 
   "staff-management": "/staff/dashboard/admin/user-management",
   "reviews-management": "/staff/dashboard/reviews",
   "customer-management": "/staff/dashboard/admin/customer-management",
   "my-customers": "/staff/dashboard/my-customers",
   "orders-management": "/staff/dashboard/orders-management",
-  leads: "/staff/dashboard/leads",
+ 
   "my-orders": "/staff/dashboard/my-orders",
   pos: "/staff/dashboard/pos",
   "courier-settings": "/staff/dashboard/admin/courier-settings",
@@ -99,18 +96,18 @@ export const buildSidebarItems = (
       "purchase-products",
       "returns",
       "category-management",
-      "product-verifications",
+    
       "reviews-management",
       "brand-management",
       "coupons",
-      "blogs",
+    
       "staff-management",
       "customer-management",
       "my-customers",
     ],
     operations: [
       "orders-management",
-      "leads",
+    
       "my-orders",
       "pos",
       "courier-settings",

@@ -166,10 +166,10 @@ export function OrderDetailsModal({
 
             {/* Stock Reservation Summary */}
             {showStockReservationCard && (
-              <div className="space-y-3 rounded-lg border border-amber-200 bg-[#007BFF]/60 p-4 dark:border-amber-800/60 dark:bg-[#007BFF]/10">
+              <div className="space-y-3 rounded-lg border border-blue-200 bg-[#007BFF]/10 p-4 dark:border-blue-800/60 dark:bg-[#007BFF]/10">
                 <div className="flex items-center gap-2">
                   <PackageSearch className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
-                  <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+                  <p className="text-sm font-semibold text-blue-800 dark:text-blue-300">
                     Stock Reservation
                   </p>
                 </div>

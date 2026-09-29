@@ -101,7 +101,7 @@ export function ExchangeOrderModal({
 
           <div className="flex items-center gap-3 border-b border-gray-100 p-4 dark:border-gray-800">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-              <RotateCcw className="h-5 w-5 text-[#007BFF] dark:text-[#007BFF]" />
+              <RotateCcw className="h-5 w-5 text-white dark:text-white" />
             </div>
             <div>
               <DialogTitle className="text-lg font-bold">
@@ -126,7 +126,7 @@ export function ExchangeOrderModal({
                       key={idx}
                       className={`cursor-pointer border-2 p-3 transition-all ${
                         selectedItemIndex === idx
-                          ? "border-[#007BFF]0 bg-[#007BFF]/50 dark:border-[#007BFF]0 dark:bg-[#007BFF]/10"
+                          ? "border-[#007BFF]0 bg-[#007BFF]/20 dark:border-[#007BFF]0 dark:bg-[#007BFF]/10"
                           : "border-gray-200 hover:border-amber-300 dark:border-gray-700 dark:hover:border-[#007BFF]/40"
                       }`}
                       onClick={() => {
@@ -136,7 +136,7 @@ export function ExchangeOrderModal({
                     >
                       <div className="flex items-start gap-3">
                         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#007BFF] dark:bg-[#007BFF]">
-                          <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
+                          <Package className="h-4 w-4 text-white dark:text-white" />
                         </div>
                         <div className="min-w-0 flex-1">
                           <p className="font-medium text-sm">
@@ -169,7 +169,7 @@ export function ExchangeOrderModal({
             {selectedItemIndex !== null && orderItem && (
               <>
                 {/* Current Item Details */}
-                <Card className="border-amber-200/50 bg-[#007BFF]/30 dark:border-[#007BFF] dark:bg-[#007BFF]/10 p-3">
+                <Card className="border-amber-200/50 bg-[#007BFF]/10 dark:border-[#007BFF] dark:bg-[#007BFF]/10 p-3">
                   <p className="text-xs font-semibold uppercase tracking-wide text-[#007BFF] dark:text-amber-300">
                     Current Item
                   </p>

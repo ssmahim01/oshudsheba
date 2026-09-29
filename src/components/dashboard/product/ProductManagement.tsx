@@ -179,8 +179,8 @@ function StatCard({
   accent: string;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-gray-200/70 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/0 transition-all duration-300 group-hover:bg-[#007BFF]/30 dark:group-hover:bg-[#007BFF]/5" />
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white px-5 py-4 transition-all duration-200 hover:border-amber-200 hover:shadow-md dark:border-gray-700/60 dark:bg-gray-900 dark:hover:border-[#007BFF]/40">
+      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-[#007BFF]/10 transition-all duration-300 group-hover:bg-[#007BFF]/15 dark:group-hover:bg-[#007BFF]/5" />
       <div className="relative flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
           <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
@@ -263,7 +263,7 @@ function TableSkeleton() {
       {[...Array(8)].map((_, i) => (
         <div
           key={i}
-          className="h-16 animate-pulse rounded-xl bg-[#007BFF]/60 dark:bg-[#007BFF]/10"
+          className="h-16 animate-pulse rounded-xl bg-[#007BFF]/20 dark:bg-[#007BFF]/10"
           style={{ animationDelay: `${i * 50}ms` }}
         />
       ))}
@@ -351,50 +351,8 @@ export default function ProductManagement() {
   ).length;
   const totalSold = allProducts.reduce((s, p) => s + (p.totalSold ?? 0), 0);
 
-  // Apply stock filter to raw products
-  // const filteredByStock = rawProducts.filter((product) => {
-  //   if (!stockFilter) return true;
-  //   const stock = product.availableStock ?? 0;
-  //   if (stockFilter === "outOfStock") return stock === 0;
-  //   if (stockFilter === "lowStock") return stock > 0 && stock <= 10;
-  //   if (stockFilter === "inStock") return stock > 10;
-  //   return true;
-  // });
-
-  // Apply sorting - handle special stock sorts client-side
+  
   const products = [...rawProducts];
-
-  // if (sort === "stock-low") {
-  //   // Sort by stock level ascending (lowest first)
-  //   products.sort((a, b) => (a.availableStock ?? 0) - (b.availableStock ?? 0));
-  // } else if (sort === "stock-out") {
-  //   // Sort out of stock items first, then by stock level
-  //   products.sort((a, b) => {
-  //     const aZero = (a.availableStock ?? 0) === 0 ? -1 : 1;
-  //     const bZero = (b.availableStock ?? 0) === 0 ? -1 : 1;
-  //     if (aZero !== bZero) return aZero - bZero;
-  //     return (a.availableStock ?? 0) - (b.availableStock ?? 0);
-  //   });
-  // } else if (clientSort) {
-  //   // Handle client-side sorting for column headers
-  //   products = products.sort((a, b) => {
-  //     const av = (a as any)[clientSort.key] ?? 0;
-  //     const bv = (b as any)[clientSort.key] ?? 0;
-  //     if (typeof av === "string")
-  //       return clientSort.dir === "asc"
-  //         ? av.localeCompare(bv)
-  //         : bv.localeCompare(av);
-  //     return clientSort.dir === "asc" ? av - bv : bv - av;
-  //   });
-  // }
-
-  // const handleClientSort = (key: string) => {
-  //   setClientSort((prev) =>
-  //     prev?.key === key
-  //       ? { key, dir: prev.dir === "asc" ? "desc" : "asc" }
-  //       : { key, dir: "desc" },
-  //   );
-  // };
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -487,7 +445,7 @@ export default function ProductManagement() {
         <div>
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-              <Package className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
+              <Package className="h-4 w-4 text-white" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
               Products
@@ -503,13 +461,13 @@ export default function ProductManagement() {
             onClick={() =>
               router.push("/staff/dashboard/admin/product-management/trash")
             }
-            className="gap-2 hover:cursor-pointer rounded-md border-red-200 text-red-600 hover:border-red-300 hover:bg-red-50 hover:text-red-700 dark:border-red-900/40 dark:text-red-400 dark:hover:border-red-800 dark:hover:bg-red-900/10 transition-colors"
+            className="gap-2 hover:cursor-pointer rounded-md border-red-200 text-red-600 hover:border-red-300 hover:bg-red-500 hover:text-white dark:border-red-900/40 dark:text-red-400 dark:hover:border-red-800 dark:hover:bg-red-900/10 transition-colors"
           >
             <Trash2 className="h-4 w-4" />
             <span className="hidden sm:inline">Trash</span>
           </Button>
           <Link href="/staff/dashboard/admin/product-management/create-product">
-            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF]0 text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0 relative overflow-hidden transition-all duration-200 active:scale-95">
+            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0 relative overflow-hidden transition-all duration-200 active:scale-95">
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/20 transition-transform duration-500 group-hover:translate-x-[200%]"
@@ -527,7 +485,7 @@ export default function ProductManagement() {
           label="Total Products"
           value={totalCount.toLocaleString()}
           icon={Package}
-          accent="bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+          accent="bg-[#007BFF] text-white dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
           sub={dateChipLabel ? `in ${dateChipLabel}` : undefined}
         />
         <StatCard
@@ -660,8 +618,8 @@ export default function ProductManagement() {
                 className={cn(
                   "inline-flex h-10 shrink-0 items-center gap-2 rounded-xl border px-3 text-sm font-medium transition-all duration-200",
                   dateFrom
-                    ? "border-amber-300 bg-[#007BFF] text-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/40 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
+                    ? "border-blue-300 bg-[#007BFF] text-white dark:border-[#007BFF] dark:bg-[#007BFF]/20]"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-amber-200 hover:bg-[#007BFF]/80 hover:text-white dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-amber-800 dark:hover:text-[#007BFF]",
                 )}
               >
                 {dateFrom ? (
@@ -688,7 +646,7 @@ export default function ProductManagement() {
             >
               <div className="flex flex-col sm:flex-row">
                 <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
+                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-blue-700">
                     Quick select
                   </p>
                   {PRESETS.map((preset) => {
@@ -705,8 +663,8 @@ export default function ProductManagement() {
                         className={cn(
                           "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors",
                           isActive
-                            ? "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]"
-                            : "text-gray-600 hover:bg-[#007BFF] hover:text-[#007BFF] dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
+                            ? "bg-[#007BFF] text-white dark:bg-[#007BFF]"
+                            : "text-gray-600 hover:bg-[#007BFF] hover:text-white dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
                         )}
                       >
                         {preset.label}
@@ -726,7 +684,7 @@ export default function ProductManagement() {
                   )}
                 </div>
                 <div className="p-3">
-                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/90 dark:text-[#007BFF]0/60">
                     Custom range
                   </p>
                   <Calendar
@@ -782,7 +740,7 @@ export default function ProductManagement() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-white dark:border-amber-800 dark:bg-[#007BFF]/20"
               >
                 <Search className="h-3 w-3" />
                 &quot;{search}&quot;
@@ -800,7 +758,7 @@ export default function ProductManagement() {
                 className={cn(
                   "flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold",
                   status === "ACTIVE"
-                    ? "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-400"
+                    ? "border-emerald-200 bg-emerald-50 text-white dark:border-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-400"
                     : "border-gray-200 bg-gray-50 text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400",
                 )}
               >
@@ -819,7 +777,7 @@ export default function ProductManagement() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-[#007BFF] dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
+                className="flex items-center gap-1.5 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-[#007BFF]"
               >
                 <CalendarDays className="h-3 w-3" />
                 {dateChipLabel}
@@ -859,7 +817,7 @@ export default function ProductManagement() {
         ) : products.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-              <Package className="h-8 w-8 text-amber-300 dark:text-amber-800" />
+              <Package className="h-8 w-8 text-amber-200" />
             </div>
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
               No products found
@@ -872,7 +830,7 @@ export default function ProductManagement() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/50 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
+                <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/90 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
                   {[
                     {
                       label: "Product",
@@ -962,10 +920,10 @@ export default function ProductManagement() {
                             : undefined
                         }
                         className={cn(
-                          "py-3 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60 px-3",
+                          "py-3 text-[10px] font-bold uppercase tracking-widest text-white px-3",
                           col.sortable &&
                             col.key &&
-                            "cursor-pointer select-none hover:text-[#007BFF] dark:hover:text-[#007BFF] transition-colors",
+                            "cursor-pointer select-none hover:text-white dark:hover:text-[#b4cee9] transition-colors",
                           col.cls,
                         )}
                       >
@@ -997,11 +955,11 @@ export default function ProductManagement() {
                     <tr
                       key={product._id as string}
                       className={cn(
-                        "border-b border-gray-100/80 dark:border-gray-800/60 transition-colors duration-100",
+                        "border border-gray-100 dark:border-gray-800/60 transition-colors duration-100",
                         idx % 2 === 0
                           ? "bg-white dark:bg-gray-900"
-                          : "bg-[#007BFF]/10 dark:bg-[#007BFF]/5",
-                        "hover:bg-[#007BFF]/40 dark:hover:bg-[#007BFF]/10",
+                          : "bg-[#007BFF]/5 dark:bg-[#007BFF]/5",
+                        "hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10",
                       )}
                     >
                       {/* Product */}
@@ -1129,7 +1087,7 @@ export default function ProductManagement() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-[#007BFF] dark:hover:bg-[#007BFF]/20 dark:hover:text-[#007BFF] transition-colors"
+                              className="h-8 w-8 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-white/90 dark:hover:bg-[#007BFF]/20 dark:hover:text-white transition-colors"
                             >
                               <MoreHorizontal className="h-4 w-4" />
                               <span className="sr-only">Actions</span>
