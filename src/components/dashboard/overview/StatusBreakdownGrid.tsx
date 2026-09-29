@@ -15,17 +15,21 @@ export interface StatusBreakdownItem {
 interface StatusBreakdownGridProps {
   items: StatusBreakdownItem[];
   total: number;
+  onSelect?: (key: string) => void;
 }
 
-export function StatusBreakdownGrid({ items, total }: StatusBreakdownGridProps) {
+export function StatusBreakdownGrid({ items, total, onSelect }: StatusBreakdownGridProps) {
   return (
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
       {items.map(({ key, label, icon: Icon, cls, val, count }) => (
-        <div
+        <button
+          type="button"
           key={key}
+          onClick={() => onSelect?.(key)}
           className={cn(
             "rounded-2xl border p-4 transition-all duration-200 hover:shadow-sm",
             cls,
+            "text-left transition-transform hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
           )}
         >
           <div className="flex items-center justify-between mb-2">
@@ -38,7 +42,7 @@ export function StatusBreakdownGrid({ items, total }: StatusBreakdownGridProps) 
           <p className="mt-0.5 text-[11px] text-gray-400 dark:text-gray-500">
             {total > 0 ? `${Math.round((count / total) * 100)}% of total` : "0%"}
           </p>
-        </div>
+        </button>
       ))}
     </div>
   );
