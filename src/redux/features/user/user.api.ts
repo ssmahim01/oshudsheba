@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { IRegisterResponse } from "@/types/auth.types";
 import { baseApi } from "../baseApi";
@@ -7,7 +8,6 @@ import type {
   IResponse,
   GetQueryParams,
 } from "@/types";
-import { ILead } from "@/types/lead.types";
 
 interface GetAllUsersResponse {
   success: boolean;
@@ -129,8 +129,7 @@ export const userApi = baseApi.injectEndpoints({
       providesTags: ["USERS"],
     }),
 
-    // ⭐ TRASH UPDATE  and Restore both work
-    trashUpdateUser: builder.mutation<IResponse<ILead>, { _id: string }>({
+    trashUpdateUser: builder.mutation<IResponse<any>, { _id: string }>({
       query: ({ _id }) => ({
         url: `/user/user-trash/${_id}`,
         method: "POST",
