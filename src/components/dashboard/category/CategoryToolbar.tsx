@@ -21,8 +21,8 @@ export default function CategoryToolbar({
 }: CategoryToolbarProps) {
     const router = useRouter();
   return (
-    <div className="sm:flex space-y-2 sm:space-y-0 items-center justify-between gap-2 w-full my-4">
-      <div className="sm:flex items-center space-y-2 sm:space-y-0 gap-4">
+    <div className="my-5 flex w-full flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white/90 p-3 shadow-sm sm:flex-row sm:items-center sm:justify-between dark:border-slate-800 dark:bg-slate-950/70">
+      <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center">
         {/* Search */}
         <SearchForm onSearchChange={onSearchChange} />
 
@@ -34,11 +34,11 @@ export default function CategoryToolbar({
       </div>
 
       {/* Create Category Modal */}
-        <div className="grid grid-cols-2 items-center gap-4">
+        <div className="grid w-full grid-cols-2 items-center gap-2 sm:w-auto">
             <Button
                 type="button"
                 variant="destructive"
-                className="flex items-center gap-2 cursor-pointer"
+                className="flex h-10 items-center justify-center gap-2 rounded-xl cursor-pointer transition-transform hover:scale-[1.02]"
                 onClick={() => router.push("/staff/dashboard/admin/category-management/trash")}
             >
                 <Trash2 className="h-4 w-4" />

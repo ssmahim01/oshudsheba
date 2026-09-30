@@ -141,17 +141,17 @@ export default function CreateCategoryModal() {
       </DialogTrigger>
 
       <DialogContent
-        className="sm:max-w-md max-h-[90vh] overflow-y-auto p-6"
+        className="w-[calc(100%-1.5rem)] max-w-lg max-h-[92vh] overflow-y-auto rounded-2xl border-slate-200/80 p-4 shadow-2xl sm:p-6 dark:border-slate-800"
       >
         {/* Gold accent line */}
         <div className="absolute left-0 right-0 top-0 h-0.5 " />
 
         {/* Header */}
         <DialogHeader className="flex flex-col items-center gap-2 pb-2">
-          <DialogTitle className="text-xl font-bold tracking-widest uppercase">
+          <DialogTitle className="text-xl font-bold tracking-tight">
             Add Category
           </DialogTitle>
-          <DialogDescription className="text-[#96999A] text-sm tracking-wide">
+          <DialogDescription className="text-sm text-muted-foreground">
             Create a new product category
           </DialogDescription>
         </DialogHeader>
@@ -307,9 +307,7 @@ export default function CreateCategoryModal() {
               variant={"default"}
             type="submit"
             disabled={isLoading}
-            className="w-full mt-2 cursor-pointer
-              font-bold tracking-widest uppercase
-              transition-colors disabled:opacity-60"
+            className="mt-2 h-11 w-full cursor-pointer rounded-xl bg-[#007BFF] font-semibold text-white shadow-sm transition-all hover:scale-[1.01] hover:bg-[#006fe6] disabled:opacity-60"
           >
             {isLoading ? (
               <span className="flex items-center gap-2">

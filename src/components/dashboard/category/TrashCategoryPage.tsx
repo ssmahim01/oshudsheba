@@ -102,7 +102,7 @@ const TrashCategoryPage = () => {
     };
 
     return (
-        <div className="px-2 sm:px-6 py-6 space-y-6">
+        <div className="min-h-full space-y-5 bg-slate-50/60 p-3 sm:p-6 dark:bg-slate-950/40">
             {/* Breadcrumb */}
             <BreadCrumbPage
                 BreadcrumbTitle={"Category Management"}
@@ -111,14 +111,14 @@ const TrashCategoryPage = () => {
             />
 
             {/* Filters */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-col gap-3 rounded-2xl border border-slate-200/80 bg-white p-3 shadow-sm sm:flex-row sm:flex-wrap sm:items-center dark:border-slate-800 dark:bg-slate-950">
                 <SearchForm onSearchChange={setSearchTerm} />
                 <Sort onChange={setSort} />
                 <DateFilter onChange={setDateRange} />
             </div>
 
             {/* Table */}
-            <div className="border rounded-xl">
+            <div className="overflow-x-auto rounded-2xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
                 <Table>
                     <TableHeader>
                         <TableRow>

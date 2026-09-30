@@ -467,7 +467,7 @@ export default function ProductManagement() {
             <span className="hidden sm:inline">Trash</span>
           </Button>
           <Link href="/staff/dashboard/admin/product-management/create-product">
-            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0 relative overflow-hidden transition-all duration-200 active:scale-95">
+            <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF] relative overflow-hidden transition-all duration-200 active:scale-95">
               <span
                 aria-hidden
                 className="pointer-events-none absolute inset-0 -translate-x-full skew-x-[-20deg] bg-white/20 transition-transform duration-500 group-hover:translate-x-[200%]"
@@ -525,7 +525,7 @@ export default function ProductManagement() {
               placeholder="Search products by title…"
               value={localSearch}
               onChange={handleSearchInput}
-              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors"
+              className="h-10 pl-9 pr-9 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] transition-colors"
             />
             {localSearch && (
               <button
@@ -547,7 +547,7 @@ export default function ProductManagement() {
                 setPage(1);
               }}
             >
-              <SelectTrigger className="h-10 w-36 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
+              <SelectTrigger className="h-10 w-36 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] transition-colors">
                 <SelectValue placeholder="All Status" />
               </SelectTrigger>
               <SelectContent className="rounded-xl">
@@ -572,7 +572,7 @@ export default function ProductManagement() {
               setPage(1);
             }}
           >
-            <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
+            <SelectTrigger className="h-10 w-40 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] transition-colors">
               <SelectValue placeholder="All Stock" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
@@ -596,7 +596,7 @@ export default function ProductManagement() {
               setPage(1);
             }}
           >
-            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
+            <SelectTrigger className="h-10 w-44 rounded-xl border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] transition-colors">
               <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent className="rounded-xl">
@@ -696,13 +696,13 @@ export default function ProductManagement() {
                     initialFocus
                     classNames={{
                       day_selected:
-                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 dark:bg-[#007BFF]",
+                        "bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF]",
                       day_range_middle:
                         "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
                       day_range_start:
-                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
+                        "bg-[#007BFF] text-white rounded-l-full dark:bg-[#007BFF]",
                       day_range_end:
-                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
+                        "bg-[#007BFF] text-white rounded-r-full dark:bg-[#007BFF]",
                       day_today:
                         "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF] dark:text-[#007BFF]",
                     }}
@@ -1062,7 +1062,7 @@ export default function ProductManagement() {
                           className={cn(
                             "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300",
                             product.isFeatured
-                              ? "bg-[#007BFF]0"
+                              ? "bg-[#007BFF]"
                               : "bg-gray-300 dark:bg-gray-700",
                           )}
                         >

@@ -103,11 +103,13 @@ const CategoryManagement = () => {
   ];
 
   if (isLoading) return <DashboardManagementPageSkeleton />;
-  if (isError) return <p>Error loading categories.</p>;
+  if (isError) return <p className="m-5 rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">Unable to load categories. Please try again.</p>;
 
   return (
-    <div>
-      <DashboardPageHeader title="Category Management" />
+    <div className="min-h-full space-y-1 bg-slate-50/60 p-3 sm:p-5 dark:bg-slate-950/40">
+      <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-sm dark:border-slate-800 dark:bg-slate-950">
+        <DashboardPageHeader title="Category Management" />
+      </div>
 
       <CategoryToolbar
         onSearchChange={setSearchTerm}
@@ -115,11 +117,13 @@ const CategoryManagement = () => {
         onDateChange={setDateRange}
       />
 
+      <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950">
       <DynamicDataTable
         columns={columns}
         data={data?.data ?? []}
         actions={actions}
       />
+      </div>
 
       {/* Pagination */}
       <TablePagination
