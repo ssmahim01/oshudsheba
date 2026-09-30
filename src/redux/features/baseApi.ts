@@ -47,8 +47,6 @@ export const baseApi = createApi({
 
     // Marketing and content
     "COUPONS",
-    "LEADS",
-    "LEAD",
     "REVIEWS",
     "REVIEW",
     "PRODUCT_BLOG",

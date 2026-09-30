@@ -287,7 +287,7 @@ const UserDetailsModal = ({
 
             {/* Footer */}
             <div className="bg-[#007BFF] dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
-              <p className="text-xs text-[#007BFF] dark:text-[#007BFF]">
+              <p className="text-xs text-white">
                 <span className="font-semibold">Last Updated:</span>{" "}
                 {user.createdAt
                   ? new Date(user.createdAt).toLocaleDateString()

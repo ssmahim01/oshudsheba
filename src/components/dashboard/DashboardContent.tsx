@@ -3,23 +3,20 @@
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { useUserInfoQuery } from "@/redux/features/auth/auth.api";
-import {
-  SidebarInset,
-  SidebarTrigger,
-  useSidebar,
-} from "@/components/ui/sidebar";
-
+import { SidebarInset, useSidebar } from "@/components/ui/sidebar";
 
 import { AppSidebar } from "./app-sidebar";
-import { ProfileDropdown } from "./ProfileDropdown";
 import DashboardSkeleton from "./DashboardSkeleton";
+import { DashboardHeader } from "./DashboardHeader";
+
+type UserShape = { name?: string; role?: string };
 
 export const DashboardContent = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const { isLoading } = useUserInfoQuery(undefined);
+  const { data, isLoading } = useUserInfoQuery(undefined);
   const pathname = usePathname();
   const { setOpen } = useSidebar();
 
@@ -40,19 +37,17 @@ export const DashboardContent = ({
     return <DashboardSkeleton />;
   }
 
+  const payload = data as unknown as (UserShape & { data?: UserShape }) | undefined;
+  const user = payload?.data ?? payload;
+
   return (
     <>
       <AppSidebar />
 
       <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 justify-between sticky top-0 bg-background z-10">
-          <SidebarTrigger className="-ml-1" />
-          <ProfileDropdown />
-        </header>
+        <DashboardHeader userName={user?.name} userRole={user?.role} />
 
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          {children}
-        </div>
+        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">{children}</div>
       </SidebarInset>
     </>
   );

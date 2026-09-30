@@ -42,7 +42,7 @@ const DashboardPageHeader: React.FC<PageHeaderProps> = ({
         {actionLabel && onAction && (
           <Button
             onClick={onAction}
-            className="hover:cursor-pointer shrink-0 gap-2 bg-linear-to-r from-[#007BFF] to-orange-600 hover:from-[#007BFF] hover:to-orange-700 text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF] relative overflow-hidden transition-all duration-200 active:scale-95"
           >
             <Plus className="h-4 w-4" />
             {actionLabel}

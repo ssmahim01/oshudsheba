@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
 import { ReviewsPageClient } from "@/components/dashboard/reviews/ReviewsPageClient";
 
 export const metadata: Metadata = {
@@ -10,11 +9,7 @@ export const metadata: Metadata = {
 
 export default function ReviewsPage() {
   return (
-    <main className="space-y-6">
-      <DashboardPageHeader
-        title="Reviews"
-        subTitle="Manage and monitor all product reviews"
-      />
+    <main className="space-y-6 py-5">
       <ReviewsPageClient />
     </main>
   );

@@ -72,7 +72,7 @@ export default function SocialAuthButtons({
   };
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row">
+    <div>
       <Button
         type="button"
         variant="outline"
@@ -84,16 +84,7 @@ export default function SocialAuthButtons({
         Continue with Google
       </Button>
 
-      <Button
-        type="button"
-        variant="outline"
-        disabled={disabled}
-        onClick={() => handleSelect("Apple")}
-        className={socialButtonClass}
-      >
-        <AppleIcon />
-        Continue with Apple
-      </Button>
+     
     </div>
   );
 }

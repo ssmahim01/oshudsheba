@@ -1,9 +1,7 @@
-import { Badge } from "@/components/ui/badge";
-
 export const getReturnStatusColor = (status: string) => {
   switch (status) {
     case "PENDING":
-      return "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800/50";
+      return "bg-[#007BFF] text-white border-blue-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-blue-800/50";
     case "PROCESSING":
       return "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50";
     case "COMPLETED":
@@ -18,7 +16,7 @@ export const getReturnStatusColor = (status: string) => {
 export const getRefundStatusColor = (status: string) => {
   switch (status) {
     case "PENDING":
-      return "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800/50";
+      return "bg-[#007BFF] text-white border-blue-200 dark:bg-[#007BFF]/20 dark:border-blue-800/50";
     case "PROCESSED":
       return "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800/50";
     case "REFUNDED":

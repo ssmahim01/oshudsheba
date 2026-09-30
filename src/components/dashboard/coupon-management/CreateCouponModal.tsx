@@ -190,7 +190,7 @@ export function CreateCouponModal({
         {/* Header */}
         <div className="flex items-center gap-3 border-b border-gray-100 px-6 py-4 dark:border-gray-800">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-            <Tag className="h-4 w-4 text-[#007BFF] dark:text-[#007BFF]" />
+            <Tag className="h-4 w-4 text-white" />
           </div>
           <div>
             <DialogTitle className="text-base font-bold text-gray-900 dark:text-gray-50">
@@ -485,7 +485,7 @@ export function CreateCouponModal({
             className={cn(
               "hover:cursor-pointer group relative overflow-hidden inline-flex items-center gap-1.5",
               "rounded-lg px-4 py-2 text-sm font-semibold text-white",
-              "bg-[#007BFF]0 hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0",
+              "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]0",
               "transition-all duration-200 active:scale-95",
               "disabled:opacity-50 disabled:cursor-not-allowed",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]0 focus-visible:ring-offset-1",

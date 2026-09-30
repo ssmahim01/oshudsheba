@@ -25,6 +25,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import type { UseFormRegisterReturn } from "react-hook-form";
+import { cn } from "@/lib/utils";
 
 const BANGLADESH_PHONE_REGEX = /^(?:\+8801|01)[3-9]\d{8}$/;
 
@@ -247,7 +248,7 @@ export default function RegisterModal({ refetch }: RegisterModalProps) {
     >
       {/* Trigger */}
       <DialogTrigger asChild>
-        <Button className={"cursor-pointer"}>
+        <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#3078c6] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF] relative overflow-hidden transition-all duration-200 active:scale-95">
           <Plus className="h-4 w-4" />
           Add Staff
         </Button>
@@ -434,7 +435,13 @@ export default function RegisterModal({ refetch }: RegisterModalProps) {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full mt-2 font-bold tracking-widest uppercase cursor-pointer transition-colors disabled:opacity-60"
+            className={cn(
+              "group w-full hover:cursor-pointer relative overflow-hidden inline-flex items-center gap-1.5",
+              "rounded-lg px-4 py-2 text-sm font-semibold text-white",
+              "bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF]",
+              "transition-all duration-200 active:scale-95",
+              "disabled:opacity-50 disabled:cursor-not-allowed",
+            )}
           >
             {isLoading ? (
               <span className="flex items-center gap-2">

@@ -188,7 +188,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
           </ScrollArea>
         </SidebarContent>
 
-        <SidebarFooter className="gap-2 border-t border-slate-200/80 p-2 dark:border-white/10">
+        <SidebarFooter className="gap-2 mb-5 border-t border-slate-200/80 p-2 dark:border-white/10">
           <SidebarMenu className="gap-1">
             {structure.support.map((item) => (
               <SidebarNavLink

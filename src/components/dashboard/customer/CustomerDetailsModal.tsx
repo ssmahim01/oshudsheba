@@ -337,7 +337,7 @@ const CustomerDetailsModal = ({
             {/* Summary Stats */}
             {user.totalOrders !== undefined && (
               <div className="grid grid-cols-2 gap-3">
-                <Card className="border-amber-200 dark:border-[#007BFF] bg-[#007BFF]/50 dark:bg-amber-950/20">
+                <Card className="border-amber-200 dark:border-[#007BFF] bg-[#007BFF]/10 dark:bg-blue-950/20">
                   <CardContent className="p-4">
                     <p className="text-xs text-[#007BFF] dark:text-[#007BFF] font-medium">
                       Total Orders
@@ -361,8 +361,8 @@ const CustomerDetailsModal = ({
             )}
 
             {/* Footer */}
-            <div className="bg-[#007BFF] dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800/50 rounded-lg p-3">
-              <p className="text-xs text-[#007BFF] dark:text-[#007BFF]">
+            <div className="bg-[#007BFF] dark:bg-blue-950/20 border border-blue-200 dark:border-blue-800/50 rounded-lg p-3">
+              <p className="text-xs text-white">
                 <span className="font-semibold">Customer Since:</span>{" "}
                 {user.createdAt
                   ? new Date(user.createdAt).toLocaleDateString()
@@ -376,7 +376,7 @@ const CustomerDetailsModal = ({
         {/* Close Button */}
         <div className="border-t border-gray-200 dark:border-gray-700 px-6 py-4 bg-gray-50 dark:bg-slate-900/30 flex justify-end">
           <DialogClose asChild>
-            <Button className="bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-medium transition-all hover:shadow-lg active:scale-95">
+            <Button className="bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-blue-800 hover:cursor-pointer text-white font-medium transition-all hover:shadow-lg active:scale-95">
               Close
             </Button>
           </DialogClose>

@@ -148,7 +148,7 @@ export function CourierSettingsManagement({
 
         <Button
           onClick={() => setCreateModalOpen(true)}
-          className="gap-2 rounded-md hover:cursor-pointer bg-linear-to-r from-[#007BFF]0 to-orange-500 hover:from-[#007BFF] hover:to-orange-600 shadow-md hover:shadow-xl transition-shadow"
+          className="gap-2 rounded-md hover:cursor-pointer bg-linear-to-r from-[#007BFF] to-blue-500 hover:from-[#007BFF] hover:to-blue-600 shadow-md hover:shadow-xl transition-shadow"
         >
           <Plus className="h-5 w-5" />
           Add Courier

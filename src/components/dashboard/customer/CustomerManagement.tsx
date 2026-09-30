@@ -67,8 +67,6 @@ const CustomerManagement = () => {
   // Trash handler
   const handleDelete = async (customer: any) => {
     try {
-      // Since customers are generated from orders, we need to delete via order API
-      // For now, we'll show a message
       const res = await trashCustomer({ _id: customer?.phone });
       if (res) {
         toast.success(res?.data?.message);

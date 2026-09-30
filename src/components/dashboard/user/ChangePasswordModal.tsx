@@ -119,7 +119,11 @@ export default function ChangePasswordModal({ open, onOpenChange, user }: any) {
         </Button>
 
         {/* SUBMIT */}
-        <Button onClick={handleSubmit} disabled={isLoading} className="w-full">
+        <Button
+          onClick={handleSubmit}
+          disabled={isLoading}
+          className="hover:cursor-pointer px-8 bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-blue-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+        >
           {isLoading ? "Updating..." : "Update Password"}
         </Button>
       </DialogContent>

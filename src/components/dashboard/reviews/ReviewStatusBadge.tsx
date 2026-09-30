@@ -8,8 +8,8 @@ interface ReviewStatusBadgeProps {
 export function ReviewStatusBadge({ status }: ReviewStatusBadgeProps) {
   const variants: Record<ReviewStatus, { bg: string; text: string; label: string }> = {
     [ReviewStatus.PENDING]: {
-      bg: "bg-[#007BFF] dark:bg-[#007BFF]",
-      text: "text-amber-800 dark:text-amber-200",
+      bg: "bg-amber-500",
+      text: "text-amber-50 dark:text-white",
       label: "Pending",
     },
     [ReviewStatus.APPROVED]: {

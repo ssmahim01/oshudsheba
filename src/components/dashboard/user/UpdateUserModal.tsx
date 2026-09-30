@@ -237,13 +237,13 @@ export default function UpdateUserModal({
               <TabsList className="grid w-full grid-cols-2 bg-linear-to-r from-[#007BFF] to-[#007BFF] dark:from-amber-950/40 dark:to-[#007BFF]/20 p-1 rounded-lg mb-6">
                 <TabsTrigger
                   value="general"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
+                  className="data-[state=active]:bg-white text-white hover:text-blue-50 data-[state=active]:font-bold dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-blue-300 data-[state=active]:shadow-md transition-all"
                 >
                   General Info
                 </TabsTrigger>
                 <TabsTrigger
                   value="permissions"
-                  className="data-[state=active]:bg-white dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-amber-300 data-[state=active]:shadow-md transition-all"
+                  className="data-[state=active]:bg-white text-white hover:text-blue-50 data-[state=active]:font-bold dark:data-[state=active]:bg-slate-800 data-[state=active]:text-[#007BFF] dark:data-[state=active]:text-blue-300 data-[state=active]:shadow-md transition-all"
                 >
                   Permissions
                 </TabsTrigger>
@@ -361,7 +361,7 @@ export default function UpdateUserModal({
                       Profile Picture (Optional)
                     </Label>
                     {picturePreview ? (
-                      <div className="flex items-center gap-4 border-2 border-amber-200 dark:border-amber-800/50 p-3 rounded-lg bg-[#007BFF]/30 dark:bg-amber-950/20">
+                      <div className="flex items-center gap-4 border-2 border-blue-200 dark:border-blue-800/50 p-3 rounded-lg bg-[#007BFF]/10 dark:bg-blue-950/20">
                         <Image
                           src={picturePreview}
                           alt="Preview"
@@ -369,7 +369,7 @@ export default function UpdateUserModal({
                           height={500}
                           priority
                           quality={90}
-                          className="h-20 w-20 object-cover rounded-lg border-2 border-amber-200 dark:border-[#007BFF]"
+                          className="h-20 w-20 object-cover rounded-lg border-2 border-blue-200 dark:border-[#007BFF]"
                         />
                         <div className="flex-1">
                           <p className="font-medium text-sm">
@@ -394,7 +394,7 @@ export default function UpdateUserModal({
                     ) : (
                       <label
                         htmlFor="picture-upload"
-                        className="flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-amber-300 dark:border-[#007BFF] px-4 py-8 cursor-pointer hover:bg-[#007BFF]/50 dark:hover:bg-amber-950/20 transition-colors"
+                        className="flex flex-col items-center justify-center gap-3 rounded-lg border-2 border-dashed border-blue-300 dark:border-[#007BFF] px-4 py-8 cursor-pointer hover:bg-[#007BFF]/10 dark:hover:bg-blue-950/20 transition-colors"
                       >
                         <Upload className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
                         <div className="text-center">
@@ -542,7 +542,7 @@ export default function UpdateUserModal({
                   <Button
                     type="submit"
                     disabled={isLoading}
-                    className="hover:cursor-pointer px-8 bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-amber-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="hover:cursor-pointer px-8 bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-blue-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <span className="flex items-center gap-2">

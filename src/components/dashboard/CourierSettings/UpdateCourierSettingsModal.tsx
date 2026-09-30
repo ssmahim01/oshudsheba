@@ -181,7 +181,7 @@ export function UpdateCourierSettingsModal({
         <ScrollArea className="max-h-[70vh] pr-4">
           <div className="space-y-6">
             {/* Basic Information */}
-            <Card className="border-0 bg-linear-to-br from-[#007BFF]/50 to-orange-50/30 p-4 dark:from-amber-950/20 dark:to-orange-950/20">
+            <Card className="border-0 bg-linear-to-br from-[#007BFF]/5 to-blue-50/70 p-4 dark:from-blue-950/20 dark:to-indigo-950/20">
               <div className="space-y-4">
                 <h3 className="font-semibold text-gray-900 dark:text-gray-100">
                   Basic Information
@@ -363,7 +363,7 @@ export function UpdateCourierSettingsModal({
                     variant="outline"
                     size="sm"
                     onClick={handleAddConfig}
-                    className="gap-2 rounded-lg border-amber-200 hover:bg-[#007BFF] dark:border-amber-800 dark:hover:bg-[#007BFF]"
+                    className="gap-2 rounded-lg border-blue-200 hover:bg-[#007BFF] dark:border-blue-800 dark:hover:bg-[#007BFF] hover:text-white"
                   >
                     <Plus className="h-4 w-4" />
                     Add Config
@@ -461,7 +461,7 @@ export function UpdateCourierSettingsModal({
           <Button
             onClick={handleSubmit}
             disabled={isLoading}
-            className="gap-2 hover:cursor-pointer rounded-lg bg-linear-to-r from-[#007BFF]0 to-orange-500 hover:from-[#007BFF] hover:to-orange-600 disabled:opacity-50"
+            className="hover:cursor-pointer px-8 bg-linear-to-r from-[#007BFF] to-[#007BFF] hover:from-[#007BFF] hover:to-blue-800 text-white font-semibold transition-all duration-300 hover:shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {isLoading ? "Updating..." : "Update Settings"}
           </Button>

@@ -53,7 +53,7 @@ const handleSelectPage = useCallback(
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-base">Page Access Permissions</CardTitle>
-          <Badge variant="outline" className="bg-[#007BFF] dark:bg-amber-950">
+          <Badge variant="outline" className="bg-[#007BFF] text-white dark:bg-blue-950">
             {selectedPages.length}/{availablePages.length}
           </Badge>
         </div>
@@ -71,7 +71,7 @@ const handleSelectPage = useCallback(
         />
 
         {/* Select All */}
-        <div className="flex items-center gap-2 p-3 border border-amber-200/20 dark:border-[#007BFF]/20 rounded-lg bg-[#007BFF]/30 dark:bg-amber-950/20">
+        <div className="flex items-center gap-2 p-3 border border-blue-200/20 dark:border-[#007BFF]/20 rounded-lg bg-[#007BFF]/5 dark:bg-blue-950/20">
           <Checkbox
             id="select-all"
             checked={isAllSelected}
@@ -96,8 +96,8 @@ const handleSelectPage = useCallback(
                 key={page.id}
                 className={`flex items-center gap-2 p-2 rounded-lg border transition-all cursor-pointer ${
                   isSelected
-                    ? 'border-[#007BFF]0 bg-[#007BFF]/50 dark:bg-[#007BFF]'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-amber-300 dark:hover:border-[#007BFF]'
+                    ? 'border-[#007BFF]0 bg-[#007BFF]/10 dark:bg-[#007BFF]'
+                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-[#007BFF]'
                 } ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
             
               >
@@ -132,7 +132,7 @@ const handleSelectPage = useCallback(
                   <Badge
                     key={page}
                     variant="secondary"
-                    className="bg-[#007BFF] dark:bg-[#007BFF] text-[#007BFF] dark:text-[#007BFF] flex items-center gap-1"
+                    className="bg-[#007BFF] dark:bg-[#007BFF] text-white flex items-center gap-1"
                   >
                     {pageLabel}
                     <X className="h-3 w-3 cursor-pointer" onClick={() => handleSelectPage(page, false)} />

@@ -278,7 +278,7 @@ function CourierCard({
                   >
                     {setting.isActive ? (
                       <>
-                        <PowerOff className="h-3.5 w-3.5 text-orange-500" />{" "}
+                        <PowerOff className="h-3.5 w-3.5 text-blue-500" />{" "}
                         Deactivate
                       </>
                     ) : (
@@ -339,7 +339,7 @@ function CourierCard({
           </span>
 
           {configEntries.length > 0 && (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] px-2.5 py-1 text-[10px] font-bold text-[#007BFF] dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#007BFF] px-2.5 py-1 text-[10px] font-bold text-white dark:bg-[#007BFF]/20 dark:text-[#007BFF]">
               <Settings2 className="h-2.5 w-2.5" />
               {configEntries.length} key{configEntries.length !== 1 ? "s" : ""}
             </span>
@@ -492,7 +492,7 @@ export function CourierSettingsGrid({
     return (
       <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50/50 py-20 dark:border-gray-800 dark:bg-gray-900/50">
         <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#007BFF] dark:bg-[#007BFF]/20 mb-4">
-          <Truck className="h-8 w-8 text-[#007BFF] dark:text-[#007BFF]" />
+          <Truck className="h-8 w-8 text-white" />
         </div>
         <p className="text-base font-semibold text-gray-700 dark:text-gray-300">
           No courier providers configured

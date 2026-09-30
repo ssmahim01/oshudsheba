@@ -68,27 +68,27 @@ export function CustomerTable({
     <div className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden bg-white dark:bg-slate-900/50">
       <ScrollArea className="md:max-w-full max-w-md">
         <Table>
-          <TableHeader className="sticky top-0 bg-linear-to-r from-[#007BFF] to-[#007BFF]/50 dark:from-[#007BFF] dark:to-amber-950/10 z-10">
+          <TableHeader className="sticky top-0 bg-linear-to-r from-[#007BFF] to-[#007BFF]/90 dark:from-[#007BFF] dark:to-blue-950/10 z-10">
             <TableRow className="border-b border-amber-200 dark:border-[#007BFF] hover:bg-transparent">
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Name
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Contact
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-center">
+              <TableHead className="text-white font-bold text-center">
                 Orders
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+              <TableHead className="text-white font-bold text-right">
                 Total Spent
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Orders
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Last Order
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+              <TableHead className="text-white font-bold text-right">
                 Action
               </TableHead>
             </TableRow>
@@ -133,7 +133,7 @@ export function CustomerTable({
               customers.map((customer) => (
                 <TableRow
                   key={customer.phone}
-                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/30 dark:hover:bg-amber-950/10 transition-colors"
+                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/10 dark:hover:bg-blue-950/10 transition-colors"
                 >
                   {/* Name */}
                   <TableCell className="font-semibold text-gray-900 dark:text-white">
@@ -163,7 +163,7 @@ export function CustomerTable({
 
                   {/* Order Count */}
                   <TableCell>
-                    <Badge className="bg-[#007BFF] dark:bg-[#007BFF]/40 text-amber-800 dark:text-amber-200 hover:bg-amber-200 dark:hover:bg-[#007BFF]/60 font-semibold">
+                    <Badge className="bg-[#007BFF] dark:bg-[#007BFF]/40 text-blue-100 dark:text-blue-200 hover:bg-blue-700 dark:hover:bg-[#007BFF]/90 font-semibold">
                       {customer.totalOrders || 0}
                     </Badge>
                   </TableCell>
@@ -182,9 +182,9 @@ export function CustomerTable({
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-8 w-8 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20"
+                          className="h-8 w-8 hover:bg-[#007BFF] hover:text-white dark:hover:bg-[#007BFF]/20"
                         >
-                          <MoreHorizontal className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                          <MoreHorizontal className="h-4 w-4 hover:text-white text-gray-600 dark:text-gray-400" />
                         </Button>
                       </DropdownMenuTrigger>
 

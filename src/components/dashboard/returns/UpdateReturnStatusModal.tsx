@@ -54,7 +54,6 @@ export const UpdateReturnStatusModal: React.FC<
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
-        {/* <div className="h-1 w-full bg-linear-to-r from-[#007BFF]0 to-orange-500" /> */}
 
         <DialogHeader className="space-y-2">
           <DialogTitle className="text-lg font-bold text-gray-900 dark:text-white">
@@ -67,9 +66,9 @@ export const UpdateReturnStatusModal: React.FC<
 
         <div className="space-y-6 py-4">
           {/* Alert */}
-          <div className="flex gap-3 rounded-lg border border-amber-200 bg-[#007BFF]/80 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
+          <div className="flex gap-3 rounded-lg border border-blue-200 bg-[#007BFF]/10 p-4 dark:border-[#007BFF] dark:bg-[#007BFF]/10">
             <AlertCircle className="h-5 w-5 shrink-0 text-[#007BFF] dark:text-[#007BFF] mt-0.5" />
-            <p className="text-sm text-[#007BFF] dark:text-amber-300">
+            <p className="text-sm font-semibold text-[#007BFF] dark:text-blue-300">
               Updating the status will affect inventory and refund processing.
             </p>
           </div>

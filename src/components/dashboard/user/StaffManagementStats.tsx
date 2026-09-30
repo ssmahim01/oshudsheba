@@ -43,7 +43,7 @@ export const StaffManagementStats: React.FC<StaffManagementStatsProps> = ({
       label: "Total Staffs",
       value: totalUsers,
       color: "text-[#007BFF] dark:text-[#007BFF]",
-      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]",
+      bgColor: "bg-[#007BFF]/10 dark:bg-[#007BFF]",
       trendColor: "text-[#007BFF]",
     },
     {

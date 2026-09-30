@@ -99,7 +99,7 @@ export function ReviewsTable({
     <div className="border rounded-lg overflow-x-auto">
       <Table>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-linear-to-r from-[#007BFF] to-[#0853a3] hover:from-blue-900 hover:to-indigo-600 dark:from-[#007BFF] dark:to-blue-950/10 *:text-white">
             <TableHead>Customer</TableHead>
             <TableHead>Product</TableHead>
             <TableHead>Rating</TableHead>
@@ -125,7 +125,7 @@ export function ReviewsTable({
                       key={i}
                       className={`text-lg ${
                         i < review.rating
-                          ? "text-[#007BFF]"
+                          ? "text-amber-500"
                           : "text-gray-300 dark:text-gray-600"
                       }`}
                     >

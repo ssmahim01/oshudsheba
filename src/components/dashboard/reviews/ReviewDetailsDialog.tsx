@@ -39,7 +39,7 @@ export function ReviewDetailsDialog({
           <span
             key={star}
             className={`text-lg ${
-              star <= rating ? "text-[#007BFF]" : "text-gray-300"
+              star <= rating ? "text-amber-500" : "text-gray-300"
             }`}
           >
             ★
@@ -61,7 +61,7 @@ export function ReviewDetailsDialog({
 
         <div className="space-y-6">
           {/* Product Info */}
-          <div className="border rounded-lg p-4 bg-[#007BFF] dark:bg-amber-950/20">
+          <div className="border rounded-lg p-4 bg-[#007BFF]/10 dark:bg-blue-950/20">
             <h3 className="font-semibold mb-2">Product</h3>
             <p className="text-sm text-gray-600 dark:text-gray-300">
               {review.product?.title}

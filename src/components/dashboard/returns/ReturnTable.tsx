@@ -49,38 +49,38 @@ export const ReturnTable: React.FC<ReturnTableProps> = ({
     <div className="overflow-x-auto rounded-2xl border border-gray-200/60 bg-white shadow-sm dark:border-gray-800/60 dark:bg-slate-900/50">
       <table className="w-full">
         <thead>
-          <tr className="border-b border-gray-200/60 bg-gray-50/80 dark:border-gray-800/60 dark:bg-slate-900/80">
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400">
+          <tr className="border-b bg-linear-to-r from-[#007BFF] to-[#0853a3] dark:from-[#007BFF] dark:to-blue-950/10">
+            <th className="px-6 py-4 text-left text-xs font-semibold text-white">
               Return ID
             </th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-left text-xs font-semibold text-white">
               Order ID
             </th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-left text-xs font-semibold text-white">
               Customer Info
             </th>
-            <th className="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-center text-xs font-semibold text-white">
               Products
             </th>
-            <th className="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-center text-xs font-semibold text-white">
               Qty
             </th>
-            <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-right text-xs font-semibold text-white">
               Refund Amt
             </th>
-            <th className="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-center text-xs font-semibold text-white">
               Refund Status
             </th>
-            <th className="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-center text-xs font-semibold text-white">
               Return Status
             </th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-left text-xs font-semibold text-white">
               Created By
             </th>
-            <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-left text-xs font-semibold text-white">
               Created Date
             </th>
-            <th className="px-6 py-4 text-center text-xs font-semibold text-gray-600 dark:text-gray-400">
+            <th className="px-6 py-4 text-center text-xs font-semibold text-white">
               Actions
             </th>
           </tr>
@@ -127,7 +127,7 @@ export const ReturnTable: React.FC<ReturnTableProps> = ({
 
                 {/* Products Count */}
                 <td className="px-6 py-4 text-center">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#007BFF] text-sm font-semibold text-[#007BFF] dark:bg-[#007BFF] dark:text-[#007BFF]">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#007BFF] text-sm font-semibold text-white dark:bg-[#007BFF] dark:text-white/90">
                     {returnItem.returnedProducts?.length || 0}
                   </span>
                 </td>

@@ -94,24 +94,24 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
     <Card className="border-gray-200 dark:border-gray-700 p-0 overflow-hidden">
       <ScrollArea className="w-full md:max-w-full max-w-md">
         <Table>
-          <TableHeader className="bg-linear-to-r from-[#007BFF] to-[#007BFF]/50 dark:from-[#007BFF] dark:to-amber-950/10">
-            <TableRow className="border-b border-amber-200 dark:border-[#007BFF] hover:bg-transparent">
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+          <TableHeader className="bg-linear-to-r from-[#007BFF] to-[#007BFF]/80 dark:from-[#007BFF] dark:to-blue-950/10">
+            <TableRow className="border-b border-blue-200 dark:border-[#007BFF] hover:bg-transparent">
+              <TableHead className="text-white font-bold">
                 Customer Name
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Contact
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Orders
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Total Spent
               </TableHead>
-              <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-white font-bold">
                 Last Order
               </TableHead>
-              <TableHead className="text-right text-[#007BFF] dark:text-[#007BFF] font-bold">
+              <TableHead className="text-right text-white font-bold">
                 Actions
               </TableHead>
             </TableRow>
@@ -121,7 +121,7 @@ export const StaffCustomerTable: React.FC<StaffCustomerTableProps> = ({
             {customers.map((customer) => (
               <TableRow
                 key={customer.phone}
-                className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/20 dark:hover:bg-amber-950/10 transition-colors"
+                className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/10 dark:hover:bg-blue-950/10 transition-colors"
               >
                 <TableCell className="font-semibold text-gray-900 dark:text-white">
                   {customer.fullName}
