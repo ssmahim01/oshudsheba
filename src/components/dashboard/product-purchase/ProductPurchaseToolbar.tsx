@@ -85,7 +85,7 @@ export const ProductPurchaseToolbar: React.FC<ProductPurchaseToolbarProps> = ({
         <Button
           onClick={handleReset}
           variant="outline"
-          className="border-amber-200 dark:border-amber-800 hover:bg-[#007BFF] dark:hover:bg-amber-950/20"
+          className="border-blue-200 dark:border-blue-800 hover:bg-[#007BFF] hover:cursor-pointer dark:hover:bg-blue-950/20 hover:text-white"
         >
           <RotateCcw className="h-4 w-4 mr-2" />
           Reset

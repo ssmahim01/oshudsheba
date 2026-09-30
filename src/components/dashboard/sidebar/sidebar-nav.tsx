@@ -18,19 +18,19 @@ type Tone = "default" | "danger";
 const ITEM_BASE = cn(
   "h-10 cursor-pointer rounded-xl px-3 text-sm font-medium",
   "transition-all duration-200 active:scale-[0.98]",
-  "focus-visible:ring-2 focus-visible:ring-emerald-500/60",
+  "focus-visible:ring-2 focus-visible:ring-blue-500/60",
   "[&>svg]:transition-transform [&>svg]:duration-200 hover:[&>svg]:scale-110",
 );
 
 const ITEM_ACTIVE = cn(
-  "bg-[linear-gradient(135deg,#10b981_0%,#0d9488_100%)] text-white",
-  "shadow-md shadow-emerald-600/25 hover:text-white hover:brightness-110",
-  "dark:shadow-emerald-500/10 dark:ring-1 dark:ring-emerald-400/30",
+  "bg-[#007BFF] text-white",
+  "shadow-md hover:bg-[#007BFF]/90 shadow-blue-600/25 hover:text-white hover:brightness-110",
+  "dark:shadow-blue-500/10 dark:ring-1 dark:ring-blue-400/30",
 );
 
 const ITEM_IDLE = cn(
-  "text-slate-600 hover:bg-emerald-50 hover:text-emerald-700",
-  "dark:text-slate-300 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300",
+  "text-slate-600 hover:bg-blue-50 hover:text-blue-700",
+  "dark:text-slate-300 dark:hover:bg-blue-500/10 dark:hover:text-blue-300",
 );
 
 const ITEM_DANGER = cn(

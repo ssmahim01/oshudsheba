@@ -25,9 +25,9 @@ export const ProductPurchaseStats: React.FC<ProductPurchaseStatsProps> = ({
       title: "Total Purchases",
       value: data?.totalPurchases ?? 0,
       icon: Package,
-      color: "text-[#007BFF] dark:text-[#007BFF]",
-      bgColor: "bg-[#007BFF] dark:bg-[#007BFF]/20",
-      borderColor: "border-[#007BFF] dark:border-amber-800",
+      color: "text-blue-600",
+      bgColor: "bg-blue-100 dark:bg-[#007BFF]/20",
+      borderColor: "border-blue-200 dark:border-blue-800",
     },
     {
       title: "Total Spent",

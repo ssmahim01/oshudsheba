@@ -24,23 +24,6 @@ import { StatusChangeDialog } from "./StatusChangeDialog";
 import { IPurchase } from "@/types/purchase";
 import { useGetMeQuery } from "@/redux/features/user/user.api";
 
-// interface Purchase {
-//   _id: string;
-//   products?: Array<{
-//     product?: { title?: string };
-//     quantity: number;
-//     buyingPrice: number;
-//     totalAmount: number;
-//   }>;
-//   supplierName: string;
-//   supplierPhone?: string;
-//   grandTotal?: number;
-//   paymentStatus: string;
-//   purchaseStatus: string;
-//   invoiceNo?: string;
-//   purchaseDate: string;
-// }
-
 const getPaymentTypeColor = (type: string) => {
   const colors: Record<string, string> = {
     FULL: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300",
@@ -151,37 +134,37 @@ export const ProductPurchaseTable: React.FC<ProductPurchaseTableProps> = ({
       <div className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden bg-white dark:bg-slate-900/50">
         <ScrollArea className="w-full">
           <Table>
-            <TableHeader className="bg-linear-to-r from-[#007BFF] to-[#007BFF]/50 dark:from-[#007BFF] dark:to-amber-950/10">
+            <TableHeader className="bg-linear-to-r from-[#007BFF] to-[#0853a3] dark:from-[#007BFF] dark:to-blue-950/10">
               <TableRow className="border-b border-amber-200 dark:border-[#007BFF] hover:bg-transparent">
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+                <TableHead className="text-white/95 font-bold">
                   Product
                 </TableHead>
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold">
+                <TableHead className="text-white/95 font-bold">
                   Supplier
                 </TableHead>
 
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+                <TableHead className="text-white/95 font-bold text-right">
                   Quantity
                 </TableHead>
                 {
                   role === "ADMIN" &&
-                  <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+                  <TableHead className="text-white/95 font-bold text-right">
                     Unit Price
                   </TableHead>
                 }
                 {
                   role === "ADMIN" &&
-                  <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+                  <TableHead className="text-white/95 font-bold text-right">
                     Total Amount
                   </TableHead>
                 }
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-center">
+                <TableHead className="text-white/95 font-bold text-center">
                   Purchase Status
                 </TableHead>
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-center">
+                <TableHead className="text-white/95 font-bold text-center">
                   Payment
                 </TableHead>
-                <TableHead className="text-[#007BFF] dark:text-[#007BFF] font-bold text-right">
+                <TableHead className="text-white/95 font-bold text-right">
                   Action
                 </TableHead>
               </TableRow>
@@ -192,8 +175,8 @@ export const ProductPurchaseTable: React.FC<ProductPurchaseTableProps> = ({
                 <TableRow>
                   <TableCell colSpan={8} className="text-center py-8">
                     <div className="flex items-center justify-center gap-2">
-                      <div className="h-2 w-2 rounded-full bg-[#007BFF]0 animate-pulse" />
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                      <div className="h-2 w-2 rounded-full bg-[#007BFF] animate-pulse" />
+                      <span className="text-sm text-gray-200">
                         Loading purchases...
                       </span>
                     </div>
@@ -226,7 +209,7 @@ export const ProductPurchaseTable: React.FC<ProductPurchaseTableProps> = ({
                 purchases.map((purchase) => (
                   <TableRow
                     key={purchase._id}
-                    className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/30 dark:hover:bg-amber-950/10 transition-colors"
+                    className="border-b border-gray-100 dark:border-gray-800 hover:bg-[#007BFF]/10 dark:hover:bg-amber-950/10 transition-colors"
                   >
                     <TableCell className="font-semibold text-gray-900 dark:text-white">
                       <div className="space-y-1">
@@ -352,9 +335,9 @@ export const ProductPurchaseTable: React.FC<ProductPurchaseTableProps> = ({
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-8 w-8 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20"
+                            className="h-8 w-8 hover:bg-[#007BFF] dark:hover:bg-[#007BFF]/20 hover:text-white"
                           >
-                            <MoreHorizontal className="h-4 w-4 text-gray-600 dark:text-gray-400" />
+                            <MoreHorizontal className="h-4 w-4 text-gray-600 hover:text-white dark:text-gray-400" />
                           </Button>
                         </DropdownMenuTrigger>
 

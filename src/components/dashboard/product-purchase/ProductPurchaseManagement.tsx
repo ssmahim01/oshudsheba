@@ -77,42 +77,6 @@ const ProductPurchaseManagement = () => {
   const [editingPurchase, setEditingPurchase] =
     React.useState<IPurchase | null>(null);
 
-  // Calculate statistics
-  // const stats = useMemo(() => {
-  //   const purchases = data?.data || [];
-
-  //   const totalPurchases = purchases.length;
-
-  //   const grandTotal = purchases.reduce(
-  //     (sum: number, p: any) => sum + (p.totalAmount || 0),
-  //     0,
-  //   );
-
-  //   const pendingPayments = purchases.filter(
-  //     (p: any) => p.paymentStatus !== "PAID",
-  //   ).length;
-
-  //   const totalProfit = purchases.reduce((sum: number, p: any) => {
-  //     const purchaseProfit =
-  //       p.products?.reduce((acc: number, item: any) => {
-  //         const sellingPrice = item.product?.price || 0;
-
-  //         const buyingPrice = item.buyingPrice || 0;
-
-  //         return acc + (sellingPrice - buyingPrice) * item.quantity;
-  //       }, 0) || 0;
-
-  //     return sum + purchaseProfit;
-  //   }, 0);
-
-  //   return {
-  //     totalPurchases,
-  //     grandTotal,
-  //     totalProfit,
-  //     pendingPayments,
-  //   };
-  // }, [data]);
-
   const handleDelete = async (purchase: Purchase) => {
     try {
       const res = await deleteProductPurchase(purchase._id).unwrap();

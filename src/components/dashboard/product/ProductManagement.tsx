@@ -274,7 +274,7 @@ function TableSkeleton() {
 function SortIcon({ active, dir }: { active: boolean; dir: "asc" | "desc" }) {
   if (!active)
     return (
-      <ArrowUpDown className="h-3 w-3 text-gray-400 ml-1 inline opacity-50" />
+      <ArrowUpDown className="h-3 w-3 text-gray-100 ml-1 inline opacity-50" />
     );
   return dir === "asc" ? (
     <ArrowUp className="h-3 w-3 text-[#007BFF]0 ml-1 inline" />
@@ -351,7 +351,6 @@ export default function ProductManagement() {
   ).length;
   const totalSold = allProducts.reduce((s, p) => s + (p.totalSold ?? 0), 0);
 
-  
   const products = [...rawProducts];
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -439,9 +438,9 @@ export default function ProductManagement() {
     : null;
 
   return (
-    <div className="min-h-screen space-y-6 bg-background p-3 md:p-4">
+    <div className="min-h-screen w-full max-w-full min-w-0 overflow-x-hidden space-y-6 bg-background p-3 md:p-4">
       {/* ── Header ── */}
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="flex min-w-0 w-full flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <div className="flex items-center gap-2.5">
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
@@ -455,7 +454,7 @@ export default function ProductManagement() {
             Manage your product catalog, stock levels and pricing
           </p>
         </div>
-        <div className="flex shrink-0 items-center gap-2.5">
+        <div className="flex w-full min-w-0 flex-wrap items-center gap-2.5 sm:w-auto sm:shrink-0">
           <Button
             variant="outline"
             onClick={() =>
@@ -466,7 +465,10 @@ export default function ProductManagement() {
             <Trash2 className="h-4 w-4" />
             <span className="hidden sm:inline">Trash</span>
           </Button>
-          <Link href="/staff/dashboard/admin/product-management/create-product">
+          <Link
+            href="/staff/dashboard/admin/product-management/create-product"
+            className="min-w-0"
+          >
             <Button className="group gap-2 hover:cursor-pointer rounded-md bg-[#007BFF] text-white hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-[#007BFF] relative overflow-hidden transition-all duration-200 active:scale-95">
               <span
                 aria-hidden
@@ -519,7 +521,7 @@ export default function ProductManagement() {
       <div className="rounded-2xl border border-gray-200/80 bg-white p-4 dark:border-gray-700/60 dark:bg-gray-900 space-y-3">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
           {/* Search */}
-          <div className="relative flex-1 min-w-50">
+          <div className="relative w-full min-w-0 flex-1 sm:min-w-50">
             <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
             <Input
               placeholder="Search products by title…"
@@ -827,184 +829,444 @@ export default function ProductManagement() {
             </p>
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/90 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
-                  {[
-                    {
-                      label: "Product",
-                      key: "title",
-                      sortable: true,
-                      cls: "pl-5 min-w-[200px]",
-                    },
-                    {
-                      label: "Category",
-                      key: null,
-                      sortable: false,
-                      cls: "hidden md:table-cell",
-                    },
-                    {
-                      label: "Price",
-                      key: "price",
-                      sortable: true,
-                      cls: "text-right",
-                    },
-                    {
-                      label: "Buying",
-                      key: "buyingPrice",
-                      sortable: true,
-                      cls: "text-right hidden lg:table-cell",
-                    },
-                    {
-                      label: "Stock",
-                      key: "availableStock",
-                      sortable: true,
-                      cls: "text-center",
-                    },
-                    {
-                      label: "Sold",
-                      key: "totalSold",
-                      sortable: true,
-                      cls: "text-center hidden sm:table-cell",
-                    },
-                    {
-                      label: "Total Sales",
-                      key: "totalRevenue",
-                      sortable: false,
-                      cls: "text-center hidden sm:table-cell",
-                    },
-                    {
-                      label: "Featured",
-                      key: null,
-                      sortable: false,
-                      cls: "text-center",
-                    },
-                    {
-                      label: "Status",
-                      key: "status",
-                      sortable: false,
-                      cls: "hidden sm:table-cell",
-                    },
-                    {
-                      label: "Actions",
-                      key: null,
-                      sortable: false,
-                      cls: "text-center pr-5 w-16",
-                    },
-                  ]
-                    .filter(
-                      (col) => !(col.label === "Buying" && role !== "ADMIN"),
-                    )
-                    .map((col) => (
-                      <th
-                        key={col.label}
-                        onClick={
-                          col.sortable && col.key
-                            ? () => {
-                                const current =
-                                  sort === col.key
-                                    ? "asc"
-                                    : sort === `-${col.key}`
-                                      ? "desc"
-                                      : null;
+          <>
+            <div className="hidden w-full max-w-full overflow-x-auto overscroll-x-contain md:block">
+              <table className="w-full min-w-225 text-sm">
+                <thead>
+                  <tr className="border-b border-[#007BFF]/80 bg-[#007BFF]/90 dark:border-[#007BFF]/20 dark:bg-[#007BFF]/5">
+                    {[
+                      {
+                        label: "Product",
+                        key: "title",
+                        sortable: true,
+                        cls: "pl-5 min-w-[200px]",
+                      },
+                      {
+                        label: "Category",
+                        key: null,
+                        sortable: false,
+                        cls: "hidden md:table-cell",
+                      },
+                      {
+                        label: "Price",
+                        key: "price",
+                        sortable: true,
+                        cls: "text-right",
+                      },
+                      {
+                        label: "Buying",
+                        key: "buyingPrice",
+                        sortable: true,
+                        cls: "text-right hidden lg:table-cell",
+                      },
+                      {
+                        label: "Stock",
+                        key: "availableStock",
+                        sortable: true,
+                        cls: "text-center",
+                      },
+                      {
+                        label: "Sold",
+                        key: "totalSold",
+                        sortable: true,
+                        cls: "text-center hidden sm:table-cell",
+                      },
+                      {
+                        label: "Total Sales",
+                        key: "totalRevenue",
+                        sortable: false,
+                        cls: "text-center hidden sm:table-cell",
+                      },
+                      {
+                        label: "Featured",
+                        key: null,
+                        sortable: false,
+                        cls: "text-center",
+                      },
+                      {
+                        label: "Status",
+                        key: "status",
+                        sortable: false,
+                        cls: "hidden sm:table-cell",
+                      },
+                      {
+                        label: "Actions",
+                        key: null,
+                        sortable: false,
+                        cls: "text-center pr-5 w-16",
+                      },
+                    ]
+                      .filter(
+                        (col) => !(col.label === "Buying" && role !== "ADMIN"),
+                      )
+                      .map((col) => (
+                        <th
+                          key={col.label}
+                          onClick={
+                            col.sortable && col.key
+                              ? () => {
+                                  const current =
+                                    sort === col.key
+                                      ? "asc"
+                                      : sort === `-${col.key}`
+                                        ? "desc"
+                                        : null;
 
-                                if (current === "desc") {
-                                  setSort(col.key!);
-                                } else {
-                                  setSort(`-${col.key}`);
+                                  if (current === "desc") {
+                                    setSort(col.key!);
+                                  } else {
+                                    setSort(`-${col.key}`);
+                                  }
+
+                                  setPage(1);
                                 }
-
-                                setPage(1);
+                              : undefined
+                          }
+                          className={cn(
+                            "py-3 text-[10px] font-bold uppercase tracking-widest text-white px-3",
+                            col.sortable &&
+                              col.key &&
+                              "cursor-pointer select-none hover:text-white dark:hover:text-[#b4cee9] transition-colors",
+                            col.cls,
+                          )}
+                        >
+                          {col.label}
+                          {col.sortable && col.key && (
+                            <SortIcon
+                              active={
+                                sort === col.key || sort === `-${col.key}`
                               }
-                            : undefined
-                        }
+                              dir={sort === col.key ? "asc" : "desc"}
+                            />
+                          )}
+                        </th>
+                      ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {products.map((product, idx) => {
+                    const sellPrice =
+                      product.discountPrice && product.discountPrice > 0
+                        ? product.discountPrice
+                        : product.price;
+
+                    const hasDiscount =
+                      (product?.discountPrice as number) > 0 &&
+                      (product?.discountPrice as number) < product.price;
+                    return (
+                      <tr
+                        key={product._id as string}
                         className={cn(
-                          "py-3 text-[10px] font-bold uppercase tracking-widest text-white px-3",
-                          col.sortable &&
-                            col.key &&
-                            "cursor-pointer select-none hover:text-white dark:hover:text-[#b4cee9] transition-colors",
-                          col.cls,
+                          "border border-gray-100 dark:border-gray-800/60 transition-colors duration-100",
+                          idx % 2 === 0
+                            ? "bg-white dark:bg-gray-900"
+                            : "bg-[#007BFF]/5 dark:bg-[#007BFF]/5",
+                          "hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10",
                         )}
                       >
-                        {col.label}
-                        {col.sortable && col.key && (
-                          <SortIcon
-                            active={sort === col.key || sort === `-${col.key}`}
-                            dir={sort === col.key ? "asc" : "desc"}
-                          />
+                        {/* Product */}
+                        <td className="px-3 pl-5 py-3">
+                          <div className="flex items-center gap-3">
+                            {product.images?.[0] ? (
+                              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+                                <Image
+                                  src={product.images[0]}
+                                  alt={product.title}
+                                  fill
+                                  sizes="44px"
+                                  className="object-cover transition-transform duration-300 hover:scale-110"
+                                />
+                              </div>
+                            ) : (
+                              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+                                <ImageIcon className="h-5 w-5 text-amber-300" />
+                              </div>
+                            )}
+                            <div className="min-w-0">
+                              <p
+                                className="truncate max-w-40 text-sm font-semibold text-gray-900 dark:text-gray-50 leading-snug"
+                                title={product.title}
+                              >
+                                {product.title}
+                              </p>
+                              {product.size && (
+                                <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">
+                                  Size: {product.size}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </td>
+                        {/* Category */}
+                        <td className="px-3 py-3 hidden md:table-cell">
+                          <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
+                            {(product.category as any)?.title ?? "—"}
+                          </span>
+                        </td>
+                        {/* Price */}
+                        <td className="px-3 py-3 text-right">
+                          <div className="flex flex-col items-end">
+                            <span className="text-sm font-bold tabular-nums text-gray-900 dark:text-gray-50">
+                              ৳{sellPrice?.toLocaleString()}
+                            </span>
+
+                            {hasDiscount && (
+                              <span className="text-[10px] tabular-nums text-gray-400 line-through">
+                                ৳{product.price?.toLocaleString()}
+                              </span>
+                            )}
+                          </div>
+                        </td>
+
+                        {/* Buying */}
+                        {role === "ADMIN" && (
+                          <td className="px-3 py-3 text-right hidden lg:table-cell">
+                            <span className="text-xs tabular-nums font-medium text-gray-500">
+                              {product.buyingPrice
+                                ? `৳${product.buyingPrice.toLocaleString()}`
+                                : "—"}
+                            </span>
+                          </td>
                         )}
-                      </th>
-                    ))}
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product, idx) => {
-                  // const sellPrice = product.discountPrice ?? product.price;
-                  const sellPrice =
-                    product.discountPrice && product.discountPrice > 0
-                      ? product.discountPrice
-                      : product.price;
-                  // const hasDiscount =
-                  //   !!product.discountPrice &&
-                  //   product.discountPrice < product.price;
-                  const hasDiscount =
-                    (product?.discountPrice as number) > 0 &&
-                    (product?.discountPrice as number) < product.price;
-                  return (
-                    <tr
-                      key={product._id as string}
-                      className={cn(
-                        "border border-gray-100 dark:border-gray-800/60 transition-colors duration-100",
-                        idx % 2 === 0
-                          ? "bg-white dark:bg-gray-900"
-                          : "bg-[#007BFF]/5 dark:bg-[#007BFF]/5",
-                        "hover:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10",
+                        {/* Stock */}
+                        <td className="px-3 py-3 text-center">
+                          <StockBadge stock={product.availableStock ?? 0} />
+                        </td>
+                        {/* Sold */}
+                        <td className="px-3 py-3 text-center hidden sm:table-cell">
+                          <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 text-[10px] font-bold text-violet-700 tabular-nums dark:border-violet-800 dark:bg-violet-900/20 dark:text-violet-400">
+                            <TrendingUp className="h-2.5 w-2.5" />
+                            {product.totalSold ?? 0}
+                          </span>
+                        </td>
+                        {/* Sales */}
+                        <td className="px-3 py-3 text-center hidden sm:table-cell">
+                          <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 text-[10px] font-bold text-violet-700 tabular-nums dark:border-violet-800 dark:bg-violet-900/20 dark:text-violet-400">
+                            <TrendingUp className="h-2.5 w-2.5" />
+                            {product?.totalRevenue ?? 0}
+                          </span>
+                        </td>
+                        {/* Featured Toggle */}
+                        <td className="px-3 py-3 text-center">
+                          <button
+                            onClick={async () => {
+                              try {
+                                await toggleFeatured(product._id).unwrap();
+                                toast.success(
+                                  product.isFeatured
+                                    ? "Removed from featured"
+                                    : "Added to featured",
+                                );
+                              } catch (err: any) {
+                                toast.error("Failed to update");
+                              }
+                            }}
+                            className={cn(
+                              "relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300",
+                              product.isFeatured
+                                ? "bg-[#007BFF]"
+                                : "bg-gray-300 dark:bg-gray-700",
+                            )}
+                          >
+                            <span
+                              className={cn(
+                                "inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300",
+                                product.isFeatured
+                                  ? "translate-x-6"
+                                  : "translate-x-1",
+                              )}
+                            />
+                          </button>
+                        </td>
+                        {/* Status */}
+                        <td className="px-3 py-3 hidden sm:table-cell">
+                          <StatusBadge status={product.status ?? "INACTIVE"} />
+                        </td>
+                        {/* Actions */}
+                        <td className="px-3 pr-5 py-3 text-center">
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-white/90 dark:hover:bg-[#007BFF]/20 dark:hover:text-white transition-colors"
+                              >
+                                <MoreHorizontal className="h-4 w-4" />
+                                <span className="sr-only">Actions</span>
+                              </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent
+                              align="end"
+                              className="w-48 rounded-xl"
+                            >
+                              <DropdownMenuItem
+                                className="gap-2 text-sm cursor-pointer"
+                                onClick={() =>
+                                  router.push(
+                                    `/staff/dashboard/admin/product-management/product-details/${product.slug}`,
+                                  )
+                                }
+                              >
+                                <Eye className="h-3.5 w-3.5 text-gray-500" />
+                                View Details
+                              </DropdownMenuItem>
+                              <DropdownMenuItem
+                                className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
+                                onClick={() =>
+                                  router.push(
+                                    `/staff/dashboard/admin/product-management/update-product/${product.slug}`,
+                                  )
+                                }
+                              >
+                                <FilePenLine className="h-3.5 w-3.5" />
+                                Edit Product
+                              </DropdownMenuItem>
+                              <DropdownMenuSeparator />
+                              <DropdownMenuItem
+                                disabled={
+                                  role !== "ADMIN" && role !== "MANAGER"
+                                }
+                                className="gap-2 text-sm cursor-pointer text-red-600 focus:text-red-600 dark:text-red-400"
+                                onClick={() => {
+                                  setDeleteTarget(product);
+                                  setDeleteOpen(true);
+                                }}
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                                Move to Trash
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <div className="space-y-3 p-3 md:hidden">
+              {products.map((product) => {
+                const sellPrice =
+                  product.discountPrice && product.discountPrice > 0
+                    ? product.discountPrice
+                    : product.price;
+
+                const hasDiscount =
+                  (product?.discountPrice as number) > 0 &&
+                  (product?.discountPrice as number) < product.price;
+
+                return (
+                  <div
+                    key={product._id as string}
+                    className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white p-3 shadow-sm transition-colors hover:border-[#007BFF]/30 dark:border-gray-700 dark:bg-gray-900"
+                  >
+                    {/* Top */}
+                    <div className="flex min-w-0 items-start gap-3">
+                      {product.images?.[0] ? (
+                        <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
+                          <Image
+                            src={product.images[0]}
+                            alt={product.title}
+                            fill
+                            sizes="56px"
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#007BFF]/10 dark:bg-[#007BFF]/20">
+                          <ImageIcon className="h-5 w-5 text-[#007BFF]" />
+                        </div>
                       )}
-                    >
-                      {/* Product */}
-                      <td className="px-3 pl-5 py-3">
-                        <div className="flex items-center gap-3">
-                          {product.images?.[0] ? (
-                            <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
-                              <Image
-                                src={product.images[0]}
-                                alt={product.title}
-                                fill
-                                sizes="44px"
-                                className="object-cover transition-transform duration-300 hover:scale-110"
-                              />
-                            </div>
-                          ) : (
-                            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
-                              <ImageIcon className="h-5 w-5 text-amber-300" />
-                            </div>
-                          )}
-                          <div className="min-w-0">
+
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0 flex-1">
                             <p
-                              className="truncate max-w-40 text-sm font-semibold text-gray-900 dark:text-gray-50 leading-snug"
+                              className="truncate text-sm font-semibold text-gray-900 dark:text-gray-50"
                               title={product.title}
                             >
                               {product.title}
                             </p>
+
                             {product.size && (
-                              <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">
+                              <p className="mt-0.5 text-[11px] text-gray-400 dark:text-gray-500">
                                 Size: {product.size}
                               </p>
                             )}
+
+                            <p className="mt-1 truncate text-[11px] text-gray-500 dark:text-gray-400">
+                              {(product.category as any)?.title ??
+                                "No category"}
+                            </p>
                           </div>
+
+                          {/* Actions */}
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                className="h-8 w-8 shrink-0 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-white"
+                              >
+                                <MoreHorizontal className="h-4 w-4" />
+                                <span className="sr-only">Actions</span>
+                              </Button>
+                            </DropdownMenuTrigger>
+
+                            <DropdownMenuContent
+                              align="end"
+                              className="w-48 rounded-xl"
+                            >
+                              <DropdownMenuItem
+                                className="cursor-pointer gap-2 text-sm"
+                                onClick={() =>
+                                  router.push(
+                                    `/staff/dashboard/admin/product-management/product-details/${product.slug}`,
+                                  )
+                                }
+                              >
+                                <Eye className="h-3.5 w-3.5 text-gray-500" />
+                                View Details
+                              </DropdownMenuItem>
+
+                              <DropdownMenuItem
+                                className="cursor-pointer gap-2 text-sm text-[#007BFF]"
+                                onClick={() =>
+                                  router.push(
+                                    `/staff/dashboard/admin/product-management/update-product/${product.slug}`,
+                                  )
+                                }
+                              >
+                                <FilePenLine className="h-3.5 w-3.5" />
+                                Edit Product
+                              </DropdownMenuItem>
+
+                              <DropdownMenuSeparator />
+
+                              <DropdownMenuItem
+                                disabled={
+                                  role !== "ADMIN" && role !== "MANAGER"
+                                }
+                                className="cursor-pointer gap-2 text-sm text-red-600 focus:text-red-600"
+                                onClick={() => {
+                                  setDeleteTarget(product);
+                                  setDeleteOpen(true);
+                                }}
+                              >
+                                <Trash2 className="h-3.5 w-3.5" />
+                                Move to Trash
+                              </DropdownMenuItem>
+                            </DropdownMenuContent>
+                          </DropdownMenu>
                         </div>
-                      </td>
-                      {/* Category */}
-                      <td className="px-3 py-3 hidden md:table-cell">
-                        <span className="inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2.5 py-0.5 text-xs font-medium text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400">
-                          {(product.category as any)?.title ?? "—"}
-                        </span>
-                      </td>
-                      {/* Price */}
-                      <td className="px-3 py-3 text-right">
-                        <div className="flex flex-col items-end">
-                          <span className="text-sm font-bold tabular-nums text-gray-900 dark:text-gray-50">
+                      </div>
+                    </div>
+
+                    {/* Price + Status */}
+                    <div className="mt-3 flex items-center justify-between gap-3">
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2">
+                          <span className="text-base font-bold tabular-nums text-gray-900 dark:text-gray-50">
                             ৳{sellPrice?.toLocaleString()}
                           </span>
 
@@ -1014,48 +1276,65 @@ export default function ProductManagement() {
                             </span>
                           )}
                         </div>
-                      </td>
 
-                      {/* Buying */}
-                      {role === "ADMIN" && (
-                        <td className="px-3 py-3 text-right hidden lg:table-cell">
-                          <span className="text-xs tabular-nums font-medium text-gray-500">
-                            {product.buyingPrice
-                              ? `৳${product.buyingPrice.toLocaleString()}`
-                              : "—"}
-                          </span>
-                        </td>
-                      )}
-                      {/* Stock */}
-                      <td className="px-3 py-3 text-center">
-                        <StockBadge stock={product.availableStock ?? 0} />
-                      </td>
-                      {/* Sold */}
-                      <td className="px-3 py-3 text-center hidden sm:table-cell">
-                        <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 text-[10px] font-bold text-violet-700 tabular-nums dark:border-violet-800 dark:bg-violet-900/20 dark:text-violet-400">
-                          <TrendingUp className="h-2.5 w-2.5" />
+                        {role === "ADMIN" && product.buyingPrice && (
+                          <p className="mt-0.5 text-[10px] text-gray-400">
+                            Buying: ৳{product.buyingPrice.toLocaleString()}
+                          </p>
+                        )}
+                      </div>
+
+                      <StatusBadge status={product.status ?? "INACTIVE"} />
+                    </div>
+
+                    {/* Stats */}
+                    <div className="mt-3 grid grid-cols-3 gap-2">
+                      <div className="rounded-xl bg-gray-50 px-2 py-2 text-center dark:bg-gray-800/70">
+                        <p className="text-[9px] font-medium uppercase tracking-wide text-gray-400">
+                          Stock
+                        </p>
+                        <div className="mt-1 flex justify-center">
+                          <StockBadge stock={product.availableStock ?? 0} />
+                        </div>
+                      </div>
+
+                      <div className="rounded-xl bg-gray-50 px-2 py-2 text-center dark:bg-gray-800/70">
+                        <p className="text-[9px] font-medium uppercase tracking-wide text-gray-400">
+                          Sold
+                        </p>
+                        <p className="mt-1 text-xs font-bold tabular-nums text-gray-800 dark:text-gray-100">
                           {product.totalSold ?? 0}
+                        </p>
+                      </div>
+
+                      <div className="rounded-xl bg-gray-50 px-2 py-2 text-center dark:bg-gray-800/70">
+                        <p className="text-[9px] font-medium uppercase tracking-wide text-gray-400">
+                          Sales
+                        </p>
+                        <p className="mt-1 truncate text-xs font-bold tabular-nums text-gray-800 dark:text-gray-100">
+                          ৳{Number(product.totalRevenue ?? 0).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Bottom controls */}
+                    <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-3 dark:border-gray-800">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[11px] font-medium text-gray-500 dark:text-gray-400">
+                          Featured
                         </span>
-                      </td>
-                      {/* Sales */}
-                      <td className="px-3 py-3 text-center hidden sm:table-cell">
-                        <span className="inline-flex items-center gap-1 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-0.5 text-[10px] font-bold text-violet-700 tabular-nums dark:border-violet-800 dark:bg-violet-900/20 dark:text-violet-400">
-                          <TrendingUp className="h-2.5 w-2.5" />
-                          {product?.totalRevenue ?? 0}
-                        </span>
-                      </td>
-                      {/* Featured Toggle */}
-                      <td className="px-3 py-3 text-center">
+
                         <button
                           onClick={async () => {
                             try {
                               await toggleFeatured(product._id).unwrap();
+
                               toast.success(
                                 product.isFeatured
                                   ? "Removed from featured"
                                   : "Added to featured",
                               );
-                            } catch (err: any) {
+                            } catch {
                               toast.error("Failed to update");
                             }
                           }}
@@ -1068,78 +1347,24 @@ export default function ProductManagement() {
                         >
                           <span
                             className={cn(
-                              "inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300",
+                              "inline-block h-4 w-4 rounded-full bg-white transition-transform duration-300",
                               product.isFeatured
                                 ? "translate-x-6"
                                 : "translate-x-1",
                             )}
                           />
                         </button>
-                      </td>
-                      {/* Status */}
-                      <td className="px-3 py-3 hidden sm:table-cell">
-                        <StatusBadge status={product.status ?? "INACTIVE"} />
-                      </td>
-                      {/* Actions */}
-                      <td className="px-3 pr-5 py-3 text-center">
-                        <DropdownMenu>
-                          <DropdownMenuTrigger asChild>
-                            <Button
-                              variant="ghost"
-                              size="icon"
-                              className="h-8 w-8 rounded-xl text-gray-400 hover:bg-[#007BFF] hover:text-white/90 dark:hover:bg-[#007BFF]/20 dark:hover:text-white transition-colors"
-                            >
-                              <MoreHorizontal className="h-4 w-4" />
-                              <span className="sr-only">Actions</span>
-                            </Button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent
-                            align="end"
-                            className="w-48 rounded-xl"
-                          >
-                            <DropdownMenuItem
-                              className="gap-2 text-sm cursor-pointer"
-                              onClick={() =>
-                                router.push(
-                                  `/staff/dashboard/admin/product-management/product-details/${product.slug}`,
-                                )
-                              }
-                            >
-                              <Eye className="h-3.5 w-3.5 text-gray-500" />
-                              View Details
-                            </DropdownMenuItem>
-                            <DropdownMenuItem
-                              className="gap-2 text-sm cursor-pointer text-[#007BFF] focus:text-[#007BFF] dark:text-[#007BFF]"
-                              onClick={() =>
-                                router.push(
-                                  `/staff/dashboard/admin/product-management/update-product/${product.slug}`,
-                                )
-                              }
-                            >
-                              <FilePenLine className="h-3.5 w-3.5" />
-                              Edit Product
-                            </DropdownMenuItem>
-                            <DropdownMenuSeparator />
-                            <DropdownMenuItem
-                              disabled={role !== "ADMIN" && role !== "MANAGER"}
-                              className="gap-2 text-sm cursor-pointer text-red-600 focus:text-red-600 dark:text-red-400"
-                              onClick={() => {
-                                setDeleteTarget(product);
-                                setDeleteOpen(true);
-                              }}
-                            >
-                              <Trash2 className="h-3.5 w-3.5" />
-                              Move to Trash
-                            </DropdownMenuItem>
-                          </DropdownMenuContent>
-                        </DropdownMenu>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
+                      </div>
+
+                      <span className="text-[10px] text-gray-400">
+                        {(product.category as any)?.title ?? "Uncategorized"}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </>
         )}
       </div>
 

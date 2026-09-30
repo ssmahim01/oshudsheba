@@ -98,7 +98,7 @@ export const StatusChangeDialog: React.FC<StatusChangeDialogProps> = ({
     <AlertDialog open={open} onOpenChange={onOpenChange}>
       <AlertDialogContent className="sm:max-w-125">
         <AlertDialogHeader>
-          <AlertDialogTitle className="text-[#007BFF] dark:text-[#007BFF] text-lg">
+          <AlertDialogTitle className="font-bold text-lg">
             {title}
           </AlertDialogTitle>
           <AlertDialogDescription className="text-base mt-4">
@@ -175,6 +175,7 @@ export const StatusChangeDialog: React.FC<StatusChangeDialogProps> = ({
           <AlertDialogAction
             onClick={handleConfirm}
             disabled={isSubmitting || !isChanged}
+            variant={"default"}
             className={`${
               isSubmitting || !isChanged ? "opacity-50 cursor-not-allowed" : ""
             } hover:cursor-pointer bg-[#007BFF] hover:bg-[#007BFF] dark:bg-[#007BFF] dark:hover:bg-amber-800 text-white`}
