@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { format } from "date-fns";
 import {
   useGetAllOrdersQuery,
@@ -69,6 +69,23 @@ type ActiveTab =
   | "no-response"
   | "damaged";
 
+// Active background per tab, applied through Radix's data-state attribute
+const TAB_ACTIVE_STYLES: Record<ActiveTab, string> = {
+  instant:
+    "data-[state=active]:bg-[#007BFF] dark:data-[state=active]:bg-[#007BFF]",
+  scheduled:
+    "data-[state=active]:bg-blue-500 dark:data-[state=active]:bg-blue-500",
+  hold: "data-[state=active]:bg-[#007BFF] dark:data-[state=active]:bg-[#007BFF]",
+  "waiting-stock":
+    "data-[state=active]:bg-[#007BFF] dark:data-[state=active]:bg-[#007BFF]",
+  "no-response":
+    "data-[state=active]:bg-rose-500 dark:data-[state=active]:bg-rose-500",
+  damaged:
+    "data-[state=active]:bg-[#007BFF] dark:data-[state=active]:bg-[#007BFF]",
+};
+
+const TAB_PANEL_CLASS = "mt-2 w-full max-w-full overflow-x-auto";
+
 export default function OrdersManagement() {
   const [status, setStatus] = useState<OrderStatus | "">("");
   const [dateFilter, setDateFilter] = useState<DateFilter>({
@@ -94,6 +111,7 @@ export default function OrdersManagement() {
   const [damageModalOpen, setDamageModalOpen] = useState(false);
 
   const [activeTab, setActiveTab] = useState<ActiveTab>("instant");
+  const tabStripRef = useRef<HTMLDivElement | null>(null);
 
   const [doPartialUpdate] = usePartialUpdateOrderMutation();
   const [cancelOrder] = useCancelOrderMutation();
@@ -141,7 +159,7 @@ export default function OrdersManagement() {
     });
 
   const { data: waitingStockOrdersData, isLoading: isWaitingLoading } =
-    useGetAllWaitingStockOrdersQuery( {});
+    useGetAllWaitingStockOrdersQuery({});
 
   const { data: noResponseOrdersData, isLoading: isNoResponseLoading } =
     useGetAllNoResponseOrdersQuery({});
@@ -158,6 +176,18 @@ export default function OrdersManagement() {
 
     return () => clearTimeout(timer);
   }, [searchTerm]);
+
+  // Keep the active tab visible when the tab strip scrolls horizontally
+  useEffect(() => {
+    const el = tabStripRef.current?.querySelector<HTMLElement>(
+      '[data-state="active"]',
+    );
+    el?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [activeTab]);
 
   const [confirmOrder, { isLoading: isConfirming, error: confirmError }] =
     useConfirmOrderMutation();
@@ -305,28 +335,28 @@ export default function OrdersManagement() {
   };
 
   const handleCourierSubmit = async (courierName: CourierProvider) => {
-  if (!selectedOrder) return;
+    if (!selectedOrder) return;
 
-  try {
-    const res = await createCourier({
-      orderId: selectedOrder._id,
-      courierName,
-    }).unwrap();
+    try {
+      const res = await createCourier({
+        orderId: selectedOrder._id,
+        courierName,
+      }).unwrap();
 
-    if (res.success) {
-      toast.success("Courier assignment started");
+      if (res.success) {
+        toast.success("Courier assignment started");
 
-      setCourierModalOpen(false);
-      setSelectedOrder(null);
+        setCourierModalOpen(false);
+        setSelectedOrder(null);
+      }
+    } catch (err: any) {
+      toast.error(
+        err?.data?.message ||
+          err?.error ||
+          "Failed to start courier assignment",
+      );
     }
-  } catch (err: any) {
-    toast.error(
-      err?.data?.message ||
-        err?.error ||
-        "Failed to start courier assignment",
-    );
-  }
-};
+  };
 
   const confirmDelete = async () => {
     if (!deleteTarget) return;
@@ -432,24 +462,35 @@ export default function OrdersManagement() {
   ];
 
   return (
-    <div className="min-h-screen space-y-6 bg-background p-4 md:p-8">
+    <div className="min-h-screen w-full max-w-full space-y-4 overflow-x-clip bg-background p-3 sm:space-y-6 sm:p-4 md:p-8">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-2xl md:text-3xl">
             Orders
           </h1>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Manage and track all customer orders and shipments
           </p>
         </div>
-        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+        <div
+          className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20 sm:flex"
+          aria-hidden="true"
+        >
           <ShoppingBag className="h-5 w-5 text-white" />
         </div>
       </div>
 
       {/* Stats */}
-      <OrderStats stats={activeTab === "instant" ? ordersData?.stats as any : waitingStockOrdersData?.data} />
+      <div className="w-full max-w-full">
+        <OrderStats
+          stats={
+            activeTab === "instant"
+              ? (ordersData?.stats as any)
+              : waitingStockOrdersData?.data
+          }
+        />
+      </div>
 
       <OrderFilters
         statusFilter={status}
@@ -469,40 +510,45 @@ export default function OrdersManagement() {
         totalResults={totalCount}
       />
 
-      <Tabs value={activeTab} onValueChange={(v: any) => setActiveTab(v)}>
-        {/* Tabs Header */}
-        <TabsList className="bg-transparent">
-          <div className="flex flex-wrap gap-2 pb-2">
-            {tabs.map((tab) => {
-              if (tab.adminOnly && userRole !== "ADMIN") return null;
-              const isActive = activeTab === tab.value;
-              return (
-                <button
-                  key={tab.value}
-                  onClick={() => {
-                    setActiveTab(tab.value);
-                    setPage(1);
-                  }}
-                  className={cn(
-                    "px-4 py-2 text-sm font-semibold rounded-md transition",
-                    isActive
-                      ? tab.value === "no-response"
-                        ? "bg-rose-500 text-white"
-                        : tab.value === "scheduled"
-                          ? "bg-blue-500 text-white"
-                          : "bg-[#007BFF] text-white"
-                      : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
-                  )}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
+      <Tabs
+        value={activeTab}
+        onValueChange={(v: any) => {
+          setActiveTab(v);
+          setPage(1);
+        }}
+      >
+        {/* Tabs header: horizontal scroll on phones/tablets, wraps on lg+ */}
+        <div className="-mx-3 border-b border-gray-200 dark:border-gray-700 sm:-mx-4 md:mx-0">
+          <div ref={tabStripRef}>
+            <TabsList
+              aria-label="Order categories"
+              className="flex h-auto w-full snap-x justify-start gap-2 overflow-x-auto rounded-none bg-transparent px-3 pb-2 pt-0 [scrollbar-width:none] sm:px-4 lg:flex-wrap lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden"
+            >
+              {tabs.map((tab) => {
+                if (tab.adminOnly && userRole !== "ADMIN") return null;
+                return (
+                  <TabsTrigger
+                    key={tab.value}
+                    value={tab.value}
+                    className={cn(
+                      "md:h-auto h-5 flex-none shrink-0 snap-start whitespace-nowrap rounded-md border-0 px-3.5 py-2.5 text-sm font-semibold shadow-none transition sm:py-2",
+                      "text-gray-600 dark:text-gray-400",
+                      "data-[state=inactive]:hover:bg-gray-100 data-[state=inactive]:hover:text-gray-900 dark:data-[state=inactive]:hover:bg-gray-800 dark:data-[state=inactive]:hover:text-white",
+                      "data-[state=active]:text-white data-[state=active]:shadow-none dark:data-[state=active]:text-white",
+                      "focus-visible:ring-2 focus-visible:ring-[#007BFF] focus-visible:ring-offset-2",
+                      TAB_ACTIVE_STYLES[tab.value],
+                    )}
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                );
+              })}
+            </TabsList>
           </div>
-        </TabsList>
+        </div>
 
         {/* Instant Orders */}
-        <TabsContent value="instant">
+        <TabsContent value="instant" className={TAB_PANEL_CLASS}>
           <OrderTable
             orders={(ordersData?.data as Order[]) || []}
             loading={isLoadingFinal}
@@ -524,7 +570,7 @@ export default function OrdersManagement() {
         </TabsContent>
 
         {/* Scheduled Orders */}
-        <TabsContent value="scheduled">
+        <TabsContent value="scheduled" className={TAB_PANEL_CLASS}>
           <OrderTable
             orders={(scheduledOrdersData?.data as Order[]) || []}
             loading={isScheduledLoading}
@@ -544,8 +590,8 @@ export default function OrdersManagement() {
           />
         </TabsContent>
 
-        {/* HOld Orders */}
-        <TabsContent value="hold">
+        {/* Hold Orders */}
+        <TabsContent value="hold" className={TAB_PANEL_CLASS}>
           <OrderTable
             orders={(HoldOrdersData?.data as Order[]) || []}
             loading={isHoldLoading}
@@ -562,7 +608,7 @@ export default function OrdersManagement() {
           />
         </TabsContent>
 
-        <TabsContent value="waiting-stock">
+        <TabsContent value="waiting-stock" className={TAB_PANEL_CLASS}>
           <OrderTable
             orders={(waitingStockOrdersData?.data as Order[]) || []}
             loading={isWaitingLoading}
@@ -576,8 +622,7 @@ export default function OrdersManagement() {
         </TabsContent>
 
         {/* No response section */}
-
-        <TabsContent value="no-response">
+        <TabsContent value="no-response" className={TAB_PANEL_CLASS}>
           <OrderTable
             orders={(noResponseOrdersData?.data as Order[]) || []}
             loading={isNoResponseLoading}
@@ -595,7 +640,10 @@ export default function OrdersManagement() {
         </TabsContent>
 
         {userRole === "ADMIN" && (
-          <TabsContent value="damaged" className="space-y-6">
+          <TabsContent
+            value="damaged"
+            className={cn(TAB_PANEL_CLASS, "space-y-6")}
+          >
             <DamagedProductsSection
               damagedProducts={damagedData?.data || []}
               isLoading={damagedLoading}
@@ -604,14 +652,15 @@ export default function OrdersManagement() {
         )}
       </Tabs>
 
-      {/* Modern Pagination */}
-      {totalCount > 1 && (
-        <div className="flex justify-center">
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <nav aria-label="Orders pagination" className="flex justify-center">
           <Pagination>
-            <PaginationContent>
+            <PaginationContent className="flex-wrap justify-center gap-1">
               <PaginationItem>
                 <PaginationPrevious
                   onClick={() => page > 1 && setPage(page - 1)}
+                  aria-disabled={page === 1}
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
@@ -619,6 +668,18 @@ export default function OrdersManagement() {
                   }
                 />
               </PaginationItem>
+
+              {/* Compact indicator on phones */}
+              <PaginationItem className="sm:hidden">
+                <span
+                  className="px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
+                  aria-live="polite"
+                >
+                  {page} / {totalPages}
+                </span>
+              </PaginationItem>
+
+              {/* Numbered pages from sm up */}
               {[...Array(Math.min(5, totalPages))].map((_, i) => {
                 let pageNum: number;
                 if (totalPages <= 5) pageNum = i + 1;
@@ -626,14 +687,14 @@ export default function OrdersManagement() {
                 else if (page >= totalPages - 2) pageNum = totalPages - 4 + i;
                 else pageNum = page - 2 + i;
                 return (
-                  <PaginationItem key={pageNum}>
+                  <PaginationItem key={pageNum} className="hidden sm:block">
                     <PaginationLink
                       onClick={() => setPage(pageNum)}
                       isActive={page === pageNum}
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-[#007BFF] text-white/95 bg-[#007BFF] dark:border-[#007BFF] dark:text-white/95 dark:bg-[#007BFF]/20",
+                          "border-[#007BFF] bg-[#007BFF] text-white/95 dark:border-[#007BFF] dark:bg-[#007BFF]/20 dark:text-white/95",
                       )}
                     >
                       {pageNum}
@@ -644,6 +705,7 @@ export default function OrdersManagement() {
               <PaginationItem>
                 <PaginationNext
                   onClick={() => page < totalPages && setPage(page + 1)}
+                  aria-disabled={page === totalPages}
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
@@ -653,7 +715,7 @@ export default function OrdersManagement() {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-        </div>
+        </nav>
       )}
 
       {/* Modals */}
@@ -701,30 +763,30 @@ export default function OrdersManagement() {
       />
 
       <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
-        <AlertDialogContent className="rounded-2xl border-gray-200/80 dark:border-gray-700/60 max-w-md">
-          <div className="h-1 w-full rounded-t-2xl bg-linear-to-r from-red-500 via-orange-400 to-red-500 -mt-5 mb-4" />
+        <AlertDialogContent className="max-w-[calc(100%-1.5rem)] rounded-2xl border-gray-200/80 dark:border-gray-700/60 sm:max-w-md">
+          <div className="-mt-5 mb-4 h-1 w-full rounded-t-2xl bg-linear-to-r from-red-500 via-orange-400 to-red-500" />
           <AlertDialogHeader>
             <AlertDialogTitle className="flex items-center gap-2 text-base font-bold">
-              <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-red-50 dark:bg-red-900/20">
-                <Trash2 className="h-4 w-4 text-red-500" />
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-red-50 dark:bg-red-900/20">
+                <Trash2 className="h-4 w-4 text-red-500" aria-hidden="true" />
               </div>
               Are you delete this order?
             </AlertDialogTitle>
             <AlertDialogDescription className="text-sm text-gray-500 dark:text-gray-400">
-              <span className="font-semibold text-gray-700 dark:text-gray-300">
+              <span className="break-all font-semibold text-gray-700 dark:text-gray-300">
                 &quot;{deleteTarget?.customOrderId}&quot;
               </span>{" "}
               will be delete. You cannot restore it later.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel className="hover:cursor-pointer hover:scale-105 transition-transform transform ease-in-out duration-500 rounded-xl">
+          <AlertDialogFooter className="gap-2 sm:gap-0">
+            <AlertDialogCancel className="rounded-xl transition-transform duration-500 ease-in-out hover:scale-105 hover:cursor-pointer">
               Cancel
             </AlertDialogCancel>
             <AlertDialogAction
               disabled={deleting}
               onClick={confirmDelete}
-              className="hover:cursor-pointer hover:scale-105 transition-transform transform ease-in-out duration-500 rounded-xl bg-red-500 hover:bg-red-600 text-white gap-1.5"
+              className="gap-1.5 rounded-xl bg-red-500 text-white transition-transform duration-500 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-red-600"
             >
               {deleting ? (
                 <span className="flex items-center gap-2">
@@ -733,7 +795,7 @@ export default function OrdersManagement() {
                 </span>
               ) : (
                 <>
-                  <Trash2 className="h-3.5 w-3.5" />
+                  <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
                   Delete Order
                 </>
               )}

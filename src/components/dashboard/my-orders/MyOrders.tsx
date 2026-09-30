@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   format,
   startOfDay,
@@ -81,6 +81,9 @@ import { CourierProvider } from "@/types";
 
 const LIMIT = 10;
 
+const BRAND_CHIP =
+  "bg-[#007BFF]/10 text-[#007BFF] border-[#007BFF]/30 dark:bg-[#007BFF]/20 dark:text-[#4DA3FF] dark:border-[#007BFF]/40";
+
 const PRESETS = [
   {
     label: "Today",
@@ -128,8 +131,8 @@ const STATUS_OPTIONS: {
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-[#007BFF]0",
-    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
+    dot: "bg-[#007BFF]",
+    chip: BRAND_CHIP,
   },
   {
     value: "CONFIRMED",
@@ -161,8 +164,8 @@ const DELIVERY_STATUSES = [
   {
     value: "PENDING",
     label: "Pending",
-    dot: "bg-[#007BFF]0",
-    chip: "bg-[#007BFF] text-[#007BFF] border-amber-200 dark:bg-[#007BFF]/20 dark:text-[#007BFF] dark:border-amber-800",
+    dot: "bg-[#007BFF]",
+    chip: BRAND_CHIP,
   },
   {
     value: "NOT_SHIPPED",
@@ -220,6 +223,30 @@ const DELIVERY_STATUSES = [
   },
 ];
 
+const TABS = [
+  {
+    value: "instant",
+    label: "Instant Orders",
+    active: "bg-[#007BFF] text-white",
+  },
+  {
+    value: "waitingForStock",
+    label: "Waiting For Stock",
+    active: "bg-rose-500 text-white",
+  },
+  {
+    value: "scheduled",
+    label: "Scheduled Orders",
+    active: "bg-blue-500 text-white",
+  },
+  { value: "hold", label: "Hold Orders", active: "bg-[#007BFF] text-white" },
+] as const;
+
+type ActiveTab = (typeof TABS)[number]["value"];
+
+const FIELD_CLASS =
+  "h-11 w-full rounded-lg border-gray-200 bg-gray-50/60 text-sm transition-colors focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] sm:h-10 xl:w-44";
+
 function formatDateLabel(from: Date | undefined, to: Date | undefined): string {
   if (!from) return "Filter by date";
   if (!to || isSameDay(from, to)) return format(from, "MMM d, yyyy");
@@ -244,32 +271,41 @@ function StatCard({
   icon: Icon,
   accent,
   sub,
+  className,
 }: {
   label: string;
   value: number | string;
   icon: React.ElementType;
   accent: string;
   sub?: string;
+  className?: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-gray-200/70 bg-white px-4 py-3.5 dark:border-gray-700/60 dark:bg-gray-900 hover:border-amber-200 dark:hover:border-[#007BFF]/40 transition-colors">
+    <div
+      className={cn(
+        "flex min-w-0 items-center gap-3 rounded-xl border border-gray-200/70 bg-white px-3 py-3 transition-colors hover:border-[#007BFF]/40 dark:border-gray-700/60 dark:bg-gray-900 sm:px-4 sm:py-3.5",
+        className,
+      )}
+    >
       <div
         className={cn(
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl",
           accent,
         )}
       >
-        <Icon className="h-4.5 w-4.5" />
+        <Icon className="h-4.5 w-4.5" aria-hidden="true" />
       </div>
-      <div>
-        <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+      <div className="min-w-0">
+        <p className="truncate text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
           {label}
         </p>
         <p className="text-xl font-bold leading-tight text-gray-900 dark:text-gray-50">
           {value}
         </p>
         {sub && (
-          <p className="text-[11px] text-gray-400 dark:text-gray-500">{sub}</p>
+          <p className="truncate text-[11px] text-gray-500 dark:text-gray-400">
+            {sub}
+          </p>
         )}
       </div>
     </div>
@@ -295,16 +331,27 @@ export default function MyOrders() {
   const [orderTimingOpen, setOrderTimingOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [courierOpen, setCourierOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<
-    "instant" | "waitingForStock" | "scheduled" | "hold"
-  >("instant");
+  const [activeTab, setActiveTab] = useState<ActiveTab>("instant");
   const [deleteTarget, setDeleteTarget] = useState<Order | null>(null);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tabStripRef = useRef<HTMLDivElement | null>(null);
 
   const { data: me } = useGetMeQuery(undefined);
   const userRole = (me?.data?.role?.toUpperCase() ?? "CUSTOMER") as UserRole;
+
+  // Keep the active tab visible when the tab strip scrolls horizontally
+  useEffect(() => {
+    const el = tabStripRef.current?.querySelector<HTMLElement>(
+      '[aria-selected="true"]',
+    );
+    el?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [activeTab]);
 
   const {
     data: instantOrdersData,
@@ -542,6 +589,28 @@ export default function MyOrders() {
     }
   };
 
+  const selectTab = (tab: ActiveTab) => {
+    setActiveTab(tab);
+    setPage(1);
+  };
+
+  // Roving keyboard support for the tab strip (Arrow keys / Home / End)
+  const handleTabKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    const idx = TABS.findIndex((t) => t.value === activeTab);
+    let next = idx;
+    if (e.key === "ArrowRight") next = (idx + 1) % TABS.length;
+    else if (e.key === "ArrowLeft")
+      next = (idx - 1 + TABS.length) % TABS.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = TABS.length - 1;
+    else return;
+    e.preventDefault();
+    selectTab(TABS[next].value);
+    tabStripRef.current
+      ?.querySelector<HTMLElement>(`#my-orders-tab-${TABS[next].value}`)
+      ?.focus();
+  };
+
   const hasFilters =
     !!search || !!orderStatus || !!dateFrom || !!deliveryStatus;
   const activeStatus = STATUS_OPTIONS.find((s) => s.value === orderStatus);
@@ -554,24 +623,27 @@ export default function MyOrders() {
     : null;
 
   return (
-    <div className="min-h-screen space-y-6 bg-background p-4 md:p-8">
+    <div className="min-h-screen w-full max-w-full space-y-4 overflow-x-clip bg-background p-3 sm:space-y-6 sm:p-4 md:p-8">
       {/* ── Header ── */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 md:text-3xl">
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <h1 className="text-xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-2xl md:text-3xl">
             My Orders
           </h1>
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Orders assigned to you — view, edit billing, and manage delivery
           </p>
         </div>
-        <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20">
+        <div
+          className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#007BFF] dark:bg-[#007BFF]/20 sm:flex"
+          aria-hidden="true"
+        >
           <ShoppingBag className="h-5 w-5 text-white" />
         </div>
       </div>
 
       {/* ── Stats ── */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5">
         <StatCard
           label="Total"
           value={stats?.total ?? 0}
@@ -603,120 +675,138 @@ export default function MyOrders() {
           icon={PackageSearch}
           accent="bg-rose-50 text-rose-600 dark:bg-rose-900/20 dark:text-rose-400"
           sub="stock pending"
+          className="col-span-2 sm:col-span-1"
         />
       </div>
 
       {/* ── Filters ── */}
-      <div className="rounded-xl border border-gray-200/80 bg-white p-4 dark:border-gray-700/60 dark:bg-gray-900 space-y-3">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:flex-wrap">
+      <div className="space-y-3 rounded-xl border border-gray-200/80 bg-white p-3 dark:border-gray-700/60 dark:bg-gray-900 sm:p-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:flex xl:flex-wrap xl:items-center">
           {/* Search */}
-          <div className="relative flex-1 min-w-50">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+          <div className="relative sm:col-span-2 xl:min-w-64 xl:flex-1">
+            <Search
+              className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+              aria-hidden="true"
+            />
             <Input
+              type="search"
+              aria-label="Search orders"
               placeholder="Search by order ID, customer name or email…"
               value={localSearch}
               onChange={handleSearchInput}
-              className="h-10 pl-9 pr-9 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors"
+              className="h-11 w-full rounded-lg border-gray-200 bg-gray-50/60 pl-9 pr-9 text-sm transition-colors focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF] sm:h-10 [&::-webkit-search-cancel-button]:hidden"
             />
             {localSearch && (
               <button
+                type="button"
                 onClick={clearSearch}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+                className="absolute right-1.5 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-md text-gray-400 transition-colors hover:text-gray-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF] dark:hover:text-gray-200"
                 aria-label="Clear search"
               >
-                <X className="h-3.5 w-3.5" />
+                <X className="h-4 w-4" />
               </button>
             )}
           </div>
 
-          {/* Status */}
-          <div className="flex shrink-0 items-center gap-2">
-            <SlidersHorizontal className="h-4 w-4 shrink-0 text-gray-400" />
-            <Select
-              value={orderStatus || "all"}
-              onValueChange={handleStatusChange}
-            >
-              <SelectTrigger className="h-10 w-44 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-[#007BFF]0 transition-colors">
-                <SelectValue placeholder="All Statuses" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl">
-                <SelectItem value="all" className="cursor-pointer text-sm">
-                  All Statuses
+          {/* Order status */}
+          <Select
+            value={orderStatus || "all"}
+            onValueChange={handleStatusChange}
+          >
+            <SelectTrigger className={FIELD_CLASS} aria-label="Order status">
+              <SlidersHorizontal
+                className="h-4 w-4 shrink-0 text-gray-400"
+                aria-hidden="true"
+              />
+              <SelectValue placeholder="All Statuses" />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl">
+              <SelectItem value="all" className="cursor-pointer text-sm">
+                All Statuses
+              </SelectItem>
+              {STATUS_OPTIONS.filter((s) => s.value).map((s) => (
+                <SelectItem
+                  key={s.value}
+                  value={s.value}
+                  className="cursor-pointer text-sm"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className={cn("h-2 w-2 rounded-full", s.dot)} />
+                    {s.label}
+                  </div>
                 </SelectItem>
-                {STATUS_OPTIONS.filter((s) => s.value).map((s) => (
-                  <SelectItem
-                    key={s.value}
-                    value={s.value}
-                    className="cursor-pointer text-sm"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className={cn("h-2 w-2 rounded-full", s.dot)} />
-                      {s.label}
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              ))}
+            </SelectContent>
+          </Select>
 
-            <Select
-              value={deliveryStatus || "all"}
-              onValueChange={(val) =>
-                handleDeliveryStatusChange(val === "all" ? "" : val)
-              }
-            >
-              <SelectTrigger className="h-10 w-44 rounded-lg border-gray-200 bg-gray-50/60 text-sm focus:border-blue-400 dark:border-gray-700 dark:bg-gray-800/60 dark:focus:border-blue-500 transition-colors">
-                <SelectValue placeholder="Delivery Status" />
-              </SelectTrigger>
+          {/* Delivery status */}
+          <Select
+            value={deliveryStatus || "all"}
+            onValueChange={(val) =>
+              handleDeliveryStatusChange(val === "all" ? "" : val)
+            }
+          >
+            <SelectTrigger className={FIELD_CLASS} aria-label="Delivery status">
+              <SelectValue placeholder="Delivery Status" />
+            </SelectTrigger>
 
-              <SelectContent className="rounded-xl">
-                <SelectItem value="all" className="cursor-pointer text-sm">
-                  All Deliveries
+            <SelectContent className="rounded-xl">
+              <SelectItem value="all" className="cursor-pointer text-sm">
+                All Deliveries
+              </SelectItem>
+
+              {DELIVERY_STATUSES.map((status) => (
+                <SelectItem
+                  key={status.value}
+                  value={status.value}
+                  className="cursor-pointer text-sm"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className={cn("h-2 w-2 rounded-full", status.dot)} />
+                    {status.label}
+                  </div>
                 </SelectItem>
-
-                {DELIVERY_STATUSES.map((status) => (
-                  <SelectItem
-                    key={status.value}
-                    value={status.value}
-                    className="cursor-pointer text-sm"
-                  >
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={cn("h-2 w-2 rounded-full", status.dot)}
-                      />
-                      {status.label}
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+              ))}
+            </SelectContent>
+          </Select>
 
           {/* ── Date picker ── */}
           <Popover open={calOpen} onOpenChange={setCalOpen}>
             <PopoverTrigger asChild>
               <button
+                type="button"
+                aria-label="Filter by date"
                 className={cn(
-                  "group inline-flex h-10 shrink-0 items-center gap-2 rounded-lg border px-3 text-sm font-medium transition-all duration-200",
+                  "group inline-flex h-11 w-full items-center justify-between gap-2 rounded-lg border px-3 text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF] focus-visible:ring-offset-2 sm:h-10 xl:w-auto",
                   dateFrom
-                    ? "border-blue-300 bg-[#007BFF] text-white dark:border-[#007BFF] dark:bg-[#007BFF]/20"
-                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-blue-200 hover:bg-[#007BFF]/70 hover:text-white dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:border-blue-800 dark:hover:text-[#007BFF]",
+                    ? "border-[#007BFF] bg-[#007BFF] text-white dark:bg-[#007BFF]/20"
+                    : "border-gray-200 bg-gray-50/60 text-gray-600 hover:border-[#007BFF]/40 hover:bg-[#007BFF]/10 hover:text-[#007BFF] dark:border-gray-700 dark:bg-gray-800/60 dark:text-gray-400 dark:hover:text-[#4DA3FF]",
                 )}
               >
-                {dateFrom ? (
-                  <CalendarRange className="h-4 w-4 shrink-0" />
-                ) : (
-                  <CalendarDays className="h-4 w-4 shrink-0" />
-                )}
-                <span className="truncate max-w-35">
-                  {dateFrom
-                    ? formatDateLabel(dateFrom, dateTo)
-                    : "Filter by date"}
+                <span className="flex min-w-0 items-center gap-2">
+                  {dateFrom ? (
+                    <CalendarRange
+                      className="h-4 w-4 shrink-0"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <CalendarDays
+                      className="h-4 w-4 shrink-0"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span className="truncate xl:max-w-40">
+                    {dateFrom
+                      ? formatDateLabel(dateFrom, dateTo)
+                      : "Filter by date"}
+                  </span>
                 </span>
                 <ChevronDown
                   className={cn(
                     "h-3.5 w-3.5 shrink-0 transition-transform duration-200",
                     calOpen && "rotate-180",
                   )}
+                  aria-hidden="true"
                 />
               </button>
             </PopoverTrigger>
@@ -724,82 +814,87 @@ export default function MyOrders() {
             <PopoverContent
               align="start"
               side="bottom"
-              className="w-auto p-0 rounded-2xl border-amber-200/60 dark:border-[#007BFF]/40 shadow-xl overflow-hidden"
+              collisionPadding={12}
+              className="max-h-[80vh] w-[calc(100vw-1.5rem)] max-w-sm overflow-y-auto rounded-2xl border-[#007BFF]/20 p-0 shadow-xl sm:w-auto sm:max-w-none"
             >
               <div className="flex flex-col sm:flex-row">
                 {/* Presets */}
-                <div className="border-b border-[#007BFF] dark:border-[#007BFF] sm:border-b-0 sm:border-r sm:w-36 p-3 space-y-0.5">
-                  <p className="px-2 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]/60">
+                <div className="border-b border-gray-200 p-3 dark:border-gray-700 sm:w-36 sm:border-b-0 sm:border-r">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70">
                     Quick select
                   </p>
-                  {PRESETS.map((preset) => {
-                    const r = preset.get();
-                    const isActive =
-                      dateFrom &&
-                      dateTo &&
-                      isSameDay(r.from, dateFrom) &&
-                      isSameDay(r.to, dateTo);
+                  <div className="flex flex-wrap gap-1.5 sm:block sm:space-y-0.5">
+                    {PRESETS.map((preset) => {
+                      const r = preset.get();
+                      const isActive =
+                        dateFrom &&
+                        dateTo &&
+                        isSameDay(r.from, dateFrom) &&
+                        isSameDay(r.to, dateTo);
 
-                    return (
-                      <button
-                        key={preset.label}
-                        onClick={() => applyPreset(preset)}
-                        className={cn(
-                          "w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium transition-colors duration-150",
-                          isActive
-                            ? "bg-[#007BFF] text-white dark:bg-[#007BFF]"
-                            : "text-gray-600 hover:bg-[#007BFF] hover:text-white dark:text-gray-400 dark:hover:bg-[#007BFF]/10 dark:hover:text-[#007BFF]",
-                        )}
-                      >
-                        {preset.label}
-                      </button>
-                    );
-                  })}
+                      return (
+                        <button
+                          type="button"
+                          key={preset.label}
+                          onClick={() => applyPreset(preset)}
+                          aria-pressed={!!isActive}
+                          className={cn(
+                            "rounded-lg px-2.5 py-2 text-left text-xs font-medium transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF] sm:w-full sm:py-1.5",
+                            isActive
+                              ? "bg-[#007BFF] text-white"
+                              : "bg-gray-100 text-gray-700 hover:bg-[#007BFF] hover:text-white dark:bg-gray-800 dark:text-gray-300 sm:bg-transparent sm:text-gray-600 sm:dark:bg-transparent sm:dark:text-gray-400",
+                          )}
+                        >
+                          {preset.label}
+                        </button>
+                      );
+                    })}
 
-                  {dateFrom && (
-                    <>
-                      <div className="my-1.5 border-t border-[#007BFF] dark:border-[#007BFF]" />
+                    {dateFrom && (
                       <button
+                        type="button"
                         onClick={() => {
                           clearDate();
                           setCalOpen(false);
                         }}
-                        className="w-full rounded-lg px-2.5 py-1.5 text-left text-xs font-medium text-red-500 hover:bg-red-50 dark:text-red-400 dark:hover:bg-red-900/20 transition-colors"
+                        className="rounded-lg px-2.5 py-2 text-left text-xs font-medium text-red-600 transition-colors hover:bg-red-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400 dark:text-red-400 dark:hover:bg-red-900/20 sm:mt-1.5 sm:w-full sm:py-1.5"
                       >
                         Clear date
                       </button>
-                    </>
-                  )}
+                    )}
+                  </div>
                 </div>
 
                 {/* Calendar */}
                 <div className="p-3">
-                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/60 dark:text-[#007BFF]0/60">
+                  <p className="px-1 pb-1.5 text-[10px] font-bold uppercase tracking-widest text-[#007BFF]/70">
                     Custom range
                   </p>
-                  <Calendar
-                    mode="range"
-                    selected={calRange}
-                    onSelect={handleCalSelect}
-                    numberOfMonths={1}
-                    disabled={{ after: new Date() }}
-                    initialFocus
-                    className="rounded-xl"
-                    classNames={{
-                      day_selected:
-                        "bg-[#007BFF]0 text-white hover:bg-[#007BFF]0 focus:bg-[#007BFF]0 dark:bg-[#007BFF]",
-                      day_range_middle:
-                        "bg-[#007BFF] text-[#007BFF] dark:bg-[#007BFF] dark:text-amber-300",
-                      day_range_start:
-                        "bg-[#007BFF]0 text-white rounded-l-full dark:bg-[#007BFF]",
-                      day_range_end:
-                        "bg-[#007BFF]0 text-white rounded-r-full dark:bg-[#007BFF]",
-                      day_today:
-                        "border border-[#007BFF] text-[#007BFF] font-bold dark:border-[#007BFF] dark:text-[#007BFF]",
-                    }}
-                  />
+                  <div className="flex justify-center">
+                    <Calendar
+                      mode="range"
+                      selected={calRange}
+                      onSelect={handleCalSelect}
+                      numberOfMonths={1}
+                      disabled={{ after: new Date() }}
+                      initialFocus
+                      className="rounded-xl"
+                      classNames={{
+                        day_selected:
+                          "bg-[#007BFF] text-white hover:bg-[#007BFF] focus:bg-[#007BFF] dark:bg-[#007BFF]",
+                        day_range_middle:
+                          "bg-[#007BFF]/15 text-[#007BFF] dark:bg-[#007BFF]/25 dark:text-[#4DA3FF]",
+                        day_range_start:
+                          "bg-[#007BFF] text-white rounded-l-full dark:bg-[#007BFF]",
+                        day_range_end:
+                          "bg-[#007BFF] text-white rounded-r-full dark:bg-[#007BFF]",
+                        day_today:
+                          "border border-[#007BFF] text-[#007BFF] font-bold dark:text-[#4DA3FF]",
+                      }}
+                    />
+                  </div>
                   {calRange?.from && !calRange?.to && (
-                    <p className="mt-2 px-1 text-[11px] text-gray-400 dark:text-gray-500">
+                    <p className="mt-2 px-1 text-[11px] text-gray-500 dark:text-gray-400">
                       Click another date to complete the range.
                     </p>
                   )}
@@ -811,12 +906,13 @@ export default function MyOrders() {
           {/* Reset */}
           {hasFilters && (
             <Button
+              type="button"
               variant="outline"
               size="sm"
               onClick={handleReset}
-              className="h-10 shrink-0 gap-1.5 rounded-lg border-gray-200 text-gray-600 hover:border-blue-300 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#007BFF] transition-colors"
+              className="h-11 w-full gap-1.5 rounded-lg border-gray-200 text-gray-600 transition-colors hover:border-[#007BFF]/50 hover:text-[#007BFF] dark:border-gray-700 dark:text-gray-400 dark:hover:border-[#007BFF] dark:hover:text-[#4DA3FF] sm:h-10 xl:w-auto"
             >
-              <RotateCcw className="h-3.5 w-3.5" />
+              <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
               Reset all
             </Button>
           )}
@@ -825,7 +921,7 @@ export default function MyOrders() {
         {/* Active filter chips */}
         {hasFilters && (
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs text-gray-400 dark:text-gray-500">
+            <span className="text-xs text-gray-500 dark:text-gray-400">
               {totalCount} result{totalCount !== 1 ? "s" : ""} matching filters
             </span>
 
@@ -833,13 +929,15 @@ export default function MyOrders() {
             {search && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1 rounded-full border-amber-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-white dark:border-amber-800 dark:bg-[#007BFF]/20 dark:text-white"
+                className="flex max-w-full items-center gap-1 rounded-full border-[#007BFF] bg-[#007BFF] px-2.5 py-0.5 text-xs font-medium text-white dark:bg-[#007BFF]/30"
               >
-                <Search className="h-3 w-3" />
-                &quot;{search}&quot;
+                <Search className="h-3 w-3 shrink-0" aria-hidden="true" />
+                <span className="truncate">&quot;{search}&quot;</span>
                 <button
+                  type="button"
                   onClick={clearSearch}
-                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
+                  aria-label="Remove search filter"
+                  className="ml-0.5 shrink-0 rounded-full hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -860,8 +958,10 @@ export default function MyOrders() {
                 />
                 {activeStatus.label}
                 <button
+                  type="button"
                   onClick={() => handleStatusChange("all")}
-                  className="ml-0.5"
+                  aria-label="Remove order status filter"
+                  className="ml-0.5 rounded-full hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -884,9 +984,10 @@ export default function MyOrders() {
                 />
                 {activeDeliveryStatus.label}
                 <button
+                  type="button"
                   onClick={() => handleDeliveryStatusChange("")}
-                  aria-label="Remove delivery status"
-                  className="ml-0.5"
+                  aria-label="Remove delivery status filter"
+                  className="ml-0.5 rounded-full hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF]"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -897,13 +998,15 @@ export default function MyOrders() {
             {dateChipLabel && (
               <Badge
                 variant="outline"
-                className="flex items-center gap-1.5 rounded-full border-blue-200 bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:border-blue-800 dark:bg-[#007BFF]/20"
+                className="flex items-center gap-1.5 rounded-full border-[#007BFF] bg-[#007BFF] px-2.5 py-0.5 text-xs font-semibold text-white dark:bg-[#007BFF]/30"
               >
-                <CalendarDays className="h-3 w-3" />
+                <CalendarDays className="h-3 w-3" aria-hidden="true" />
                 {dateChipLabel}
                 <button
+                  type="button"
                   onClick={clearDate}
-                  className="ml-0.5 hover:text-[#007BFF] dark:hover:text-amber-200"
+                  aria-label="Remove date filter"
+                  className="ml-0.5 rounded-full hover:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                 >
                   <X className="h-3 w-3" />
                 </button>
@@ -913,91 +1016,72 @@ export default function MyOrders() {
         )}
       </div>
 
-      <div className="flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-700 pb-2">
-        <button
-          onClick={() => {
-            setActiveTab("instant");
-            setPage(1);
-          }}
-          className={cn(
-            "px-4 py-2 text-sm font-semibold rounded-md transition",
-            activeTab === "instant"
-              ? "bg-[#007BFF]0 text-white"
-              : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
-          )}
+      {/* ── Tabs (scrollable on small screens, wraps on md+) ── */}
+      <div className="-mx-3 border-b border-gray-200 dark:border-gray-700 sm:-mx-4 md:mx-0">
+        <div
+          ref={tabStripRef}
+          role="tablist"
+          aria-label="Order categories"
+          onKeyDown={handleTabKeyDown}
+          className="flex snap-x gap-2 overflow-x-auto px-3 pb-2 [scrollbar-width:none] sm:px-4 md:flex-wrap md:overflow-visible md:px-0 [&::-webkit-scrollbar]:hidden"
         >
-          Instant Orders
-        </button>
-
-        <button
-          onClick={() => {
-            setActiveTab("waitingForStock");
-            setPage(1);
-          }}
-          className={cn(
-            "px-4 py-2 text-sm font-semibold rounded-md transition",
-            activeTab === "waitingForStock"
-              ? "bg-rose-500 text-white"
-              : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
-          )}
-        >
-          Waiting For Stock
-        </button>
-
-        <button
-          onClick={() => {
-            setActiveTab("scheduled");
-            setPage(1);
-          }}
-          className={cn(
-            "px-4 py-2 text-sm font-semibold rounded-md transition",
-            activeTab === "scheduled"
-              ? "bg-blue-500 text-white"
-              : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
-          )}
-        >
-          Scheduled Orders
-        </button>
-
-        <button
-          onClick={() => {
-            setActiveTab("hold");
-            setPage(1);
-          }}
-          className={cn(
-            "px-4 py-2 text-sm font-semibold rounded-md transition",
-            activeTab === "hold"
-              ? "bg-[#007BFF]0 text-white"
-              : "text-gray-500 hover:text-gray-900 dark:hover:text-white",
-          )}
-        >
-          Hold Orders
-        </button>
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab.value;
+            return (
+              <button
+                key={tab.value}
+                type="button"
+                role="tab"
+                id={`my-orders-tab-${tab.value}`}
+                aria-selected={isActive}
+                aria-controls="my-orders-panel"
+                tabIndex={isActive ? 0 : -1}
+                onClick={() => selectTab(tab.value)}
+                className={cn(
+                  "shrink-0 snap-start whitespace-nowrap rounded-md px-3.5 py-2.5 text-sm font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#007BFF] focus-visible:ring-offset-2 sm:py-2",
+                  isActive
+                    ? tab.active
+                    : "text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white",
+                )}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* ── Table ── */}
-      <MyOrdersTable
-        orders={orders}
-        loading={isLoading}
-        error={error ? "Failed to load orders" : null}
-        userRole={userRole}
-        onView={handleView}
-        onEdit={handleEdit}
-        onOrderTiming={handleOrderTiming}
-        onAssignCourier={handleAssignCourier}
-        refetch={refetch}
-        setDeleteTarget={setDeleteTarget}
-        setDeleteOpen={setDeleteOpen}
-      />
+      <div
+        id="my-orders-panel"
+        role="tabpanel"
+        aria-labelledby={`my-orders-tab-${activeTab}`}
+        className="w-full max-w-full overflow-x-auto"
+      >
+        <MyOrdersTable
+          orders={orders}
+          loading={isLoading}
+          error={error ? "Failed to load orders" : null}
+          userRole={userRole}
+          onView={handleView}
+          onEdit={handleEdit}
+          onOrderTiming={handleOrderTiming}
+          onAssignCourier={handleAssignCourier}
+          refetch={refetch}
+          setDeleteTarget={setDeleteTarget}
+          setDeleteOpen={setDeleteOpen}
+        />
+      </div>
 
       {/* ── Pagination ── */}
       {totalPages > 1 && (
-        <div className="flex justify-center">
+        <nav aria-label="Orders pagination" className="flex justify-center">
           <Pagination>
-            <PaginationContent>
+            <PaginationContent className="flex-wrap justify-center gap-1">
               <PaginationItem>
                 <PaginationPrevious
                   onClick={() => page > 1 && setPage(page - 1)}
+                  aria-disabled={page === 1}
                   className={
                     page === 1
                       ? "pointer-events-none opacity-50"
@@ -1005,6 +1089,18 @@ export default function MyOrders() {
                   }
                 />
               </PaginationItem>
+
+              {/* Compact indicator on phones */}
+              <PaginationItem className="sm:hidden">
+                <span
+                  className="px-2 text-sm font-medium text-gray-600 dark:text-gray-300"
+                  aria-live="polite"
+                >
+                  {page} / {totalPages}
+                </span>
+              </PaginationItem>
+
+              {/* Numbered pages from sm up */}
               {[...Array(Math.min(5, totalPages))].map((_, i) => {
                 let pageNum: number;
                 if (totalPages <= 5) pageNum = i + 1;
@@ -1012,14 +1108,14 @@ export default function MyOrders() {
                 else if (page >= totalPages - 2) pageNum = totalPages - 4 + i;
                 else pageNum = page - 2 + i;
                 return (
-                  <PaginationItem key={pageNum}>
+                  <PaginationItem key={pageNum} className="hidden sm:block">
                     <PaginationLink
                       onClick={() => setPage(pageNum)}
                       isActive={page === pageNum}
                       className={cn(
                         "cursor-pointer",
                         page === pageNum &&
-                          "border-[#007BFF] text-white bg-[#007BFF] dark:border-[#007BFF] dark:bg-[#007BFF]/20",
+                          "border-[#007BFF] bg-[#007BFF] text-white dark:border-[#007BFF] dark:bg-[#007BFF]/20",
                       )}
                     >
                       {pageNum}
@@ -1030,6 +1126,7 @@ export default function MyOrders() {
               <PaginationItem>
                 <PaginationNext
                   onClick={() => page < totalPages && setPage(page + 1)}
+                  aria-disabled={page === totalPages}
                   className={
                     page === totalPages
                       ? "pointer-events-none opacity-50"
@@ -1039,7 +1136,7 @@ export default function MyOrders() {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-        </div>
+        </nav>
       )}
 
       {/* ── Modals ── */}
@@ -1078,7 +1175,7 @@ export default function MyOrders() {
       />
 
       <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="max-w-[calc(100%-1.5rem)] rounded-2xl sm:max-w-md">
           <AlertDialogHeader>
             <AlertDialogTitle>Delete Order?</AlertDialogTitle>
             <AlertDialogDescription>
@@ -1086,11 +1183,11 @@ export default function MyOrders() {
             </AlertDialogDescription>
           </AlertDialogHeader>
 
-          <AlertDialogFooter>
+          <AlertDialogFooter className="gap-2 sm:gap-0">
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDeleteOrder}
-              className="bg-red-600 hover:bg-red-700 hover:cursor-pointer"
+              className="bg-red-600 hover:cursor-pointer hover:bg-red-700"
             >
               Delete
             </AlertDialogAction>
