@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState, useEffect } from "react";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {Controller, useForm} from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { Upload, X } from "lucide-react";
 import Image from "next/image";
@@ -20,17 +21,20 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-import logo from "../../../../public/assets/FRN-Logo-scaled.webp";
 import { useUpdateBrandMutation } from "@/redux/features/brand/brand.api";
-import {Separator} from "@/components/ui/separator";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 enum BrandStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
-
-// ─── Schema ───────────────────────────────────────────────────────────────────
 
 const updateBrandSchema = z.object({
   title: z.string().min(2, "Title must be at least 2 characters"),
@@ -39,8 +43,6 @@ const updateBrandSchema = z.object({
 });
 
 type UpdateBrandFormValues = z.infer<typeof updateBrandSchema>;
-
-// ─── Props ────────────────────────────────────────────────────────────────────
 
 interface UpdateBrandModalProps {
   open: boolean;
@@ -53,8 +55,6 @@ interface UpdateBrandModalProps {
     status: BrandStatus;
   };
 }
-
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function UpdateBrandModal({
   open,
@@ -70,7 +70,7 @@ export default function UpdateBrandModal({
     handleSubmit,
     formState: { errors },
     reset,
-    control
+    control,
   } = useForm<UpdateBrandFormValues>({
     resolver: zodResolver(updateBrandSchema) as any,
     defaultValues: {
@@ -80,7 +80,6 @@ export default function UpdateBrandModal({
     },
   });
 
-  // ── Sync form when brand prop changes ──
   useEffect(() => {
     if (brand) {
       reset({
@@ -102,13 +101,15 @@ export default function UpdateBrandModal({
       return;
     }
     setImageFile(file);
-    if (imagePreview && imagePreview.startsWith("blob:")) URL.revokeObjectURL(imagePreview);
+    if (imagePreview && imagePreview.startsWith("blob:"))
+      URL.revokeObjectURL(imagePreview);
     setImagePreview(URL.createObjectURL(file));
   };
 
   const clearImage = () => {
     setImageFile(null);
-    if (imagePreview && imagePreview.startsWith("blob:")) URL.revokeObjectURL(imagePreview);
+    if (imagePreview && imagePreview.startsWith("blob:"))
+      URL.revokeObjectURL(imagePreview);
     setImagePreview(null);
   };
 
@@ -146,9 +147,7 @@ export default function UpdateBrandModal({
         else onOpenChange(true);
       }}
     >
-      <DialogContent
-        className="sm:max-w-md max-h-[90vh] overflow-y-auto p-6"
-      >
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto p-6">
         {/* Gold accent line */}
         <div className="absolute left-0 right-0 top-0 h-0.5 " />
 
@@ -167,10 +166,12 @@ export default function UpdateBrandModal({
 
         {/* Form */}
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 pt-1">
-
           {/* Title */}
           <div className="space-y-1.5">
-            <Label htmlFor="title" className=" text-xs font-semibold tracking-widest uppercase">
+            <Label
+              htmlFor="title"
+              className=" text-xs font-semibold tracking-widest uppercase"
+            >
               Title
             </Label>
             <Input
@@ -179,12 +180,17 @@ export default function UpdateBrandModal({
               placeholder="Enter brand title"
               {...register("title")}
             />
-            {errors.title && <p className="text-xs text-red-400">{errors.title.message}</p>}
+            {errors.title && (
+              <p className="text-xs text-red-400">{errors.title.message}</p>
+            )}
           </div>
 
           {/* Description */}
           <div className="space-y-1.5">
-            <Label htmlFor="description" className=" text-xs font-semibold tracking-widest uppercase">
+            <Label
+              htmlFor="description"
+              className=" text-xs font-semibold tracking-widest uppercase"
+            >
               Description
             </Label>
             <Textarea
@@ -194,45 +200,44 @@ export default function UpdateBrandModal({
               {...register("description")}
               className=" resize-none "
             />
-            {errors.description && <p className="text-xs text-red-400">{errors.description.message}</p>}
+            {errors.description && (
+              <p className="text-xs text-red-400">
+                {errors.description.message}
+              </p>
+            )}
           </div>
 
           {/* Status */}
           <div className="space-y-1.5">
             <Label
-                htmlFor="status"
-                className="text-xs font-semibold tracking-widest uppercase"
+              htmlFor="status"
+              className="text-xs font-semibold tracking-widest uppercase"
             >
               Status
             </Label>
 
             <Controller
-                name="status"
-                control={control}
-                render={({ field }) => (
-                    <Select
-                        onValueChange={field.onChange}
-                        value={field.value}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select status" />
-                      </SelectTrigger>
+              name="status"
+              control={control}
+              render={({ field }) => (
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select status" />
+                  </SelectTrigger>
 
-                      <SelectContent position={"popper"}>
-                        {Object.values(BrandStatus).map((s) => (
-                            <SelectItem key={s} value={s}>
-                              {s.charAt(0) + s.slice(1).toLowerCase()}
-                            </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                )}
+                  <SelectContent position={"popper"}>
+                    {Object.values(BrandStatus).map((s) => (
+                      <SelectItem key={s} value={s}>
+                        {s.charAt(0) + s.slice(1).toLowerCase()}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              )}
             />
 
             {errors.status && (
-                <p className="text-xs text-red-400">
-                  {errors.status.message}
-                </p>
+              <p className="text-xs text-red-400">{errors.status.message}</p>
             )}
           </div>
 
@@ -240,19 +245,31 @@ export default function UpdateBrandModal({
           <div className="space-y-1.5">
             <Label className=" text-xs font-semibold tracking-widest uppercase">
               Brand Image{" "}
-              <span className="text-[#96999A] normal-case font-normal">(optional)</span>
+              <span className="text-[#96999A] normal-case font-normal">
+                (optional)
+              </span>
             </Label>
 
             {imagePreview ? (
               <div className="relative flex items-center gap-3 rounded-md border border-gray-200 p-2">
-                <img src={imagePreview} alt="Preview" className="h-14 w-14 rounded-md object-cover shrink-0" />
+                <Image
+                  width={500}
+                  height={500}
+                  quality={90}
+                  priority
+                  src={imagePreview}
+                  alt="Preview"
+                  className="h-14 w-14 rounded-md object-cover shrink-0"
+                />
                 <div className="flex-1 min-w-0">
                   <p className="text-xs text-[#96999A]">
-                    {imageFile ? (imageFile.size / 1024).toFixed(1) + " KB" : "Click × to remove"}
+                    {imageFile
+                      ? (imageFile.size / 1024).toFixed(1) + " KB"
+                      : "Click × to remove"}
                   </p>
                 </div>
                 <Button
-                    variant={"destructive"}
+                  variant={"destructive"}
                   type="button"
                   onClick={clearImage}
                   className="shrink-0  cursor-pointer"
@@ -271,7 +288,9 @@ export default function UpdateBrandModal({
                   <p className="text-sm text-[#96999A] ">
                     Click to upload new image
                   </p>
-                  <p className="text-xs text-[#96999A]/70">PNG, JPG, WEBP — max 2MB</p>
+                  <p className="text-xs text-[#96999A]/70">
+                    PNG, JPG, WEBP — max 2MB
+                  </p>
                 </div>
                 <input
                   id="image-upload"
@@ -285,11 +304,7 @@ export default function UpdateBrandModal({
           </div>
 
           {/* Submit */}
-          <Button
-            type="submit"
-            className={"w-full"}
-            disabled={isLoading}
-          >
+          <Button type="submit"  className="mt-2 h-11 w-full cursor-pointer rounded-xl bg-[#007BFF] font-semibold text-white shadow-sm transition-all hover:scale-[1.01] hover:bg-[#006fe6] disabled:opacity-60" disabled={isLoading}>
             {isLoading ? (
               <span className="flex items-center gap-2">
                 <span className="h-4 w-4 animate-spin rounded-full" />
@@ -300,7 +315,6 @@ export default function UpdateBrandModal({
             )}
           </Button>
         </form>
-
       </DialogContent>
     </Dialog>
   );

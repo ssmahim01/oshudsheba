@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -46,7 +44,7 @@ const TablePagination = ({
             <Button
               key={pageNumber}
               size="sm"
-              className="w-10"
+              className={`w-10 ${pageNumber === currentPage ? "bg-[#007BFF] text-white" : ""}`}
               variant={pageNumber === currentPage ? "default" : "outline"}
               onClick={() => onPageChange(pageNumber)}
               disabled={isPending}

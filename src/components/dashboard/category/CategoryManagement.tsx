@@ -107,7 +107,7 @@ const CategoryManagement = () => {
 
   return (
     <div className="min-h-full space-y-1 bg-slate-50/60 p-3 sm:p-5 dark:bg-slate-950/40">
-      <div className="rounded-2xl border border-slate-200/80 bg-white px-4 py-4 shadow-sm dark:border-slate-800 dark:bg-slate-950">
+      <div className="rounded-2xl border border-slate-200/80 bg-white px-2 py-1 shadow-sm dark:border-slate-800 dark:bg-slate-950">
         <DashboardPageHeader title="Category Management" />
       </div>
 

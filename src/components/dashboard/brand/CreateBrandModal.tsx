@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useState } from "react";
@@ -21,19 +22,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-import logo from "../../../../public/assets/FRN-Logo-scaled.webp";
 import { useCreateBrandMutation } from "@/redux/features/brand/brand.api";
 import {Separator} from "@/components/ui/separator";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 
-// ─── Enum ─────────────────────────────────────────────────────────────────────
 
 enum BrandStatus {
   ACTIVE = "ACTIVE",
   INACTIVE = "INACTIVE",
 }
 
-// ─── Schema ───────────────────────────────────────────────────────────────────
 
 const brandSchema = z.object({
   title: z.string().min(2, "Title must be at least 2 characters"),
@@ -42,8 +40,6 @@ const brandSchema = z.object({
 });
 
 type BrandFormValues = z.infer<typeof brandSchema>;
-
-// ─── Component ────────────────────────────────────────────────────────────────
 
 export default function CreateBrandModal() {
   const [open, setOpen] = useState(false);
@@ -127,7 +123,7 @@ export default function CreateBrandModal() {
       }}
     >
       <DialogTrigger asChild>
-        <Button className={"cursor-pointer"}>
+        <Button  className="cursor-pointer bg-[#007BFF] font-semibold text-white shadow-sm transition-all hover:scale-[1.01] hover:bg-[#006fe6] disabled:opacity-60">
           <Plus className="h-4 w-4" />
           Add Brand
         </Button>
@@ -229,7 +225,11 @@ export default function CreateBrandModal() {
 
             {imagePreview ? (
               <div className="relative flex items-center gap-3 rounded-md border hover:bg-gray-100 duration-200 p-2">
-                <img src={imagePreview} alt="Preview" className="h-14 w-14 rounded-md object-cover shrink-0" />
+                  <Image
+                                 width={500}
+                                 height={500}
+                                 quality={90}
+                                 priority src={imagePreview} alt="Preview" className="h-14 w-14 rounded-md object-cover shrink-0" />
                 <div className="flex-1 min-w-0">
                   {/*<p className="text-sm text-white truncate">{imageFile?.name}</p>*/}
                   <p className="text-xs text-[#96999A]">
@@ -275,8 +275,7 @@ export default function CreateBrandModal() {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full mt-2  font-bold tracking-widest uppercase
-              transition-colors disabled:opacity-60 cursor-pointer"
+          className="mt-2 h-11 w-full cursor-pointer rounded-xl bg-[#007BFF] font-semibold text-white shadow-sm transition-all hover:scale-[1.01] hover:bg-[#006fe6] disabled:opacity-60"
           >
             {isLoading ? (
               <span className="flex items-center gap-2 ">

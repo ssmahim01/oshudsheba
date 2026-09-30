@@ -28,7 +28,7 @@ const getPaymentTypeColor = (type: string) => {
   const colors: Record<string, string> = {
     FULL: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-300",
     ADVANCE:
-      "bg-[#007BFF] text-amber-800 dark:bg-[#007BFF]/20 dark:text-amber-300",
+      "bg-[#007BFF] text-blue-100 dark:bg-[#007BFF]/20 dark:text-amber-300",
     DUE: "bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-300",
   };
 

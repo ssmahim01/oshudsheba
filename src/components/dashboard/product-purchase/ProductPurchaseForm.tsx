@@ -465,7 +465,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
             </DialogTitle>
           </div>
           {selectedProducts.length > 0 && (
-            <div className="shrink-0 rounded-full bg-[#007BFF] px-3 py-1 dark:bg-[#007BFF]/20">
+            <div className="shrink-0 rounded-full bg-[#007BFF] px-3 mr-3 py-1 dark:bg-[#007BFF]/20">
               <span className="text-xs font-bold text-white">
                 {selectedProducts.length} item
                 {selectedProducts.length !== 1 ? "s" : ""}
@@ -510,7 +510,7 @@ export const ProductPurchaseForm: React.FC<ProductPurchaseFormProps> = ({
                     <button
                       type="button"
                       onClick={() => setProductSearch("")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700 transition-colors"
                     >
                       <X className="h-3.5 w-3.5" />
                     </button>

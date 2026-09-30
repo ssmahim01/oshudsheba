@@ -67,7 +67,7 @@ export function DynamicDataTable<T>({
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id} className="bg-[#007BFF] hover:bg-[#007BFF]/80 dark:bg-[#007BFF]/10 dark:hover:bg-[#007BFF]/10 border-b border-[#007BFF]/80 dark:border-[#007BFF]/20 *:text-white">
                 <TableHead className="w-4 px-4">
                   <Checkbox
                     checked={table.getIsAllRowsSelected()}
