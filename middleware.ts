@@ -56,6 +56,7 @@ const roleRoutes: Record<string, UserRole[]> = {
   "/staff/dashboard/my-orders": [
     UserRole.ADMIN,
     UserRole.MANAGER,
+    UserRole.CUSTOMER,
     UserRole.MODERATOR,
     UserRole.GENERALSTAFF,
     UserRole.TELESALES,
