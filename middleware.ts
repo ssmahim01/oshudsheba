@@ -73,6 +73,7 @@ function getDashboardRoute(role: UserRole): string {
 
     case UserRole.MODERATOR:
     case UserRole.TELESALES:
+    case UserRole.CUSTOMER:
     case UserRole.GENERALSTAFF:
       return "/staff/dashboard/my-orders";
 
