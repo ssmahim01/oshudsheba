@@ -25,8 +25,8 @@ import type { Order } from "@/types/orders";
 import type { IProduct } from "@/types";
 import { RotateCcw, Package, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
-import { useExchangeOrderMutation } from "@/redux/features/orders/ordersApi";
-import { useGetAllProductsQuery } from "@/redux/features/product/product.api";
+import { useExchangeOrderMutation } from "@/features/orders";
+import { useGetAllProductsQuery } from "@/features/product";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 interface ExchangeOrderModalProps {

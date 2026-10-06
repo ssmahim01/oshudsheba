@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
-import { useCreateCategoryMutation } from "@/redux/features/category/category.api";
+import { useCreateCategoryMutation } from "@/features/category";
 import { Separator } from "@/components/ui/separator";
 import {
   Select,

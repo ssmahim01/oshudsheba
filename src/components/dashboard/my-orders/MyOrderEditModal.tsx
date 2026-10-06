@@ -17,8 +17,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { useUpdateOrderMutation } from "@/redux/features/orders/ordersApi";
-import { useGetAllProductsQuery } from "@/redux/features/product/product.api";
+import { useUpdateOrderMutation } from "@/features/orders";
+import { useGetAllProductsQuery } from "@/features/product";
 import { toast } from "sonner";
 import {
   FilePenLine,

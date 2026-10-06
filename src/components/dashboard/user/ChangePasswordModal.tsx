@@ -14,7 +14,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useAdminChangePasswordMutation } from "@/redux/features/auth/auth.api";
+import { useAdminChangePasswordMutation } from "@/features/auth";
 
 export default function ChangePasswordModal({ open, onOpenChange, user }: any) {
   const [password, setPassword] = useState("");

@@ -9,9 +9,9 @@ import {
   useDeleteReturnMutation,
   useCreateReturnMutation,
   useUpdateReturnStatusMutation,
-} from "@/redux/features/return/returnApi";
-import { useGetAllProductsQuery } from "@/redux/features/product/product.api";
-import { useGetAllOrdersQuery } from "@/redux/features/orders/ordersApi";
+} from "@/features/return";
+import { useGetAllProductsQuery } from "@/features/product";
+import { useGetAllOrdersQuery } from "@/features/orders";
 import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
 import { ReturnStatsCards } from "@/components/dashboard/returns/ReturnStatsCards";
 import { ReturnFilters } from "@/components/dashboard/returns/ReturnFilters";

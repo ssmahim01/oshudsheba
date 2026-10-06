@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client";
 
@@ -22,12 +23,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 
 import logo from "../../../../public/assets/FRN-Logo-scaled.webp";
-import { useUpdateCategoryMutation } from "@/redux/features/category/category.api";
+import { useUpdateCategoryMutation } from "@/features/category";
 import { CategoryStatus } from "./CreateCategoryModal";
 import {Separator} from "@/components/ui/separator";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-
-// ─── Schema ───────────────────────────────────────────────────────────────────
 
 const updateCategorySchema = z.object({
   title: z.string().min(2, "Title must be at least 2 characters"),

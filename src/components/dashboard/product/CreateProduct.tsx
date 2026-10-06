@@ -26,13 +26,13 @@ import { Upload, X, Loader2, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { uploadMultipleToCloudinary } from "@/utils/cloudinary";
 
-import { useCreateProductMutation } from "@/redux/features/product/product.api";
-import { useGetAllCategoriesQuery } from "@/redux/features/category/category.api";
-import { useGetAllBrandsQuery } from "@/redux/features/brand/brand.api";
+import { useCreateProductMutation } from "@/features/product";
+import { useGetAllCategoriesQuery } from "@/features/category";
+import { useGetAllBrandsQuery } from "@/features/brand";
 
 import { IBrand, ICategory } from "@/types";
 import BreadCrumbPage from "@/components/shared/BreadCrumbPage";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 
 // 🔥 Editor (No SSR)
 const ProductEditor = dynamic(

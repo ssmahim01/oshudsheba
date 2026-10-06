@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 
 interface SelectedProduct {
   productId: string;

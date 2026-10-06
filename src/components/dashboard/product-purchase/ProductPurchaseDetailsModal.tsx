@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Copy, CheckCircle } from "lucide-react";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { IPurchase } from "@/types/purchase";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 
 interface ProductPurchaseDetailsModalProps {
   open: boolean;

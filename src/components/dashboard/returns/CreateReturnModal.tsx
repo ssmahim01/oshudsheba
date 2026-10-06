@@ -33,8 +33,8 @@ import {
   User,
   Loader2,
 } from "lucide-react";
-import { useCreateReturnMutation } from "@/redux/features/return/returnApi";
-import { useGetAllOrdersQuery } from "@/redux/features/orders/ordersApi";
+import { useCreateReturnMutation } from "@/features/return";
+import { useGetAllOrdersQuery } from "@/features/orders";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { IProduct } from "@/types";

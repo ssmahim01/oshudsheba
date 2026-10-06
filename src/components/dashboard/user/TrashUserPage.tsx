@@ -20,7 +20,7 @@ import {
     useGetAllTrashUsersQuery,
     useTrashUpdateUserMutation,
     useDeleteUserMutation,
-} from "@/redux/features/user/user.api";
+} from "@/features/user";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal, RotateCcw, Trash2 } from "lucide-react";
 import { IUser } from "@/types";

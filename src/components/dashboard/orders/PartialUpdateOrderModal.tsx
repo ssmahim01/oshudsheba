@@ -21,7 +21,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Trash2, Plus, Search, X, AlertTriangle } from "lucide-react";
 import type { Order } from "@/types/orders";
 import { toast } from "sonner";
-import { useGetAllProductsQuery } from "@/redux/features/product/product.api";
+import { useGetAllProductsQuery } from "@/features/product";
 import { cn } from "@/lib/utils";
 
 interface PartialUpdateOrderModalProps {

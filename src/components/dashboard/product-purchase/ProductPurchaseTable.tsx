@@ -22,7 +22,7 @@ import { Eye, MoreHorizontal, Trash2, Edit, CheckCircle2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { StatusChangeDialog } from "./StatusChangeDialog";
 import { IPurchase } from "@/types/purchase";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 
 const getPaymentTypeColor = (type: string) => {
   const colors: Record<string, string> = {

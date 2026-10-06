@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React, { useState } from "react";
@@ -16,7 +17,7 @@ import {
     useDeleteCategoryMutation,
     useGetAllTrashCategoriesQuery,
     useTrashUpdateCategoryMutation
-} from "@/redux/features/category/category.api";
+} from "@/features/category";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -29,7 +30,7 @@ import DeleteAlert from "@/components/dashboard/DeleteAlert";
 import {SearchForm} from "@/components/shared/search-form";
 import Sort from "@/components/shared/Sort";
 import TablePagination from "@/components/shared/TablePagination";
-import DateFilter from "@/components/shared/DateFilter"; // ✅ correct type
+import DateFilter from "@/components/shared/DateFilter"; 
 
 const TrashCategoryPage = () => {
     // Search + sort + pagination

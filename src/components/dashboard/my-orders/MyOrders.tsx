@@ -57,8 +57,8 @@ import {
   useGetMyOrdersQuery,
   useGetMyScheduledOrdersQuery,
   useGetMyWaitingForStockOrdersQuery,
-} from "@/redux/features/orders/myOrdersApi";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+} from "@/features/orders";
+import { useGetMeQuery } from "@/features/user";
 import { useCreateCourierMutation, useDeleteOrderMutation } from "@/lib/hooks";
 import { AssignCourierModal } from "@/components/dashboard/orders/AssignCourierModal";
 import { MyOrdersTable, type UserRole } from "./MyOrdersTable";

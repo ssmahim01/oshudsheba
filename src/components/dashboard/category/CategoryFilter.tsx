@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/select";
 import { ListFilter } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useGetAllCategoriesQuery } from "@/redux/features/category/category.api";
+import { useGetAllCategoriesQuery } from "@/features/category";
 
 interface CategoryFilterProps {
   onChange?: (value: string) => void;

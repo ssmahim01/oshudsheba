@@ -6,7 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "sonner";
-import { useUpdateUserPermissionsMutation } from "@/redux/features/user/user.api";
+import { useUpdateUserPermissionsMutation } from "@/features/user";
 
 export default function PermissionAssignModal({
   user,

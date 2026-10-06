@@ -19,7 +19,7 @@ import {
   useUpdateManualDeliveryStatusMutation,
   useGetAllNoResponseOrdersQuery,
   useGetAllWaitingStockOrdersQuery,
-} from "@/redux/features/orders/ordersApi";
+} from "@/features/orders";
 import { useCreateCourierMutation } from "@/lib/hooks";
 import { OrderStats } from "./OrderStats";
 import { OrderFilters, type DateFilter, type DateType } from "./OrderFilters";

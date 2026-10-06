@@ -48,14 +48,14 @@ import { cn } from "@/lib/utils";
 import {
   useGetAllUsersQuery,
   useGetMeQuery,
-} from "@/redux/features/user/user.api";
+} from "@/features/user";
 import { toast } from "sonner";
 import { EditOrderModal } from "./EditOrderModal";
 import {
   useMarkNoResponseMutation,
   useRestoreNoResponseMutation,
   useUpdateSellerMutation,
-} from "@/redux/features/orders/ordersApi";
+} from "@/features/orders";
 import { OrderModeChangeModal } from "@/components/shared/OrderModeChangeModal";
 import { CancelOrderModal } from "./CancelOrderModal";
 

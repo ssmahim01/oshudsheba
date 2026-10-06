@@ -16,7 +16,7 @@ import {
     useDeleteProductMutation,
     useGetAllTrashProductsQuery,
     useTrashUpdateProductMutation
-} from "@/redux/features/product/product.api";
+} from "@/features/product";
 import {
     DropdownMenu,
     DropdownMenuContent,

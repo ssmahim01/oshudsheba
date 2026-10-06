@@ -7,7 +7,7 @@
 import {
   useGetAllUsersQuery,
   useTrashUpdateUserMutation,
-} from "@/redux/features/user/user.api";
+} from "@/features/user";
 import { IBrand, IUser } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { toast } from "sonner";

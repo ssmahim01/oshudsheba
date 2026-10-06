@@ -10,8 +10,8 @@ import {
   useUpdateProductPurchaseMutation,
   useUpdatePurchaseStatusMutation,
   useGetPurchaseStatsQuery,
-} from "@/redux/features/productPurchase/productPurchaseApi";
-import { useGetAllProductsQuery } from "@/redux/features/product/product.api";
+} from "@/features/product-purchase";
+import { useGetAllProductsQuery } from "@/features/product";
 import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
 import { ProductPurchaseStats } from "@/components/dashboard/product-purchase/ProductPurchaseStats";
 import { ProductPurchaseTable } from "@/components/dashboard/product-purchase/ProductPurchaseTable";

@@ -29,7 +29,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import { useUpdateUserMutation } from "@/redux/features/user/user.api";
+import { useUpdateUserMutation } from "@/features/user";
 import { IUser } from "@/types";
 import Image from "next/image";
 import PermissionSelector from "./PermissionSelector";

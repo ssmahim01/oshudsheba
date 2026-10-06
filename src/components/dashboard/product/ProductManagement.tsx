@@ -87,10 +87,10 @@ import {
   useGetAllProductsQuery,
   useToggleFeaturedMutation,
   useTrashUpdateProductMutation,
-} from "@/redux/features/product/product.api";
+} from "@/features/product";
 import { IProduct } from "@/types";
 import { cn } from "@/lib/utils";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 
 const LIMIT = 10;
 const allProductLimit = 5000;

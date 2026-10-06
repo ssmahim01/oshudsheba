@@ -29,14 +29,14 @@ import { uploadMultipleToCloudinary } from "@/utils/cloudinary";
 import {
   useUpdateProductMutation,
   useGetSingleProductQuery,
-} from "@/redux/features/product/product.api";
-import { useGetAllCategoriesQuery } from "@/redux/features/category/category.api";
-import { useGetAllBrandsQuery } from "@/redux/features/brand/brand.api";
+} from "@/features/product";
+import { useGetAllCategoriesQuery } from "@/features/category";
+import { useGetAllBrandsQuery } from "@/features/brand";
 
 import { IBrand, ICategory } from "@/types";
 import DashboardPageHeader from "@/components/dashboard/DashboardPageHeader";
 import { Separator } from "@/components/ui/separator";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 import { Checkbox } from "@/components/ui/checkbox";
 
 // Editor

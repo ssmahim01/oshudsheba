@@ -19,7 +19,7 @@ import { useParams, useRouter } from "next/navigation";
 import {
   useGetSingleProductQuery,
   useAssignMissingBarcodesMutation,
-} from "@/redux/features/product/product.api";
+} from "@/features/product";
 import {
   AlertCircle,
   CheckIcon,
@@ -41,7 +41,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import ProductGallery from "@/components/shared/ProductGallery";
-import { useGetMeQuery } from "@/redux/features/user/user.api";
+import { useGetMeQuery } from "@/features/user";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

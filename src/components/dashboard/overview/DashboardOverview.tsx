@@ -63,11 +63,11 @@ import {
   BadgeCheck,
   PhoneMissed,
 } from "lucide-react";
-import { useGetDashboardOverviewQuery } from "@/redux/features/dashboard/dashboard.api";
+import { useGetDashboardOverviewQuery } from "@/features/dashboard";
 import {
   useGetAllUsersQuery,
   useGetMeQuery,
-} from "@/redux/features/user/user.api";
+} from "@/features/user";
 import { cn } from "@/lib/utils";
 import { IDashboardOverview } from "@/types/dashboard-overview";
 import { StaffPerformanceTable } from "./StaffPerformanceTable";

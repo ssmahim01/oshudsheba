@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import {
   useGetAllCategoriesQuery,
   useTrashUpdateCategoryMutation,
-} from "@/redux/features/category/category.api";
+} from "@/features/category";
 
 
 import DashboardManagementPageSkeleton from "@/components/dashboard/DashboardManagePageSkeleton";
